@@ -48,7 +48,7 @@ export const StatusCard = ({
           </span>
           <button
             type="button"
-            className="text-foreground/70 hover:text-foreground shrink-0 rounded p-0.5 transition-colors"
+            className="text-foreground hover:text-foreground shrink-0 rounded p-0.5 transition-colors"
             aria-label="Expand"
           >
             <ChevronDown className="size-4" />

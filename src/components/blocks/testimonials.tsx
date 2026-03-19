@@ -113,7 +113,7 @@ export const Testimonials = ({
                             {testimonial.quote}
                           </blockquote>
                           <div className="space-y-0.5">
-                            <div className="text-primary font-semibold">
+                            <div className="text-primary-on-muted font-semibold">
                               {testimonial.author}, {testimonial.role}
                             </div>
                             <div className="text-muted-foreground text-sm">

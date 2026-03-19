@@ -33,7 +33,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   toRef,
   curvature = 0,
   reverse = false, // Include the reverse prop
-  duration = Math.random() * 3 + 4,
+  // Deterministic default to avoid SSR/client mismatches during hydration.
+  duration = 5,
   delay = 0,
   pathColor = "gray",
   pathWidth = 2,
@@ -65,6 +66,11 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       };
 
   useEffect(() => {
+    let rafId: number | null = null;
+    let previousPathD = "";
+    let previousWidth = 0;
+    let previousHeight = 0;
+
     const updatePath = () => {
       if (containerRef.current && fromRef.current && toRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
@@ -73,7 +79,6 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
 
         const svgWidth = containerRect.width;
         const svgHeight = containerRect.height;
-        setSvgDimensions({ width: svgWidth, height: svgHeight });
 
         const startX =
           rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
@@ -88,25 +93,52 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         const d = `M ${startX},${startY} Q ${
           (startX + endX) / 2
         },${controlY} ${endX},${endY}`;
-        setPathD(d);
+
+        if (svgWidth !== previousWidth || svgHeight !== previousHeight) {
+          previousWidth = svgWidth;
+          previousHeight = svgHeight;
+          setSvgDimensions({ width: svgWidth, height: svgHeight });
+        }
+
+        if (d !== previousPathD) {
+          previousPathD = d;
+          setPathD(d);
+        }
       }
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        updatePath();
+      });
     };
 
     // Initialize ResizeObserver
     const resizeObserver = new ResizeObserver(() => {
-      updatePath();
+      scheduleUpdate();
     });
 
-    // Observe the container element
+    // Observe the measured elements so we update only when geometry can change.
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
     }
+    if (fromRef.current) {
+      resizeObserver.observe(fromRef.current);
+    }
+    if (toRef.current) {
+      resizeObserver.observe(toRef.current);
+    }
 
     // Call the updatePath initially to set the initial path
-    updatePath();
+    scheduleUpdate();
 
     // Clean up the observer on component unmount
     return () => {
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
       resizeObserver.disconnect();
     };
   }, [

@@ -7,6 +7,7 @@ import { AnimatedListDemo } from "../animated-list";
 import { AnimatedBeamMultipleOutputDemo } from "../animated-multiple-beams";
 import { BentoCard, BentoGrid } from "../ui/bento-grid";
 import { Marquee } from "../ui/marquee";
+import { MountWhenInView } from "../ui/mount-when-in-view";
 
 import { cn } from "@/lib/utils";
 
@@ -101,7 +102,13 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <AnimatedBeamMultipleOutputDemo className="absolute top-4 right-2 h-[300px] border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-105" />
+      <MountWhenInView
+        placeholderClassName="absolute top-4 right-2 h-[300px] w-full"
+        rootMargin="300px"
+        threshold={0.1}
+      >
+        <AnimatedBeamMultipleOutputDemo className="h-[300px] border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-105" />
+      </MountWhenInView>
     ),
   },
   {
@@ -112,7 +119,13 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
-      <AnimatedListDemo className="absolute top-5 left-5 h-[285px] w-[285px] origin-top scale-75 border-none [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-80 sm:left-20 sm:h-[480px] sm:w-[480px] lg:left-5 lg:h-[380px] lg:w-[380px]" />
+      <MountWhenInView
+        placeholderClassName="absolute top-5 left-5 h-[285px] w-[285px] origin-top scale-75 sm:left-20 sm:h-[480px] sm:w-[480px] lg:left-5 lg:h-[380px] lg:w-[380px]"
+        rootMargin="300px"
+        threshold={0.1}
+      >
+        <AnimatedListDemo className="h-[285px] w-[285px] origin-top scale-75 border-none [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-80 sm:h-[480px] sm:w-[480px] lg:h-[380px] lg:w-[380px]" />
+      </MountWhenInView>
     ),
   },
 ];

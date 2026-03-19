@@ -1,5 +1,3 @@
-import React from "react";
-
 import Link from "next/link";
 
 import { Linkedin } from "lucide-react";
@@ -46,7 +44,7 @@ const contactInfo = [
   {
     title: "Follow us",
     content: (
-      <div className="mt-3 flex gap-4 lg:gap-8">
+      <div className="mt-3">
         <Link
           href="https://www.linkedin.com/company/automargin"
           className="text-muted-foreground hover:text-foreground"

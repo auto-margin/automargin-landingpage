@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -58,12 +57,14 @@ export const Navbar = () => {
     >
       <div className="flex items-center justify-between px-6 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-2">
-          <Image
+          {/* SVG logo: avoid `next/image` + global `img { height: auto }` dev warning */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo2.svg"
             alt="logo"
             width={112}
-            height={18}
-            className="dark:invert"
+            height={Math.round((112 * 75) / 396)}
+            className="block h-auto max-w-full dark:invert"
           />
         </Link>
 

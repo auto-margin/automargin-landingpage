@@ -1,12 +1,8 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
 type StatusCardProfitProps = {
   className?: string;
-  /** Number of cars found (e.g. 51). */
   count?: number;
-  /** Average profit margin as number (e.g. 16.04). */
   averageMarginPercent?: number;
 };
 

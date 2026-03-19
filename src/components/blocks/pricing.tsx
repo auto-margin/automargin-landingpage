@@ -75,22 +75,21 @@ function PricingCard({ plan }: { plan: Plan }) {
   return (
     <Card
       className={cn(
-        "relative border-border/60 bg-card/80 flex h-full flex-col rounded-2xl border shadow-sm",
-        isPrimary && "border-primary/70 bg-primary/5 shadow-lg ring-1 ring-primary/50",
+        "border-border/60 bg-card/80 relative flex h-full flex-col rounded-2xl border shadow-sm",
+        isPrimary &&
+          "border-primary/70 bg-primary/5 ring-primary/50 shadow-lg ring-1",
       )}
     >
       {isPrimary && (
-        <div className="pointer-events-none absolute left-1/2 top-0 z-10 flex -translate-x-1/2 translate-y-[-55%] items-center">
-          <span className="rounded-full bg-primary px-5 py-1 text-xs font-semibold tracking-wider text-primary-foreground shadow">
+        <div className="pointer-events-none absolute top-0 left-1/2 z-10 flex -translate-x-1/2 translate-y-[-55%] items-center">
+          <span className="bg-primary text-primary-foreground rounded-full px-5 py-1 text-xs font-semibold tracking-wider shadow">
             BEST SELLER
           </span>
         </div>
       )}
 
       <CardContent
-        className={cn(
-          "flex h-full flex-col gap-6 px-6 py-6 md:px-7 md:py-7",
-        )}
+        className={cn("flex h-full flex-col gap-6 px-6 py-6 md:px-7 md:py-7")}
       >
         <div className="space-y-3">
           <h3 className="text-muted-foreground text-sm font-semibold tracking-wide uppercase">

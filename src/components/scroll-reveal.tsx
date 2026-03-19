@@ -1,21 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
-  /** Animation variant: "fade-up" (default) or "zoom" (scale + opacity). */
   variant?: "fade-up" | "zoom";
-  /** Only trigger animation after user has scrolled (not on initial load if already in view). */
   onlyAfterScroll?: boolean;
-  /** When onlyAfterScroll: min scroll Y (px) before animation can trigger. Default 120. */
   scrollThreshold?: number;
-  /** Root margin for Intersection Observer (e.g. "0px 0px -50px 0px" = trigger when 50px from bottom of viewport). */
   rootMargin?: string;
-  /** Threshold 0–1, e.g. 0.2 = trigger when 20% visible. */
   threshold?: number;
 };
 
@@ -25,6 +20,32 @@ const variantClasses = {
 };
 
 const DEFAULT_SCROLL_THRESHOLD_PX = 120;
+
+let scrollListenerAttached = false;
+const scrollSubscribers = new Set<(scrollY: number) => void>();
+
+const handleGlobalScroll = () => {
+  const y = typeof window === "undefined" ? 0 : window.scrollY;
+  scrollSubscribers.forEach((cb) => cb(y));
+};
+
+function subscribeToGlobalScroll(cb: (scrollY: number) => void) {
+  scrollSubscribers.add(cb);
+  if (scrollListenerAttached) return;
+  if (typeof window === "undefined") return;
+
+  scrollListenerAttached = true;
+  window.addEventListener("scroll", handleGlobalScroll, { passive: true });
+}
+
+function unsubscribeFromGlobalScroll(cb: (scrollY: number) => void) {
+  scrollSubscribers.delete(cb);
+  if (scrollSubscribers.size > 0) return;
+  if (typeof window === "undefined") return;
+
+  scrollListenerAttached = false;
+  window.removeEventListener("scroll", handleGlobalScroll);
+}
 
 export function ScrollReveal({
   children,
@@ -37,19 +58,24 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const intersectingRef = useRef(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
     if (!onlyAfterScroll) return;
 
-    const onScroll = () => {
-      if (window.scrollY > scrollThreshold) {
-        setHasScrolled(true);
+    const onScroll = (scrollY: number) => {
+      if (scrollY <= scrollThreshold) return;
+      if (hasScrolledRef.current) return;
+      hasScrolledRef.current = true;
+
+      // If already intersecting when the threshold is reached, reveal immediately.
+      if (intersectingRef.current) {
+        ref.current?.classList.add("is-visible");
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    subscribeToGlobalScroll(onScroll);
+    return () => unsubscribeFromGlobalScroll(onScroll);
   }, [onlyAfterScroll, scrollThreshold]);
 
   useEffect(() => {
@@ -60,7 +86,10 @@ export function ScrollReveal({
       (entries) => {
         for (const entry of entries) {
           intersectingRef.current = entry.isIntersecting;
-          if (entry.isIntersecting && (!onlyAfterScroll || hasScrolled)) {
+          if (
+            entry.isIntersecting &&
+            (!onlyAfterScroll || hasScrolledRef.current)
+          ) {
             el.classList.add("is-visible");
           }
         }
@@ -70,16 +99,7 @@ export function ScrollReveal({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [rootMargin, threshold, onlyAfterScroll, hasScrolled]);
-
-  // When user scrolls for the first time, reveal if element is already in view
-  useEffect(() => {
-    if (!onlyAfterScroll || !hasScrolled) return;
-    const el = ref.current;
-    if (el && intersectingRef.current) {
-      el.classList.add("is-visible");
-    }
-  }, [onlyAfterScroll, hasScrolled]);
+  }, [rootMargin, threshold, onlyAfterScroll]);
 
   return (
     <div ref={ref} className={cn(variantClasses[variant], className)}>

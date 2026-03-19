@@ -218,7 +218,7 @@ const Icons = {
       alt="Logo"
       width={64}
       height={64}
-      className="h-full w-full object-contain"
+      className="object-contain"
       style={{ display: "block" }}
       unoptimized
     />

@@ -112,6 +112,10 @@ export const Hero = () => {
             src="/test2.png"
             alt="hero"
             fill
+            priority
+            fetchPriority="high"
+            loading="eager"
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
           />
           {/* Top-left: result card – only animates when user scrolls down into view */}
@@ -123,7 +127,7 @@ export const Hero = () => {
             rootMargin="0px 0px -80px 0px"
             threshold={0.1}
           >
-            <div aria-hidden>
+            <div>
               <StatusCardProfit className="shadow-xl ring-1 ring-black/5" />
             </div>
           </ScrollReveal>
@@ -133,10 +137,7 @@ export const Hero = () => {
             rootMargin="0px 0px -60px 0px"
             threshold={0.15}
           >
-            <div
-              aria-hidden
-              className="max-lg:translate-x-0 max-lg:translate-y-0 lg:-translate-x-[20%] lg:translate-y-[20%]"
-            >
+            <div className="max-lg:translate-x-0 max-lg:translate-y-0 lg:-translate-x-[20%] lg:translate-y-[20%]">
               <StatusCard className="shadow-xl ring-1 ring-black/5" />
             </div>
           </ScrollReveal>
