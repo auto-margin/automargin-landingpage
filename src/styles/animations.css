@@ -1,0 +1,26 @@
+/**
+ * Reusable CSS animations.
+ * Import this file from globals.css.
+ */
+
+/* Fade in from bottom (slight translateY) – e.g. hero dashboard + status card */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility: run once on load, 0.6s */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+/* Same animation with delay – use for staggered entrance (e.g. status card after dashboard) */
+.animate-fade-in-up-delay {
+  animation: fade-in-up 0.6s ease-out 0.2s both;
+}
