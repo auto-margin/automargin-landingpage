@@ -220,6 +220,8 @@ const Icons = {
       height={64}
       className="object-contain"
       style={{ display: "block" }}
+      loading="lazy"
+      fetchPriority="low"
       unoptimized
     />
   ),
