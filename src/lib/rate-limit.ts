@@ -17,34 +17,6 @@ const contactBurstLimiter = new Ratelimit({
   prefix: "rl:contact:burst",
 });
 
-const loginWindowLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(10, "10 m"),
-  analytics: true,
-  prefix: "rl:login:window",
-});
-
-const loginBurstLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(2, "30 s"),
-  analytics: true,
-  prefix: "rl:login:burst",
-});
-
-const signupWindowLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(5, "10 m"),
-  analytics: true,
-  prefix: "rl:signup:window",
-});
-
-const signupBurstLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(2, "30 s"),
-  analytics: true,
-  prefix: "rl:signup:burst",
-});
-
 type LimitResult = {
   ok: boolean;
   reset: number;
@@ -68,12 +40,4 @@ async function checkLimitPair(
 
 export function checkContactLimit(identity: string) {
   return checkLimitPair(contactWindowLimiter, contactBurstLimiter, identity);
-}
-
-export function checkLoginLimit(identity: string) {
-  return checkLimitPair(loginWindowLimiter, loginBurstLimiter, identity);
-}
-
-export function checkSignupLimit(identity: string) {
-  return checkLimitPair(signupWindowLimiter, signupBurstLimiter, identity);
 }

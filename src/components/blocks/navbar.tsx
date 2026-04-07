@@ -53,6 +53,7 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const clientLoginUrl = "https://client.auto-margin.com";
 
   return (
     <section
@@ -127,7 +128,12 @@ export const Navbar = () => {
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
+          <Link
+            href={clientLoginUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="max-lg:hidden"
+          >
             <Button variant="outline">
               <span className="relative z-10">Login</span>
             </Button>
@@ -233,6 +239,15 @@ export const Navbar = () => {
               </Link>
             ),
           )}
+          <a
+            href={clientLoginUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:text-primary/80 py-4 text-base font-medium transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Login
+          </a>
         </nav>
       </div>
     </section>
