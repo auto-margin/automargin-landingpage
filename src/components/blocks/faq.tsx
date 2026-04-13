@@ -60,7 +60,7 @@ const categories = [
       {
         question: "How do I get started?",
         answer:
-          "Send your first offer via email and we'll walk you through the setup. Most users see results in under a minute.",
+          "Submit your request through our contact form or by email, and our team will walk you through the setup. Most users get started the same day.",
       },
     ],
   },

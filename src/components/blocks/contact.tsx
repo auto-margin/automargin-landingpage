@@ -12,7 +12,7 @@ const contactInfo = [
       <p className="text-muted-foreground mt-3">
         AutoMargin AG
         <br />
-        8001 Zurich, Switzerland
+        Dubai, UAE
       </p>
     ),
   },
@@ -46,7 +46,7 @@ const contactInfo = [
     content: (
       <div className="mt-3">
         <Link
-          href="https://www.linkedin.com/company/automargin"
+          href="http://linkedin.com/company/auto-margin"
           className="text-muted-foreground hover:text-foreground"
         >
           <Linkedin className="size-5" />
