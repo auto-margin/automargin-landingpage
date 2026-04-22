@@ -58,7 +58,7 @@ export function TopMarketsSection() {
   return (
     <section
       id="top-markets"
-      className="pt-16 pb-20 md:pt-20 md:pb-28 lg:pt-24 lg:pb-32"
+      className="pb-20 md:pt-4 md:pb-28 lg:pt-12 lg:pb-32"
       aria-labelledby="top-markets-heading"
     >
       <div className="container">

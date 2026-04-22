@@ -15,8 +15,8 @@ const TestimonialsSection = dynamic(
 export function HomeDeferredSections() {
   return (
     <>
-      <PricingSection />
-      <TestimonialsSection />
+      <PricingSection className="pb-16 lg:pb-20" />
+      <TestimonialsSection className="pt-16 lg:pt-20" />
     </>
   );
 }

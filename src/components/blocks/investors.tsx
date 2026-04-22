@@ -5,14 +5,14 @@ import { Linkedin } from "lucide-react";
 
 const boardMembers = [
   {
-    name: "Leslie Alexander",
-    company: "Nordic Auto Analytics",
-    image: "/investors/3.webp",
+    name: "Kim N",
+    company: "Developer",
+    image: "/investors/4.webp",
   },
   {
-    name: "Matthew Stephens",
-    company: "EuroDrive Insights",
-    image: "/investors/4.webp",
+    name: "John K",
+    company: "Vehicle Analyst",
+    image: "/investors/3.webp",
   },
 ];
 
