@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { Background } from "@/components/background";
 import { DemoCalculator } from "@/components/demo-calculator";
 
@@ -111,7 +113,16 @@ export default function DemoPage() {
             </div>
           </div>
 
-          <DemoCalculator />
+          <Suspense
+            fallback={
+              <div
+                className="border-border/60 bg-muted/20 mt-8 min-h-[320px] rounded-2xl border p-6 md:min-h-[400px] md:p-8"
+                aria-hidden
+              />
+            }
+          >
+            <DemoCalculator />
+          </Suspense>
         </div>
       </section>
     </Background>
