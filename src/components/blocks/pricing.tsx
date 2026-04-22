@@ -56,9 +56,8 @@ export const Pricing = ({ className }: { className?: string }) => {
             Pricing
           </h2>
           <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-            Use Automargin for free with limitations. Upgrade to enable
-            unlimited offers, enhanced security controls and additional
-            features.
+            Choose a plan that fits your team. Upgrade to increase analysis
+            volume, unlock advanced features, and add security controls.
           </p>
         </div>
 

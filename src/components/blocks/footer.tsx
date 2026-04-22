@@ -22,7 +22,7 @@ export function Footer() {
 
   return (
     <footer className="bg-background text-foreground pt-24 pb-12 lg:pt-32 lg:pb-16">
-      <div className="container">
+      <div className="container lg:grid lg:grid-rows-[auto,1fr,auto] lg:gap-0">
         {/* Top row: small = left 2x2 nav (Product, About Us / Pricing, FAQ), right = Book a Demo, Contact Us; md+ = single row nav + CTAs */}
         <div className="flex flex-row flex-wrap items-start justify-between gap-6 md:items-center md:gap-4">
           <nav className="md:w-auto">
@@ -57,26 +57,26 @@ export function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="w-full rounded-full md:w-auto"
+              className="w-full md:w-auto"
               asChild
             >
               <Link href="/demo">Try Demo</Link>
             </Button>
-            <Button size="lg" className="w-full rounded-full md:w-auto" asChild>
+            <Button size="lg" className="w-full md:w-auto" asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>
 
         {/* Slogan – start-aligned, above circle in stack order */}
-        <div className="mt-16 text-start md:mt-24 lg:mt-28">
-          <h2 className="text-5xl leading-tight font-bold tracking-tight md:text-6xl lg:text-7xl xl:text-8xl">
+        <div className="mt-16 self-center py-2 text-start md:mt-24 lg:mt-0 lg:py-12">
+          <h2 className="text-5xl leading-tight font-bold tracking-tight md:text-6xl lg:-ml-0.5 lg:text-7xl xl:-ml-1.5 xl:text-8xl">
             <span className="text-foreground block">{SLOGAN_LINE1}</span>
           </h2>
         </div>
 
         {/* Bottom row: contact buttons left (same style as "Read our Customer Stories"), attribution + legal right */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-8 sm:mt-14 sm:flex-row sm:items-end">
+        <div className="mt-16 flex flex-col items-start justify-between gap-8 sm:mt-14 sm:flex-row sm:items-end lg:mt-0">
           {/* On mobile: email same width as the two buttons below (wrapper width = buttons row via spacer); sm+ unchanged */}
           <div className="relative inline-flex w-max flex-col gap-2 sm:flex sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
             <div className="h-10 w-0 flex-shrink-0 sm:hidden" aria-hidden />

@@ -12,7 +12,7 @@ export default function AboutPage() {
 
         <About />
         <div className="pt-28 lg:pt-32">
-          <DashedLine className="container max-w-5xl scale-x-115" />
+          <DashedLine className="container max-w-5xl" />
           <Investors />
         </div>
       </div>

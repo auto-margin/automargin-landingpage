@@ -23,6 +23,33 @@ interface FeatureSection {
   }[];
 }
 
+function compactMobileValue(value: string) {
+  const trimmed = value.trim();
+
+  const offersMatch = trimmed.match(/^([\d,]+)\s+offers per month$/i);
+  if (offersMatch) return `${offersMatch[1]} /mo`;
+
+  const filesMatch = trimmed.match(/^([\d,]+)\s+files per month$/i);
+  if (filesMatch) return `${filesMatch[1]} files /mo`;
+
+  if (/^Priority email support$/i.test(trimmed)) return "Prio email";
+  if (/^Email support$/i.test(trimmed)) return "Email";
+  if (/^24\/7 dedicated support$/i.test(trimmed)) return "24/7 support";
+  if (/^Best effort\s*\(no SLA\)$/i.test(trimmed)) return "Best effort";
+
+  return trimmed;
+}
+
+function compactMobileLabel(label: string) {
+  const trimmed = label.trim();
+
+  if (trimmed === "Reporting & dashboards") return "Reporting";
+  if (trimmed === "Advanced analytics") return "Adv analytics";
+  if (trimmed === "Uptime commitment") return "Uptime";
+
+  return trimmed;
+}
+
 const pricingPlans = [
   {
     name: "Starter",
@@ -58,7 +85,7 @@ const comparisonFeatures: FeatureSection[] = [
         enterprise: "Unlimited",
       },
       {
-        name: "Analyses / month",
+        name: "Analyses",
         free: "100",
         startup: "1,000",
         enterprise: "Unlimited",
@@ -67,7 +94,7 @@ const comparisonFeatures: FeatureSection[] = [
         name: "Workspaces",
         free: "1",
         startup: "2",
-        enterprise: "Unlimited",
+        enterprise: "As needed",
       },
     ],
   },
@@ -145,7 +172,10 @@ const renderFeatureValue = (value: true | false | null | string) => {
   return (
     <div className="flex items-center gap-2">
       <Check className="size-4" />
-      <span className="text-muted-foreground">{value}</span>
+      <span className="text-muted-foreground">
+        <span className="md:hidden">{compactMobileValue(value)}</span>
+        <span className="max-md:hidden">{value}</span>
+      </span>
     </div>
   );
 };
@@ -241,8 +271,10 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
   <>
     {comparisonFeatures.map((section, sectionIndex) => (
       <div key={sectionIndex} className="">
-        <div className="border-primary/40 border-b py-4">
-          <h3 className="text-lg font-semibold">{section.category}</h3>
+        <div className="border-border bg-muted/20 mt-8 mb-3 rounded-xl border py-3 text-center md:mt-10 md:mb-0 md:rounded-none md:border-0 md:border-b md:bg-transparent md:py-4 md:text-left">
+          <h3 className="text-foreground text-lg font-semibold">
+            {section.category}
+          </h3>
         </div>
         {section.features.map((feature, featureIndex) => (
           <div
@@ -250,11 +282,14 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             className="text-foreground grid grid-cols-2 font-medium max-md:border-b md:grid-cols-4"
           >
             <span className="text-md inline-flex items-center py-4">
-              {feature.name}
+              <span className="md:hidden">
+                {compactMobileLabel(feature.name)}
+              </span>
+              <span className="max-md:hidden">{feature.name}</span>
             </span>
             {/* Mobile View - Only Selected Plan */}
             <div className="md:hidden">
-              <div className="flex items-center gap-1 py-4 md:border-b">
+              <div className="flex items-center gap-1 py-4 pl-5 md:border-b">
                 {renderFeatureValue(
                   [feature.free, feature.startup, feature.enterprise][
                     selectedPlan

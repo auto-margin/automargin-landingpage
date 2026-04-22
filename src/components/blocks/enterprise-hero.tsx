@@ -119,7 +119,7 @@ function EnterpriseMockup() {
           {["Need score", "Gap alerts", "Cross-market comps"].map((tag) => (
             <span
               key={tag}
-              className="bg-primary/10 text-primary ring-primary/20 rounded-full px-2.5 py-0.5 text-[0.7rem] font-medium ring-1"
+              className="bg-primary/10 text-primary ring-primary/20 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1"
             >
               {tag}
             </span>
