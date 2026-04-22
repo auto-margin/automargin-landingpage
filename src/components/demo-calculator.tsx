@@ -2,6 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 import {
   Calculator,
   CheckCircle2,
@@ -92,7 +95,19 @@ function formatMoney(value?: number, currency?: string) {
   }
 }
 
+function getUrlLabel(raw: string) {
+  try {
+    const u = new URL(raw);
+    const host = u.hostname.replace(/^www\./, "");
+    const path = u.pathname.length > 1 ? u.pathname : "";
+    return { host, path, ok: true };
+  } catch {
+    return { host: raw, path: "", ok: false };
+  }
+}
+
 export function DemoCalculator() {
+  const searchParams = useSearchParams();
   const [input, setInput] = useState("");
   const [sourceCountry, setSourceCountry] = useState("DE");
   const [status, setStatus] = useState<
@@ -133,12 +148,20 @@ export function DemoCalculator() {
     setEvents([]);
     setStatus("running");
 
+    const mockMode = searchParams.get("mockDemo");
+    const useMock = mockMode && process.env.NODE_ENV !== "production";
+    const endpoint = useMock
+      ? `/api/demo/calculate/mock?mode=${encodeURIComponent(
+          mockMode === "1" ? "success" : mockMode,
+        )}`
+      : "/api/demo/calculate";
+
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
 
     try {
-      const res = await fetch("/api/demo/calculate", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input, sourceCountry }),
@@ -396,7 +419,7 @@ export function DemoCalculator() {
                   <p className="text-foreground text-sm font-semibold">
                     Sources
                   </p>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {Object.entries(completeEvent.sources).map(
                       ([market, url]) => (
                         <a
@@ -404,9 +427,22 @@ export function DemoCalculator() {
                           href={url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-chart-1 text-sm font-medium hover:opacity-80"
+                          className="border-border/60 bg-background/40 hover:bg-background/55 group flex items-center justify-between gap-3 rounded-xl border px-3 py-2 transition-colors"
                         >
-                          {market}: {url}
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="bg-muted/40 text-muted-foreground ring-border inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ring-1">
+                                {market}
+                              </span>
+                              <span className="text-foreground truncate text-sm font-semibold">
+                                {getUrlLabel(url).host}
+                              </span>
+                            </div>
+                          </div>
+
+                          <span className="text-chart-1 shrink-0 text-sm font-semibold group-hover:opacity-80">
+                            Open
+                          </span>
                         </a>
                       ),
                     )}
@@ -419,15 +455,22 @@ export function DemoCalculator() {
       </div>
 
       <div className="border-border/60 mt-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between">
-        {error ? (
-          <p className="text-sm text-rose-600 dark:text-rose-400" role="alert">
-            {error}
-          </p>
-        ) : (
+        <div className="space-y-1">
           <p className="text-muted-foreground text-xs md:text-sm">
-            Limited to one demo run per IP.
+            Limited to one demo run per IP / 24 hours.
           </p>
-        )}
+          <div className="text-muted-foreground text-xs">
+            <p>
+              By running the demo, you agree to our{" "}
+              <Link href="/privacy" className="underline underline-offset-4">
+                privacy policy.
+              </Link>
+            </p>
+            <p className="mt-1">
+              We may log requests and apply rate limits to prevent abuse.
+            </p>
+          </div>
+        </div>
 
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           {status !== "idle" ? (

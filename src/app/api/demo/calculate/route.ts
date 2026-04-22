@@ -1,3 +1,6 @@
+import { checkDemoLimit } from "@/lib/rate-limit";
+import { getRequestIdentity } from "@/lib/request-identity";
+
 export const runtime = "nodejs";
 
 type DemoRequest = {
@@ -34,19 +37,51 @@ export async function POST(request: Request) {
     );
   }
 
+  try {
+    const identity = await getRequestIdentity();
+    const rateLimit = await checkDemoLimit(identity);
+    if (!rateLimit.ok) {
+      return Response.json(
+        {
+          error: "Demo limit reached. Please try again later.",
+          limitReached: true,
+        },
+        { status: 429 },
+      );
+    }
+  } catch {
+    // Fail-open in development so UI testing never gets blocked.
+    if (process.env.NODE_ENV === "production") {
+      return Response.json(
+        {
+          error: "Demo is temporarily unavailable. Please try again shortly.",
+        },
+        { status: 503 },
+      );
+    }
+  }
+
   const upstream =
     process.env.LANDING_DEMO_CALCULATE_URL ??
     "https://test.auto-margin.com/api/landing/demo/calculate";
 
-  const upstreamResponse = await fetch(upstream, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "text/event-stream",
-    },
-    body: JSON.stringify({ input, sourceCountry }),
-    cache: "no-store",
-  });
+  let upstreamResponse: Response;
+  try {
+    upstreamResponse = await fetch(upstream, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "text/event-stream",
+      },
+      body: JSON.stringify({ input, sourceCountry }),
+      cache: "no-store",
+    });
+  } catch {
+    return Response.json(
+      { error: "Demo service is unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
 
   const contentType = upstreamResponse.headers.get("content-type") ?? "";
 

@@ -17,6 +17,13 @@ const contactBurstLimiter = new Ratelimit({
   prefix: "rl:contact:burst",
 });
 
+const demoLimiter = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(1, "24 h"),
+  analytics: true,
+  prefix: "rl:demo:landing",
+});
+
 type LimitResult = {
   ok: boolean;
   reset: number;
@@ -40,4 +47,9 @@ async function checkLimitPair(
 
 export function checkContactLimit(identity: string) {
   return checkLimitPair(contactWindowLimiter, contactBurstLimiter, identity);
+}
+
+export async function checkDemoLimit(identity: string): Promise<LimitResult> {
+  const result = await demoLimiter.limit(identity);
+  return { ok: result.success, reset: result.reset };
 }
