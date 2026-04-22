@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import Link from "next/link";
+
 import { Check, ChevronsUpDown, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -50,21 +52,21 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Usage",
     features: [
       {
-        name: "Members",
+        name: "Seats",
         free: "1",
         startup: "5",
         enterprise: "Unlimited",
       },
       {
-        name: "Transactions",
+        name: "Analyses / month",
         free: "100",
-        startup: "1000",
+        startup: "1,000",
         enterprise: "Unlimited",
       },
       {
-        name: "Teams",
+        name: "Workspaces",
         free: "1",
-        startup: "Unlimited",
+        startup: "2",
         enterprise: "Unlimited",
       },
     ],
@@ -73,19 +75,19 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Features",
     features: [
       {
-        name: "Reporting",
+        name: "Reporting & dashboards",
         free: "100 offers per month",
-        startup: "1000 offers per month",
+        startup: "1,000 offers per month",
         enterprise: "Unlimited",
       },
       {
-        name: "Analytics",
+        name: "Advanced analytics",
         free: "100 offers per month",
-        startup: "1000 offers per month",
+        startup: "1,000 offers per month",
         enterprise: "Unlimited",
       },
       {
-        name: "Import and export",
+        name: "Import & export",
         free: "20 files per month",
         startup: "100 files per month",
         enterprise: "Unlimited",
@@ -97,9 +99,9 @@ const comparisonFeatures: FeatureSection[] = [
         enterprise: "Custom",
       },
       {
-        name: "Audit log",
-        free: "Unlimited",
-        startup: "Unlimited",
+        name: "Audit logs",
+        free: "—",
+        startup: "—",
         enterprise: "Unlimited",
       },
     ],
@@ -108,21 +110,21 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Support",
     features: [
       {
-        name: "Priority Support",
+        name: "Support",
         free: "Email support",
-        startup: "Priority support",
-        enterprise: "24/7 Dedicated support",
+        startup: "Priority email support",
+        enterprise: "24/7 dedicated support",
       },
       {
-        name: "Account Manager",
-        free: "No",
-        startup: "Yes",
-        enterprise: "Yes",
+        name: "Account manager",
+        free: "—",
+        startup: "Included",
+        enterprise: "Dedicated",
       },
       {
-        name: "Uptime SLA",
-        free: "99.9%",
-        startup: "99.9%",
+        name: "Uptime commitment",
+        free: "Best effort (no SLA)",
+        startup: "Best effort (no SLA)",
         enterprise: "99.9%",
       },
     ],
@@ -188,10 +190,13 @@ const PlanHeaders = ({
               />
             </CollapsibleTrigger>
             <Button
+              asChild
               variant={pricingPlans[selectedPlan].button.variant}
               className="w-fit"
             >
-              {pricingPlans[selectedPlan].button.text}
+              <Link href="/contact">
+                {pricingPlans[selectedPlan].button.text}
+              </Link>
             </Button>
           </div>
           <CollapsibleContent className="flex flex-col space-y-2 p-2">
@@ -222,8 +227,8 @@ const PlanHeaders = ({
         {pricingPlans.map((plan, index) => (
           <div key={index} className="">
             <h3 className="mb-3 text-2xl font-semibold">{plan.name}</h3>
-            <Button variant={plan.button.variant} className="">
-              {plan.button.text}
+            <Button asChild variant={plan.button.variant} className="">
+              <Link href="/contact">{plan.button.text}</Link>
             </Button>
           </div>
         ))}

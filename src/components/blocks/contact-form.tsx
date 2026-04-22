@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import Link from "next/link";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
@@ -118,7 +120,10 @@ export function ContactForm() {
           className="hidden"
           {...form.register("website")}
         />
-        <input type="hidden" {...form.register("startedAt", { valueAsNumber: true })} />
+        <input
+          type="hidden"
+          {...form.register("startedAt", { valueAsNumber: true })}
+        />
         <FormField
           control={form.control}
           name="name"
@@ -257,7 +262,15 @@ export function ContactForm() {
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel>I agree to the terms and conditions</FormLabel>
+                <FormLabel>
+                  I agree to the{" "}
+                  <Link
+                    href="/privacy"
+                    className="underline underline-offset-4"
+                  >
+                    terms and conditions
+                  </Link>
+                </FormLabel>
 
                 <FormMessage />
               </div>

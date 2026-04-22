@@ -8,7 +8,7 @@ import { DashedLine } from "@/components/dashed-line";
 export const metadata: Metadata = {
   title: "Browser extension",
   description:
-    "Auto-margin browser extension—check prices and surface better vehicle deals while you browse marketplaces.",
+    "Auto-margin browser extension - check prices and surface better vehicle deals while you browse marketplaces.",
   openGraph: {
     title: "Browser extension | Auto-margin",
     description:

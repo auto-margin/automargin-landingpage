@@ -41,6 +41,12 @@ const ITEMS = [
         description:
           "See list prices in context and spot stronger deals while you browse marketplaces.",
       },
+      {
+        title: "Enterprise",
+        href: "/enterprise",
+        description:
+          "Bulk screening, multi-market evaluation, and dealer-level intelligence for larger teams.",
+      },
     ],
   },
   { label: "About Us", href: "/about" },
@@ -68,7 +74,7 @@ export const Navbar = () => {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo2.svg"
-            alt="logo"
+            alt="Auto-margin logo"
             width={112}
             height={Math.round((112 * 75) / 396)}
             className="block h-auto max-w-full dark:invert"

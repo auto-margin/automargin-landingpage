@@ -109,7 +109,7 @@ export function BrowserExtensionHero() {
           </h1>
           <p className="text-muted-foreground mt-5 text-xl md:text-3xl">
             Your assistant for checking prices and surfacing better vehicle
-            deals while you browse—without leaving the listing.
+            deals while you browse - without leaving the listing.
           </p>
           <ul className="mt-8 max-w-160 space-y-3">
             {bullets.map((line) => (

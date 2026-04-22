@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const SLOGAN_LINE1 = "Less time sorting deals.";
 const EMAIL = "to@auto-margin.com";
 
-const LINKEDIN_URL = "http://linkedin.com/company/auto-margin";
+const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";
 const WHATSAPP_URL = "https://wa.me/+41566185544";
 
 export function Footer() {
