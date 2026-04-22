@@ -29,7 +29,63 @@ export default function DemoPage() {
               validation can look in Auto-margin.
             </p>
 
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* Mobile: collapsible lists to reduce scroll (simple) */}
+            <div className="mt-6 grid gap-4 md:hidden">
+              <details className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-1/40 [&::-webkit-details-marker]:hidden">
+                  <span className="text-foreground text-sm font-semibold">
+                    Included (demo)
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="text-muted-foreground size-4 transition-transform group-open:rotate-180"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </summary>
+                <ul className="text-muted-foreground mt-3 list-disc space-y-2 pl-5 text-sm">
+                  <li>Single-vehicle validation from text input</li>
+                  <li>Market comparison and a simple recommendation signal</li>
+                </ul>
+              </details>
+
+              <details className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-1/40 [&::-webkit-details-marker]:hidden">
+                  <span className="text-foreground text-sm font-semibold">
+                    Not included
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="text-muted-foreground size-4 transition-transform group-open:rotate-180"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </summary>
+                <ul className="text-muted-foreground mt-3 list-disc space-y-2 pl-5 text-sm">
+                  <li>Batch screening of supplier lists</li>
+                  <li>File upload or auto-upload from email</li>
+                  <li>Dealer insight / dealer-fit signals</li>
+                  <li>Integrations, exports, dashboards</li>
+                  <li>Full vehicle data enrichment and workflows</li>
+                  <li>…and more</li>
+                </ul>
+              </details>
+            </div>
+
+            {/* Desktop/tablet: show both lists side-by-side */}
+            <div className="mt-6 hidden gap-6 md:grid md:grid-cols-2">
               <div>
                 <p className="text-foreground text-sm font-semibold">
                   Included (demo)
@@ -49,6 +105,7 @@ export default function DemoPage() {
                   <li>Dealer insight / dealer-fit signals</li>
                   <li>Integrations, exports, dashboards</li>
                   <li>Full vehicle data enrichment and workflows</li>
+                  <li>…and more</li>
                 </ul>
               </div>
             </div>

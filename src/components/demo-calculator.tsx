@@ -2,12 +2,16 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+import type { DotLottie } from "@lottiefiles/dotlottie-web";
 import {
   Calculator,
+  Check,
   CheckCircle2,
+  Copy,
   Info,
   Loader2,
   TriangleAlert,
@@ -24,6 +28,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+
+const DotLottieReact = dynamic(
+  () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
+  { ssr: false },
+);
+
+const DEMO_CAR_EXAMPLE =
+  "BMW X5 2020 30d xDrive, 85,000 km, diesel, automatic, asking price 32,000 EUR";
 
 type DemoStageEvent = {
   stage?: string;
@@ -95,6 +107,137 @@ function formatMoney(value?: number, currency?: string) {
   }
 }
 
+function toneForSignal(signal?: string) {
+  const s = (signal ?? "").toUpperCase();
+  if (s === "MUSTHAVE" || s === "YES") {
+    return "bg-emerald-500/12 text-emerald-700 ring-emerald-500/20 dark:text-emerald-300";
+  }
+  if (s === "MAYBE") {
+    return "bg-amber-500/12 text-amber-700 ring-amber-500/20 dark:text-amber-300";
+  }
+  if (s === "NO") {
+    return "bg-rose-500/12 text-rose-700 ring-rose-500/20 dark:text-rose-300";
+  }
+  return "bg-muted/40 text-muted-foreground ring-border";
+}
+
+function signalLabel(signal?: string) {
+  const s = (signal ?? "").toUpperCase();
+  if (s === "MUSTHAVE" || s === "YES") return "YES";
+  if (s === "NO") return "NO";
+  if (s === "MAYBE") return "MAYBE";
+  return "—";
+}
+
+function SignalBadge({ signal }: { signal?: string }) {
+  const s = (signal ?? "").toUpperCase();
+  const isUp = s === "MUSTHAVE" || s === "YES";
+  const isDown = s === "NO";
+
+  return (
+    <span
+      className={[
+        "inline-flex size-8 items-center justify-center rounded-md text-xs font-semibold ring-1",
+        toneForSignal(signal),
+      ].join(" ")}
+    >
+      {isUp ? (
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="size-4"
+        >
+          <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
+          <path d="M7 10v12" />
+        </svg>
+      ) : isDown ? (
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="size-4"
+        >
+          <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" />
+          <path d="M17 14V2" />
+        </svg>
+      ) : s === "MAYBE" ? (
+        <span aria-hidden="true" className="text-[12px] leading-none">
+          ?
+        </span>
+      ) : (
+        <span aria-hidden="true" className="text-[12px] leading-none">
+          —
+        </span>
+      )}
+
+      <span className="sr-only">{signalLabel(signal)}</span>
+    </span>
+  );
+}
+
+function stageCopy(stage?: string) {
+  const s = (stage ?? "").toLowerCase();
+  if (s.includes("parse")) return "We are now parsing all information…";
+  if (s.includes("compar")) return "We are now comparing the vehicle…";
+  if (s.includes("calcul")) return "We are now calculating…";
+  if (s.includes("analy")) return "We are analyzing the vehicle…";
+  return "We are analyzing the vehicle…";
+}
+
+const BRAND_TOKENS = [
+  "audi",
+  "bmw",
+  "citroën",
+  "citroen",
+  "cupra",
+  "dacia",
+  "fiat",
+  "ford",
+  "honda",
+  "hyundai",
+  "jaguar",
+  "jeep",
+  "kia",
+  "land rover",
+  "lexus",
+  "mazda",
+  "mercedes",
+  "mercedes-benz",
+  "mini",
+  "mitsubishi",
+  "nissan",
+  "opel",
+  "peugeot",
+  "porsche",
+  "renault",
+  "seat",
+  "skoda",
+  "škoda",
+  "subaru",
+  "suzuki",
+  "tesla",
+  "toyota",
+  "volkswagen",
+  "vw",
+  "volvo",
+] as const;
+
+function includesBrandToken(text: string) {
+  const t = text.toLowerCase();
+  return BRAND_TOKENS.some((b) => t.includes(b));
+}
+
 function getUrlLabel(raw: string) {
   try {
     const u = new URL(raw);
@@ -113,10 +256,24 @@ export function DemoCalculator() {
   const [status, setStatus] = useState<
     "idle" | "running" | "complete" | "error"
   >("idle");
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [successAssetVersion, setSuccessAssetVersion] = useState(0);
   const [events, setEvents] = useState<DemoStageEvent[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [exampleCopied, setExampleCopied] = useState(false);
+  const exampleCopyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    if (!helpOpen) {
+      setExampleCopied(false);
+      if (exampleCopyResetRef.current) {
+        clearTimeout(exampleCopyResetRef.current);
+        exampleCopyResetRef.current = null;
+      }
+    }
+  }, [helpOpen]);
 
   useEffect(() => {
     if (!helpOpen) return;
@@ -134,18 +291,39 @@ export function DemoCalculator() {
   }, [events]);
 
   const signal = completeEvent?.recommendation?.signal ?? null;
-  const signalTone =
-    signal === "MUSTHAVE" || signal === "YES"
-      ? "bg-emerald-500/12 text-emerald-700 ring-emerald-500/20 dark:text-emerald-300"
-      : signal === "MAYBE"
-        ? "bg-amber-500/12 text-amber-700 ring-amber-500/20 dark:text-amber-300"
-        : signal === "NO"
-          ? "bg-rose-500/12 text-rose-700 ring-rose-500/20 dark:text-rose-300"
-          : "bg-muted/40 text-muted-foreground ring-border";
+  const successDotLottieRef = useRef<DotLottie | null>(null);
+  const successCompleteHandlerRef = useRef<(() => void) | null>(null);
+
+  function triggerSuccessAnim() {
+    setSuccessAssetVersion((v) => v + 1);
+    setShowSuccess(true);
+  }
+
+  function bindSuccessRef(next: DotLottie | null) {
+    if (successDotLottieRef.current && successCompleteHandlerRef.current) {
+      successDotLottieRef.current.removeEventListener(
+        "complete",
+        successCompleteHandlerRef.current,
+      );
+    }
+
+    successDotLottieRef.current = next;
+
+    if (!next) {
+      successCompleteHandlerRef.current = null;
+      return;
+    }
+
+    const handler = () => setShowSuccess(false);
+    successCompleteHandlerRef.current = handler;
+    next.addEventListener("complete", handler);
+  }
 
   async function run() {
     setError(null);
     setEvents([]);
+    bindSuccessRef(null);
+    setShowSuccess(false);
     setStatus("running");
 
     const mockMode = searchParams.get("mockDemo");
@@ -177,7 +355,7 @@ export function DemoCalculator() {
           json?.error ||
             json?.message ||
             (res.status === 429
-              ? "Rate limit reached. Please try again later."
+              ? "Demo limit reached. One demo run per IP / 24 hours."
               : "Unable to run demo right now."),
         );
         return;
@@ -208,6 +386,7 @@ export function DemoCalculator() {
           setEvents((prev) => [...prev, ...next]);
           if (next.some((e) => e.stage === "complete")) {
             setStatus("complete");
+            triggerSuccessAnim();
             controller.abort();
             return;
           }
@@ -215,6 +394,7 @@ export function DemoCalculator() {
       }
 
       setStatus(completeEvent ? "complete" : "error");
+      if (completeEvent) triggerSuccessAnim();
       if (!completeEvent) setError("No result was returned. Please try again.");
     } catch (e) {
       if ((e as any)?.name === "AbortError") return;
@@ -225,24 +405,28 @@ export function DemoCalculator() {
 
   function reset() {
     abortRef.current?.abort();
+    bindSuccessRef(null);
     setStatus("idle");
+    setShowSuccess(false);
     setEvents([]);
     setError(null);
   }
 
-  const canRun = input.trim().length >= 10 && status !== "running";
+  const hasEnoughInput = input.trim().length >= 10;
+  const brandOk = includesBrandToken(input);
+  const showBrandError = hasEnoughInput && !brandOk;
+
+  const canRun =
+    hasEnoughInput && brandOk && status !== "running" && status !== "complete";
 
   return (
-    <div className="bg-card/80 mt-10 rounded-3xl border p-5 shadow-sm md:mt-14 md:p-8 lg:p-10">
+    <div className="bg-card/80 mt-10 rounded-3xl border p-4 shadow-sm sm:p-5 md:mt-14 md:p-8 lg:p-10">
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 flex size-9 items-center justify-center rounded-full ring-1">
+          <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 flex size-9 min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full ring-1">
             <Calculator className="size-5" aria-hidden />
           </span>
           <div>
-            <h2 className="text-base font-semibold md:text-lg">
-              Price validation demo
-            </h2>
             <p className="text-muted-foreground text-xs md:text-sm">
               Paste a car offer. We’ll stream the analysis and show the result.
             </p>
@@ -250,12 +434,12 @@ export function DemoCalculator() {
         </div>
 
         {status === "running" ? (
-          <div className="text-muted-foreground flex items-center gap-2 text-xs">
+          <div className="text-muted-foreground hidden items-center gap-2 text-xs sm:flex">
             <Loader2 className="size-4 animate-spin" aria-hidden />
             Running…
           </div>
         ) : status === "complete" ? (
-          <div className="text-muted-foreground flex items-center gap-2 text-xs">
+          <div className="text-muted-foreground hidden items-center gap-2 text-xs sm:flex">
             <CheckCircle2 className="size-4 text-emerald-500" aria-hidden />
             Complete
           </div>
@@ -264,25 +448,12 @@ export function DemoCalculator() {
 
       <div className="grid gap-8 sm:grid-cols-2">
         <div className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="demo-input" className="text-foreground">
-              Enter vehicle
-            </Label>
-            <Textarea
-              id="demo-input"
-              rows={6}
-              placeholder="Details about the vehicle…"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              maxLength={800}
-              className="resize-none"
-              disabled={status === "running"}
-            />
-            <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-col gap-2">
+            <div className="order-1 flex items-center justify-between gap-3 sm:order-2">
               <button
                 type="button"
                 onClick={() => setHelpOpen(true)}
-                className="text-foreground hover:bg-muted/40 inline-flex items-center gap-2 rounded-md py-2 text-sm font-semibold underline underline-offset-4 opacity-90 hover:opacity-100"
+                className="text-foreground inline-flex items-center gap-2 rounded-md py-2 text-sm font-semibold underline underline-offset-4 opacity-90 hover:opacity-100"
                 aria-haspopup="dialog"
                 aria-expanded={helpOpen}
               >
@@ -290,11 +461,35 @@ export function DemoCalculator() {
                 What should I include?
               </button>
             </div>
+
+            <div className="order-2 space-y-2 sm:order-1">
+              <Label htmlFor="demo-input" className="text-foreground ml-0.25">
+                Enter vehicle
+              </Label>
+              <Textarea
+                id="demo-input"
+                rows={6}
+                placeholder="Details about the vehicle…"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                maxLength={800}
+                className="resize-none text-sm placeholder:text-sm sm:text-base sm:placeholder:text-base"
+                disabled={status === "running"}
+              />
+              {showBrandError ? (
+                <p className="ml-0.25 text-xs font-medium text-rose-700 dark:text-rose-300">
+                  Must include a brand (e.g., BMW, Audi, Volvo).
+                </p>
+              ) : null}
+            </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-[minmax(0,1fr),minmax(0,1fr)]">
             <div className="space-y-2">
-              <Label htmlFor="source-country" className="text-foreground">
+              <Label
+                htmlFor="source-country"
+                className="text-foreground ml-0.25"
+              >
                 Country to compare from
               </Label>
               <Select
@@ -319,173 +514,220 @@ export function DemoCalculator() {
           </div>
         </div>
 
-        <div className="border-border/60 bg-muted/20 rounded-2xl border p-5">
-          <p className="text-foreground text-sm font-semibold">Result</p>
+        <div className="am-scrollbar border-border/60 bg-muted/20 flex h-[500px] flex-col overflow-auto rounded-lg border p-4 sm:h-[540px] sm:p-5">
+          {status !== "complete" ? (
+            <p className="text-foreground text-sm font-semibold">Result</p>
+          ) : null}
 
-          {status === "idle" ? (
-            <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
-              Paste an offer and run the demo to see a streamed result here.
-            </p>
-          ) : status === "running" ? (
-            <div className="mt-4 space-y-3">
-              <p className="text-muted-foreground text-sm">
-                Working… showing latest stage as it arrives.
+          <div className="flex min-h-0 flex-1 flex-col pt-3 pr-2 pb-3 sm:pb-4">
+            {status === "idle" ? (
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Paste an offer and run the demo to see results here.
               </p>
-              <div className="border-border/60 rounded-xl border p-4">
-                <p className="text-foreground text-sm font-medium">
-                  Latest stage
+            ) : status === "running" ? (
+              <div className="space-y-3">
+                <p className="text-muted-foreground text-center text-sm">
+                  {stageCopy(latest?.stage)}
                 </p>
-                <p className="text-muted-foreground mt-1 text-sm">
-                  {latest?.stage ?? "processing"}
-                </p>
-              </div>
-              <p className="text-muted-foreground text-xs">
-                Tip: if nothing happens, you may have reached the demo limit or
-                the backend endpoint is unavailable.
-              </p>
-            </div>
-          ) : status === "error" ? (
-            <div className="mt-4 flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-rose-700 dark:text-rose-300">
-              <TriangleAlert className="mt-0.5 size-5" aria-hidden />
-              <div>
-                <p className="text-sm font-semibold">Couldn’t run demo</p>
-                <p className="mt-1 text-sm opacity-90">
-                  {error ?? "Please try again."}
+                <div className="flex items-center justify-center py-1">
+                  <DotLottieReact
+                    src="/lottie/loader.lottie"
+                    autoplay
+                    loop
+                    className="h-44 w-44 sm:h-48 sm:w-48"
+                  />
+                </div>
+                <p className="text-muted-foreground text-xs">
+                  Tip: if nothing happens, you may have reached the demo limit
+                  or the backend endpoint is unavailable.
                 </p>
               </div>
-            </div>
-          ) : (
-            <div className="mt-4 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span
-                  className={[
-                    "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1",
-                    signalTone,
-                  ].join(" ")}
-                >
-                  {signal ?? "Result"}
-                </span>
-                {completeEvent?.savedCarId ? (
-                  <span className="text-muted-foreground text-xs">
-                    Saved: #{completeEvent.savedCarId}
-                  </span>
-                ) : null}
-              </div>
-
-              {completeEvent?.recommendation?.text ? (
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {completeEvent.recommendation.text}
-                </p>
-              ) : null}
-
-              {completeEvent?.markets ? (
-                <div className="space-y-2">
-                  <p className="text-foreground text-sm font-semibold">
-                    Markets
+            ) : status === "error" ? (
+              <div className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-rose-700 dark:text-rose-300">
+                <TriangleAlert className="mt-0.5 size-5" aria-hidden />
+                <div>
+                  <p className="text-sm font-semibold">Couldn’t run demo</p>
+                  <p className="mt-1 text-sm opacity-90">
+                    {error ?? "Please try again."}
                   </p>
-                  <div className="grid gap-2">
-                    {Object.entries(completeEvent.markets).map(([key, m]) => (
-                      <div
-                        key={key}
-                        className="border-border/60 bg-background/40 flex items-center justify-between rounded-xl border px-3 py-2"
-                      >
-                        <div className="min-w-0">
-                          <p className="text-foreground text-sm font-semibold">
-                            {key}
-                          </p>
-                          <p className="text-muted-foreground text-xs">
-                            {m.signal ?? "—"} · sample{" "}
-                            {m.listings?.sampleSize ?? "—"}
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-foreground text-sm font-semibold tabular-nums">
-                            {formatMoney(m.profit, m.currency)}
-                          </p>
-                          <p className="text-muted-foreground text-xs tabular-nums">
-                            {m.profitPct != null
-                              ? `${m.profitPct.toFixed(1)}%`
-                              : "—"}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                </div>
+              </div>
+            ) : showSuccess ? (
+              <div className="flex flex-1 items-center justify-center">
+                <DotLottieReact
+                  src={`/lottie/Verification%20success.lottie?v=${successAssetVersion}`}
+                  autoplay
+                  loop={false}
+                  dotLottieRefCallback={bindSuccessRef}
+                  className="h-44 w-44 bg-transparent sm:h-48 sm:w-48"
+                />
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="text-foreground text-center text-sm font-semibold">
+                    Buy signal
+                  </p>
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <div className="space-y-2">
+                      {completeEvent?.recommendation?.text ? (
+                        <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
+                          {completeEvent.recommendation.text}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
-              ) : null}
 
-              {completeEvent?.sources ? (
-                <div className="space-y-2">
-                  <p className="text-foreground text-sm font-semibold">
-                    Sources
-                  </p>
+                {completeEvent?.markets ? (
                   <div className="space-y-2">
-                    {Object.entries(completeEvent.sources).map(
-                      ([market, url]) => (
-                        <a
-                          key={market}
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="border-border/60 bg-background/40 hover:bg-background/55 group flex items-center justify-between gap-3 rounded-xl border px-3 py-2 transition-colors"
+                    <p className="text-foreground ml-1 text-sm font-semibold">
+                      Markets
+                    </p>
+                    <div className="grid gap-2">
+                      {Object.entries(completeEvent.markets).map(([key, m]) => (
+                        <details
+                          key={key}
+                          className="border-border/60 bg-background/40 group rounded-xl border"
                         >
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2">
-                              <span className="bg-muted/40 text-muted-foreground ring-border inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ring-1">
-                                {market}
-                              </span>
+                          <summary className="hover:bg-background/55 focus-visible:ring-chart-1/40 flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl px-3 py-3 focus-visible:ring-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden">
+                            <div className="flex min-w-0 items-center gap-2">
+                              <SignalBadge signal={m.signal} />
                               <span className="text-foreground truncate text-sm font-semibold">
-                                {getUrlLabel(url).host}
+                                {key}
                               </span>
                             </div>
-                          </div>
 
-                          <span className="text-chart-1 shrink-0 text-sm font-semibold group-hover:opacity-80">
-                            Open
-                          </span>
-                        </a>
-                      ),
-                    )}
+                            <div className="shrink-0">
+                              <div className="flex items-center gap-2">
+                                <div className="text-muted-foreground text-xs">
+                                  <span className="hidden sm:inline">
+                                    Based on{" "}
+                                  </span>
+                                  <span className="text-foreground font-semibold tabular-nums">
+                                    {m.listings?.sampleSize ?? "—"}
+                                  </span>{" "}
+                                  <span>listings</span>
+                                </div>
+                                <svg
+                                  aria-hidden="true"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                  className="text-muted-foreground size-4 transition-transform group-open:rotate-180"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </summary>
+
+                          <div className="px-3 pb-3">
+                            <div className="bg-muted/20 border-border/60 grid grid-cols-2 gap-3 rounded-lg border p-3">
+                              <div>
+                                <p className="text-muted-foreground text-[11px] font-semibold tracking-wide uppercase">
+                                  Profit
+                                </p>
+                                <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
+                                  {formatMoney(m.profit, m.currency)}
+                                </p>
+                              </div>
+                              <div className="text-right">
+                                <p className="text-muted-foreground text-[11px] font-semibold tracking-wide uppercase">
+                                  Margin
+                                </p>
+                                <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
+                                  {m.profitPct != null
+                                    ? `${m.profitPct.toFixed(1)}%`
+                                    : "—"}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </details>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : null}
-            </div>
-          )}
+                ) : null}
+
+                {completeEvent?.sources ? (
+                  <div className="space-y-2">
+                    <p className="text-foreground ml-1 text-sm font-semibold">
+                      Sources
+                    </p>
+                    <div className="space-y-2 pb-3">
+                      {Object.entries(completeEvent.sources).map(
+                        ([market, url]) => (
+                          <a
+                            key={market}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-border/60 bg-background/40 hover:bg-background/55 group flex items-center justify-between gap-4 rounded-xl border px-3 py-3 transition-colors"
+                          >
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="bg-muted/20 text-muted-foreground ring-border inline-flex size-8 items-center justify-center rounded-md text-xs font-semibold ring-1">
+                                  {market}
+                                </span>
+                                <span className="text-foreground truncate text-sm font-semibold">
+                                  {getUrlLabel(url).host}
+                                </span>
+                              </div>
+                            </div>
+
+                            <span className="text-chart-1 shrink-0 text-sm font-semibold group-hover:opacity-80">
+                              Open
+                            </span>
+                          </a>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       <div className="border-border/60 mt-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-1">
-          <p className="text-muted-foreground text-xs md:text-sm">
-            Limited to one demo run per IP / 24 hours.
-          </p>
-          <div className="text-muted-foreground text-xs">
-            <p>
-              By running the demo, you agree to our{" "}
-              <Link href="/privacy" className="underline underline-offset-4">
-                privacy policy.
-              </Link>
-            </p>
-            <p className="mt-1">
-              We may log requests and apply rate limits to prevent abuse.
-            </p>
-          </div>
+        <div className="flex items-center justify-between gap-2">
+          <Button type="button" onClick={run} disabled={!canRun}>
+            {status === "running"
+              ? "Calculating…"
+              : status === "complete"
+                ? "Completed"
+                : "Calculate profit"}
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={reset}
+            disabled={status === "running" || status === "idle"}
+            className={status === "idle" ? "invisible" : undefined}
+          >
+            Reset
+          </Button>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          {status !== "idle" ? (
-            <Button
-              type="button"
-              variant="outline"
-              onClick={reset}
-              disabled={status === "running"}
-            >
-              Reset
-            </Button>
-          ) : null}
-          <Button type="button" onClick={run} disabled={!canRun}>
-            {status === "running" ? "Calculating…" : "Calculate profit"}
-          </Button>
+        <div className="space-y-1 text-pretty">
+          <p className="text-muted-foreground mt-2 text-xs sm:mt-0 md:text-xs">
+            Limited to one demo run per IP / 24 hours.
+          </p>
+          <p className="text-muted-foreground mt-2 text-xs">
+            By running the demo, you agree to our{" "}
+            <Link href="/privacy" className="underline underline-offset-4">
+              privacy policy
+            </Link>
+            .
+          </p>
+          <p className="text-muted-foreground mt-2 text-xs">
+            We may log requests and apply rate limits to prevent abuse.
+          </p>
         </div>
       </div>
 
@@ -531,10 +773,49 @@ export function DemoCalculator() {
                 </div>
 
                 <div>
-                  <p className="font-semibold">Example</p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="font-semibold">Example</p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="shrink-0 gap-1.5"
+                      aria-label={
+                        exampleCopied
+                          ? "Example text copied to clipboard"
+                          : "Copy example text to clipboard"
+                      }
+                      onClick={async () => {
+                        try {
+                          await navigator.clipboard.writeText(DEMO_CAR_EXAMPLE);
+                          setExampleCopied(true);
+                          if (exampleCopyResetRef.current) {
+                            clearTimeout(exampleCopyResetRef.current);
+                          }
+                          exampleCopyResetRef.current = setTimeout(() => {
+                            setExampleCopied(false);
+                            exampleCopyResetRef.current = null;
+                          }, 2000);
+                        } catch {
+                          // Clipboard may be unavailable (e.g. non-secure context).
+                        }
+                      }}
+                    >
+                      {exampleCopied ? (
+                        <>
+                          <Check className="size-3.5" aria-hidden />
+                          Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="size-3.5" aria-hidden />
+                          Copy
+                        </>
+                      )}
+                    </Button>
+                  </div>
                   <div className="bg-muted/30 border-border mt-2 rounded-xl border px-3 py-2 font-mono text-xs leading-relaxed">
-                    BMW X5 2020 30d xDrive, 85,000 km, diesel, automatic, asking
-                    price 32,000 EUR
+                    {DEMO_CAR_EXAMPLE}
                   </div>
                 </div>
               </div>

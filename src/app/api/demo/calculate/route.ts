@@ -87,10 +87,15 @@ export async function POST(request: Request) {
 
   // Rate limit is documented as JSON 429.
   if (upstreamResponse.status === 429 && contentType.includes("application/json")) {
-    const json = await upstreamResponse.json().catch(() => null);
-    return Response.json(json ?? { success: false, message: "Rate limit reached." }, {
-      status: 429,
-    });
+    // Don't leak upstream copy — keep demo policy consistent on the landing page.
+    return Response.json(
+      {
+        error: "Demo limit reached. Please try again later.",
+        message: "Demo limit reached. One demo run per IP / 24 hours.",
+        limitReached: true,
+      },
+      { status: 429 },
+    );
   }
 
   // Pass through any non-stream errors as JSON/text.
