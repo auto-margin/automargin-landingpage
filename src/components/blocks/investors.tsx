@@ -10,9 +10,9 @@ const boardMembers = [
     image: "/investors/4.webp",
   },
   {
-    name: "John K",
+    name: "Jessica K",
     company: "Vehicle Analyst",
-    image: "/investors/3.webp",
+    image: "/investors/5.webp",
   },
 ];
 
@@ -104,7 +104,7 @@ export function Investors() {
                       </span>
                       <span className="max-md:hidden">{role.title}</span>
                     </h3>
-                    <span className="bg-primary/10 text-primary ring-primary/20 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1">
+                    <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1">
                       {role.status}
                     </span>
                   </div>

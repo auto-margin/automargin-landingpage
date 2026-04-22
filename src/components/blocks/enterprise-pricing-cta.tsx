@@ -28,10 +28,10 @@ export function EnterprisePricingCta({ className }: EnterprisePricingCtaProps) {
     <section className={cn("py-16 lg:py-20", className)}>
       <div className="container grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
         <div className="max-w-xl">
-          <p className="text-primary text-xs font-medium tracking-wide uppercase">
+          <p className="text-chart-1 text-xs font-medium tracking-wide uppercase">
             Enterprise plan
           </p>
-          <h2 className="text-foreground mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
+          <h2 className="text-foreground mt-4 text-4xl font-semibold tracking-tight">
             Get a custom package built around your workflow.
           </h2>
           <p className="text-muted-foreground mt-4 text-sm leading-relaxed md:text-base">
@@ -50,7 +50,9 @@ export function EnterprisePricingCta({ className }: EnterprisePricingCtaProps) {
         </div>
 
         <div className="mx-auto w-full max-w-[340px] lg:mx-0 lg:justify-self-end">
-          <PricingCard plan={enterprisePlan} />
+          <div className="am-animated-border rounded-2xl">
+            <PricingCard plan={enterprisePlan} />
+          </div>
         </div>
       </div>
     </section>

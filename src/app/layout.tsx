@@ -5,8 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/blocks/footer";
-import { Navbar } from "@/components/blocks/navbar";
+import { AppChrome } from "@/components/app-chrome";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
 
@@ -120,11 +119,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
+          <AppChrome>{children}</AppChrome>
         </ThemeProvider>
-
-        <main>{children}</main>
-        <Footer />
         {process.env.NODE_ENV === "production" ? (
           <>
             <Analytics />

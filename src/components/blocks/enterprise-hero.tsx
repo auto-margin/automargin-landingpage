@@ -58,7 +58,7 @@ function CapabilityCard({
   return (
     <div className="border-border bg-card/40 hover:bg-card/55 rounded-2xl border p-5 shadow-sm transition-colors sm:p-6">
       <div className="flex items-start gap-3">
-        <span className="bg-primary/12 text-primary ring-primary/20 mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl ring-1">
+        <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl ring-1">
           <Icon className="size-4.5" aria-hidden />
         </span>
         <div className="min-w-0">
@@ -85,7 +85,7 @@ function EnterpriseMockup() {
   return (
     <div
       className={cn(
-        "border-primary/20 bg-card/40 ring-border/50 dark:border-primary/25 dark:bg-card/25 dark:ring-border/40",
+        "border-chart-1/25 bg-card/40 ring-border/50 dark:border-chart-1/25 dark:bg-card/25 dark:ring-border/40",
         "space-y-4 rounded-2xl border p-5 shadow-sm ring-1 sm:p-6",
       )}
       aria-hidden
@@ -94,7 +94,7 @@ function EnterpriseMockup() {
         <span className="font-display text-foreground text-sm font-semibold tracking-tight">
           Enterprise pipeline
         </span>
-        <span className="bg-primary/15 text-primary ring-primary/20 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1">
+        <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1">
           Live
         </span>
       </div>
@@ -119,7 +119,7 @@ function EnterpriseMockup() {
           {["Need score", "Gap alerts", "Cross-market comps"].map((tag) => (
             <span
               key={tag}
-              className="bg-primary/10 text-primary ring-primary/20 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1"
+              className="bg-chart-1/15 text-chart-1 ring-chart-1/25 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1"
             >
               {tag}
             </span>
@@ -135,7 +135,7 @@ export function EnterpriseHero() {
     <section className="py-28 lg:py-32 lg:pt-44">
       <header className="container">
         <div className="max-w-4xl text-left">
-          <p className="text-primary mb-4 text-xs font-medium tracking-wide uppercase">
+          <p className="text-chart-1 mb-4 text-xs font-medium tracking-wide uppercase">
             Enterprise
           </p>
           <h1 className="text-foreground text-3xl tracking-tight md:text-4xl lg:text-5xl">
@@ -143,15 +143,14 @@ export function EnterpriseHero() {
             <span className="whitespace-nowrap">powered by margin.</span>
           </h1>
           <p className="text-muted-foreground mt-5 max-w-2xl text-base leading-relaxed md:text-lg">
-            Exclusive capabilities for enterprise teams — bulk screening, gap
-            detection, and dealer-fit signals across markets.
+            Exclusive capabilities for enterprise teams.
           </p>
         </div>
       </header>
 
       <div className="container mt-12 lg:mt-16">
         <div className="border-border bg-card/35 rounded-2xl border p-6 shadow-sm sm:p-8">
-          <p className="text-foreground text-sm font-semibold tracking-tight">
+          <p className="text-foreground text-base font-semibold tracking-tight md:text-lg">
             Auto-margin is not built around listings. It is built around margin.
           </p>
           <div className="text-muted-foreground mt-4 space-y-3 text-sm leading-relaxed md:text-base">
@@ -181,7 +180,7 @@ export function EnterpriseHero() {
 
         <div className="order-1 lg:order-2">
           <h2 className="text-foreground text-xl font-semibold tracking-tight md:text-2xl">
-            From bulk screening to dealer-fit outreach.
+            From bulk screening to dealer outreach.
           </h2>
           <p className="text-muted-foreground mt-3 text-sm leading-relaxed md:text-base">
             Auto-margin helps teams move beyond spreadsheet-based sourcing.
@@ -196,8 +195,8 @@ export function EnterpriseHero() {
               "Cross-market evaluation in one consistent view.",
               "Dealer-level signals to prioritize outreach and inventory.",
             ].map((line) => (
-              <li key={line} className="flex gap-3">
-                <span className="bg-primary/20 text-primary ring-primary/30 mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full ring-1">
+              <li key={line} className="flex items-center gap-3">
+                <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 flex size-6 shrink-0 items-center justify-center rounded-full ring-1">
                   <Check className="size-3.5 stroke-[2.5]" aria-hidden />
                 </span>
                 <span className="text-muted-foreground text-sm leading-snug md:text-base">
@@ -220,12 +219,12 @@ export function EnterpriseHero() {
 
       <div className="container mt-14 md:mt-18 lg:mt-24">
         <div>
-          <h2 className="text-foreground text-lg font-semibold tracking-tight">
+          <h2 className="text-foreground text-4xl font-semibold tracking-tight">
             Enterprise capabilities
           </h2>
-          <p className="text-muted-foreground mt-1 max-w-3xl text-sm">
+          <p className="text-muted-foreground mt-4 max-w-3xl text-sm leading-relaxed md:text-base">
             Designed for teams that evaluate inventory across suppliers,
-            marketplaces, and regions — with repeatable decisions and auditable
+            marketplaces, and regions with repeatable decisions and auditable
             workflows.
           </p>
           <div className="relative mt-6">

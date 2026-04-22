@@ -349,6 +349,61 @@
   }
 }
 
+@layer utilities {
+  .am-animated-border {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .am-animated-border::before,
+  .am-animated-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .am-animated-border::before {
+    padding: 1px;
+    background:
+      conic-gradient(
+        from 180deg,
+        transparent 0 22%,
+        color-mix(in oklch, var(--chart-1) 92%, transparent) 26%,
+        color-mix(in oklch, var(--chart-2) 88%, transparent) 34%,
+        transparent 42% 100%
+      );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.32;
+  }
+
+  .am-animated-border::after {
+    inset: -8px;
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        color-mix(in oklch, var(--chart-1) 22%, transparent),
+        transparent 55%
+      );
+    filter: blur(12px);
+    opacity: 0.22;
+    z-index: -1;
+  }
+
+  .dark .am-animated-border::before {
+    opacity: 0.75;
+  }
+
+  .dark .am-animated-border::after {
+    opacity: 0.7;
+  }
+}
+
 html,
 body {
   scroll-behavior: smooth;
