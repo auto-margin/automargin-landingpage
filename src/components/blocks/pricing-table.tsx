@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
-
 import { Check, ChevronsUpDown, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -12,6 +10,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { Link } from "@/i18n/navigation";
 
 interface FeatureSection {
   category: string;

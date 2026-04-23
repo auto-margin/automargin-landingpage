@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import {
   ArrowRight,
   BarChart3,
@@ -11,6 +9,7 @@ import {
 import { HeroImageOverlays } from "@/components/blocks/hero-image-overlays";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 const features = [
   {

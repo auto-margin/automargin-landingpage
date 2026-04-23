@@ -1,9 +1,12 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 import { AppChrome } from "@/components/app-chrome";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -105,13 +108,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const messages = await getMessages();
+  const h = await headers();
+  const locale = h.get("x-next-intl-locale") ?? "en";
+
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -119,7 +126,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AppChrome>{children}</AppChrome>
+          <NextIntlClientProvider messages={messages}>
+            <AppChrome>{children}</AppChrome>
+          </NextIntlClientProvider>
         </ThemeProvider>
         {process.env.NODE_ENV === "production" ? (
           <>

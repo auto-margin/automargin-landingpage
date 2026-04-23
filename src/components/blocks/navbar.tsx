@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
+import { LanguageSelector } from "@/components/language-selector";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,12 +18,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
   {
-    label: "Features",
-    href: "#features",
+    labelKey: "features",
+    href: "/#features",
     dropdownItems: [
       {
         title: "Modern Comparison Tool",
@@ -49,17 +51,20 @@ const ITEMS = [
       },
     ],
   },
-  { label: "About Us", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { labelKey: "about", href: "/about" },
+  { labelKey: "pricing", href: "/pricing" },
+  { labelKey: "faq", href: "/faq" },
+  { labelKey: "contact", href: "/contact" },
 ];
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const t = useTranslations("Navbar");
   const clientLoginUrl = "https://client.auto-margin.com";
+
+  const normalizedPathname = pathname.replace(/^\/(en|sv)(?=\/|$)/, "") || "/";
 
   return (
     <section
@@ -86,9 +91,9 @@ export const Navbar = () => {
           <NavigationMenuList>
             {ITEMS.map((link) =>
               link.dropdownItems ? (
-                <NavigationMenuItem key={link.label} className="">
+                <NavigationMenuItem key={link.labelKey} className="">
                   <NavigationMenuTrigger className="data-[state=open]:bg-accent/50 bg-transparent! px-1.5">
-                    {link.label}
+                    {t(link.labelKey)}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="w-[400px] space-y-2 p-4">
@@ -115,15 +120,15 @@ export const Navbar = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               ) : (
-                <NavigationMenuItem key={link.label} className="">
+                <NavigationMenuItem key={link.labelKey} className="">
                   <Link
                     href={link.href}
                     className={cn(
                       "relative bg-transparent px-1.5 text-sm font-medium transition-opacity hover:opacity-75",
-                      pathname === link.href && "text-muted-foreground",
+                      normalizedPathname === link.href && "text-muted-foreground",
                     )}
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </NavigationMenuItem>
               ),
@@ -133,6 +138,7 @@ export const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
+          <LanguageSelector />
           <ThemeToggle />
           <Link
             href={clientLoginUrl}
@@ -141,7 +147,7 @@ export const Navbar = () => {
             className="max-lg:hidden"
           >
             <Button variant="outline">
-              <span className="relative z-10">Login</span>
+              <span className="relative z-10">{t("login")}</span>
             </Button>
           </Link>
 
@@ -181,27 +187,30 @@ export const Navbar = () => {
         <nav className="divide-border flex flex-1 flex-col divide-y">
           {ITEMS.map((link) =>
             link.dropdownItems ? (
-              <div key={link.label} className="py-4 first:pt-0 last:pb-0">
+              <div
+                key={link.labelKey}
+                className="py-4 first:pt-0 last:pb-0"
+              >
                 <button
                   onClick={() =>
                     setOpenDropdown(
-                      openDropdown === link.label ? null : link.label,
+                      openDropdown === link.labelKey ? null : link.labelKey,
                     )
                   }
                   className="text-primary flex w-full items-center justify-between text-base font-medium"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                   <ChevronRight
                     className={cn(
                       "size-4 transition-transform duration-200",
-                      openDropdown === link.label ? "rotate-90" : "",
+                      openDropdown === link.labelKey ? "rotate-90" : "",
                     )}
                   />
                 </button>
                 <div
                   className={cn(
                     "overflow-hidden transition-[max-height,opacity] duration-300",
-                    openDropdown === link.label
+                    openDropdown === link.labelKey
                       ? "mt-4 max-h-[1000px] opacity-100"
                       : "max-h-0 opacity-0",
                   )}
@@ -233,15 +242,15 @@ export const Navbar = () => {
               </div>
             ) : (
               <Link
-                key={link.label}
+                key={link.labelKey}
                 href={link.href}
                 className={cn(
                   "text-primary hover:text-primary/80 py-4 text-base font-medium transition-colors first:pt-0 last:pb-0",
-                  pathname === link.href && "text-muted-foreground",
+                  normalizedPathname === link.href && "text-muted-foreground",
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ),
           )}
@@ -252,7 +261,7 @@ export const Navbar = () => {
             className="text-primary hover:text-primary/80 py-4 text-base font-medium transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
-            Login
+            {t("login")}
           </a>
         </nav>
       </div>

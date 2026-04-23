@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import Link from "next/link";
+import { GuidebookSidebar } from "./sidebar";
+import { GuidebookToc } from "./toc";
+import { GuidebookTopbar } from "./topbar";
 
-import { GuidebookSidebar } from "@/app/guidebook/sidebar";
-import { GuidebookToc } from "@/app/guidebook/toc";
-import { GuidebookTopbar } from "@/app/guidebook/topbar";
+import { Link } from "@/i18n/navigation";
 
 export const metadata: Metadata = {
   title: "Guidebook",

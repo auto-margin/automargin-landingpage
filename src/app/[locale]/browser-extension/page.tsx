@@ -11,8 +11,7 @@ export const metadata: Metadata = {
     "Auto-margin browser extension - check prices and surface better vehicle deals while you browse marketplaces.",
   openGraph: {
     title: "Browser extension | Auto-margin",
-    description:
-      "See list prices in context and spot stronger deals while you browse.",
+    description: "See list prices in context and spot stronger deals while you browse.",
   },
 };
 
@@ -25,3 +24,4 @@ export default function BrowserExtensionPage() {
     </Background>
   );
 }
+

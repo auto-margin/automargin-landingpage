@@ -1,4 +1,4 @@
-import { BentoDemoSection } from "./bento-demo-section";
+import { BentoDemoSection } from "../bento-demo-section";
 import "@/styles/motion.css";
 
 import { Background } from "@/components/background";
@@ -24,3 +24,4 @@ export default function Home() {
     </>
   );
 }
+

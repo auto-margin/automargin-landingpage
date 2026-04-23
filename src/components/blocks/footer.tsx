@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 const SLOGAN_LINE1 = "Less time sorting deals.";
 const EMAIL = "to@auto-margin.com";

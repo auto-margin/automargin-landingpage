@@ -1,11 +1,10 @@
-import Link from "next/link";
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const categories = [

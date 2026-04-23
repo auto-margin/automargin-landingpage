@@ -1,0 +1,12 @@
+{
+  "Navbar": {
+    "features": "Features",
+    "about": "About Us",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Login",
+    "language": "Language"
+  }
+}
+

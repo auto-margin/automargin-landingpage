@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { ArrowRight } from "lucide-react";
 
@@ -14,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const items = [

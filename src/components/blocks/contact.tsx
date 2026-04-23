@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import {
   ArrowRight,
   BookOpen,
@@ -13,6 +11,7 @@ import {
 import { ContactForm } from "@/components/blocks/contact-form";
 import { DashedLine } from "@/components/dashed-line";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
 
 const EMAIL_GENERAL = "info@auto-margin.com";
 const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";

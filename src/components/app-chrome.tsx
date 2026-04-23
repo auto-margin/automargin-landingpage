@@ -7,7 +7,7 @@ import { Navbar } from "@/components/blocks/navbar";
 
 export function AppChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const hideChrome = pathname.startsWith("/guidebook");
+  const hideChrome = pathname.includes("/guidebook");
 
   return (
     <>

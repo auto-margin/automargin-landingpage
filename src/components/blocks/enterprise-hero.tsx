@@ -1,10 +1,9 @@
-import Link from "next/link";
-
 import { Check, Database, Factory, Globe, MapPin, Target } from "lucide-react";
 
 import { EnterprisePricingCta } from "@/components/blocks/enterprise-pricing-cta";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const capabilities = [

@@ -2,8 +2,6 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import Link from "next/link";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
@@ -31,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "@/i18n/navigation";
 import { formSchema } from "@/lib/form-schema";
 
 type Schema = z.infer<typeof formSchema>;
@@ -50,7 +49,7 @@ export function ContactForm() {
       message: "",
       agree: false,
       website: "",
-      startedAt: Date.now(),
+      startedAt: 0,
     },
   });
   useEffect(() => {
@@ -81,7 +80,7 @@ export function ContactForm() {
         message: "",
         agree: false,
         website: "",
-        startedAt: Date.now(),
+        startedAt: 0,
       });
     },
     onError: () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import Privacy from "./privacy.mdx";
+import Privacy from "../../privacy/privacy.mdx";
 
 const Page = () => {
   return (
@@ -13,3 +13,4 @@ const Page = () => {
 };
 
 export default Page;
+

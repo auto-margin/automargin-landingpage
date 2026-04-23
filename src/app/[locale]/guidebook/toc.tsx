@@ -48,7 +48,8 @@ export function GuidebookToc() {
       next.push({ id, text, level });
     }
 
-    setItems(next);
+    const id = window.requestAnimationFrame(() => setItems(next));
+    return () => window.cancelAnimationFrame(id);
   }, []);
 
   const hasItems = useMemo(() => items.length > 1, [items.length]);

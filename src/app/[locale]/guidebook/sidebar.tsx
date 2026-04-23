@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+
+import { usePathname } from "next/navigation";
+
+import { Link } from "@/i18n/navigation";
 
 type NavItem = { label: string; href: string };
 type NavTreeItem =
@@ -65,7 +67,17 @@ function isActive(pathname: string, href: string) {
 
 export function GuidebookSidebar() {
   const pathname = usePathname();
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [expanded, setExpanded] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {};
+    for (const group of NAV) {
+      for (const item of group.items) {
+        if ("children" in item && item.children?.length) {
+          if (isActive(pathname, item.href)) initial[item.href] = true;
+        }
+      }
+    }
+    return initial;
+  });
 
   const activeParents = useMemo(() => {
     const parents: string[] = [];
@@ -81,11 +93,20 @@ export function GuidebookSidebar() {
 
   useEffect(() => {
     if (!activeParents.length) return;
-    setExpanded((prev) => {
-      const next = { ...prev };
-      for (const href of activeParents) next[href] = true;
-      return next;
+    const id = window.requestAnimationFrame(() => {
+      setExpanded((prev) => {
+        let changed = false;
+        const next = { ...prev };
+        for (const href of activeParents) {
+          if (!next[href]) {
+            next[href] = true;
+            changed = true;
+          }
+        }
+        return changed ? next : prev;
+      });
     });
+    return () => window.cancelAnimationFrame(id);
   }, [activeParents]);
 
   return (

@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import { Check, CreditCard, RefreshCw, Settings, Sun } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 const bullets = [
   "Spot undervalued listings in one glance while you stay on the marketplace page.",

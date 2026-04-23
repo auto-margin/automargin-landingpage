@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 import type { DotLottie } from "@lottiefiles/dotlottie-web";
@@ -28,6 +27,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "@/i18n/navigation";
 
 const DotLottieReact = dynamic(
   () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
@@ -267,12 +267,14 @@ export function DemoCalculator() {
 
   useEffect(() => {
     if (!helpOpen) {
-      setExampleCopied(false);
+      const id = window.requestAnimationFrame(() => setExampleCopied(false));
       if (exampleCopyResetRef.current) {
         clearTimeout(exampleCopyResetRef.current);
         exampleCopyResetRef.current = null;
       }
+      return () => window.cancelAnimationFrame(id);
     }
+    return;
   }, [helpOpen]);
 
   useEffect(() => {

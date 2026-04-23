@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
 import { Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export type Plan = {
