@@ -15,17 +15,56 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { usePathname, useRouter } from "@/i18n/navigation";
-
-type Locale = "en" | "sv";
+import type { Locale } from "@/i18n/routing";
 
 const LOCALES: ReadonlyArray<{
   locale: Locale;
   label: string;
-  name: string;
 }> = [
-  { locale: "en", label: "EN", name: "English" },
-  { locale: "sv", label: "SV", name: "Svenska" },
+  { locale: "en", label: "EN" },
+  { locale: "sv", label: "SV" },
+  { locale: "de", label: "DE" },
+  { locale: "es", label: "ES" },
+  { locale: "dk", label: "DK" },
 ] as const;
+
+const LOCALE_NAMES: Record<Locale, Record<Locale, string>> = {
+  en: {
+    en: "English",
+    sv: "Swedish",
+    de: "German",
+    es: "Spanish",
+    dk: "Danish",
+  },
+  sv: {
+    en: "Engelska",
+    sv: "Svenska",
+    de: "Tyska",
+    es: "Spanska",
+    dk: "Danska",
+  },
+  de: {
+    en: "Englisch",
+    sv: "Schwedisch",
+    de: "Deutsch",
+    es: "Spanisch",
+    dk: "Dänisch",
+  },
+  es: {
+    en: "Inglés",
+    sv: "Sueco",
+    de: "Alemán",
+    es: "Español",
+    dk: "Danés",
+  },
+  dk: {
+    en: "Engelsk",
+    sv: "Svensk",
+    de: "Tysk",
+    es: "Spansk",
+    dk: "Dansk",
+  },
+};
 
 function setLocaleCookie(locale: Locale) {
   const maxAge = 60 * 60 * 24 * 365; // 1 year
@@ -73,7 +112,7 @@ export function LanguageSelector() {
               }}
               className="flex items-center justify-between gap-3"
             >
-              <span className="text-sm">{opt.name}</span>
+              <span className="text-sm">{LOCALE_NAMES[locale][opt.locale]}</span>
               {active ? <Check className="size-4 opacity-70" /> : null}
             </DropdownMenuItem>
           );
@@ -82,4 +121,3 @@ export function LanguageSelector() {
     </DropdownMenu>
   );
 }
-

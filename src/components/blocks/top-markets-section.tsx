@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { useTranslations } from "next-intl";
+
 import { DashedLine } from "@/components/dashed-line";
 
 const FLAG_SIZE = 48;
@@ -7,54 +9,44 @@ const FLAG_SIZE = 48;
 type Market = {
   code: string;
   flagFile: string;
-  country: string;
-  metric: string;
   /** Shown as muted card + "Coming soon" instead of listing metric */
   comingSoon?: boolean;
 };
 
 const MARKETS: Market[] = [
-  { code: "DE", flagFile: "de", country: "Germany", metric: "2.3M+ listings" },
+  { code: "DE", flagFile: "de" },
   {
     code: "FR",
     flagFile: "fr",
-    country: "France",
-    metric: "1.2M+ listings",
     comingSoon: true,
   },
   {
     code: "PL",
     flagFile: "pl",
-    country: "Poland",
-    metric: "870K+ listings",
     comingSoon: true,
   },
-  { code: "IT", flagFile: "it", country: "Italy", metric: "720K+ listings" },
+  { code: "IT", flagFile: "it" },
   {
     code: "CH",
     flagFile: "ch",
-    country: "Switzerland",
-    metric: "540K+ listings",
   },
-  { code: "ES", flagFile: "es", country: "Spain", metric: "660K+ listings" },
+  { code: "ES", flagFile: "es" },
   {
     code: "NL",
     flagFile: "nl",
-    country: "Netherlands",
-    metric: "540K+ listings",
     comingSoon: true,
   },
-  { code: "BE", flagFile: "be", country: "Belgium", metric: "410K+ listings" },
-  { code: "SE", flagFile: "se", country: "Sweden", metric: "380K+ listings" },
+  { code: "BE", flagFile: "be" },
+  { code: "SE", flagFile: "se" },
   {
     code: "CZ",
     flagFile: "cz",
-    country: "Czech Republic",
-    metric: "320K+ listings",
   },
 ];
 
 export function TopMarketsSection() {
+  const t = useTranslations("Home.markets");
+
   return (
     <section
       id="top-markets"
@@ -70,11 +62,10 @@ export function TopMarketsSection() {
             id="top-markets-heading"
             className="font-display text-foreground text-2xl tracking-tight md:text-4xl lg:text-5xl"
           >
-            Data from top markets
+            {t("title")}
           </h2>
           <p className="text-muted-foreground mt-4 text-base leading-relaxed md:text-lg">
-            Listing volume and market context by country - used automatically
-            when you evaluate profitability.
+            {t("description")}
           </p>
         </header>
 
@@ -122,7 +113,7 @@ export function TopMarketsSection() {
                           : "font-display text-foreground text-sm font-semibold tracking-tight sm:text-base"
                       }
                     >
-                      {item.country}
+                      {t(`countries.${item.code}.name`)}
                     </h3>
                     <p
                       className={
@@ -134,21 +125,17 @@ export function TopMarketsSection() {
                       {soon ? (
                         <span className="wave-container inline-block">
                           <span className="wave-text inline-block whitespace-nowrap">
-                            <span>C</span>
-                            <span>o</span>
-                            <span>m</span>
-                            <span>i</span>
-                            <span>n</span>
-                            <span>g</span>
-                            <span>{"\u00a0"}</span>
-                            <span>s</span>
-                            <span>o</span>
-                            <span>o</span>
-                            <span>n</span>
+                            {t("comingSoon")
+                              .split("")
+                              .map((char, index) => (
+                                <span key={`${char}-${index}`}>
+                                  {char === " " ? "\u00a0" : char}
+                                </span>
+                              ))}
                           </span>
                         </span>
                       ) : (
-                        item.metric
+                        t(`countries.${item.code}.metric`)
                       )}
                     </p>
                   </div>

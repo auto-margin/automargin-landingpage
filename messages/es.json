@@ -1,0 +1,340 @@
+{
+  "Navbar": {
+    "features": "Funciones",
+    "about": "Sobre nosotros",
+    "pricing": "Precios",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "login": "Login",
+    "language": "Idioma"
+  },
+  "Home": {
+    "hero": {
+      "title": "Analiza cada oferta de coche.",
+      "subtitle": "Automargin te ayuda a analizar y entender si una oferta de coche es rentable.",
+      "primaryCta": "Empezar",
+      "secondaryCta": "Probar demo",
+      "features": {
+        "market": {
+          "title": "Inteligencia de precios de mercado",
+          "description": "Analiza anuncios en vivo en los principales marketplaces europeos para obtener valores de reventa realistas."
+        },
+        "margin": {
+          "title": "Analisis instantaneo de margen",
+          "description": "Calcula el beneficio potencial antes de comprar un vehiculo, sin investigacion manual."
+        },
+        "comparison": {
+          "title": "Comparacion multi-mercado",
+          "description": "Ve como se valoran vehiculos similares en distintos mercados europeos."
+        },
+        "insights": {
+          "title": "Insights con IA",
+          "description": "Modelos de ML detectan tendencias de precio y oportunidades."
+        }
+      }
+    },
+    "features": {
+      "title": "Automatizacion para tu negocio",
+      "imageAlt": "Interfaz de {title}",
+      "items": {
+        "market": "Comparaciones de precio de mercado en tiempo real",
+        "competitor": "Precios de competidores entre mercados",
+        "insights": "Insights con IA para compras mas inteligentes"
+      }
+    },
+    "markets": {
+      "title": "Datos de mercados principales",
+      "description": "Datos de mercado por pais, aplicados automaticamente a cada control de rentabilidad.",
+      "comingSoon": "Proximamente",
+      "countries": {
+        "DE": { "name": "Alemania", "metric": "2,3M+ anuncios" },
+        "FR": { "name": "Francia", "metric": "1,2M+ anuncios" },
+        "PL": { "name": "Polonia", "metric": "870K+ anuncios" },
+        "IT": { "name": "Italia", "metric": "720K+ anuncios" },
+        "CH": { "name": "Suiza", "metric": "540K+ anuncios" },
+        "ES": { "name": "España", "metric": "660K+ anuncios" },
+        "NL": { "name": "Paises Bajos", "metric": "540K+ anuncios" },
+        "BE": { "name": "Belgica", "metric": "410K+ anuncios" },
+        "SE": { "name": "Suecia", "metric": "380K+ anuncios" },
+        "CZ": { "name": "Republica Checa", "metric": "320K+ anuncios" }
+      }
+    },
+    "bento": {
+      "label": "SIN SUPOSICIONES. SOLO MARGENES.",
+      "title": "Hecho para concesionarios",
+      "description": "Automargin se basa en los habitos de los mejores concesionarios: enfoque, rapidez y decisiones de compra de alta calidad."
+    },
+    "bentoCards": {
+      "items": {
+        "0": {
+          "name": "Sube cualquier formato",
+          "description": "Soportamos PDF, Excel, CSV y mas.",
+          "hoverText": "Los archivos se guardan de forma segura y protegida."
+        },
+        "1": {
+          "name": "Verificacion de proveedor",
+          "description": "Ve quien envia las mejores ofertas.",
+          "hoverText": "Descubre tu proveedor favorito."
+        },
+        "2": {
+          "name": "Comparacion de ofertas entre mercados",
+          "shortName": "Comparacion de ofertas",
+          "description": "Compara ofertas de distintos mercados para encontrar el mejor precio.",
+          "hoverText": "Valida ofertas con tus reglas."
+        },
+        "3": {
+          "name": "Notificaciones",
+          "description": "Adjunta ofertas y recibe insights por email.",
+          "hoverText": "Recibe resultados y actualizaciones automaticamente."
+        }
+      }
+    },
+    "salesPricing": {
+      "title": "Unete a nuestra red",
+      "description1": "Los planes se adaptan a tu concesionario.",
+      "description2": "Tu volumen, mercados y configuracion deciden el precio.",
+      "bullets": {
+        "dealFlow": "Construido alrededor de tu flujo de ofertas",
+        "markets": "Configuracion especifica por mercado",
+        "workflow": "Flujo manual o asistido por API",
+        "support": "Soporte directo de onboarding"
+      },
+      "proposal": {
+        "title": "Propuesta a medida",
+        "description": "Trabajamos con un numero limitado de concesionarios durante el lanzamiento. Solicita acceso para recibir una propuesta de precio personalizada.",
+        "primaryCta": "Solicitar acceso",
+        "secondaryCta": "Ver modelo de precios"
+      }
+    }
+  },
+  "PricingPage": {
+    "hero": {
+      "title": "Precios personalizados para tu operacion",
+      "description": "No ofrecemos planes publicos fijos en el lanzamiento. Cada partnership se estructura segun tu volumen de sourcing, mercados objetivo, workflow y necesidades de soporte.",
+      "cta": "Contactar ventas"
+    },
+    "drivers": {
+      "title": "De que depende el precio",
+      "description": "Estructuramos los precios alrededor de los factores operativos que impulsan sourcing, integracion y soporte.",
+      "items": {
+        "volume": {
+          "title": "Volumen de deals",
+          "description": "Cuantos vehiculos, ofertas o solicitudes de sourcing gestionas."
+        },
+        "markets": {
+          "title": "Mercados objetivo",
+          "description": "Paises, regiones y acceso a proveedores necesarios."
+        },
+        "workflow": {
+          "title": "Configuracion del workflow",
+          "description": "Validacion automatica, acceso gestionado, acceso API o soporte de procesos internos."
+        },
+        "support": {
+          "title": "Nivel de soporte",
+          "description": "Onboarding, reporting, soporte de cuenta y ayuda operativa."
+        }
+      }
+    },
+    "process": {
+      "title": "Como funciona el proceso",
+      "description": "Un proceso sencillo para validar encaje y avanzar rapido.",
+      "steps": {
+        "request": "Solicitar acceso",
+        "qualification": "Llamada de cualificacion",
+        "proposal": "Propuesta comercial",
+        "onboarding": "Onboarding",
+        "optimization": "Optimizacion continua"
+      }
+    },
+    "engagement": {
+      "title": "Modelos de colaboracion",
+      "description": "Sin precios publicos: elige el modelo de relacion que encaje con tu operacion.",
+      "cta": "Contactanos",
+      "models": {
+        "automatic": {
+          "title": "Acceso automatico",
+          "description": "Validamos ofertas en tu nombre y enviamos el resultado, para que tu equipo actue sin gestionar el flujo de revision."
+        },
+        "managed": {
+          "title": "Acceso gestionado",
+          "description": "Tus usuarios o miembros pueden validar ofertas, subir archivos y gestionar el proceso directamente en Auto-margin."
+        },
+        "api": {
+          "title": "Acceso API Enterprise",
+          "description": "Obtienes acceso API, clave API y documentacion para que tu equipo construya y opere su propia validacion."
+        }
+      }
+    }
+  },
+  "FAQ": {
+    "title": "¿Preguntas?",
+    "contactPrefix": "Si no encuentras lo que buscas,",
+    "contactLink": "contactanos",
+    "categories": {
+      "product": {
+        "title": "Producto y funcionamiento",
+        "questions": {
+          "what": {
+            "q": "¿Que hace AutoMargin?",
+            "a": "AutoMargin analiza ofertas de vehiculos desde emails, PDF, Excel y otros formatos. Compara precios de proveedor con datos de mercado en vivo, calcula margenes y destaca oportunidades rentables."
+          },
+          "identify": {
+            "q": "¿Como identifica las mejores ofertas?",
+            "a": "Nuestra IA evalua cada oferta contra anuncios de mercado en tiempo real, calcula margenes de reventa y ordena opciones segun tus criterios."
+          },
+          "files": {
+            "q": "¿Que tipos de archivo soporta?",
+            "a": "PDF, Excel, Word, Google Sheets y emails, incluso formatos mixtos en un mismo lote."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Precios y seguridad",
+        "questions": {
+          "audience": {
+            "q": "¿Para quien es AutoMargin?",
+            "a": "Concesionarios independientes, empresas de trading y marketplaces B2B con alto volumen de ofertas y decisiones de compra basadas en datos."
+          },
+          "trial": {
+            "q": "¿Hay prueba gratuita?",
+            "a": "Si. Prueba AutoMargin primero con tus propios archivos. Despues, los planes dependen del volumen y las funciones."
+          },
+          "security": {
+            "q": "¿Mis datos estan seguros?",
+            "a": "Si. Tus archivos se cifran, se procesan en entornos seguros y nunca se comparten con terceros."
+          }
+        }
+      },
+      "gettingStarted": {
+        "title": "Primeros pasos",
+        "questions": {
+          "prices": {
+            "q": "¿Puedo confiar en los precios de mercado?",
+            "a": "Si. Contrastamos con anuncios en vivo de AutoScout24, Mobile.de y marketplaces europeos de confianza."
+          },
+          "start": {
+            "q": "¿Como empiezo?",
+            "a": "Envia tu solicitud por el formulario de contacto o por email, y nuestro equipo te guiara en la configuracion."
+          }
+        }
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Contactanos",
+    "title": "Estamos aqui para ayudar.",
+    "description": "Cuentanos que necesitas y enviaremos tu solicitud a la persona adecuada. Normalmente respondemos en 1 dia laborable.",
+    "detailsTitle": "Datos de contacto",
+    "openHours": "Lun-vie, 9:00-17:00 (CET)",
+    "nextSteps": {
+      "eyebrow": "Siguientes pasos",
+      "title": "Guias para empezar",
+      "description": "Explora el camino mas rapido segun lo que buscas.",
+      "linkLabel": "Saber mas",
+      "cards": {
+        "faq": {
+          "title": "FAQ",
+          "description": "Respuestas rapidas sobre el producto, planes y demo."
+        },
+        "guidebook": {
+          "title": "Guidebook",
+          "description": "Lee la guia de workflow de Auto-margin: como los equipos revisan listas y validan margen."
+        },
+        "demo": {
+          "title": "Demo",
+          "description": "Prueba una oferta real de coche y ve como funciona el analisis, sin registro."
+        }
+      }
+    },
+    "form": {
+      "title": "Hablemos",
+      "description": "Comparte algunos detalles y te responderemos.",
+      "errors": {
+        "unavailable": "El formulario de contacto no esta disponible temporalmente.",
+        "submit": "No se puede enviar ahora. Intentalo de nuevo pronto."
+      },
+      "fields": {
+        "inquiryType": {
+          "label": "¿En que podemos ayudar? *",
+          "placeholder": "Selecciona tema",
+          "options": {
+            "registration": "Registro",
+            "business": "Empresa / partnership",
+            "careers": "Solicitud de empleo",
+            "other": "Otro"
+          }
+        },
+        "name": {
+          "label": "Nombre completo *",
+          "placeholder": "Nombre y apellido"
+        },
+        "email": { "label": "Email *", "placeholder": "yo@empresa.com" },
+        "company": { "label": "Empresa", "placeholder": "Nombre de empresa" },
+        "employees": {
+          "label": "Numero de empleados",
+          "placeholder": "p. ej. 11-50"
+        },
+        "message": {
+          "label": "Tu mensaje *",
+          "placeholder": "Escribe tu mensaje"
+        }
+      },
+      "terms": { "prefix": "Acepto los", "link": "terminos y condiciones" },
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "privacy": {
+        "prefix": "Al enviar, aceptas nuestra",
+        "link": "politica de privacidad"
+      },
+      "success": {
+        "title": "OK",
+        "description": "Enviado. Te responderemos pronto."
+      }
+    }
+  },
+  "About": {
+    "hero": {
+      "title": "Deals inteligentes con automatizacion",
+      "subtitle": "Convierte insight de concesionarios en una herramienta automatizada.",
+      "body1": "Hemos conectado concesionarios en Europa y construido nuestra red en Suiza. Con mas de 15 anos en la industria, convertimos los mejores insights de concesionarios en una herramienta automatizada.",
+      "body2": "Empezamos con la idea de automatizar trabajo manual. AutoMargin se basa en el conocimiento de nuestros mejores concesionarios y su forma de comparar y encontrar deals.",
+      "stats": {
+        "founded": "Fundado",
+        "industry": "Años en la industria",
+        "dealers": "Concesionarios conectados",
+        "network": "HQ y red"
+      }
+    },
+    "content": {
+      "images": {
+        "dashboard": "Dashboard analitico",
+        "marketAnalysis": "Analisis de mercado europeo",
+        "carDashboard": "Dashboard especifico del coche",
+        "dealerLeaderboard": "Ranking de concesionarios"
+      },
+      "team": {
+        "title": "El equipo",
+        "p1": "Somos un equipo pequeno, propiedad de fundadores, con insiders de automocion y builders.",
+        "p2": "Cada parte de la herramienta esta disenada alrededor de como trabajan realmente los mejores concesionarios.",
+        "p3": "Obtienes mas que diferencia de precio: mejores marcas, mejores concesionarios, pais por pais y mas.",
+        "cta": "Contactanos"
+      },
+      "product": {
+        "p1": "AutoMargin ofrece mas que diferencia de precio: datos de mercado en vivo, analisis de margen e insight de concesionarios en un solo lugar.",
+        "p2": "Seas concesionario o desarrollador, recibes output limpio y estructurado para centrarte en cerrar deals."
+      }
+    }
+  },
+  "Footer": {
+    "navigation": {
+      "product": "Producto",
+      "about": "Sobre nosotros",
+      "pricing": "Precios",
+      "faq": "FAQ"
+    },
+    "tryDemo": "Probar demo",
+    "contactUs": "Contactanos",
+    "slogan": "Menos tiempo ordenando deals.",
+    "privacy": "Politica de privacidad"
+  }
+}

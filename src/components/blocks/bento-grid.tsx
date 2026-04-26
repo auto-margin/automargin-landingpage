@@ -1,5 +1,6 @@
 import { FileTextIcon } from "@radix-ui/react-icons";
 import { BellIcon, Share2Icon, ShieldCheckIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { AnimatedListDemo } from "../animated-list";
 import { AnimatedBeamMultipleOutputDemo } from "../animated-multiple-beams";
@@ -38,8 +39,7 @@ const features = [
     Icon: FileTextIcon,
     name: "Upload any format",
     description: "We support PDF, Excel, CSV and more.",
-    href: "#",
-    cta: "Learn more",
+    hoverText: "Files are securely stored and protected.",
     className: "col-span-3 lg:col-span-1",
     background: (
       <Marquee
@@ -71,18 +71,16 @@ const features = [
   },
   {
     Icon: ShieldCheckIcon,
-    name: "Dealer verification",
-    description:
-      "See who sends the best offers - e.g. 1000 cars from 10 dealers.",
-    href: "#",
-    cta: "Learn more",
+    name: "Supplier verification",
+    description: "See who sends the best offers.",
+    hoverText: "Discover your favorite supplier.",
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="absolute top-4 right-4 left-4 flex h-[300px] justify-center overflow-hidden [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out md:right-6 md:left-6 md:h-[320px]">
         <div className="relative h-full w-full max-w-lg origin-top scale-90 transition-all duration-300 ease-out group-hover:scale-95">
           <DealerVerificationInboxMock className="h-full w-full" />
           {/* Mobile: taller/solid fade so inbox rows don’t show through behind the card title + icon */}
-          <div className="md:from-background/50 pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(to_top,var(--background)_0%,var(--background)_46%,color-mix(in_oklch,var(--background)_35%,transparent)_68%,transparent_100%)] md:bg-linear-to-t md:via-transparent md:to-transparent" />
+          <div className="md:from-background/50 pointer-events-none absolute inset-0 max-md:bg-[linear-gradient(to_top,var(--background)_0%,var(--background)_46%,color-mix(in_oklch,var(--background)_35%,transparent)_68%,transparent_100%)] max-sm:bg-[linear-gradient(to_top,var(--background)_0%,var(--background)_26%,color-mix(in_oklch,var(--background)_28%,transparent)_48%,transparent_100%)] md:bg-linear-to-t md:via-transparent md:to-transparent" />
         </div>
       </div>
     ),
@@ -99,8 +97,7 @@ const features = [
     ),
     description:
       "Compare offers from different markets to find the best price.",
-    href: "#",
-    cta: "Learn more",
+    hoverText: "Validate offers against your rules.",
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="max-lg:pb-6 max-sm:pb-8">
@@ -117,9 +114,8 @@ const features = [
   {
     Icon: BellIcon,
     name: "Notifications",
-    description: "Attach an offer, receive insights and alerts by email.",
-    href: "#",
-    cta: "Learn more",
+    description: "Attach offers, get email insights.",
+    hoverText: "Get results and updates automatically.",
     className: "col-span-3 lg:col-span-1",
     background: (
       <MountWhenInView
@@ -134,9 +130,27 @@ const features = [
 ];
 
 export function BentoDemo() {
+  const t = useTranslations("Home.bentoCards");
+  const translatedFeatures = features.map((feature, index) => ({
+    ...feature,
+    name:
+      index === 2 ? (
+        <>
+          <span className="max-[424px]:hidden">{t(`items.${index}.name`)}</span>
+          <span className="hidden max-[424px]:inline">
+            {t(`items.${index}.shortName`)}
+          </span>
+        </>
+      ) : (
+        t(`items.${index}.name`)
+      ),
+    description: t(`items.${index}.description`),
+    hoverText: t(`items.${index}.hoverText`),
+  }));
+
   return (
     <BentoGrid>
-      {features.map((feature, idx) => (
+      {translatedFeatures.map((feature, idx) => (
         <BentoCard key={idx} {...feature} />
       ))}
     </BentoGrid>

@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -35,6 +36,7 @@ import { formSchema } from "@/lib/form-schema";
 type Schema = z.infer<typeof formSchema>;
 
 export function ContactForm() {
+  const t = useTranslations("Contact.form");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [lockedHeight, setLockedHeight] = useState<number | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
@@ -65,9 +67,7 @@ export function ContactForm() {
   const formAction = useAction(serverAction, {
     onSuccess: ({ data }) => {
       if (!data?.success) {
-        setSubmitError(
-          data?.message ?? "Contact form is temporarily unavailable.",
-        );
+        setSubmitError(data?.message ?? t("errors.unavailable"));
         return;
       }
       setSubmitError(null);
@@ -84,7 +84,7 @@ export function ContactForm() {
       });
     },
     onError: () => {
-      setSubmitError("Unable to submit right now. Please try again shortly.");
+      setSubmitError(t("errors.submit"));
     },
   });
   const handleSubmit = form.handleSubmit(async (data: Schema) => {
@@ -96,16 +96,20 @@ export function ContactForm() {
   return (
     <div
       className="relative"
-      style={hasSucceeded && lockedHeight ? { height: `${lockedHeight}px` } : {}}
+      style={
+        hasSucceeded && lockedHeight ? { height: `${lockedHeight}px` } : {}
+      }
     >
       <div
         ref={measureRef}
-        className={hasSucceeded ? "invisible pointer-events-none" : ""}
+        className={hasSucceeded ? "pointer-events-none invisible" : ""}
       >
         <div className="mb-6">
-          <h2 className="text-foreground text-xl font-semibold">Let’s talk</h2>
+          <h2 className="text-foreground text-xl font-semibold">
+            {t("title")}
+          </h2>
           <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-            Share a few details and we’ll get back to you.
+            {t("description")}
           </p>
         </div>
 
@@ -131,20 +135,28 @@ export function ContactForm() {
               name="inquiryType"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>What can we help with? *</FormLabel>
+                  <FormLabel>{t("fields.inquiryType.label")}</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select topic" />
+                        <SelectValue
+                          placeholder={t("fields.inquiryType.placeholder")}
+                        />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="registration">Registration</SelectItem>
-                      <SelectItem value="business">
-                        Business / partnership
+                      <SelectItem value="registration">
+                        {t("fields.inquiryType.options.registration")}
                       </SelectItem>
-                      <SelectItem value="careers">Job application</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="business">
+                        {t("fields.inquiryType.options.business")}
+                      </SelectItem>
+                      <SelectItem value="careers">
+                        {t("fields.inquiryType.options.careers")}
+                      </SelectItem>
+                      <SelectItem value="other">
+                        {t("fields.inquiryType.options.other")}
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -157,7 +169,7 @@ export function ContactForm() {
               rules={{ required: true }}
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Full name * </FormLabel>
+                  <FormLabel>{t("fields.name.label")}</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -166,7 +178,7 @@ export function ContactForm() {
                         const val = e.target.value;
                         field.onChange(val);
                       }}
-                      placeholder="First and last name"
+                      placeholder={t("fields.name.placeholder")}
                     />
                   </FormControl>
 
@@ -180,7 +192,7 @@ export function ContactForm() {
               rules={{ required: true }}
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Email address * </FormLabel>
+                  <FormLabel>{t("fields.email.label")}</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -189,7 +201,7 @@ export function ContactForm() {
                         const val = e.target.value;
                         field.onChange(val);
                       }}
-                      placeholder="me@company.com"
+                      placeholder={t("fields.email.placeholder")}
                     />
                   </FormControl>
 
@@ -203,7 +215,7 @@ export function ContactForm() {
               rules={{ required: false }}
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Company name </FormLabel>
+                  <FormLabel>{t("fields.company.label")}</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -212,7 +224,7 @@ export function ContactForm() {
                         const val = e.target.value;
                         field.onChange(val);
                       }}
-                      placeholder="Company name"
+                      placeholder={t("fields.company.placeholder")}
                     />
                   </FormControl>
 
@@ -234,11 +246,13 @@ export function ContactForm() {
                 ];
                 return (
                   <FormItem className="w-full">
-                    <FormLabel>Number of employees </FormLabel>
+                    <FormLabel>{t("fields.employees.label")}</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="e.g. 11-50" />
+                          <SelectValue
+                            placeholder={t("fields.employees.placeholder")}
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -262,11 +276,11 @@ export function ContactForm() {
               rules={{ required: true }}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Your message * </FormLabel>
+                  <FormLabel>{t("fields.message.label")}</FormLabel>
                   <FormControl>
                     <Textarea
                       {...field}
-                      placeholder="Write your message"
+                      placeholder={t("fields.message.placeholder")}
                       className="resize-none"
                     />
                   </FormControl>
@@ -290,12 +304,12 @@ export function ContactForm() {
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      I agree to the{" "}
+                      {t("terms.prefix")}{" "}
                       <Link
                         href="/privacy"
                         className="underline underline-offset-4"
                       >
-                        terms and conditions
+                        {t("terms.link")}
                       </Link>
                     </FormLabel>
 
@@ -306,7 +320,7 @@ export function ContactForm() {
             />
             <div className="flex w-full items-center justify-end pt-3">
               <Button className="rounded-lg" size="sm" disabled={isExecuting}>
-                {isExecuting ? "Submitting....." : "Submit"}
+                {isExecuting ? t("submitting") : t("submit")}
               </Button>
             </div>
             {submitError ? (
@@ -318,9 +332,9 @@ export function ContactForm() {
         </Form>
 
         <p className="text-muted-foreground mt-4 text-xs">
-          By submitting, you agree to our{" "}
+          {t("privacy.prefix")}{" "}
           <Link href="/privacy" className="underline underline-offset-4">
-            privacy policy
+            {t("privacy.link")}
           </Link>
           .
         </p>
@@ -350,10 +364,10 @@ export function ContactForm() {
               <Check className="size-8" aria-hidden />
             </motion.div>
             <h2 className="text-foreground text-2xl font-semibold tracking-tight">
-              OK
+              {t("success.title")}
             </h2>
             <p className="text-muted-foreground mt-2 max-w-sm text-sm leading-relaxed">
-              Submitted. We’ll get back to you soon.
+              {t("success.description")}
             </p>
           </div>
         </motion.div>

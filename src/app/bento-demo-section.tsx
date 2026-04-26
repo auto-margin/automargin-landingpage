@@ -1,7 +1,11 @@
+import { useTranslations } from "next-intl";
+
 import { BentoDemo } from "@/components/blocks/bento-grid";
 import { DashedLine } from "@/components/dashed-line";
 
 export function BentoDemoSection() {
+  const t = useTranslations("Home.bento");
+
   return (
     <section
       id="feature-modern-teams"
@@ -12,19 +16,17 @@ export function BentoDemoSection() {
         <div className="relative flex items-center justify-center">
           <DashedLine className="text-muted-foreground" />
           <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
-            NO GUESSES. JUST MARGINS.
+            {t("label")}
           </span>
         </div>
 
         {/* Content */}
         <div className="mx-auto my-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-            Made for car dealerships
+            {t("title")}
           </h2>
           <p className="text-muted-foreground leading-snug">
-            Automargin is built on the habits that make the best car dealerships
-            successful: staying focused, moving quickly and always aiming for
-            high-quality buying decisions.
+            {t("description")}
           </p>
         </div>
         <BentoDemo />

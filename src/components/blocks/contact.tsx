@@ -7,6 +7,7 @@ import {
   Mail,
   PlayCircle,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { ContactForm } from "@/components/blocks/contact-form";
 import { DashedLine } from "@/components/dashed-line";
@@ -15,8 +16,18 @@ import { Link } from "@/i18n/navigation";
 
 const EMAIL_GENERAL = "info@auto-margin.com";
 const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";
-const OPEN_HOURS = "Mon–Fri, 9:00–17:00 (CET)";
-
+const helpCards = ["faq", "guidebook", "demo"] as const;
+const helpIcons = {
+  faq: CircleHelp,
+  guidebook: BookOpen,
+  demo: PlayCircle,
+} as const;
+const helpHrefs = {
+  faq: "/faq",
+  guidebook: "/guidebook",
+  demo: "/demo",
+} as const;
+const externalHelpCards = new Set<(typeof helpCards)[number]>(["guidebook"]);
 
 function HelpCard({
   title,
@@ -24,13 +35,18 @@ function HelpCard({
   href,
   icon: Icon,
   external,
+  linkLabel,
 }: {
   title: string;
   description: string;
   href: string;
   icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
   external?: boolean;
+  linkLabel: string;
 }) {
+  const linkClass =
+    "mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-chart-1 hover:opacity-80";
+
   return (
     <Card className="bg-card/60 rounded-2xl">
       <CardContent className="flex h-full flex-col p-6">
@@ -41,7 +57,7 @@ function HelpCard({
               {description}
             </p>
           </div>
-          <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-chart-1/15 text-chart-1 ring-1 ring-chart-1/25">
+          <span className="bg-chart-1/15 text-chart-1 ring-chart-1/25 inline-flex size-10 shrink-0 items-center justify-center rounded-xl ring-1">
             <Icon className="size-5" aria-hidden />
           </span>
         </div>
@@ -51,16 +67,13 @@ function HelpCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-chart-1 hover:opacity-80"
+            className={linkClass}
           >
-            Learn more <ArrowRight className="size-4" aria-hidden />
+            {linkLabel} <ArrowRight className="size-4" aria-hidden />
           </a>
         ) : (
-          <Link
-            href={href}
-            className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-chart-1 hover:opacity-80"
-          >
-            Learn more <ArrowRight className="size-4" aria-hidden />
+          <Link href={href} className={linkClass}>
+            {linkLabel} <ArrowRight className="size-4" aria-hidden />
           </Link>
         )}
       </CardContent>
@@ -69,26 +82,26 @@ function HelpCard({
 }
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+
   return (
     <section className="py-28 lg:py-32 lg:pt-44">
       <div className="container max-w-6xl">
-        {/* Hero split */}
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-xs font-medium tracking-wide uppercase text-chart-1">
-              Contact us
+            <p className="text-chart-1 text-xs font-medium tracking-wide uppercase">
+              {t("eyebrow")}
             </p>
             <h1 className="text-foreground mt-4 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-              We’re here to help.
+              {t("title")}
             </h1>
             <p className="text-muted-foreground mt-4 max-w-xl text-base leading-relaxed md:text-lg">
-              Tell us what you need and we’ll route your request to the right
-              person. We typically respond within 1 business day.
+              {t("description")}
             </p>
 
             <div className="mt-10">
               <p className="text-foreground text-sm font-semibold">
-                Contact details
+                {t("detailsTitle")}
               </p>
               <div className="mt-4 space-y-3 text-sm">
                 <a
@@ -100,7 +113,7 @@ export default function Contact() {
                 </a>
                 <div className="text-muted-foreground flex items-center gap-2">
                   <Clock className="size-4 opacity-80" aria-hidden />
-                  <span>{OPEN_HOURS}</span>
+                  <span>{t("openHours")}</span>
                 </div>
                 <a
                   href={LINKEDIN_URL}
@@ -123,42 +136,33 @@ export default function Contact() {
           </Card>
         </div>
 
-        {/* Help options */}
         <div className="mt-16 lg:mt-20">
           <DashedLine className="text-muted-foreground" />
         </div>
 
         <div className="mt-12">
-          <p className="text-xs font-medium tracking-wide uppercase text-chart-1">
-            Next steps
+          <p className="text-chart-1 text-xs font-medium tracking-wide uppercase">
+            {t("nextSteps.eyebrow")}
           </p>
           <h2 className="text-foreground mt-4 text-4xl font-semibold tracking-tight">
-            Guides to get started
+            {t("nextSteps.title")}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl text-sm leading-relaxed md:text-base">
-            Explore the quickest path depending on what you’re looking for.
+            {t("nextSteps.description")}
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <HelpCard
-              title="FAQ"
-              description="Get quick answers about the product, plans, and how the demo works."
-              href="/faq"
-              icon={CircleHelp}
-            />
-            <HelpCard
-              title="Guidebook"
-              description="Read the Auto-margin workflow guide—how teams screen lists and validate margin."
-              href="/guidebook"
-              icon={BookOpen}
-              external
-            />
-            <HelpCard
-              title="Demo"
-              description="Try a real car offer and see how the analysis works—no signup needed."
-              href="/demo"
-              icon={PlayCircle}
-            />
+            {helpCards.map((card) => (
+              <HelpCard
+                key={card}
+                title={t(`nextSteps.cards.${card}.title`)}
+                description={t(`nextSteps.cards.${card}.description`)}
+                href={helpHrefs[card]}
+                icon={helpIcons[card]}
+                external={externalHelpCards.has(card)}
+                linkLabel={t("nextSteps.linkLabel")}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -24,6 +24,20 @@ const demoLimiter = new Ratelimit({
   prefix: "rl:demo:landing",
 });
 
+const aliceWindowLimiter = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(12, "10 m"),
+  analytics: true,
+  prefix: "rl:alice:window",
+});
+
+const aliceBurstLimiter = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(4, "1 m"),
+  analytics: true,
+  prefix: "rl:alice:burst",
+});
+
 type LimitResult = {
   ok: boolean;
   reset: number;
@@ -52,4 +66,8 @@ export function checkContactLimit(identity: string) {
 export async function checkDemoLimit(identity: string): Promise<LimitResult> {
   const result = await demoLimiter.limit(identity);
   return { ok: result.success, reset: result.reset };
+}
+
+export function checkAliceLimit(identity: string) {
+  return checkLimitPair(aliceWindowLimiter, aliceBurstLimiter, identity);
 }

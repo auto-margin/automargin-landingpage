@@ -1,28 +1,26 @@
 import Image from "next/image";
 
-import { ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { DashedLine } from "../dashed-line";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "@/i18n/navigation";
 
-const items = [
-  {
-    title: "Real-time market price comparisons",
-    image: "/features/triage-card.svg",
-  },
-  {
-    title: "Competitor pricing across markets",
-    image: "/features/cycle-card.svg",
-  },
-  {
-    title: "AI-powered insights for smarter buys",
-    image: "/features/overview-card.svg",
-  },
-];
+const itemKeys = ["market", "competitor", "insights"] as const;
+const itemImages = [
+  "/features/triage-card.svg",
+  "/features/cycle-card.svg",
+  "/features/overview-card.svg",
+] as const;
 
 export const Features = () => {
+  const t = useTranslations("Home.features");
+  const items = itemKeys.map((key, index) => ({
+    title: t(`items.${key}`),
+    image: itemImages[index]!,
+  }));
+
   return (
     <section id="automation-for-your-busniess" className="pb-28 lg:pb-32">
       <div className="container">
@@ -34,7 +32,7 @@ export const Features = () => {
         {/* Content */}
         <div className="mx-auto mt-10 max-w-4xl lg:mt-24">
           <h2 className="text-2xl tracking-tight whitespace-nowrap md:text-4xl lg:text-5xl">
-            Automation for your busniess
+            {t("title")}
           </h2>
         </div>
 
@@ -42,31 +40,29 @@ export const Features = () => {
         <Card className="mt-8 rounded-2xl md:mt-12 lg:mt-20">
           <CardContent className="flex p-0 max-md:flex-col">
             {items.map((item, i) => (
-              <div key={i} className="flex flex-1 max-md:flex-col">
+              <div key={item.title} className="flex flex-1 max-md:flex-col">
                 <div className="flex-1 p-4 pe-0! md:p-6">
                   <div className="relative aspect-[1.28/1] overflow-hidden">
                     <Image
                       src={item.image}
-                      alt={`${item.title} interface`}
+                      alt={t("imageAlt", { title: item.title })}
                       fill
                       className="object-cover object-left-top ps-4 pt-2"
                     />
                     <div className="from-background absolute inset-0 z-10 bg-linear-to-t via-transparent to-transparent" />
                   </div>
 
-                  <Link
-                    href="#"
-                    className={
-                      "group flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6"
-                    }
-                  >
+                  <div className="flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6">
                     <h3 className="font-display max-w-60 text-2xl leading-tight font-bold tracking-tight">
                       {item.title}
                     </h3>
-                    <div className="rounded-full border p-2">
-                      <ChevronRight className="size-6 transition-transform group-hover:translate-x-1 lg:size-9" />
+                    <div
+                      className="bg-foreground/5 text-foreground flex size-10 items-center justify-center rounded-full border"
+                      aria-hidden
+                    >
+                      <Check className="size-5 lg:size-6" />
                     </div>
-                  </Link>
+                  </div>
                 </div>
                 {i < items.length - 1 && (
                   <div className="relative hidden md:block">

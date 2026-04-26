@@ -43,12 +43,6 @@ const ITEMS = [
         description:
           "See list prices in context and spot stronger deals while you browse marketplaces.",
       },
-      {
-        title: "Enterprise",
-        href: "/enterprise",
-        description:
-          "Bulk screening, multi-market evaluation, and dealer-level intelligence for larger teams.",
-      },
     ],
   },
   { labelKey: "about", href: "/about" },
@@ -64,7 +58,8 @@ export const Navbar = () => {
   const t = useTranslations("Navbar");
   const clientLoginUrl = "https://client.auto-margin.com";
 
-  const normalizedPathname = pathname.replace(/^\/(en|sv)(?=\/|$)/, "") || "/";
+  const normalizedPathname =
+    pathname.replace(/^\/(en|sv|de|es|dk)(?=\/|$)/, "") || "/";
 
   return (
     <section
@@ -74,7 +69,10 @@ export const Navbar = () => {
       )}
     >
       <div className="flex items-center justify-between px-6 py-3">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+        <Link
+          href="/"
+          className="relative flex h-6 w-8 shrink-0 items-center overflow-hidden"
+        >
           {/* SVG logo: avoid `next/image` + global `img { height: auto }` dev warning */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -82,7 +80,7 @@ export const Navbar = () => {
             alt="Auto-margin logo"
             width={112}
             height={Math.round((112 * 75) / 396)}
-            className="block h-auto max-w-full dark:invert"
+            className="absolute left-1/2 block h-auto w-28 max-w-none -translate-x-1/2 dark:invert"
           />
         </Link>
 

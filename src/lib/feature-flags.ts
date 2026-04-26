@@ -1,0 +1,3 @@
+export const ENABLE_SELF_SERVE_PRICING =
+  process.env.NEXT_PUBLIC_ENABLE_SELF_SERVE_PRICING === "true";
+

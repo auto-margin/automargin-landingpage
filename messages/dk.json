@@ -1,0 +1,337 @@
+{
+  "Navbar": {
+    "features": "Funktioner",
+    "about": "Om os",
+    "pricing": "Priser",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "login": "Login",
+    "language": "Sprog"
+  },
+  "Home": {
+    "hero": {
+      "title": "Analyser hvert biltilbud.",
+      "subtitle": "Automargin hjælper dig med at analysere og forstå, om et biltilbud er profitabelt.",
+      "primaryCta": "Kom i gang",
+      "secondaryCta": "Prøv demo",
+      "features": {
+        "market": {
+          "title": "Markedspris-intelligens",
+          "description": "Analyser liveannoncer på store europæiske bilmarkedspladser for realistiske videresalgsværdier."
+        },
+        "margin": {
+          "title": "Øjeblikkelig marginalanalyse",
+          "description": "Beregn potentiel fortjeneste før køb af et køretøj - uden manuel research."
+        },
+        "comparison": {
+          "title": "Sammenligning på tværs af markeder",
+          "description": "Se hvordan lignende køretøjer prissættes i forskellige europæiske markeder."
+        },
+        "insights": {
+          "title": "AI-drevne indsigter",
+          "description": "ML-modeller finder pristrends og muligheder."
+        }
+      }
+    },
+    "features": {
+      "title": "Automatisering til din virksomhed",
+      "imageAlt": "{title}-interface",
+      "items": {
+        "market": "Markedsprissammenligninger i realtid",
+        "competitor": "Konkurrentpriser på tværs af markeder",
+        "insights": "AI-drevne indsigter til smartere køb"
+      }
+    },
+    "markets": {
+      "title": "Data fra topmarkeder",
+      "description": "Markedsdata pr. land, automatisk anvendt på hver profitabilitetskontrol.",
+      "comingSoon": "Kommer snart",
+      "countries": {
+        "DE": { "name": "Tyskland", "metric": "2,3M+ annoncer" },
+        "FR": { "name": "Frankrig", "metric": "1,2M+ annoncer" },
+        "PL": { "name": "Polen", "metric": "870K+ annoncer" },
+        "IT": { "name": "Italien", "metric": "720K+ annoncer" },
+        "CH": { "name": "Schweiz", "metric": "540K+ annoncer" },
+        "ES": { "name": "Spanien", "metric": "660K+ annoncer" },
+        "NL": { "name": "Holland", "metric": "540K+ annoncer" },
+        "BE": { "name": "Belgien", "metric": "410K+ annoncer" },
+        "SE": { "name": "Sverige", "metric": "380K+ annoncer" },
+        "CZ": { "name": "Tjekkiet", "metric": "320K+ annoncer" }
+      }
+    },
+    "bento": {
+      "label": "INGEN GÆT. KUN MARGINER.",
+      "title": "Bygget til bilforhandlere",
+      "description": "Automargin bygger på de vaner, der gør de bedste bilforhandlere succesfulde: fokus, hastighed og købsbeslutninger af høj kvalitet."
+    },
+    "bentoCards": {
+      "items": {
+        "0": {
+          "name": "Upload ethvert format",
+          "description": "Vi understøtter PDF, Excel, CSV og mere.",
+          "hoverText": "Filer gemmes sikkert og beskyttes."
+        },
+        "1": {
+          "name": "Leverandørverifikation",
+          "description": "Se hvem der sender de bedste tilbud.",
+          "hoverText": "Find din foretrukne leverandør."
+        },
+        "2": {
+          "name": "Tilbudssammenligning på tværs af markeder",
+          "shortName": "Tilbudssammenligning",
+          "description": "Sammenlign tilbud fra forskellige markeder for at finde den bedste pris.",
+          "hoverText": "Valider tilbud mod dine regler."
+        },
+        "3": {
+          "name": "Notifikationer",
+          "description": "Vedhæft tilbud og få e-mailindsigter.",
+          "hoverText": "Få resultater og opdateringer automatisk."
+        }
+      }
+    },
+    "salesPricing": {
+      "title": "Bliv en del af vores netværk",
+      "description1": "Planer tilpasses din bilforretning.",
+      "description2": "Din volumen, dine markeder og dit setup bestemmer prisen.",
+      "bullets": {
+        "dealFlow": "Bygget omkring dit dealflow",
+        "markets": "Markedsspecifikt setup",
+        "workflow": "Manuelt eller API-assisteret workflow",
+        "support": "Direkte onboarding-support"
+      },
+      "proposal": {
+        "title": "Skræddersyet forslag",
+        "description": "Vi arbejder med et begrænset antal forhandlere ved lancering. Anmod om adgang for at få et skræddersyet prisforslag.",
+        "primaryCta": "Anmod om adgang",
+        "secondaryCta": "Se prismodel"
+      }
+    }
+  },
+  "PricingPage": {
+    "hero": {
+      "title": "Tilpassede priser til din drift",
+      "description": "Vi tilbyder ikke faste offentlige planer ved lancering. Hvert partnerskab struktureres efter sourcingvolumen, målmarkeder, workflow og supportbehov.",
+      "cta": "Kontakt salg"
+    },
+    "drivers": {
+      "title": "Hvad prisen afhænger af",
+      "description": "Vi strukturerer priser omkring de operationelle input, der driver sourcing, integration og support.",
+      "items": {
+        "volume": {
+          "title": "Dealvolumen",
+          "description": "Hvor mange køretøjer, tilbud eller sourcingforespørgsler du håndterer."
+        },
+        "markets": {
+          "title": "Målmarkeder",
+          "description": "Lande, regioner og leverandøradgang der kræves."
+        },
+        "workflow": {
+          "title": "Workflow-setup",
+          "description": "Automatisk validering, managed access, API-adgang eller intern processtøtte."
+        },
+        "support": {
+          "title": "Supportniveau",
+          "description": "Onboarding, rapportering, account support og operationel hjælp."
+        }
+      }
+    },
+    "process": {
+      "title": "Sådan fungerer processen",
+      "description": "En enkel proces til at kvalificere fit og komme hurtigt videre.",
+      "steps": {
+        "request": "Anmod om adgang",
+        "qualification": "Kvalificeringskald",
+        "proposal": "Kommercielt forslag",
+        "onboarding": "Onboarding",
+        "optimization": "Løbende optimering"
+      }
+    },
+    "engagement": {
+      "title": "Engagementsmodeller",
+      "description": "Ingen offentlige priser - vælg den relationsmodel, der passer til din drift.",
+      "cta": "Kontakt os",
+      "models": {
+        "automatic": {
+          "title": "Automatisk adgang",
+          "description": "Vi validerer tilbud på dine vegne og sender resultatet tilbage, så dit team kan handle uden selv at styre review-flowet."
+        },
+        "managed": {
+          "title": "Managed access",
+          "description": "Dine brugere eller medlemmer kan selv validere tilbud, uploade filer og håndtere processen direkte i Auto-margin."
+        },
+        "api": {
+          "title": "Enterprise API-adgang",
+          "description": "Få API-adgang, API-nøgle og dokumentation, så dit team kan bygge og drive sit eget valideringssetup."
+        }
+      }
+    }
+  },
+  "FAQ": {
+    "title": "Spørgsmål?",
+    "contactPrefix": "Hvis du ikke finder det, du leder efter,",
+    "contactLink": "kontakt os",
+    "categories": {
+      "product": {
+        "title": "Produkt og hvordan det virker",
+        "questions": {
+          "what": {
+            "q": "Hvad gør AutoMargin?",
+            "a": "AutoMargin analyserer køretøjstilbud fra e-mails, PDF, Excel og andre formater. Det sammenligner leverandørpriser med live markedsdata, beregner marginer og fremhæver profitable muligheder."
+          },
+          "identify": {
+            "q": "Hvordan finder det de bedste deals?",
+            "a": "Vores AI vurderer hvert tilbud mod realtidsannoncer, beregner videresalgsmarginer og rangerer muligheder efter dine kriterier."
+          },
+          "files": {
+            "q": "Hvilke filtyper understøttes?",
+            "a": "PDF, Excel, Word, Google Sheets og e-mails - også blandede formater i samme batch."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Priser og sikkerhed",
+        "questions": {
+          "audience": {
+            "q": "Hvem er AutoMargin til?",
+            "a": "Uafhængige forhandlere, tradingfirmaer og B2B-markedspladser med høj tilbudsvolumen og behov for hurtigere datadrevne købsbeslutninger."
+          },
+          "trial": {
+            "q": "Er der en gratis prøve?",
+            "a": "Ja. Prøv AutoMargin med dine egne filer først. Derefter afhænger planer af volumen og funktioner."
+          },
+          "security": {
+            "q": "Er mine data sikre?",
+            "a": "Ja. Dine filer krypteres, behandles i sikre miljøer og deles aldrig med tredjeparter."
+          }
+        }
+      },
+      "gettingStarted": {
+        "title": "Kom i gang",
+        "questions": {
+          "prices": {
+            "q": "Kan jeg stole på markedspriserne?",
+            "a": "Ja. Vi krydstjekker mod liveannoncer fra AutoScout24, Mobile.de og betroede europæiske markedspladser."
+          },
+          "start": {
+            "q": "Hvordan kommer jeg i gang?",
+            "a": "Send din forespørgsel via kontaktformularen eller e-mail, så guider vores team dig gennem setup."
+          }
+        }
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Kontakt os",
+    "title": "Vi er her for at hjælpe.",
+    "description": "Fortæl os, hvad du har brug for, så sender vi din forespørgsel til den rette person. Vi svarer typisk inden for 1 arbejdsdag.",
+    "detailsTitle": "Kontaktoplysninger",
+    "openHours": "Man-fre, 9:00-17:00 (CET)",
+    "nextSteps": {
+      "eyebrow": "Næste skridt",
+      "title": "Guides til at komme i gang",
+      "description": "Find den hurtigste vej afhængigt af, hvad du leder efter.",
+      "linkLabel": "Læs mere",
+      "cards": {
+        "faq": {
+          "title": "FAQ",
+          "description": "Hurtige svar om produktet, planer og demoen."
+        },
+        "guidebook": {
+          "title": "Guidebook",
+          "description": "Læs Auto-margin workflow-guiden - hvordan teams screener lister og validerer margin."
+        },
+        "demo": {
+          "title": "Demo",
+          "description": "Prøv et rigtigt biltilbud og se, hvordan analysen virker - uden signup."
+        }
+      }
+    },
+    "form": {
+      "title": "Lad os tale",
+      "description": "Del et par detaljer, så vender vi tilbage.",
+      "errors": {
+        "unavailable": "Kontaktformularen er midlertidigt utilgængelig.",
+        "submit": "Kan ikke sende lige nu. Prøv igen om lidt."
+      },
+      "fields": {
+        "inquiryType": {
+          "label": "Hvad kan vi hjælpe med? *",
+          "placeholder": "Vælg emne",
+          "options": {
+            "registration": "Registrering",
+            "business": "Forretning / partnerskab",
+            "careers": "Jobansøgning",
+            "other": "Andet"
+          }
+        },
+        "name": { "label": "Fulde navn *", "placeholder": "For- og efternavn" },
+        "email": { "label": "E-mailadresse *", "placeholder": "mig@firma.com" },
+        "company": { "label": "Firmanavn", "placeholder": "Firmanavn" },
+        "employees": {
+          "label": "Antal medarbejdere",
+          "placeholder": "f.eks. 11-50"
+        },
+        "message": {
+          "label": "Din besked *",
+          "placeholder": "Skriv din besked"
+        }
+      },
+      "terms": { "prefix": "Jeg accepterer", "link": "vilkår og betingelser" },
+      "submit": "Send",
+      "submitting": "Sender...",
+      "privacy": {
+        "prefix": "Ved at sende accepterer du vores",
+        "link": "privatlivspolitik"
+      },
+      "success": {
+        "title": "OK",
+        "description": "Sendt. Vi vender snart tilbage."
+      }
+    }
+  },
+  "About": {
+    "hero": {
+      "title": "Smarte bildeals med automatisering",
+      "subtitle": "Gør forhandlerindsigt til ét automatiseret værktøj.",
+      "body1": "Vi har forbundet forhandlere i Europa og bygget vores netværk i Schweiz. Med over 15 år i bilbranchen har vi gjort de bedste forhandlerindsigter til et automatiseret værktøj.",
+      "body2": "Vi startede med en idé om at automatisere manuelt arbejde. AutoMargin bygger på viden fra vores bedste bilforhandlere og deres måde at sammenligne og finde deals på.",
+      "stats": {
+        "founded": "Grundlagt",
+        "industry": "År i branchen",
+        "dealers": "Forhandlere forbundet",
+        "network": "HQ og netværk"
+      }
+    },
+    "content": {
+      "images": {
+        "dashboard": "Analytisk dashboard",
+        "marketAnalysis": "Europæisk markedsanalyse",
+        "carDashboard": "Bilspecifikt dashboard",
+        "dealerLeaderboard": "Forhandler-rangliste"
+      },
+      "team": {
+        "title": "Teamet",
+        "p1": "Vi er et slankt, grunderejet team af bilbranchefolk og builders.",
+        "p2": "Hver del af værktøjet er designet omkring, hvordan de bedste forhandlere faktisk arbejder.",
+        "p3": "Du får mere end prisforskel: bedste mærker, bedste forhandlere, land for land og mere.",
+        "cta": "Kontakt os"
+      },
+      "product": {
+        "p1": "AutoMargin giver dig mere end prisforskel: live markedsdata, marginalanalyse og forhandlerindsigt ét sted.",
+        "p2": "Uanset om du er forhandler eller udvikler, får du rent, struktureret output, så du kan fokusere på at lukke deals."
+      }
+    }
+  },
+  "Footer": {
+    "navigation": {
+      "product": "Produkt",
+      "about": "Om os",
+      "pricing": "Priser",
+      "faq": "FAQ"
+    },
+    "tryDemo": "Prøv demo",
+    "contactUs": "Kontakt os",
+    "slogan": "Mindre tid på at sortere deals.",
+    "privacy": "Privatlivspolitik"
+  }
+}

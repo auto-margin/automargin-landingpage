@@ -32,7 +32,7 @@ type DealerVerificationInboxMockProps = {
   className?: string;
 };
 
-/** Compact inbox-style UI for the “Dealer verification” bento tile (no raster image). */
+/** Compact inbox-style UI for the “Supplier verification” bento tile (no raster image). */
 export function DealerVerificationInboxMock({
   className,
 }: DealerVerificationInboxMockProps) {
@@ -50,7 +50,7 @@ export function DealerVerificationInboxMock({
             ·
           </span>
           <span className="text-muted-foreground truncate text-[10px] font-medium tracking-tight">
-            Dealer insight
+            Supplier insight
           </span>
         </div>
         <div className="text-muted-foreground flex items-center gap-2">

@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 const items = [
   {
     quote: "We send offers by email and get margin analysis back in minutes.",
-    author: "Marcus Nielsen",
+    author: "Alex",
     role: "Sale Manager",
     company: "EuroMotors AG",
     image: "/testimonials/emotors.svg",
@@ -70,8 +70,8 @@ export const Testimonials = ({
               Trusted by well known dealers
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Dealers use AutoMargin to analyze offers from AutoScout24,
-              Mobile.de and other marketplaces.
+              Our network uses Auto-Margin to analyze offers across different
+              marketplaces at the same time.
             </p>
             <Button variant="outline" className="shadow-md" asChild>
               <Link href="/about">

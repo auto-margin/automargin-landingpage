@@ -1,23 +1,24 @@
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-const SLOGAN_LINE1 = "Less time sorting deals.";
 const EMAIL = "to@auto-margin.com";
 
 const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";
 const WHATSAPP_URL = "https://wa.me/+41566185544";
 
 export function Footer() {
+  const t = useTranslations("Footer");
   const navigation = [
-    { name: "Product", href: "/#feature-modern-teams" },
-    { name: "About Us", href: "/about" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "FAQ", href: "/faq" },
+    { name: t("navigation.product"), href: "/#feature-modern-teams" },
+    { name: t("navigation.about"), href: "/about" },
+    { name: t("navigation.pricing"), href: "/pricing" },
+    { name: t("navigation.faq"), href: "/faq" },
   ];
 
-  const legal = [{ name: "Privacy Policy", href: "/privacy" }];
+  const legal = [{ name: t("privacy"), href: "/privacy" }];
 
   return (
     <footer className="bg-background text-foreground pt-24 pb-12 lg:pt-32 lg:pb-16">
@@ -59,10 +60,10 @@ export function Footer() {
               className="w-full md:w-auto"
               asChild
             >
-              <Link href="/demo">Try Demo</Link>
+              <Link href="/demo">{t("tryDemo")}</Link>
             </Button>
             <Button size="lg" className="w-full md:w-auto" asChild>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">{t("contactUs")}</Link>
             </Button>
           </div>
         </div>
@@ -70,7 +71,7 @@ export function Footer() {
         {/* Slogan – start-aligned, above circle in stack order */}
         <div className="mt-16 self-center py-2 text-start md:mt-24 lg:mt-0 lg:py-12">
           <h2 className="text-5xl leading-tight font-bold tracking-tight md:text-6xl lg:-ml-0.5 lg:text-7xl xl:-ml-1 xl:text-8xl">
-            <span className="text-foreground block">{SLOGAN_LINE1}</span>
+            <span className="text-foreground block">{t("slogan")}</span>
           </h2>
         </div>
 

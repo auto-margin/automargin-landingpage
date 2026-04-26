@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type StatusCardDealerProps = {
   className?: string;
-  /** Number of dealers surfaced in the mock summary. */
+  /** Percentage surfaced in the mock supplier summary. */
   dealerCount?: number;
   /** Response rate label, e.g. percentage. */
   responseRatePercent?: number;
@@ -10,7 +10,7 @@ type StatusCardDealerProps = {
 
 export const StatusCardDealer = ({
   className,
-  dealerCount = 12,
+  dealerCount = 30,
   responseRatePercent = 94,
 }: StatusCardDealerProps) => {
   return (
@@ -24,25 +24,26 @@ export const StatusCardDealer = ({
       <div className="flex flex-1 flex-col justify-between gap-6 px-3.5 py-5 sm:px-4 sm:py-6">
         <div>
           <p className="text-foreground font-semibold tracking-tight">
-            Dealer info
+            Supplier info
           </p>
           <div
             className="bg-border/70 my-3 h-px w-8 rounded-full"
             aria-hidden
           />
           <p className="text-muted-foreground">
-            {dealerCount} verified dealers matched your filters in this run.
+            You have more than {dealerCount}% of all excellent offers coming
+            from this supplier.
           </p>
         </div>
         <div className="space-y-3">
           <p className="text-muted-foreground">
-            Response rate:{" "}
+            Supplier:{" "}
             <span className="font-semibold text-sky-600 dark:text-sky-400">
-              {responseRatePercent}%
+              Nordic Auto Supply GmbH
             </span>
           </p>
           <p className="text-muted-foreground/80 text-[10px] sm:text-[11px] lg:text-xs">
-            Profiles synced across EU marketplaces.
+            {responseRatePercent}% data confidence across recent offers.
           </p>
         </div>
       </div>

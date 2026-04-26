@@ -1,0 +1,262 @@
+[
+  {
+    "name": "BMW",
+    "slug": "bmw",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/bmw-logo-2020-gray.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/bmw.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/bmw.png",
+      "localThumb": "./thumb/bmw.png",
+      "localOptimized": "./optimized/bmw.png",
+      "localOriginal": "./original/bmw.png"
+    }
+  },
+  {
+    "name": "Citroën",
+    "slug": "citroen",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Citroen-logo-2009-2048x2048.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/citroen.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/citroen.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/citroen.png",
+      "localThumb": "./thumb/citroen.png",
+      "localOptimized": "./optimized/citroen.png",
+      "localOriginal": "./original/citroen.png"
+    }
+  },
+  {
+    "name": "Cupra",
+    "slug": "cupra",
+    "image": {
+      "source": "/Users/filip.popranec/Develop/car-logos-dataset/local-logos/cupra.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/cupra.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/cupra.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/cupra.png",
+      "localThumb": "./thumb/cupra.png",
+      "localOptimized": "./optimized/cupra.png",
+      "localOriginal": "./original/cupra.png"
+    }
+  },
+  {
+    "name": "Dacia",
+    "slug": "dacia",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Dacia-logo-2008-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/dacia.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/dacia.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/dacia.png",
+      "localThumb": "./thumb/dacia.png",
+      "localOptimized": "./optimized/dacia.png",
+      "localOriginal": "./original/dacia.png"
+    }
+  },
+  {
+    "name": "Fiat",
+    "slug": "fiat",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Fiat-logo-2006-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/fiat.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/fiat.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/fiat.png",
+      "localThumb": "./thumb/fiat.png",
+      "localOptimized": "./optimized/fiat.png",
+      "localOriginal": "./original/fiat.png"
+    }
+  },
+  {
+    "name": "Higer",
+    "slug": "higer",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/higer-logo-800x600-show.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/higer.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/higer.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/higer.png",
+      "localThumb": "./thumb/higer.png",
+      "localOptimized": "./optimized/higer.png",
+      "localOriginal": "./original/higer.png"
+    }
+  },
+  {
+    "name": "Honda",
+    "slug": "honda",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/honda-logo-2000-full-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/honda.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/honda.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/honda.png",
+      "localThumb": "./thumb/honda.png",
+      "localOptimized": "./optimized/honda.png",
+      "localOriginal": "./original/honda.png"
+    }
+  },
+  {
+    "name": "Hyundai",
+    "slug": "hyundai",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/hyundai-logo-2011-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/hyundai.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/hyundai.png",
+      "localThumb": "./thumb/hyundai.png",
+      "localOptimized": "./optimized/hyundai.png",
+      "localOriginal": "./original/hyundai.png"
+    }
+  },
+  {
+    "name": "Jaguar",
+    "slug": "jaguar",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/jaguar-logo-2021-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/jaguar.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jaguar.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/jaguar.png",
+      "localThumb": "./thumb/jaguar.png",
+      "localOptimized": "./optimized/jaguar.png",
+      "localOriginal": "./original/jaguar.png"
+    }
+  },
+  {
+    "name": "Koenigsegg",
+    "slug": "koenigsegg",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Koenigsegg-logo-1994-2048x2048.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/koenigsegg.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/koenigsegg.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/koenigsegg.png",
+      "localThumb": "./thumb/koenigsegg.png",
+      "localOptimized": "./optimized/koenigsegg.png",
+      "localOriginal": "./original/koenigsegg.png"
+    }
+  },
+  {
+    "name": "Mazda",
+    "slug": "mazda",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/mazda-logo-2018-vertical-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/mazda.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/mazda.png",
+      "localThumb": "./thumb/mazda.png",
+      "localOptimized": "./optimized/mazda.png",
+      "localOriginal": "./original/mazda.png"
+    }
+  },
+  {
+    "name": "Mercedes-Benz",
+    "slug": "mercedes-benz",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Mercedes-Benz-logo-2011-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/mercedes-benz.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/mercedes-benz.png",
+      "localThumb": "./thumb/mercedes-benz.png",
+      "localOptimized": "./optimized/mercedes-benz.png",
+      "localOriginal": "./original/mercedes-benz.png"
+    }
+  },
+  {
+    "name": "Pagani",
+    "slug": "pagani",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Pagani-logo-1992-1440x900.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/pagani.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/pagani.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/pagani.png",
+      "localThumb": "./thumb/pagani.png",
+      "localOptimized": "./optimized/pagani.png",
+      "localOriginal": "./original/pagani.png"
+    }
+  },
+  {
+    "name": "Porsche",
+    "slug": "porsche",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/porsche-logo-2014-full-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/porsche.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/porsche.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/porsche.png",
+      "localThumb": "./thumb/porsche.png",
+      "localOptimized": "./optimized/porsche.png",
+      "localOriginal": "./original/porsche.png"
+    }
+  },
+  {
+    "name": "Proton",
+    "slug": "proton",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Proton-logo-2016-2048x2048.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/proton.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/proton.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/proton.png",
+      "localThumb": "./thumb/proton.png",
+      "localOptimized": "./optimized/proton.png",
+      "localOriginal": "./original/proton.png"
+    }
+  },
+  {
+    "name": "SEAT",
+    "slug": "seat",
+    "image": {
+      "source": "https://www.carlogos.org/logo/SEAT-logo-2012-6000x5000.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/seat.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/seat.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/seat.png",
+      "localThumb": "./thumb/seat.png",
+      "localOptimized": "./optimized/seat.png",
+      "localOriginal": "./original/seat.png"
+    }
+  },
+  {
+    "name": "Subaru",
+    "slug": "subaru",
+    "image": {
+      "source": "https://www.carlogos.org/car-logos/subaru-logo-2019-640.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/subaru.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/subaru.png",
+      "localThumb": "./thumb/subaru.png",
+      "localOptimized": "./optimized/subaru.png",
+      "localOriginal": "./original/subaru.png"
+    }
+  },
+  {
+    "name": "Suzuki",
+    "slug": "suzuki",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Suzuki-logo-5000x2500.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/suzuki.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/suzuki.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/suzuki.png",
+      "localThumb": "./thumb/suzuki.png",
+      "localOptimized": "./optimized/suzuki.png",
+      "localOriginal": "./original/suzuki.png"
+    }
+  },
+  {
+    "name": "Volkswagen",
+    "slug": "volkswagen",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/volkswagen.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/volkswagen.png",
+      "localThumb": "./thumb/volkswagen.png",
+      "localOptimized": "./optimized/volkswagen.png",
+      "localOriginal": "./original/volkswagen.png"
+    }
+  },
+  {
+    "name": "Volvo",
+    "slug": "volvo",
+    "image": {
+      "source": "https://www.carlogos.org/logo/Volvo-logo-2014-1920x1080.png",
+      "thumb": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/thumb/volvo.png",
+      "optimized": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volvo.png",
+      "original": "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/original/volvo.png",
+      "localThumb": "./thumb/volvo.png",
+      "localOptimized": "./optimized/volvo.png",
+      "localOriginal": "./original/volvo.png"
+    }
+  }
+]

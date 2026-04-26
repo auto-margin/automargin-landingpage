@@ -5,57 +5,40 @@ import {
   Globe,
   Sparkles,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { HeroImageOverlays } from "@/components/blocks/hero-image-overlays";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-const features = [
-  {
-    title: "Market price intelligence",
-    description:
-      "Analyze live listings across major European car marketplaces for realistic resale values.",
-    icon: BarChart3,
-  },
-  {
-    title: "Instant margin analysis",
-    description:
-      "Calculate potential profit before buying a vehicle - no manual research.",
-    icon: Calculator,
-  },
-  {
-    title: "Multi-market comparison",
-    description:
-      "See how similar vehicles are priced across different European markets.",
-    icon: Globe,
-  },
-  {
-    title: "AI-powered insights",
-    description:
-      "ML models detect pricing trends and opportunities in real time.",
-    icon: Sparkles,
-  },
-];
+const featureIcons = [BarChart3, Calculator, Globe, Sparkles];
+const featureKeys = ["market", "margin", "comparison", "insights"] as const;
 
 export const Hero = () => {
+  const t = useTranslations("Home.hero");
+  const features = featureKeys.map((key, index) => ({
+    title: t(`features.${key}.title`),
+    description: t(`features.${key}.description`),
+    icon: featureIcons[index]!,
+  }));
+
   return (
     <section className="py-28 lg:py-32 lg:pt-44">
       <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         {/* Left side - Main content */}
         <div className="flex-1">
           <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            Analyze every car offer.
+            {t("title")}
           </h1>
 
           <p className="text-muted-foreground mt-5 text-xl md:text-3xl">
-            Automargin is a tool that helps you analyze, understand whether a
-            car offer is profitable.
+            {t("subtitle")}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <Link href="/contact">Get Started</Link>
+              <Link href="/contact">{t("primaryCta")}</Link>
             </Button>
             <Button
               variant="outline"
@@ -66,7 +49,7 @@ export const Hero = () => {
                 href="/demo"
                 className="max-w-56 truncate text-start md:max-w-none"
               >
-                Try Demo
+                {t("secondaryCta")}
                 <ArrowRight className="stroke-3" />
               </Link>
             </Button>
