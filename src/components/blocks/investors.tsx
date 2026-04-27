@@ -1,21 +1,6 @@
-import Image from "next/image";
-
 import { Linkedin } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
-
-const boardMembers = [
-  {
-    name: "Kim N",
-    company: "Developer",
-    image: "/investors/4.webp",
-  },
-  {
-    name: "Jessica K",
-    company: "Vehicle Analyst",
-    image: "/investors/5.webp",
-  },
-];
 
 type OpenRole = {
   title: string;
@@ -53,26 +38,7 @@ const openRoles: OpenRole[] = [
 export function Investors() {
   return (
     <section className="container max-w-5xl py-12">
-      <h2 className="text-foreground text-4xl font-medium tracking-wide">
-        Board members
-      </h2>
-      <div className="mt-8 grid grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {boardMembers.map((member) => (
-          <div key={member.name} className="">
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={120}
-              height={120}
-              className="object-cover"
-            />
-            <h3 className="mt-3 font-semibold">{member.name}</h3>
-            <p className="text-muted-foreground">{member.company}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-16">
+      <div>
         <h2 className="text-foreground text-4xl font-medium tracking-wide">
           Open roles
         </h2>

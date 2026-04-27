@@ -196,8 +196,8 @@
             "a": "Independent dealers, trading companies, and B2B marketplaces who handle high volumes of offers and want faster, data-driven purchasing decisions."
           },
           "trial": {
-            "q": "Is there a free trial?",
-            "a": "Yes. Try AutoMargin with your own files first. After that, plans depend on volume and features. Book a demo and we'll tailor one for you."
+            "q": "Can I try AutoMargin before choosing a plan?",
+            "a": "You can use the public demo with text input to see how AutoMargin works. Account access or a trial period is planned directly with our team after we understand your workflow, volume, and needs."
           },
           "security": {
             "q": "Is my data safe?",
@@ -210,7 +210,7 @@
         "questions": {
           "prices": {
             "q": "Can I trust the market prices?",
-            "a": "Yes. We cross-check against live listings from AutoScout24, Mobile.de, and trusted European marketplaces. Data updates daily to reflect real-world price shifts."
+            "a": "Yes. We cross-check against live marketplace listings across Europe and refresh the data regularly, so recommendations reflect real market movement instead of static price guesses."
           },
           "start": {
             "q": "How do I get started?",

@@ -196,8 +196,8 @@
             "a": "Uafhængige forhandlere, tradingfirmaer og B2B-markedspladser med høj tilbudsvolumen og behov for hurtigere datadrevne købsbeslutninger."
           },
           "trial": {
-            "q": "Er der en gratis prøve?",
-            "a": "Ja. Prøv AutoMargin med dine egne filer først. Derefter afhænger planer af volumen og funktioner."
+            "q": "Kan jeg prove AutoMargin, for jeg vaelger en plan?",
+            "a": "Du kan bruge den offentlige demo med tekstinput for at se, hvordan AutoMargin fungerer. Kontoadgang eller en proveperiode planlaegges direkte med vores team, nar vi kender jeres workflow, volumen og behov."
           },
           "security": {
             "q": "Er mine data sikre?",
@@ -210,7 +210,7 @@
         "questions": {
           "prices": {
             "q": "Kan jeg stole på markedspriserne?",
-            "a": "Ja. Vi krydstjekker mod liveannoncer fra AutoScout24, Mobile.de og betroede europæiske markedspladser."
+            "a": "Ja. Vi krydstjekker mod live markedspladsannoncer i Europa og opdaterer data regelmaessigt, saa anbefalingerne afspejler reelle markedsbevaegelser i stedet for statiske prisgaet."
           },
           "start": {
             "q": "Hvordan kommer jeg i gang?",

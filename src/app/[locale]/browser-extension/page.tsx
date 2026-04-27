@@ -19,9 +19,8 @@ export default function BrowserExtensionPage() {
   return (
     <Background>
       <BrowserExtensionHero />
-      <DashedLine className="mx-auto max-w-xl" />
+      <DashedLine className="mx-auto max-w-[80%]" />
       <Testimonials dashedLineClassName="hidden" />
     </Background>
   );
 }
-

@@ -28,68 +28,55 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-const MarketIcons = {
-  autoscout: () => (
+function MarketFlag({
+  alt,
+  code,
+  src,
+}: {
+  alt: string;
+  code: string;
+  src: string;
+}) {
+  return (
     <div className="relative h-full w-full">
       <Image
-        src="/markets/autoscout.svg"
-        alt="AutoScout24"
+        src={src}
+        alt={alt}
         fill
-        className="object-contain"
+        className="object-cover"
         style={{ display: "block" }}
         unoptimized
       />
+      <div className="absolute inset-0 bg-black/10" />
+      <span className="absolute inset-0 flex items-center justify-center text-sm font-black tracking-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-lg sm:text-base">
+        {code}
+      </span>
     </div>
-  ),
-  mobilede: () => (
-    <div className="relative h-full w-full">
-      <Image
-        src="/markets/mobilede.svg"
-        alt="Mobile.de"
-        fill
-        className="object-contain"
-        style={{ display: "block" }}
-        unoptimized
-      />
+  );
+}
+
+function GermanyFlag() {
+  return (
+    <div
+      className="relative h-full w-full overflow-hidden"
+      role="img"
+      aria-label="Germany"
+    >
+      <div className="absolute inset-0 grid grid-rows-3">
+        <div className="bg-black" />
+        <div className="bg-[#dd0000]" />
+        <div className="bg-[#ffce00]" />
+      </div>
+      <div className="absolute inset-0 bg-black/10" />
+      <span className="absolute inset-0 flex items-center justify-center text-sm font-black tracking-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-lg sm:text-base">
+        DE
+      </span>
     </div>
-  ),
-  otomoto: () => (
-    <div className="relative h-full w-full">
-      <Image
-        src="/markets/otomoto.svg"
-        alt="OttoMoto"
-        fill
-        className="object-contain"
-        style={{ display: "block" }}
-        unoptimized
-      />
-    </div>
-  ),
-  lacentrale: () => (
-    <div className="relative h-full w-full">
-      <Image
-        src="/markets/lacentrale.svg"
-        alt="LaCentrale"
-        fill
-        className="object-contain"
-        style={{ display: "block" }}
-        unoptimized
-      />
-    </div>
-  ),
-  cochenet: () => (
-    <div className="relative h-full w-full">
-      <Image
-        src="/markets/cochenet.svg"
-        alt="CoCHeNet"
-        fill
-        className="object-contain"
-        style={{ display: "block" }}
-        unoptimized
-      />
-    </div>
-  ),
-} as const;
+  );
+}
+
+const marketCircleClass =
+  "border-border size-24 overflow-hidden border p-0 shadow-none min-[1440px]:size-[7.5rem] sm:size-[6.5rem] md:size-28 lg:size-28";
 
 export function AnimatedBeamMultipleOutputDemo({
   className,
@@ -142,33 +129,21 @@ export function AnimatedBeamMultipleOutputDemo({
         <div className="flex flex-col justify-center gap-1 sm:gap-1.5 md:gap-1.5">
           <Circle
             ref={div1Ref}
-            className="size-24 overflow-hidden p-2 shadow-[0_4px_14px_-6px_rgba(0,0,0,0.1)] min-[1440px]:size-[7.5rem] min-[1440px]:p-3.5 sm:size-[6.5rem] sm:p-2.5 md:size-28 md:p-3 lg:size-28"
+            className={marketCircleClass}
           >
-            <MarketIcons.autoscout />
+            <MarketFlag alt="Europe" code="EU" src="/flags/eu.svg" />
           </Circle>
-          <Circle
-            ref={div2Ref}
-            className="size-24 overflow-hidden p-2 min-[1440px]:size-[7.5rem] min-[1440px]:p-3.5 sm:size-[6.5rem] sm:p-2.5 md:size-28 md:p-3 lg:size-28"
-          >
-            <MarketIcons.mobilede />
+          <Circle ref={div2Ref} className={marketCircleClass}>
+            <GermanyFlag />
           </Circle>
-          <Circle
-            ref={div3Ref}
-            className="size-24 overflow-hidden p-2 min-[1440px]:size-[7.5rem] min-[1440px]:p-3.5 sm:size-[6.5rem] sm:p-2.5 md:size-28 md:p-3 lg:size-28"
-          >
-            <MarketIcons.cochenet />
+          <Circle ref={div3Ref} className={marketCircleClass}>
+            <MarketFlag alt="Switzerland" code="CH" src="/flags/ch.svg" />
           </Circle>
-          <Circle
-            ref={div4Ref}
-            className="size-24 overflow-hidden p-2 min-[1440px]:size-[7.5rem] min-[1440px]:p-3.5 sm:size-[6.5rem] sm:p-2.5 md:size-28 md:p-3 lg:size-28"
-          >
-            <MarketIcons.lacentrale />
+          <Circle ref={div4Ref} className={marketCircleClass}>
+            <MarketFlag alt="Belgium" code="BE" src="/flags/be.svg" />
           </Circle>
-          <Circle
-            ref={div5Ref}
-            className="size-24 overflow-hidden p-2 min-[1440px]:size-[7.5rem] min-[1440px]:p-3.5 sm:size-[6.5rem] sm:p-2.5 md:size-28 md:p-3 lg:size-28"
-          >
-            <MarketIcons.otomoto />
+          <Circle ref={div5Ref} className={marketCircleClass}>
+            <MarketFlag alt="Sweden" code="SE" src="/flags/se.svg" />
           </Circle>
         </div>
       </div>

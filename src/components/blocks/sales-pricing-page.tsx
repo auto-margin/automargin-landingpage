@@ -85,7 +85,7 @@ export function SalesPricingPage({ className }: { className?: string }) {
 
       <section className="py-10">
         <div className="container">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <div className="mb-8">
               <h2 className="text-foreground text-2xl tracking-tight md:text-3xl">
                 {t("process.title")}
@@ -95,27 +95,24 @@ export function SalesPricingPage({ className }: { className?: string }) {
               </p>
             </div>
 
-            <Card className="rounded-3xl">
-              <CardContent className="p-6 md:p-8">
-                <ol className="grid gap-4 md:grid-cols-5">
-                  {processSteps.map((step, idx) => (
-                    <li key={step} className="flex gap-3">
-                      <div
-                        className="bg-foreground/5 text-foreground flex size-9 shrink-0 items-center justify-center rounded-full border text-sm font-semibold"
-                        aria-hidden
-                      >
-                        {idx + 1}
-                      </div>
-                      <div className="text-sm leading-snug">
-                        <div className="text-foreground font-medium">
-                          {t(`process.steps.${step}`)}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </CardContent>
-            </Card>
+            <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {processSteps.map((step, idx) => (
+                <li
+                  key={step}
+                  className="bg-card flex min-h-24 items-start gap-3 rounded-xl border p-4 shadow-sm xl:flex-col xl:justify-between"
+                >
+                  <div
+                    className="bg-background text-foreground flex size-9 shrink-0 items-center justify-center rounded-full border text-sm font-semibold"
+                    aria-hidden
+                  >
+                    {idx + 1}
+                  </div>
+                  <div className="text-foreground text-sm leading-snug font-medium text-balance">
+                    {t(`process.steps.${step}`)}
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>

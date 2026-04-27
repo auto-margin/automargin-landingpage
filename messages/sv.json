@@ -196,8 +196,8 @@
             "a": "Oberoende handlare, tradingbolag och B2B-marknadsplatser som hanterar hoga volymer av erbjudanden och vill fatta snabbare datadrivna kopbeslut."
           },
           "trial": {
-            "q": "Finns en gratis provperiod?",
-            "a": "Ja. Testa AutoMargin med dina egna filer forst. Darefter beror planerna pa volym och funktioner."
+            "q": "Kan jag testa AutoMargin innan jag valjer en plan?",
+            "a": "Du kan anvanda den publika demon med textinmatning for att se hur AutoMargin fungerar. Kontotillgang eller en provperiod planeras direkt med vart team nar vi forstar ert arbetsflode, volym och behov."
           },
           "security": {
             "q": "Ar min data saker?",
@@ -210,7 +210,7 @@
         "questions": {
           "prices": {
             "q": "Kan jag lita pa marknadspriserna?",
-            "a": "Ja. Vi korsjamfor mot liveannonser fran AutoScout24, Mobile.de och betrodda europeiska marknadsplatser."
+            "a": "Ja. Vi korsjamfor mot liveannonser fran europeiska marknadsplatser och uppdaterar datan regelbundet, sa rekommendationerna speglar verkliga marknadsrorelser i stallet for statiska prisgissningar."
           },
           "start": {
             "q": "Hur kommer jag igang?",

@@ -196,8 +196,8 @@
             "a": "Concesionarios independientes, empresas de trading y marketplaces B2B con alto volumen de ofertas y decisiones de compra basadas en datos."
           },
           "trial": {
-            "q": "¿Hay prueba gratuita?",
-            "a": "Si. Prueba AutoMargin primero con tus propios archivos. Despues, los planes dependen del volumen y las funciones."
+            "q": "Puedo probar AutoMargin antes de elegir un plan?",
+            "a": "Puedes usar la demo publica con entrada de texto para ver como funciona AutoMargin. El acceso a una cuenta o un periodo de prueba se planifica directamente con nuestro equipo despues de entender tu flujo de trabajo, volumen y necesidades."
           },
           "security": {
             "q": "¿Mis datos estan seguros?",
@@ -210,7 +210,7 @@
         "questions": {
           "prices": {
             "q": "¿Puedo confiar en los precios de mercado?",
-            "a": "Si. Contrastamos con anuncios en vivo de AutoScout24, Mobile.de y marketplaces europeos de confianza."
+            "a": "Si. Contrastamos con anuncios en vivo de marketplaces europeos y actualizamos los datos con regularidad, para que las recomendaciones reflejen movimientos reales del mercado y no estimaciones estaticas."
           },
           "start": {
             "q": "¿Como empiezo?",

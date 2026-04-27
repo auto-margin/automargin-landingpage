@@ -196,8 +196,8 @@
             "a": "Für unabhängige Händler, Handelsunternehmen und B2B-Marktplätze, die viele Angebote bearbeiten und schnellere datenbasierte Einkaufsentscheidungen treffen wollen."
           },
           "trial": {
-            "q": "Gibt es eine kostenlose Testphase?",
-            "a": "Ja. Testen Sie AutoMargin zuerst mit Ihren eigenen Dateien. Danach hängen Pläne von Volumen und Funktionen ab."
+            "q": "Kann ich AutoMargin testen, bevor ich einen Plan waehle?",
+            "a": "Sie koennen die oeffentliche Demo mit Texteingabe nutzen, um zu sehen, wie AutoMargin funktioniert. Account-Zugang oder eine Testphase planen wir direkt mit unserem Team, nachdem wir Workflow, Volumen und Bedarf verstanden haben."
           },
           "security": {
             "q": "Sind meine Daten sicher?",
@@ -210,7 +210,7 @@
         "questions": {
           "prices": {
             "q": "Kann ich den Marktpreisen vertrauen?",
-            "a": "Ja. Wir prüfen gegen Live-Angebote von AutoScout24, Mobile.de und vertrauenswürdigen europäischen Marktplätzen."
+            "a": "Ja. Wir pruefen gegen Live-Marktplatzangebote in Europa und aktualisieren die Daten regelmaessig, damit Empfehlungen echte Marktbewegungen statt statischer Preisschaetzungen widerspiegeln."
           },
           "start": {
             "q": "Wie starte ich?",

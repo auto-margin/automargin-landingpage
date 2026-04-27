@@ -5,14 +5,37 @@ import { useTranslations } from "next-intl";
 
 import { DashedLine } from "../dashed-line";
 
+import { FeatureLottie } from "@/components/blocks/feature-lottie";
 import { Card, CardContent } from "@/components/ui/card";
 
 const itemKeys = ["market", "competitor", "insights"] as const;
 const itemImages = [
-  "/features/triage-card.svg",
-  "/features/cycle-card.svg",
-  "/features/overview-card.svg",
+  "/column1.lottie",
+  "/column2.lottie",
+  "/column3new.lottie",
 ] as const;
+
+const FeatureMedia = ({ alt, src }: { alt: string; src: string }) => {
+  if (src.endsWith(".lottie")) {
+    return (
+      <FeatureLottie
+        src={src}
+        label={alt}
+        fit="contain"
+        className="h-full w-full ps-4 pt-2"
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover object-left-top ps-4 pt-2"
+    />
+  );
+};
 
 export const Features = () => {
   const t = useTranslations("Home.features");
@@ -43,11 +66,9 @@ export const Features = () => {
               <div key={item.title} className="flex flex-1 max-md:flex-col">
                 <div className="flex-1 p-4 pe-0! md:p-6">
                   <div className="relative aspect-[1.28/1] overflow-hidden">
-                    <Image
+                    <FeatureMedia
                       src={item.image}
                       alt={t("imageAlt", { title: item.title })}
-                      fill
-                      className="object-cover object-left-top ps-4 pt-2"
                     />
                     <div className="from-background absolute inset-0 z-10 bg-linear-to-t via-transparent to-transparent" />
                   </div>

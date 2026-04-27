@@ -122,21 +122,7 @@ export function TopMarketsSection() {
                           : "text-muted-foreground text-xs sm:text-sm"
                       }
                     >
-                      {soon ? (
-                        <span className="wave-container inline-block">
-                          <span className="wave-text inline-block whitespace-nowrap">
-                            {t("comingSoon")
-                              .split("")
-                              .map((char, index) => (
-                                <span key={`${char}-${index}`}>
-                                  {char === " " ? "\u00a0" : char}
-                                </span>
-                              ))}
-                          </span>
-                        </span>
-                      ) : (
-                        t(`countries.${item.code}.metric`)
-                      )}
+                      {soon ? t("comingSoon") : t(`countries.${item.code}.metric`)}
                     </p>
                   </div>
                 </article>
