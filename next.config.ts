@@ -15,7 +15,7 @@ const cspDirectives = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.vercel-insights.com",
+  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.vercel-insights.com https://cdn.jsdelivr.net https://unpkg.com",
   "frame-src 'none'",
   "upgrade-insecure-requests",
 ];
