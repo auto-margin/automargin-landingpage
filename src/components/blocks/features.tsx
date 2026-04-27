@@ -12,7 +12,7 @@ const itemKeys = ["market", "competitor", "insights"] as const;
 const itemImages = [
   "/column1.lottie",
   "/column2.lottie",
-  "/column3new.lottie",
+  "/column3New.lottie",
 ] as const;
 
 const FeatureMedia = ({ alt, src }: { alt: string; src: string }) => {
