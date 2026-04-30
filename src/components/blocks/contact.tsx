@@ -14,7 +14,7 @@ import { DashedLine } from "@/components/dashed-line";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 
-const EMAIL_GENERAL = "info@auto-margin.com";
+const EMAIL_GENERAL = "to@auto-margin.com";
 const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";
 const helpCards = ["faq", "guidebook", "demo"] as const;
 const helpIcons = {

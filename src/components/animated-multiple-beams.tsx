@@ -32,10 +32,12 @@ function MarketFlag({
   alt,
   code,
   src,
+  showCode = true,
 }: {
   alt: string;
   code: string;
   src: string;
+  showCode?: boolean;
 }) {
   return (
     <div className="relative h-full w-full">
@@ -48,35 +50,19 @@ function MarketFlag({
         unoptimized
       />
       <div className="absolute inset-0 bg-black/10" />
-      <span className="absolute inset-0 flex items-center justify-center text-sm font-black tracking-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-lg sm:text-base">
-        {code}
-      </span>
-    </div>
-  );
-}
-
-function GermanyFlag() {
-  return (
-    <div
-      className="relative h-full w-full overflow-hidden"
-      role="img"
-      aria-label="Germany"
-    >
-      <div className="absolute inset-0 grid grid-rows-3">
-        <div className="bg-black" />
-        <div className="bg-[#dd0000]" />
-        <div className="bg-[#ffce00]" />
-      </div>
-      <div className="absolute inset-0 bg-black/10" />
-      <span className="absolute inset-0 flex items-center justify-center text-sm font-black tracking-normal text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-lg sm:text-base">
-        DE
-      </span>
+      {showCode ? (
+        <span className="absolute inset-0 flex items-center justify-center text-xs font-black tracking-[0.02em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-base sm:text-sm">
+          {code}
+        </span>
+      ) : null}
     </div>
   );
 }
 
 const marketCircleClass =
-  "border-border size-24 overflow-hidden border p-0 shadow-none min-[1440px]:size-[7.5rem] sm:size-[6.5rem] md:size-28 lg:size-28";
+  "border-border h-12 w-[4.5rem] overflow-hidden rounded-2xl border p-0 shadow-[0_12px_24px_-22px_rgba(15,23,42,0.75)] min-[1440px]:h-[3.55rem] min-[1440px]:w-[5.05rem] sm:h-[3.25rem] sm:w-[4.6rem] md:h-14 md:w-20 lg:h-[3.45rem] lg:w-[4.9rem]";
+const miniMarketClass =
+  "border-border h-6 w-8 overflow-hidden rounded-lg border bg-white p-0 shadow-[0_10px_18px_-18px_rgba(15,23,42,0.7)] sm:h-7 sm:w-9";
 
 export function AnimatedBeamMultipleOutputDemo({
   className,
@@ -87,8 +73,10 @@ export function AnimatedBeamMultipleOutputDemo({
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
   const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
+  const germanyRef = useRef<HTMLDivElement>(null);
+  const swedenRef = useRef<HTMLDivElement>(null);
+  const switzerlandRef = useRef<HTMLDivElement>(null);
+  const belgiumRef = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
 
@@ -102,48 +90,75 @@ export function AnimatedBeamMultipleOutputDemo({
     >
       <div
         className={cn(
-          "relative z-10 flex size-full max-w-full flex-row items-stretch justify-between gap-2 min-[1440px]:max-w-xl min-[1440px]:gap-12 sm:max-w-lg sm:gap-5 md:gap-9 lg:gap-10",
+          "relative z-10 flex size-full max-w-full flex-row items-stretch justify-between gap-2 min-[1440px]:max-w-xl min-[1440px]:gap-12 sm:max-w-lg sm:gap-4 md:gap-8 lg:gap-9",
           "max-sm:origin-top max-sm:scale-[0.94] sm:scale-100",
         )}
       >
         <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref} className="size-12 min-[1440px]:size-14">
+          <Circle ref={div7Ref} className="size-11 min-[1440px]:size-13">
             <FileInput className="text-black" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
           <Circle
             ref={div6Ref}
-            className="size-[4.25rem] overflow-hidden p-0 min-[1440px]:size-24 md:size-[4.75rem] lg:size-20"
+            className="size-[4rem] overflow-hidden p-0 min-[1440px]:size-[5.1rem] md:size-[4.4rem] lg:size-[4.5rem]"
           >
             <Image
               src="/vectorized (1).svg"
               alt="Logo"
               width={100}
               height={100}
-              className="h-full w-full object-cover p-3 min-[1440px]:p-4"
+              className="h-full w-full object-cover p-3 min-[1440px]:p-[0.95rem]"
               style={{ display: "block" }}
             />
           </Circle>
         </div>
-        <div className="flex flex-col justify-center gap-1 sm:gap-1.5 md:gap-1.5">
-          <Circle
-            ref={div1Ref}
-            className={marketCircleClass}
-          >
-            <MarketFlag alt="Europe" code="EU" src="/flags/eu.svg" />
+        <div className="flex flex-col justify-center gap-2 sm:gap-2 md:gap-2.5">
+          <div className="relative flex flex-col gap-1.5 sm:gap-2">
+            <Circle ref={div1Ref} className={marketCircleClass}>
+              <MarketFlag alt="Europe" code="EU" src="/flags/eu.svg" />
+            </Circle>
+            <div className="relative flex items-center justify-center gap-1.5 sm:gap-2">
+              <div ref={germanyRef} className={miniMarketClass}>
+                <MarketFlag
+                  alt="Germany"
+                  code="DE"
+                  src="/flags/de.svg"
+                  showCode={false}
+                />
+              </div>
+              <div ref={swedenRef} className={miniMarketClass}>
+                <MarketFlag
+                  alt="Sweden"
+                  code="SE"
+                  src="/flags/se.svg"
+                  showCode={false}
+                />
+              </div>
+              <div ref={switzerlandRef} className={miniMarketClass}>
+                <MarketFlag
+                  alt="Switzerland"
+                  code="CH"
+                  src="/flags/ch.svg"
+                  showCode={false}
+                />
+              </div>
+              <div ref={belgiumRef} className={miniMarketClass}>
+                <MarketFlag
+                  alt="Belgium"
+                  code="BE"
+                  src="/flags/be.svg"
+                  showCode={false}
+                />
+              </div>
+            </div>
+          </div>
+          <Circle ref={div3Ref} className={marketCircleClass}>
+            <MarketFlag alt="China" code="CN" src="/flags/cn.svg" />
           </Circle>
           <Circle ref={div2Ref} className={marketCircleClass}>
-            <GermanyFlag />
-          </Circle>
-          <Circle ref={div3Ref} className={marketCircleClass}>
-            <MarketFlag alt="Switzerland" code="CH" src="/flags/ch.svg" />
-          </Circle>
-          <Circle ref={div4Ref} className={marketCircleClass}>
-            <MarketFlag alt="Belgium" code="BE" src="/flags/be.svg" />
-          </Circle>
-          <Circle ref={div5Ref} className={marketCircleClass}>
-            <MarketFlag alt="Sweden" code="SE" src="/flags/se.svg" />
+            <MarketFlag alt="South Korea" code="KR" src="/flags/kr.svg" />
           </Circle>
         </div>
       </div>
@@ -169,15 +184,38 @@ export function AnimatedBeamMultipleOutputDemo({
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div6Ref}
+        fromRef={div1Ref}
+        toRef={switzerlandRef}
         duration={3}
+        curvature={18}
+        pathWidth={1.5}
+        pathOpacity={0.16}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div6Ref}
+        fromRef={germanyRef}
+        toRef={swedenRef}
         duration={3}
+        pathWidth={1.5}
+        pathOpacity={0.16}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={swedenRef}
+        toRef={switzerlandRef}
+        duration={3}
+        pathWidth={1.5}
+        pathOpacity={0.16}
+        delay={0.35}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={switzerlandRef}
+        toRef={belgiumRef}
+        duration={3}
+        pathWidth={1.5}
+        pathOpacity={0.16}
+        delay={0.7}
       />
       <AnimatedBeam
         containerRef={containerRef}

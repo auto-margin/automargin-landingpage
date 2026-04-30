@@ -44,11 +44,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
   title: {
-    default: "Auto-margin - Analyze every car offer",
+    default: "Auto-margin - Better deals, better intake",
     template: "%s | Auto-margin",
   },
   description:
-    "Auto-margin is a tool that helps you analyze, understand whether a car offer is profitable.",
+    "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
   keywords: [
     "Auto-margin",
     "car offer",
@@ -56,12 +56,12 @@ export const metadata: Metadata = {
     "market intelligence",
     "car sourcing",
     "car trading",
-    "car analysis",
+    "dealer intake",
+    "supplier management",
     "car comparison",
     "car pricing",
     "car market",
     "car market intelligence",
-    "car market analysis",
     "car market comparison",
   ],
   authors: [{ name: "Auto-margin" }],
@@ -81,24 +81,24 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Auto-margin - Analyze every car offer",
+    title: "Auto-margin - Better deals, better intake",
     description:
-      "Auto-margin is a tool that helps you analyze, understand whether a car offer is profitable.",
+      "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
     siteName: "Auto-margin",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Auto-margin - Analyze every car offer",
+        alt: "Auto-margin - Better deals, better intake",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auto-margin - Analyze every car offer",
+    title: "Auto-margin - Better deals, better intake",
     description:
-      "Auto-margin is a tool that helps you analyze, understand whether a car offer is profitable.",
+      "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
     images: ["/og-image.jpg"],
     creator: "@auto-margin",
     site: "https://auto-margin.com",

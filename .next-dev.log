@@ -1,0 +1,24 @@
+
+> automargin@1.2.0 dev
+> next dev --turbopack --port 3001
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.36:3001
+- Environments: .env
+✓ Ready in 534ms
+Creating turbopack project {
+  dir: 'C:\\Users\\kimme\\OneDrive\\Skrivbord\\Auto-Margin\\platforms\\new\\wevawe\\automargin-landingpage\\automargin-landingpage',
+  testMode: true
+}
+
+○ Compiling /[locale] ...
+ GET /en 200 in 5.4s (next.js: 4.2s, proxy.ts: 204ms, generate-params: 556ms, application-code: 954ms)
+ GET /en 200 in 361ms (next.js: 20ms, proxy.ts: 8ms, generate-params: 11ms, application-code: 333ms)
+ GET /sv 200 in 244ms (next.js: 15ms, proxy.ts: 7ms, generate-params: 8ms, application-code: 223ms)
+ GET /de 200 in 223ms (next.js: 15ms, proxy.ts: 5ms, generate-params: 9ms, application-code: 203ms)
+ GET /es 200 in 273ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 8ms, application-code: 253ms)
+ GET /dk 200 in 288ms (next.js: 14ms, proxy.ts: 7ms, generate-params: 9ms, application-code: 267ms)
+ GET /en 200 in 416ms (next.js: 19ms, proxy.ts: 10ms, generate-params: 12ms, application-code: 387ms)
+ GET /sw.js 404 in 196ms (next.js: 13ms, generate-params: 10ms, application-code: 183ms)
+ GET /sw.js 404 in 191ms (next.js: 13ms, generate-params: 9ms, application-code: 177ms)

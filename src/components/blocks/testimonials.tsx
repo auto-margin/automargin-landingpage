@@ -18,35 +18,35 @@ import { cn } from "@/lib/utils";
 
 const items = [
   {
-    quote: "We send offers by email and get margin analysis back in minutes.",
+    quote: "Too many offers? Upload them and see what is worth buying.",
     author: "Alex",
-    role: "Sale Manager",
+    role: "Sales Manager",
     company: "EuroMotors AG",
     image: "/testimonials/emotors.svg",
   },
   {
-    quote: "AutoMargin’s analysis is a game-changer for our buying decisions.",
+    quote: "Built from a buying flow already proving 20% margin targets.",
     author: "Besnik Rulani",
     role: "CEO",
     company: "CarTrade24",
     image: "/testimonials/cartrade.svg",
   },
   {
-    quote: "We cut hours of manual comparison down to seconds.",
+    quote: "Slow stock? Spot it early and push suppliers for better cars.",
     author: "Stepan K",
-    role: "Vehicle Analyst",
+    role: "Buyer",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
   },
   {
-    quote: "Very nice tool for analyzing market prices - simple endpoints",
+    quote: "See who brings margin and who only brings volume.",
     author: "Kim B",
-    role: "Developer",
+    role: "Operations Lead",
     company: "EuroMotors AG",
     image: "/testimonials/emotors.svg",
   },
   {
-    quote: "We always use AutoMargin before we start negotiations.",
+    quote: "Weak deals? Push toward +20% margin opportunities.",
     author: "Patrik T",
     role: "Sales Consultant",
     company: "CarTrade24",
@@ -66,12 +66,11 @@ export const Testimonials = ({
       <section className={cn("overflow-hidden py-28 lg:py-32", className)}>
         <div className="container">
           <div className="space-y-4">
-            <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-              Trusted by well known dealers
+            <h2 className="text-2xl tracking-tight whitespace-pre-line md:text-4xl lg:text-5xl">
+              {"Less reviewing.\nMore closing."}
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Our network uses Auto-Margin to analyze offers across different
-              marketplaces at the same time.
+              Real examples of how dealers use AutoMargin every day.
             </p>
             <Button variant="outline" className="shadow-md" asChild>
               <Link href="/about">

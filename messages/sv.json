@@ -6,45 +6,45 @@
     "faq": "FAQ",
     "contact": "Kontakt",
     "login": "Logga in",
-    "language": "Sprak"
+    "language": "Språk"
   },
   "Home": {
     "hero": {
-      "title": "Analysera varje bilerbjudande.",
-      "subtitle": "Automargin ar ett verktyg som hjalper dig att analysera och forsta om ett bilerbjudande ar lonsamt.",
-      "primaryCta": "Kom igang",
+      "title": "Sluta jobba\nmed bilar.\nBörja jobba med leverantörer.",
+      "subtitle": "Vi tar bort analysen. Ladda upp erbjudanden, se marginal på minuter och lär dig vilka leverantörer som faktiskt skapar vinst.",
+      "primaryCta": "Begär access",
       "secondaryCta": "Testa demo",
       "features": {
         "market": {
-          "title": "Marknadsprisdata",
-          "description": "Analysera liveannonser pa stora europeiska bilmarknadsplatser for realistiska andrahandsvarden."
+          "title": "Se vad som är värt att köpa",
+          "description": "Hitta erbjudanden med marginal innan teamet granskar varje bil."
         },
         "margin": {
-          "title": "Direkt marginalanalys",
-          "description": "Berakna mojlig vinst innan du koper ett fordon - utan manuell research."
+          "title": "Se vad som rör sig",
+          "description": "Förstå vilka bilar som säljer, står kvar och var inflödet fastnar."
         },
         "comparison": {
-          "title": "Jamforelse mellan marknader",
-          "description": "Se hur liknande fordon prissatts pa olika europeiska marknader."
+          "title": "Jobba från riktiga erbjudanden",
+          "description": "Ladda upp filer, mejl och listor du redan får från leverantörer."
         },
         "insights": {
-          "title": "AI-drivna insikter",
-          "description": "ML-modeller upptacker pristrender och mojligheter."
+          "title": "Agera på leverantörskvalitet",
+          "description": "Se vilka leverantörer som skapar marginal och vilka som bara skapar brus."
         }
       }
     },
     "features": {
-      "title": "Automation for ditt foretag",
-      "imageAlt": "{title}-granssnitt",
+      "title": "Från inkorg till affär med leverantörsnätverk.",
+      "imageAlt": "{title}-gränssnitt",
       "items": {
-        "market": "Marknadsprisjamforelser i realtid",
-        "competitor": "Konkurrentpriser mellan marknader",
-        "insights": "AI-drivna insikter for smartare kop"
+        "market": "Ladda upp erbjudanden du redan får",
+        "competitor": "Se vilka bilar som ger vinst.",
+        "insights": "Agera på rätt leverantörer"
       }
     },
     "markets": {
-      "title": "Data fran ledande marknader",
-      "description": "Marknadsdata per land, automatiskt applicerad pa varje lonsamhetskontroll.",
+      "title": "Data från ledande marknader",
+      "description": "Varje erbjudande kontrolleras mot aktuell marknadsdata, så teamet slipper hoppa mellan marknadsplatser.",
       "comingSoon": "Kommer snart",
       "countries": {
         "DE": { "name": "Tyskland", "metric": "2,3M+ annonser" },
@@ -60,161 +60,164 @@
       }
     },
     "bento": {
-      "label": "INGA GISNINGAR. BARA MARGINALER.",
-      "title": "Byggt for bilhandlare",
-      "description": "Automargin bygger pa vanorna som gor de basta bilhandlarna framgangsrika: fokus, snabbhet och konsekvent hog kvalitet i kopbeslut."
+      "label": "SLUTA GRANSKA. BÖRJA GÖRA AFFÄRER.",
+      "title": "Du behöver bättre affärer.",
+      "description": "Pengarna skapas i affären: med rätt leverantör, vid rätt tillfälle och med rätt bil. Du ser vem som ger marginal, vem som skickar volym utan vinst och vem som passar din verksamhet."
     },
     "bentoCards": {
       "items": {
         "0": {
           "name": "Ladda upp valfritt format",
-          "description": "Vi stoder PDF, Excel, CSV och mer.",
-          "hoverText": "Filer lagras sakert och skyddas."
+          "description": "Mejl, PDF, Excel, CSV och mer.",
+          "hoverText": "Använd erbjudanden du redan får."
         },
         "1": {
-          "name": "Leverantorsverifiering",
-          "description": "Se vem som skickar de basta erbjudandena.",
-          "hoverText": "Upptack din favoritlieferantor."
+          "name": "Leverantörsöversikt",
+          "description": "Se vem som skickar marginal.",
+          "hoverText": "Veta vem du ska ringa och ignorera."
         },
         "2": {
-          "name": "Erbjudandejamforelse mellan marknader",
-          "shortName": "Erbjudandejamforelse",
-          "description": "Jamfor erbjudanden fran olika marknader for att hitta basta pris.",
-          "hoverText": "Validera erbjudanden mot dina regler."
+          "name": "Kopplad marknadsdata",
+          "shortName": "Marknadsdata",
+          "description": "Jämför data över Europa, Sydkorea och Kina.",
+          "hoverText": "Se hur samma erbjudande ser ut på olika marknader."
         },
         "3": {
           "name": "Notiser",
-          "description": "Bifoga erbjudanden och fa e-postinsikter.",
-          "hoverText": "Fa resultat och uppdateringar automatiskt."
+          "description": "Ladda upp erbjudanden och få nästa steg.",
+          "hoverText": "Agera utan extra kontroll."
         }
       }
     },
     "salesPricing": {
-      "title": "Ga med i vart natverk",
-      "description1": "Planer anpassas efter din bilhandel.",
-      "description2": "Din volym, dina marknader och din setup avgor priset.",
+      "title": "Byggt runt ditt inflöde.",
+      "description1": "Vi sätter upp allt runt hur dina erbjudanden redan kommer in.",
+      "description2": "Din volym, dina marknader och ditt arbetsflöde styr utrullningen.",
       "bullets": {
-        "dealFlow": "Byggt runt ditt dealflode",
+        "dealFlow": "Byggt runt ditt erbjudandeinflöde",
         "markets": "Marknadsspecifik setup",
-        "workflow": "Manuellt eller API-stott arbetsflode",
-        "support": "Direkt onboardingstod"
+        "workflow": "Manuellt eller API-stött arbetsflöde",
+        "support": "Direkt onboardingstöd"
       },
       "proposal": {
-        "title": "Anpassat forslag",
-        "description": "Vi arbetar med ett begransat antal handlare vid lansering. Begar access for att fa ett anpassat prisforslag.",
-        "primaryCta": "Begar access",
-        "secondaryCta": "Visa prismodell"
+        "title": "Begär access",
+        "description": "Vi arbetar med ett begränsat antal handlare vid lansering. Berätta hur dina erbjudanden kommer in, så mappar vi rätt setup.",
+        "primaryCta": "Begär access",
+        "secondaryCta": "Mer information"
       }
     }
   },
   "PricingPage": {
     "hero": {
-      "title": "Anpassade priser for din verksamhet",
-      "description": "Vi erbjuder inte fasta offentliga planer vid lansering. Varje partnerskap formas efter din sourcingvolym, dina marknader, ditt arbetsflode och ditt supportbehov.",
-      "cta": "Kontakta salj"
+      "title": "Priser byggda runt ditt inflöde",
+      "description": "Vi erbjuder inga fasta publika planer vid lansering. Varje setup beror på erbjudandevolym, leverantörsflöde, marknader, arbetsflöde och supportbehov.",
+      "cta": "Kontakta sälj"
     },
     "drivers": {
-      "title": "Vad priset beror pa",
-      "description": "Vi bygger priset runt de operativa faktorer som driver sourcing, integration och support.",
+      "title": "Vad setupen beror på",
+      "description": "Vi bygger priset runt det som formar utrullning, inflödeskontroll och support.",
       "items": {
         "volume": {
-          "title": "Dealvolym",
-          "description": "Hur manga fordon, erbjudanden eller sourcingforfragningar du hanterar."
+          "title": "Erbjudandevolym",
+          "description": "Hur många leverantörserbjudanden, fordon eller sourcingförfrågningar teamet hanterar."
         },
         "markets": {
-          "title": "Malmarknader",
-          "description": "Lander, regioner och leverantorsaccess som behovs."
+          "title": "Målmarknader",
+          "description": "Länder, regioner och leverantörsaccess som behövs."
         },
         "workflow": {
-          "title": "Arbetsflode",
-          "description": "Automatisk validering, managed access, API-access eller internt processtod."
+          "title": "Arbetsflöde",
+          "description": "Uploadflöde, managed access, API-access eller internt processtöd."
         },
         "support": {
-          "title": "Supportniva",
-          "description": "Onboarding, rapportering, kontoansvar och operativ hjalp."
+          "title": "Supportnivå",
+          "description": "Onboarding, rapportering, kontoansvar och operativ hjälp."
         }
       }
     },
     "process": {
-      "title": "Sa fungerar processen",
-      "description": "En enkel process for att kvalificera passform och komma igang snabbt.",
+      "title": "Så fungerar utrullningen",
+      "description": "En enkel process för att förstå fit och gå vidare snabbt.",
       "steps": {
-        "request": "Begar access",
+        "request": "Begär access",
         "qualification": "Kvalificeringssamtal",
-        "proposal": "Kommersiellt forslag",
+        "proposal": "Kommersiellt förslag",
         "onboarding": "Onboarding",
-        "optimization": "Lopande optimering"
+        "optimization": "Löpande optimering"
       }
     },
     "engagement": {
-      "title": "Engagemangsmodeller",
-      "description": "Inga offentliga priser - valj relationsmodell som passar din verksamhet.",
+      "title": "Sätt att köra det",
+      "description": "Inga publika priser. Välj setupen som passar din verksamhet.",
       "cta": "Kontakta oss",
       "models": {
         "automatic": {
           "title": "Automatisk access",
-          "description": "Vi validerar erbjudanden at dig och skickar tillbaka resultatet, sa ditt team kan agera utan att hantera granskningsflodet."
+          "description": "Vi behandlar erbjudanden åt dig och skickar tillbaka resultatet, så teamet kan agera utan att hantera inflödet manuellt."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Dina anvandare eller medlemmar kan sjalva validera erbjudanden, ladda upp filer och hantera processen direkt i Auto-margin."
+          "description": "Dina användare kan ladda upp erbjudanden själva och hantera inflödet direkt i Auto-margin."
         },
         "api": {
           "title": "Enterprise API-access",
-          "description": "Fa API-access, API-nyckel och dokumentation sa ditt team kan bygga och driva sin egen valideringssetup."
+          "description": "Få API-access, API-nyckel och dokumentation för att bygga eget inflödesflöde ovanpå Auto-margin."
         }
       }
     }
   },
   "FAQ": {
-    "title": "Fragor?",
-    "contactPrefix": "Om du inte hittar det du soker,",
+    "title": "Direkta svar.",
+    "homeTitle": "Direkta svar.\nIngen marknadsdimma.",
+    "homeDescription": "Hittar du inte det du behöver, skriv till oss. Vi svarar inom en arbetsdag.",
+    "homeEmailCta": "to@auto-margin.com",
+    "contactPrefix": "Om du inte hittar det du söker,",
     "contactLink": "kontakta oss",
     "categories": {
       "product": {
         "title": "Produkt och hur det fungerar",
         "questions": {
           "what": {
-            "q": "Vad gor AutoMargin?",
-            "a": "AutoMargin analyserar fordonserbjudanden fran e-post, PDF, Excel och andra format. Det jamfor leverantorspriser med live marknadsdata, beraknar marginaler och visar de mest lonsamma mojligheterna."
+            "q": "Vad gör AutoMargin?",
+            "a": "AutoMargin hjälper handlare att granska inkommande erbjudanden snabbare och fokusera på bättre affärer. Du laddar upp erbjudanden du redan får, och AutoMargin visar vilka bilar som skapar marginal, vilka som blir stående och vilka som redan är placerade."
           },
           "identify": {
-            "q": "Hur hittar systemet de basta affarerna?",
-            "a": "Var AI utvarderar varje erbjudande mot realtidsannonser, beraknar andrahandsmarginaler och rankar alternativen utifran dina kriterier."
+            "q": "Hur hittar systemet de bästa affärerna?",
+            "a": "Det kontrollerar varje erbjudande mot aktuell marknadsdata och gör det till ett tydligt nästa steg. Du ser vilka bilar som är värda att agera på och vilka leverantörer som konsekvent ger rätt lager."
           },
           "files": {
-            "q": "Vilka filtyper stods?",
-            "a": "PDF, Excel, Word, Google Sheets och e-post - aven blandade format i samma batch."
+            "q": "Vilka filtyper stöds?",
+            "a": "PDF, Excel, Word, Google Sheets och e-post - även blandade format i samma batch. Vår auto-forwarding tar hand om resten."
           }
         }
       },
       "pricing": {
-        "title": "Priser och sakerhet",
+        "title": "Priser och säkerhet",
         "questions": {
           "audience": {
-            "q": "Vem ar AutoMargin for?",
-            "a": "Oberoende handlare, tradingbolag och B2B-marknadsplatser som hanterar hoga volymer av erbjudanden och vill fatta snabbare datadrivna kopbeslut."
+            "q": "Vem är AutoMargin för?",
+            "a": "Oberoende handlare, tradingbolag och B2B-marknadsplatser som hanterar stora volymer erbjudanden och vill ha bättre kontroll över inflöde, leverantörskvalitet och marginal."
           },
           "trial": {
-            "q": "Kan jag testa AutoMargin innan jag valjer en plan?",
-            "a": "Du kan anvanda den publika demon med textinmatning for att se hur AutoMargin fungerar. Kontotillgang eller en provperiod planeras direkt med vart team nar vi forstar ert arbetsflode, volym och behov."
+            "q": "Kan jag testa AutoMargin innan jag väljer plan?",
+            "a": "Du kan använda den publika demon med textinmatning. Kontoaccess eller testperiod planeras med vårt team efter att vi förstått ert inflöde, volym och leverantörssetup."
           },
           "security": {
-            "q": "Ar min data saker?",
-            "a": "Ja. Dina filer ar krypterade, bearbetas i sakra miljoer och delas aldrig med tredje part."
+            "q": "Är min data säker?",
+            "a": "Ja. Dina filer krypteras, bearbetas i säkra miljöer och delas aldrig med tredje part."
           }
         }
       },
       "gettingStarted": {
-        "title": "Kom igang",
+        "title": "Kom igång",
         "questions": {
           "prices": {
-            "q": "Kan jag lita pa marknadspriserna?",
-            "a": "Ja. Vi korsjamfor mot liveannonser fran europeiska marknadsplatser och uppdaterar datan regelbundet, sa rekommendationerna speglar verkliga marknadsrorelser i stallet for statiska prisgissningar."
+            "q": "Kan jag lita på marknadspriserna?",
+            "a": "Ja. Vi korscheckar mot liveannonser i Europa och uppdaterar datan regelbundet, så teamet arbetar från aktuell marknadsrörelse istället för statiska gissningar."
           },
           "start": {
-            "q": "Hur kommer jag igang?",
-            "a": "Skicka en forfragan via kontaktformular eller e-post, sa guidar vart team dig genom setupen."
+            "q": "Hur kommer jag igång?",
+            "a": "Skicka en förfrågan via kontaktformuläret eller e-post, så guidar vårt team dig genom setupen. De flesta kommer igång samma dag."
           }
         }
       }
@@ -222,15 +225,15 @@
   },
   "Contact": {
     "eyebrow": "Kontakta oss",
-    "title": "Vi hjalper dig.",
-    "description": "Beratta vad du behover sa skickar vi din forfragan till ratt person. Vi svarar oftast inom en arbetsdag.",
+    "title": "Vi hjälper dig.",
+    "description": "Berätta vad du behöver så skickar vi din förfrågan till rätt person. Vi svarar oftast inom en arbetsdag.",
     "detailsTitle": "Kontaktuppgifter",
-    "openHours": "Man-fre, 9:00-17:00 (CET)",
+    "openHours": "Mån-fre, 9:00-17:00 (CET)",
     "nextSteps": {
-      "eyebrow": "Nasta steg",
-      "title": "Guider for att komma igang",
-      "description": "Utforska den snabbaste vagen beroende pa vad du letar efter.",
-      "linkLabel": "Las mer",
+      "eyebrow": "Nästa steg",
+      "title": "Guider för att komma igång",
+      "description": "Utforska den snabbaste vägen beroende på vad du letar efter.",
+      "linkLabel": "Läs mer",
       "cards": {
         "faq": {
           "title": "FAQ",
@@ -238,43 +241,43 @@
         },
         "guidebook": {
           "title": "Guidebook",
-          "description": "Las Auto-margins arbetsflodesguide - hur team screenar listor och validerar marginal."
+          "description": "Läs Auto-margins arbetsflödesguide - hur team granskar erbjudanden och styr inflödet."
         },
         "demo": {
           "title": "Demo",
-          "description": "Testa ett riktigt bilerbjudande och se hur analysen fungerar - utan registrering."
+          "description": "Testa ett riktigt bilerbjudande och se hur inflödesgranskningen fungerar - utan registrering."
         }
       }
     },
     "form": {
-      "title": "Lat oss prata",
-      "description": "Dela nagra detaljer sa aterkommer vi.",
+      "title": "Låt oss prata",
+      "description": "Dela några detaljer så återkommer vi.",
       "errors": {
-        "unavailable": "Kontaktformularet ar tillfalligt otillgangligt.",
-        "submit": "Det gar inte att skicka just nu. Forsok igen snart."
+        "unavailable": "Kontaktformuläret är tillfälligt otillgängligt.",
+        "submit": "Det går inte att skicka just nu. Försök igen snart."
       },
       "fields": {
         "inquiryType": {
-          "label": "Vad kan vi hjalpa till med? *",
-          "placeholder": "Valj amne",
+          "label": "Vad kan vi hjälpa till med? *",
+          "placeholder": "Välj ämne",
           "options": {
             "registration": "Registrering",
-            "business": "Foretag / partnerskap",
-            "careers": "Jobbansokan",
+            "business": "Företag / partnerskap",
+            "careers": "Jobbansökan",
             "other": "Annat"
           }
         },
         "name": {
-          "label": "Fullstandigt namn *",
-          "placeholder": "For- och efternamn"
+          "label": "Fullständigt namn *",
+          "placeholder": "För- och efternamn"
         },
         "email": {
           "label": "E-postadress *",
           "placeholder": "jag@foretag.com"
         },
-        "company": { "label": "Foretagsnamn", "placeholder": "Foretagsnamn" },
+        "company": { "label": "Företagsnamn", "placeholder": "Företagsnamn" },
         "employees": {
-          "label": "Antal anstallda",
+          "label": "Antal anställda",
           "placeholder": "t.ex. 11-50"
         },
         "message": {
@@ -282,30 +285,30 @@
           "placeholder": "Skriv ditt meddelande"
         }
       },
-      "terms": { "prefix": "Jag godkanner", "link": "villkor" },
+      "terms": { "prefix": "Jag godkänner", "link": "villkoren" },
       "submit": "Skicka",
       "submitting": "Skickar...",
       "privacy": {
-        "prefix": "Genom att skicka godkanner du var",
+        "prefix": "Genom att skicka godkänner du vår",
         "link": "integritetspolicy"
       },
       "success": {
         "title": "OK",
-        "description": "Skickat. Vi aterkommer snart."
+        "description": "Skickat. Vi återkommer snart."
       }
     }
   },
   "About": {
     "hero": {
-      "title": "Smarta bilaffarer med automation",
-      "subtitle": "Gor handlarinsikt till ett automatiserat verktyg.",
-      "body1": "Vi har kopplat ihop handlare i Europa och byggt vart marknatverk i Schweiz. Med over 15 ar i bilbranschen har vi tagit de basta handlarinsikterna - hur de jamfor och hittar affarer - och gjort dem till ett automatiserat verktyg.",
-      "body2": "Vi borjade med en ide om att automatisera manuellt arbete. AutoMargin bygger pa vara basta bilhandlares kunskap, satt att jamfora och hitta de basta affarerna.",
+      "title": "Byggt runt hur handlare faktiskt tjänar pengar",
+      "subtitle": "Mindre tid på granskning. Mer tid på affärer.",
+      "body1": "De flesta handlare lägger tid på att granska bilar: jämföra annonser, kontrollera priser och dubbelkolla beslut. Det är inte där pengarna skapas.",
+      "body2": "AutoMargin tar bort analysen. Du laddar upp erbjudanden du redan får och ser snabbt vilka bilar som ger marginal, vilka som blir stående, vilka som redan är placerade och vilka leverantörer som passar din verksamhet.",
       "stats": {
         "founded": "Grundat",
-        "industry": "Ar i branschen",
+        "industry": "År i branschen",
         "dealers": "Anslutna handlare",
-        "network": "HQ och natverk"
+        "network": "HQ och nätverk"
       }
     },
     "content": {
@@ -317,14 +320,14 @@
       },
       "team": {
         "title": "Teamet",
-        "p1": "Vi ar ett litet grundaragt team av bilbranschkunniga och byggare.",
-        "p2": "Varje del av verktyget ar designad runt hur de basta handlarna faktiskt arbetar.",
-        "p3": "Du far mer an prisskillnad: basta marken, basta handlare, land for land och mer.",
+        "p1": "Vi är ett litet grundarägt team av bilbranschfolk och byggare. Vi fokuserar på en sak: att hjälpa handlare styra inflödet genom bättre leverantörsbeslut.",
+        "p2": "Produkten bygger på ett enkelt skifte: sluta jobba med bilar och börja jobba med leverantörer.",
+        "p3": "Det betyder mindre granskning, snabbare samtal och bättre affärer.",
         "cta": "Kontakta oss"
       },
       "product": {
-        "p1": "AutoMargin ger dig mer an prisskillnad: live marknadsdata, marginalanalys och handlarinsikt pa ett stalle.",
-        "p2": "Oavsett om du ar handlare eller utvecklare far du ren, strukturerad output sa du kan fokusera pa att stanga affarer."
+        "p1": "Det här är inte ett prisverktyg. Det är ett sätt att styra inflödet och snabbare avgöra vad som hör hemma i lager.",
+        "p2": "Värdet är att veta vem som ger marginal, vem som skickar volym utan vinst och hur du bygger ett nätverk som tjänar pengar."
       }
     }
   },
@@ -337,7 +340,7 @@
     },
     "tryDemo": "Testa demo",
     "contactUs": "Kontakta oss",
-    "slogan": "Mindre tid pa att sortera deals.",
+    "slogan": "Bygg nätverket bakom din marginal.",
     "privacy": "Integritetspolicy"
   }
 }

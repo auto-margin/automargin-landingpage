@@ -10,41 +10,41 @@
   },
   "Home": {
     "hero": {
-      "title": "Analyze every car offer.",
-      "subtitle": "Automargin is a tool that helps you analyze and understand whether a car offer is profitable.",
-      "primaryCta": "Get Started",
+      "title": "Stop working\non cars.\nStart working with suppliers.",
+      "subtitle": "Removes the analysis. You upload offers, see margin in minutes, and learn which suppliers actually make you money.",
+      "primaryCta": "Request Access",
       "secondaryCta": "Try Demo",
       "features": {
         "market": {
-          "title": "Market price intelligence",
-          "description": "Analyze live listings across major European car marketplaces for realistic resale values."
+          "title": "See what is worth buying",
+          "description": "Spot the offers that create margin before your team wastes time reviewing every car."
         },
         "margin": {
-          "title": "Instant margin analysis",
-          "description": "Calculate potential profit before buying a vehicle - no manual research."
+          "title": "Know what will move",
+          "description": "Understand which cars will sell, which will sit, and where your intake gets stuck."
         },
         "comparison": {
-          "title": "Multi-market comparison",
-          "description": "See how similar vehicles are priced across different European markets."
+          "title": "Work from real offers",
+          "description": "Upload the files, emails, and lists you already receive from suppliers."
         },
         "insights": {
-          "title": "AI-powered insights",
-          "description": "ML models detect pricing trends and opportunities."
+          "title": "Act on supplier quality",
+          "description": "See which suppliers consistently bring margin and which ones only create noise."
         }
       }
     },
     "features": {
-      "title": "Automation for your business",
+      "title": "From inbox to deal with supplier network.",
       "imageAlt": "{title} interface",
       "items": {
-        "market": "Real-time market price comparisons",
-        "competitor": "Competitor pricing across markets",
-        "insights": "AI-powered insights for smarter buys"
+        "market": "Upload the offers you already receive",
+        "competitor": "See which cars make profit.",
+        "insights": "Act on the right suppliers"
       }
     },
     "markets": {
       "title": "Data from top markets",
-      "description": "Country-level market data, applied automatically to every profitability check.",
+      "description": "Every offer is checked against current market context, so your team does not waste time jumping between marketplaces.",
       "comingSoon": "Coming soon",
       "countries": {
         "DE": { "name": "Germany", "metric": "2.3M+ listings" },
@@ -60,66 +60,66 @@
       }
     },
     "bento": {
-      "label": "NO GUESSES. JUST MARGINS.",
-      "title": "Made for car dealerships",
-      "description": "Automargin is built on the habits that make the best car dealerships successful: staying focused, moving quickly and always aiming for high-quality buying decisions."
+      "label": "STOP REVIEWING. START DEALING.",
+      "title": "You need better deals.",
+      "description": "Money is made in the deal: with the right supplier, at the right moment, with the right car. You see who brings margin, who sends volume without profit, and who fits your business."
     },
     "bentoCards": {
       "items": {
         "0": {
           "name": "Upload any format",
-          "description": "We support PDF, Excel, CSV and more.",
-          "hoverText": "Files are securely stored and protected."
+          "description": "Email, PDF, Excel, CSV and more.",
+          "hoverText": "Use the offers you already receive."
         },
         "1": {
-          "name": "Supplier verification",
-          "description": "See who sends the best offers.",
-          "hoverText": "Discover your favorite supplier."
+          "name": "Supplier visibility",
+          "description": "See who consistently sends margin.",
+          "hoverText": "Know who to call and who to ignore."
         },
         "2": {
-          "name": "Offer comparison across markets",
-          "shortName": "Offer Comparison",
-          "description": "Compare offers from different markets to find the best price.",
-          "hoverText": "Validate offers against your rules."
+          "name": "Connected market data",
+          "shortName": "Market Data",
+          "description": "Compare and connect data across Europe, South Korea, and China.",
+          "hoverText": "See how the same offer looks across markets."
         },
         "3": {
           "name": "Notifications",
-          "description": "Attach offers, get email insights.",
-          "hoverText": "Get results and updates automatically."
+          "description": "Upload offers and get clear next steps.",
+          "hoverText": "Move without extra checking."
         }
       }
     },
     "salesPricing": {
-      "title": "Join our network",
-      "description1": "Plans are tailored to your dealership.",
-      "description2": "Your volume, markets and setup decide the price.",
+      "title": "Built around your intake.",
+      "description1": "We set things up around how your offers already arrive.",
+      "description2": "Your volume, markets, and workflow shape the rollout.",
       "bullets": {
-        "dealFlow": "Built around your deal flow",
+        "dealFlow": "Built around your offer intake",
         "markets": "Market-specific setup",
-        "workflow": "Manual or API-assisted workflow",
+        "workflow": "Manual or API-supported workflow",
         "support": "Direct onboarding support"
       },
       "proposal": {
-        "title": "Tailored proposal",
-        "description": "We work with a limited number of dealers at launch. Request access to get a tailored pricing proposal.",
+        "title": "Request access",
+        "description": "We work with a limited number of dealers at launch. Tell us how your offers arrive and we will map the right setup.",
         "primaryCta": "Request access",
-        "secondaryCta": "View pricing model"
+        "secondaryCta": "More information"
       }
     }
   },
   "PricingPage": {
     "hero": {
-      "title": "Custom pricing, tailored to your operation",
-      "description": "We do not offer fixed public plans at launch. Each partnership is structured around your sourcing volume, target markets, workflow, and support needs.",
+      "title": "Pricing built around your intake",
+      "description": "We do not offer fixed public plans at launch. Each setup depends on your offer volume, supplier flow, markets, workflow, and support needs.",
       "cta": "Contact Sales"
     },
     "drivers": {
-      "title": "What pricing depends on",
-      "description": "We structure pricing around the operational inputs that drive sourcing, integration, and support.",
+      "title": "What the setup depends on",
+      "description": "We structure pricing around the inputs that shape rollout, intake control, and support.",
       "items": {
         "volume": {
-          "title": "Deal volume",
-          "description": "How many vehicles, offers, or sourcing requests you handle."
+          "title": "Offer volume",
+          "description": "How many supplier offers, vehicles, or sourcing requests your team handles."
         },
         "markets": {
           "title": "Target markets",
@@ -127,7 +127,7 @@
         },
         "workflow": {
           "title": "Workflow setup",
-          "description": "Automatic validation, managed access, API access, or internal process support."
+          "description": "Upload flow, managed access, API access, or internal process support."
         },
         "support": {
           "title": "Support level",
@@ -136,8 +136,8 @@
       }
     },
     "process": {
-      "title": "How the process works",
-      "description": "A simple process designed to qualify fit and move fast.",
+      "title": "How rollout works",
+      "description": "A simple process to understand fit and move quickly.",
       "steps": {
         "request": "Request access",
         "qualification": "Qualification call",
@@ -147,27 +147,30 @@
       }
     },
     "engagement": {
-      "title": "Engagement models",
-      "description": "No public prices - choose the relationship model that matches your operation.",
+      "title": "Ways to run it",
+      "description": "No public prices. Choose the setup that matches your operation.",
       "cta": "Contact us",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "We validate offers on your behalf and send back the result, so your team can act without handling the review workflow."
+          "description": "We process offers on your behalf and send back the result, so your team can act without handling the intake workflow manually."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Your users or members can validate offers themselves, upload files, and manage the process directly inside Auto-margin."
+          "description": "Your users or members can upload offers themselves and manage the intake process directly inside Auto-margin."
         },
         "api": {
           "title": "Enterprise API access",
-          "description": "Get API access, an API key, and documentation so your team can build and run its own validation setup."
+          "description": "Get API access, an API key, and documentation so your team can build its own intake workflow on top of Auto-margin."
         }
       }
     }
   },
   "FAQ": {
-    "title": "Got Questions?",
+    "title": "Direct answers.",
+    "homeTitle": "Direct answers.\nNo marketing fog.",
+    "homeDescription": "If you can't find what you need, write us. We answer within one business day.",
+    "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "If you can't find what you're looking for,",
     "contactLink": "get in touch",
     "categories": {
@@ -176,11 +179,11 @@
         "questions": {
           "what": {
             "q": "What does AutoMargin do?",
-            "a": "AutoMargin analyzes vehicle offers from emails, PDFs, Excel, and other formats. It compares supplier prices to live market data, calculates margins, and highlights the most profitable opportunities for you."
+            "a": "AutoMargin helps dealers review incoming offers faster and focus on better deals. You upload the offers you already receive, and AutoMargin shows which cars create margin, which ones will sit, and which ones are already placed."
           },
           "identify": {
             "q": "How does it identify the best deals?",
-            "a": "Our AI evaluates each offer against real-time market listings, computes resale margins, and ranks options based on your criteria. You get clear recommendations without manual spreadsheets."
+            "a": "It checks each offer against current market context and turns it into a clear next step. You see which cars are worth acting on and which suppliers consistently bring the right stock."
           },
           "files": {
             "q": "Which file types are supported?",
@@ -193,11 +196,11 @@
         "questions": {
           "audience": {
             "q": "Who is AutoMargin for?",
-            "a": "Independent dealers, trading companies, and B2B marketplaces who handle high volumes of offers and want faster, data-driven purchasing decisions."
+            "a": "Independent dealers, trading companies, and B2B marketplaces who handle high volumes of offers and want tighter control over intake, supplier quality, and margin."
           },
           "trial": {
             "q": "Can I try AutoMargin before choosing a plan?",
-            "a": "You can use the public demo with text input to see how AutoMargin works. Account access or a trial period is planned directly with our team after we understand your workflow, volume, and needs."
+            "a": "You can use the public demo with text input to see how AutoMargin works. Account access or a trial period is planned directly with our team after we understand your intake workflow, volume, and supplier setup."
           },
           "security": {
             "q": "Is my data safe?",
@@ -210,7 +213,7 @@
         "questions": {
           "prices": {
             "q": "Can I trust the market prices?",
-            "a": "Yes. We cross-check against live marketplace listings across Europe and refresh the data regularly, so recommendations reflect real market movement instead of static price guesses."
+            "a": "Yes. We cross-check against live marketplace listings across Europe and refresh the data regularly, so your team works from current market movement instead of static guesses."
           },
           "start": {
             "q": "How do I get started?",
@@ -238,11 +241,11 @@
         },
         "guidebook": {
           "title": "Guidebook",
-          "description": "Read the Auto-margin workflow guide - how teams screen lists and validate margin."
+          "description": "Read the Auto-margin workflow guide - how teams review incoming offers and control intake."
         },
         "demo": {
           "title": "Demo",
-          "description": "Try a real car offer and see how the analysis works - no signup needed."
+          "description": "Try a real car offer and see how the intake review works - no signup needed."
         }
       }
     },
@@ -300,10 +303,10 @@
   },
   "About": {
     "hero": {
-      "title": "Smart car deals with Automation",
-      "subtitle": "Turn dealer insight into one automated tool.",
-      "body1": "We've connected dealers across Europe and built our ground network in Switzerland. With over 15 years in the car industry, we took the best dealer insights - how they compare, how they find deals - and turned it into one automated tool. You get more than price difference: best brands, best dealers, country by country, and more.",
-      "body2": "We started with an idea to automate manual work. We built AutoMargin around our best car dealer people - their insight, their way of comparing and finding the best deals. Combined into one fully automated system. This is just a little sneak peek of what we're building.",
+      "title": "Built around how dealers actually make money",
+      "subtitle": "Less time reviewing cars. More time making deals.",
+      "body1": "Most dealers spend their time reviewing cars: comparing listings, checking prices, and second-guessing decisions. That is not where money is made.",
+      "body2": "AutoMargin removes the analysis. You upload the offers you already receive and quickly see which cars make money, which ones will sit, which ones are already placed, and which suppliers fit your business.",
       "stats": {
         "founded": "Founded",
         "industry": "Years in industry",
@@ -320,14 +323,14 @@
       },
       "team": {
         "title": "The team",
-        "p1": "We're a lean, founder-owned team of car-industry insiders and builders. We're focused on one thing: turning real dealer know-how into one automated comparison tool.",
-        "p2": "Every part of the tool is designed around how the best dealers actually work. We took our best dealers' insight and their way of comparing and finding deals, and turned it into a fully automated comparison tool.",
-        "p3": "You get more than price difference: best brands, best dealers, country by country and more.",
+        "p1": "We're a lean, founder-owned team of car-industry operators and builders. We focus on one thing: helping dealers control intake through better supplier decisions.",
+        "p2": "The product is built around a simple shift: stop working on cars and start working with suppliers.",
+        "p3": "That means less reviewing, faster calls, and better deals.",
         "cta": "Get in touch"
       },
       "product": {
-        "p1": "AutoMargin gives you more than price difference: live market data, margin analysis, and dealer-level insight in one place. We analyse manual work and listings from the biggest car marketplaces - AutoScout24, Mobile.de and others across Europe. So you can see which brands and dealers perform best, country by country and can spot the right deals faster.",
-        "p2": "Whether you're a dealer comparing offers or a developer building on our data, the tool is built around how the best people actually work. You get clean, structured output - best brands, best dealers, and real margins - so you can focus on closing deals instead of digging through spreadsheets and cross-checking marketplaces by hand."
+        "p1": "This is not a pricing tool. It is a way to control intake and decide faster what belongs in stock.",
+        "p2": "The real value is knowing who brings you margin, who sends volume without profit, and how to build a supplier network that makes you money."
       }
     }
   },
@@ -340,7 +343,7 @@
     },
     "tryDemo": "Try Demo",
     "contactUs": "Contact Us",
-    "slogan": "Less time sorting deals.",
+    "slogan": "Build the network behind your margin.",
     "privacy": "Privacy Policy"
   }
 }

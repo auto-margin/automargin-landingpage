@@ -59,7 +59,7 @@ const staticAnswers: Array<{
       "tool",
     ],
     answer:
-      "Auto-margin helps professional car dealers analyze vehicle offers before buying. It compares offers against live European market data, estimates resale value, calculates margin, and highlights profitable opportunities.",
+      "Auto-margin helps professional car dealers review incoming offers and focus on better deals. You upload the offers you already receive, and Auto-margin shows which cars create margin, which ones will sit, and which ones are already placed.",
     suggestions: ["Which files are supported?", "Can I try a demo?"],
   },
   {
@@ -67,12 +67,13 @@ const staticAnswers: Array<{
     keywords: [
       "features",
       "market price",
-      "margin analysis",
+      "margin",
       "competitor",
       "insights",
-      "ai-powered",
+      "supplier",
+      "intake",
     ],
-    answer: `Core features include real-time market price comparisons, instant margin analysis, competitor pricing across markets, AI-powered insights, supplier verification, offer comparison, notifications, and support for uploaded files. See the ${pageLink("features")}.`,
+    answer: `Core features include uploaded offer intake, market-backed margin checks, supplier visibility, offer triage, notifications, and support for uploaded files. See the ${pageLink("features")}.`,
     suggestions: ["Which markets are supported?", "Which files are supported?"],
   },
   {
@@ -84,14 +85,20 @@ const staticAnswers: Array<{
       "autoscout",
       "mobile.de",
       "mobilede",
+      "germany",
+      "france",
+      "poland",
+      "italy",
       "belgium",
       "switzerland",
       "spain",
-      "denmark",
+      "netherlands",
       "sweden",
+      "south korea",
+      "china",
     ],
     answer:
-      "Auto-margin currently compares vehicle offers against Belgium, Switzerland, Spain, Denmark, and Sweden. More European markets may be added over time, but those five are the MVP comparison markets right now.",
+      "Auto-margin checks offers against current European market context, including Germany, France, Poland, Italy, Switzerland, Spain, Netherlands, Belgium, Sweden, and Czech Republic. The homepage also shows connected context for South Korea and China where relevant.",
     suggestions: ["Can I trust the prices?", "How do I get started?"],
   },
   {
@@ -105,7 +112,7 @@ const staticAnswers: Array<{
       "quote",
       "proposal",
     ],
-    answer: `Auto-margin uses tailored pricing at launch. The price depends on deal volume, target markets, workflow setup, API or managed access needs, onboarding, and support level. Visit the ${pageLink("pricing")} or contact sales on the ${pageLink("contact")}.`,
+    answer: `Auto-margin uses tailored pricing at launch. The price depends on offer volume, target markets, workflow setup, API or managed access needs, onboarding, and support level. Visit the ${pageLink("pricing")} or contact sales on the ${pageLink("contact")}.`,
     suggestions: ["What are the engagement models?", "Contact sales"],
   },
   {
@@ -118,13 +125,13 @@ const staticAnswers: Array<{
       "engagement",
     ],
     answer:
-      "The current engagement models are automatic access, managed access, and enterprise API access. Automatic access validates offers for your team, managed access lets users validate offers in Auto-margin, and API access gives your team keys and documentation to build its own validation setup.",
+      "The current engagement models are automatic access, managed access, and enterprise API access. Automatic access processes offers for your team, managed access lets users upload and handle offers in Auto-margin, and API access gives your team keys and documentation to build its own workflow.",
     suggestions: ["How does onboarding work?", "How do I contact sales?"],
   },
   {
     id: "demo",
     keywords: ["demo", "try", "test", "trial", "free trial", "sample"],
-    answer: `You can try Auto-margin with a real car offer on the ${pageLink("demo")}. Write your offer and click "Analyze".`,
+    answer: `You can try Auto-margin with a real car offer on the ${pageLink("demo")}. Upload or write an offer and see how the review flow works.`,
     suggestions: ["Which files are supported?", "Go to contact"],
   },
   {
@@ -141,7 +148,7 @@ const staticAnswers: Array<{
       "upload",
     ],
     answer:
-      "Auto-margin supports vehicle offers from emails, PDFs, Excel, Word, Google Sheets, CSV-style workflows, and mixed batches. The goal is to parse offers automatically so dealers do not need manual spreadsheets.",
+      "Auto-margin supports vehicle offers from emails, PDFs, Excel, Word, Google Sheets, CSV-style workflows, and mixed batches. The goal is to work with the offers dealers already receive instead of forcing more manual review.",
     suggestions: ["How does supplier verification work?", "Try the demo"],
   },
   {
@@ -153,7 +160,7 @@ const staticAnswers: Array<{
   {
     id: "contact",
     keywords: ["contact", "email", "sales", "support", "talk", "book", "call"],
-    answer: `You can contact Auto-margin at info@auto-margin.com or use the form on the ${pageLink("contact")}. The site says the team typically responds within 1 business day, Monday-Friday 9:00-17:00 CET.`,
+    answer: `You can contact Auto-margin at to@auto-margin.com or use the form on the ${pageLink("contact")}. The site says the team typically responds within 1 business day, Monday-Friday 9:00-17:00 CET.`,
     suggestions: ["How does pricing work?", "How do I get started?"],
   },
   {
@@ -168,7 +175,7 @@ const staticAnswers: Array<{
       "b2b",
     ],
     answer:
-      "Auto-margin is built for independent car dealers, automotive trading companies, vehicle import/export businesses, dealer networks, and B2B marketplaces handling high volumes of offers.",
+      "Auto-margin is built for independent car dealers, automotive trading companies, vehicle import/export businesses, dealer networks, and B2B marketplaces handling high volumes of offers and supplier relationships.",
     suggestions: ["How does it identify deals?", "How do I get started?"],
   },
   {
@@ -182,7 +189,7 @@ const staticAnswers: Array<{
       "profit",
     ],
     answer:
-      "Auto-margin evaluates each offer against real-time listings, estimates resale value, calculates potential margin, and ranks opportunities based on dealer criteria. The goal is faster, data-driven purchasing decisions.",
+      "Auto-margin checks each offer against current market context and turns it into a clear next step. The goal is to help dealers spend less time reviewing cars and more time acting on the right suppliers and stock.",
     suggestions: ["Can I trust the prices?", "Which markets are supported?"],
   },
   {
@@ -196,7 +203,7 @@ const staticAnswers: Array<{
       "live listings",
     ],
     answer:
-      "Market prices are cross-checked against live listings from AutoScout24, Mobile.de, and other trusted European marketplaces, with data updated daily to reflect market shifts.",
+      "Market prices are checked against current European marketplace context and refreshed regularly, so your team works from market movement instead of static guesses.",
     suggestions: ["Which markets are supported?", "Try the demo"],
   },
   {
@@ -215,7 +222,7 @@ const staticAnswers: Array<{
   {
     id: "about",
     keywords: ["about", "team", "company", "founded", "story", "mission"],
-    answer: `Auto-margin is a lean, founder-owned team with car-industry experience across Europe and a network in Switzerland. The company mission is to remove uncertainty from vehicle sourcing. Read more on the ${pageLink("about")}.`,
+    answer: `Auto-margin is a lean, founder-owned team with car-industry experience across Europe and a network in Switzerland. The company mission is to help dealers control intake and build stronger supplier networks. Read more on the ${pageLink("about")}.`,
     suggestions: ["Who is Auto-margin for?", "Contact the team"],
   },
   {
@@ -275,14 +282,15 @@ export function findStaticAliceAnswer(message: string): AliceAnswer | null {
 }
 
 export const ALICE_SITE_CONTEXT = `
-Auto-margin is a data-driven analytics platform for professional vehicle traders and dealerships in Europe.
-It helps dealers analyze vehicle offers, compare supplier prices with live market listings, estimate resale values, calculate profit margins, rank opportunities, and reduce manual spreadsheet work.
+Auto-margin is a platform for professional vehicle traders and dealerships in Europe.
+It helps dealers review incoming offers faster, see which cars create margin, which ones will sit, and which ones are already placed.
+The broader goal is intake control: better supplier decisions, less time reviewing cars, and more time making deals.
 Target customers: independent dealers, trading companies, import/export businesses, dealer networks, and B2B marketplaces.
-Core features: real-time market price intelligence, instant margin analysis, competitor price monitoring, multi-market comparison, supplier verification, offer comparison, notifications, and AI-powered insights.
+Core features: uploaded offer intake, market-backed margin checks, supplier visibility, offer triage, notifications, and multi-market context.
 Supported inputs mentioned on the site: email, PDF, Excel, Word, Google Sheets, and mixed offer batches.
-Marketplaces and data context: AutoScout24, Mobile.de, and other European marketplaces. Current MVP comparison markets are Belgium, Switzerland, Spain, Denmark, and Sweden.
-Pricing: custom/tailored pricing at launch. Pricing depends on deal volume, target markets, workflow setup, API or managed access, onboarding, reporting, account support, and operational assistance.
+Market and data context: current European market context including Germany, France, Poland, Italy, Switzerland, Spain, Netherlands, Belgium, Sweden, and Czech Republic. The homepage also shows connected context for South Korea and China where relevant.
+Pricing: custom/tailored pricing at launch. Pricing depends on offer volume, target markets, workflow setup, API or managed access, onboarding, reporting, account support, and operational assistance.
 Engagement models: automatic access, managed access, and enterprise API access.
-Contact: info@auto-margin.com. Contact form: /contact. Hours: Monday-Friday 9:00-17:00 CET. Typical response: within 1 business day.
+Contact: to@auto-margin.com. Contact form: /contact. Hours: Monday-Friday 9:00-17:00 CET. Typical response: within 1 business day.
 Useful pages: /demo, /pricing, /faq, /contact, /about, /guidebook, /privacy, /enterprise, /browser-extension.
 `;

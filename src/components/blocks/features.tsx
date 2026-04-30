@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { DashedLine } from "../dashed-line";
@@ -42,6 +41,7 @@ export const Features = () => {
   const items = itemKeys.map((key, index) => ({
     title: t(`items.${key}`),
     image: itemImages[index]!,
+    step: index + 1,
   }));
 
   return (
@@ -78,10 +78,10 @@ export const Features = () => {
                       {item.title}
                     </h3>
                     <div
-                      className="bg-foreground/5 text-foreground flex size-10 items-center justify-center rounded-full border"
+                      className="bg-foreground/5 text-foreground flex size-10 items-center justify-center rounded-full border text-base font-semibold lg:size-11 lg:text-lg"
                       aria-hidden
                     >
-                      <Check className="size-5 lg:size-6" />
+                      {item.step}
                     </div>
                   </div>
                 </div>

@@ -10,41 +10,41 @@
   },
   "Home": {
     "hero": {
-      "title": "Analysieren Sie jedes Autoangebot.",
-      "subtitle": "Automargin hilft Ihnen zu analysieren und zu verstehen, ob ein Autoangebot profitabel ist.",
-      "primaryCta": "Loslegen",
+      "title": "Nicht länger\nan Autos arbeiten.\nMit Lieferanten arbeiten.",
+      "subtitle": "Wir nehmen die Analyse ab. Angebote hochladen, Marge in Minuten sehen und erkennen, welche Lieferanten wirklich Geld bringen.",
+      "primaryCta": "Zugang anfragen",
       "secondaryCta": "Demo testen",
       "features": {
         "market": {
-          "title": "Marktpreis-Intelligenz",
-          "description": "Analysieren Sie Live-Angebote auf großen europäischen Automarktplätzen für realistische Wiederverkaufswerte."
+          "title": "Sehen, was sich lohnt",
+          "description": "Erkennen Sie profitable Angebote, bevor Ihr Team jedes Auto manuell prüft."
         },
         "margin": {
-          "title": "Sofortige Margenanalyse",
-          "description": "Berechnen Sie den möglichen Gewinn vor dem Fahrzeugkauf - ohne manuelle Recherche."
+          "title": "Wissen, was sich dreht",
+          "description": "Sehen Sie, welche Autos sich verkaufen, welche stehen bleiben und wo der Intake stockt."
         },
         "comparison": {
-          "title": "Multi-Markt-Vergleich",
-          "description": "Sehen Sie, wie ähnliche Fahrzeuge in verschiedenen europäischen Märkten bepreist sind."
+          "title": "Mit echten Angeboten arbeiten",
+          "description": "Laden Sie Dateien, E-Mails und Listen hoch, die Sie bereits von Lieferanten erhalten."
         },
         "insights": {
-          "title": "KI-gestützte Einblicke",
-          "description": "ML-Modelle erkennen Preistrends und Chancen."
+          "title": "Nach Lieferantenqualität handeln",
+          "description": "Sehen Sie, wer regelmäßig Marge bringt und wer nur Rauschen erzeugt."
         }
       }
     },
     "features": {
-      "title": "Automatisierung für Ihr Unternehmen",
+      "title": "Vom Posteingang zum Deal mit Lieferantennetzwerk.",
       "imageAlt": "{title}-Oberfläche",
       "items": {
-        "market": "Marktpreisvergleiche in Echtzeit",
-        "competitor": "Wettbewerbspreise über Märkte hinweg",
-        "insights": "KI-Einblicke für bessere Einkaufsentscheidungen"
+        "market": "Bestehende Angebote hochladen",
+        "competitor": "Sehen, welche Autos Gewinn bringen.",
+        "insights": "Auf die richtigen Lieferanten setzen"
       }
     },
     "markets": {
       "title": "Daten aus Top-Märkten",
-      "description": "Länderspezifische Marktdaten, automatisch auf jede Profitabilitätsprüfung angewendet.",
+      "description": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft, damit Ihr Team nicht zwischen Marktplätzen springt.",
       "comingSoon": "Bald verfügbar",
       "countries": {
         "DE": { "name": "Deutschland", "metric": "2,3 Mio.+ Inserate" },
@@ -60,84 +60,84 @@
       }
     },
     "bento": {
-      "label": "KEINE RATEREI. NUR MARGEN.",
-      "title": "Für Autohäuser gemacht",
-      "description": "Automargin basiert auf den Arbeitsweisen erfolgreicher Autohäuser: fokussiert bleiben, schnell handeln und hochwertige Einkaufsentscheidungen treffen."
+      "label": "WENIGER PRÜFEN. MEHR DEALS.",
+      "title": "Sie brauchen bessere Deals.",
+      "description": "Geld entsteht im Deal: mit dem richtigen Lieferanten, im richtigen Moment, mit dem richtigen Auto. Sie sehen, wer Marge bringt, wer Volumen ohne Gewinn sendet und wer zu Ihrem Geschäft passt."
     },
     "bentoCards": {
       "items": {
         "0": {
           "name": "Jedes Format hochladen",
-          "description": "Wir unterstützen PDF, Excel, CSV und mehr.",
-          "hoverText": "Dateien werden sicher gespeichert und geschützt."
+          "description": "E-Mail, PDF, Excel, CSV und mehr.",
+          "hoverText": "Nutzen Sie die Angebote, die Sie bereits erhalten."
         },
         "1": {
-          "name": "Lieferantenprüfung",
-          "description": "Sehen Sie, wer die besten Angebote sendet.",
-          "hoverText": "Entdecken Sie Ihren bevorzugten Lieferanten."
+          "name": "Lieferanten sichtbar machen",
+          "description": "Sehen Sie, wer regelmäßig Marge sendet.",
+          "hoverText": "Wissen, wen Sie anrufen und wen Sie ignorieren."
         },
         "2": {
-          "name": "Angebotsvergleich über Märkte",
-          "shortName": "Angebotsvergleich",
-          "description": "Vergleichen Sie Angebote aus verschiedenen Märkten, um den besten Preis zu finden.",
-          "hoverText": "Validieren Sie Angebote gegen Ihre Regeln."
+          "name": "Verbundene Marktdaten",
+          "shortName": "Marktdaten",
+          "description": "Daten aus Europa, Südkorea und China vergleichen und verbinden.",
+          "hoverText": "Sehen Sie, wie dasselbe Angebot in mehreren Märkten wirkt."
         },
         "3": {
           "name": "Benachrichtigungen",
-          "description": "Angebote anhängen und E-Mail-Einblicke erhalten.",
-          "hoverText": "Ergebnisse und Updates automatisch erhalten."
+          "description": "Angebote hochladen und klare nächste Schritte erhalten.",
+          "hoverText": "Schneller handeln, ohne extra Prüfung."
         }
       }
     },
     "salesPricing": {
-      "title": "Treten Sie unserem Netzwerk bei",
-      "description1": "Pläne werden auf Ihr Autohaus zugeschnitten.",
-      "description2": "Ihr Volumen, Ihre Märkte und Ihr Setup bestimmen den Preis.",
+      "title": "Auf Ihren Intake gebaut.",
+      "description1": "Wir richten AutoMargin danach ein, wie Ihre Angebote heute ankommen.",
+      "description2": "Volumen, Märkte und Workflow bestimmen den Rollout.",
       "bullets": {
-        "dealFlow": "Auf Ihren Dealflow ausgelegt",
+        "dealFlow": "Gebaut für Ihren Angebots-Intake",
         "markets": "Marktspezifisches Setup",
         "workflow": "Manueller oder API-gestützter Workflow",
         "support": "Direkte Onboarding-Unterstützung"
       },
       "proposal": {
-        "title": "Individuelles Angebot",
-        "description": "Zum Start arbeiten wir mit einer begrenzten Anzahl von Händlern. Fordern Sie Zugang an, um ein individuelles Preisangebot zu erhalten.",
+        "title": "Zugang anfragen",
+        "description": "Zum Start arbeiten wir mit wenigen Händlern. Sagen Sie uns, wie Angebote ankommen, und wir planen das passende Setup.",
         "primaryCta": "Zugang anfragen",
-        "secondaryCta": "Preismodell ansehen"
+        "secondaryCta": "Mehr Informationen"
       }
     }
   },
   "PricingPage": {
     "hero": {
-      "title": "Individuelle Preise für Ihren Betrieb",
-      "description": "Zum Start bieten wir keine festen öffentlichen Pläne an. Jede Partnerschaft wird nach Sourcing-Volumen, Zielmärkten, Workflow und Supportbedarf strukturiert.",
+      "title": "Preise rund um Ihren Intake",
+      "description": "Zum Start gibt es keine festen öffentlichen Pläne. Jedes Setup hängt von Angebotsvolumen, Lieferantenfluss, Märkten, Workflow und Supportbedarf ab.",
       "cta": "Sales kontaktieren"
     },
     "drivers": {
-      "title": "Wovon der Preis abhängt",
-      "description": "Wir strukturieren Preise um die operativen Faktoren, die Sourcing, Integration und Support bestimmen.",
+      "title": "Wovon das Setup abhängt",
+      "description": "Wir strukturieren Preise nach den Faktoren, die Rollout, Intake-Kontrolle und Support prägen.",
       "items": {
         "volume": {
-          "title": "Dealvolumen",
-          "description": "Wie viele Fahrzeuge, Angebote oder Sourcing-Anfragen Sie bearbeiten."
+          "title": "Angebotsvolumen",
+          "description": "Wie viele Lieferantenangebote, Fahrzeuge oder Sourcing-Anfragen Ihr Team bearbeitet."
         },
         "markets": {
           "title": "Zielmärkte",
-          "description": "Erforderliche Länder, Regionen und Lieferantenzugänge."
+          "description": "Länder, Regionen und Lieferantenzugänge, die benötigt werden."
         },
         "workflow": {
           "title": "Workflow-Setup",
-          "description": "Automatische Validierung, Managed Access, API-Zugang oder interne Prozessunterstützung."
+          "description": "Upload-Flow, Managed Access, API-Zugang oder interne Prozessunterstützung."
         },
         "support": {
           "title": "Support-Level",
-          "description": "Onboarding, Reporting, Account-Support und operative Unterstützung."
+          "description": "Onboarding, Reporting, Account-Support und operative Hilfe."
         }
       }
     },
     "process": {
-      "title": "So funktioniert der Prozess",
-      "description": "Ein einfacher Prozess, um Fit zu prüfen und schnell voranzukommen.",
+      "title": "So läuft der Rollout",
+      "description": "Ein einfacher Prozess, um Fit zu verstehen und schnell weiterzukommen.",
       "steps": {
         "request": "Zugang anfragen",
         "qualification": "Qualifizierungsgespräch",
@@ -147,27 +147,30 @@
       }
     },
     "engagement": {
-      "title": "Engagement-Modelle",
-      "description": "Keine öffentlichen Preise - wählen Sie das Beziehungsmodell, das zu Ihrem Betrieb passt.",
+      "title": "So können Sie starten",
+      "description": "Keine öffentlichen Preise. Wählen Sie das Setup, das zu Ihrem Betrieb passt.",
       "cta": "Kontakt aufnehmen",
       "models": {
         "automatic": {
           "title": "Automatischer Zugang",
-          "description": "Wir validieren Angebote in Ihrem Auftrag und senden das Ergebnis zurück, damit Ihr Team ohne eigenen Prüfworkflow handeln kann."
+          "description": "Wir verarbeiten Angebote für Sie und senden das Ergebnis zurück, damit Ihr Team ohne manuellen Intake handeln kann."
         },
         "managed": {
           "title": "Managed Access",
-          "description": "Ihre Nutzer oder Mitglieder können Angebote selbst validieren, Dateien hochladen und den Prozess direkt in Auto-margin steuern."
+          "description": "Ihre Nutzer können Angebote selbst hochladen und den Intake direkt in Auto-margin steuern."
         },
         "api": {
           "title": "Enterprise API-Zugang",
-          "description": "Sie erhalten API-Zugang, API-Key und Dokumentation, damit Ihr Team die eigene Validierung aufbauen und betreiben kann."
+          "description": "API-Zugang, API-Key und Dokumentation, damit Ihr Team den eigenen Intake auf Auto-margin aufbauen kann."
         }
       }
     }
   },
   "FAQ": {
-    "title": "Fragen?",
+    "title": "Direkte Antworten.",
+    "homeTitle": "Direkte Antworten.\nKein Marketingnebel.",
+    "homeDescription": "Wenn Sie nicht finden, was Sie brauchen, schreiben Sie uns. Wir antworten innerhalb eines Werktags.",
+    "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "Wenn Sie nicht finden, wonach Sie suchen,",
     "contactLink": "kontaktieren Sie uns",
     "categories": {
@@ -176,15 +179,15 @@
         "questions": {
           "what": {
             "q": "Was macht AutoMargin?",
-            "a": "AutoMargin analysiert Fahrzeugangebote aus E-Mails, PDFs, Excel und anderen Formaten. Es vergleicht Lieferantenpreise mit Live-Marktdaten, berechnet Margen und hebt profitable Chancen hervor."
+            "a": "AutoMargin hilft Händlern, eingehende Angebote schneller zu prüfen und bessere Deals zu fokussieren. Sie laden vorhandene Angebote hoch und sehen, welche Autos Marge bringen, welche stehen bleiben und welche bereits platziert sind."
           },
           "identify": {
             "q": "Wie erkennt es die besten Deals?",
-            "a": "Unsere KI bewertet jedes Angebot anhand von Echtzeit-Marktinseraten, berechnet Wiederverkaufsmargen und rankt Optionen nach Ihren Kriterien."
+            "a": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft und in einen klaren nächsten Schritt übersetzt. Sie sehen, welche Autos sich lohnen und welche Lieferanten regelmäßig den richtigen Bestand bringen."
           },
           "files": {
             "q": "Welche Dateitypen werden unterstützt?",
-            "a": "PDF, Excel, Word, Google Sheets und E-Mails - auch gemischte Formate in einem Batch."
+            "a": "PDF, Excel, Word, Google Sheets und E-Mails, auch gemischte Formate in einem Batch. Auto-Forwarding übernimmt den Rest: senden, wir parsen."
           }
         }
       },
@@ -193,11 +196,11 @@
         "questions": {
           "audience": {
             "q": "Für wen ist AutoMargin?",
-            "a": "Für unabhängige Händler, Handelsunternehmen und B2B-Marktplätze, die viele Angebote bearbeiten und schnellere datenbasierte Einkaufsentscheidungen treffen wollen."
+            "a": "Für unabhängige Händler, Handelsunternehmen und B2B-Marktplätze mit hohem Angebotsvolumen, die mehr Kontrolle über Intake, Lieferantenqualität und Marge wollen."
           },
           "trial": {
-            "q": "Kann ich AutoMargin testen, bevor ich einen Plan waehle?",
-            "a": "Sie koennen die oeffentliche Demo mit Texteingabe nutzen, um zu sehen, wie AutoMargin funktioniert. Account-Zugang oder eine Testphase planen wir direkt mit unserem Team, nachdem wir Workflow, Volumen und Bedarf verstanden haben."
+            "q": "Kann ich AutoMargin vor einem Plan testen?",
+            "a": "Sie können die öffentliche Demo mit Texteingabe nutzen. Account-Zugang oder Testphase planen wir mit unserem Team, nachdem wir Intake, Volumen und Lieferanten-Setup verstanden haben."
           },
           "security": {
             "q": "Sind meine Daten sicher?",
@@ -210,11 +213,11 @@
         "questions": {
           "prices": {
             "q": "Kann ich den Marktpreisen vertrauen?",
-            "a": "Ja. Wir pruefen gegen Live-Marktplatzangebote in Europa und aktualisieren die Daten regelmaessig, damit Empfehlungen echte Marktbewegungen statt statischer Preisschaetzungen widerspiegeln."
+            "a": "Ja. Wir prüfen gegen Live-Marktplatzangebote in Europa und aktualisieren die Daten regelmäßig, damit Ihr Team mit aktueller Marktbewegung statt statischen Schätzungen arbeitet."
           },
           "start": {
             "q": "Wie starte ich?",
-            "a": "Senden Sie Ihre Anfrage über das Kontaktformular oder per E-Mail, und unser Team führt Sie durch das Setup."
+            "a": "Senden Sie Ihre Anfrage über das Kontaktformular oder per E-Mail. Unser Team führt Sie durch das Setup. Viele Nutzer starten noch am selben Tag."
           }
         }
       }
@@ -223,13 +226,13 @@
   "Contact": {
     "eyebrow": "Kontakt",
     "title": "Wir helfen Ihnen weiter.",
-    "description": "Sagen Sie uns, was Sie benötigen, und wir leiten Ihre Anfrage an die richtige Person weiter. Normalerweise antworten wir innerhalb eines Werktags.",
+    "description": "Sagen Sie uns, was Sie brauchen, und wir leiten Ihre Anfrage an die richtige Person weiter. Wir antworten meist innerhalb eines Werktags.",
     "detailsTitle": "Kontaktdaten",
     "openHours": "Mo-Fr, 9:00-17:00 (CET)",
     "nextSteps": {
       "eyebrow": "Nächste Schritte",
       "title": "Guides für den Einstieg",
-      "description": "Finden Sie den schnellsten Weg abhängig davon, was Sie suchen.",
+      "description": "Finden Sie den schnellsten Weg, je nachdem, was Sie suchen.",
       "linkLabel": "Mehr erfahren",
       "cards": {
         "faq": {
@@ -238,11 +241,11 @@
         },
         "guidebook": {
           "title": "Guidebook",
-          "description": "Lesen Sie den Auto-margin Workflow-Guide - wie Teams Listen prüfen und Margen validieren."
+          "description": "Lesen Sie den Auto-margin Workflow-Guide: wie Teams eingehende Angebote prüfen und Intake steuern."
         },
         "demo": {
           "title": "Demo",
-          "description": "Testen Sie ein echtes Autoangebot und sehen Sie, wie die Analyse funktioniert - ohne Registrierung."
+          "description": "Testen Sie ein echtes Autoangebot und sehen Sie, wie der Intake-Review funktioniert, ohne Anmeldung."
         }
       }
     },
@@ -251,7 +254,7 @@
       "description": "Teilen Sie ein paar Details, und wir melden uns.",
       "errors": {
         "unavailable": "Das Kontaktformular ist vorübergehend nicht verfügbar.",
-        "submit": "Senden ist gerade nicht möglich. Bitte versuchen Sie es später erneut."
+        "submit": "Senden ist gerade nicht möglich. Bitte versuchen Sie es gleich erneut."
       },
       "fields": {
         "inquiryType": {
@@ -272,17 +275,20 @@
           "label": "E-Mail-Adresse *",
           "placeholder": "ich@firma.com"
         },
-        "company": { "label": "Firmenname", "placeholder": "Firmenname" },
+        "company": { "label": "Firma", "placeholder": "Firmenname" },
         "employees": {
           "label": "Anzahl Mitarbeitende",
           "placeholder": "z. B. 11-50"
         },
         "message": {
           "label": "Ihre Nachricht *",
-          "placeholder": "Schreiben Sie Ihre Nachricht"
+          "placeholder": "Nachricht schreiben"
         }
       },
-      "terms": { "prefix": "Ich stimme den", "link": "Geschäftsbedingungen" },
+      "terms": {
+        "prefix": "Ich stimme den",
+        "link": "Geschäftsbedingungen"
+      },
       "submit": "Senden",
       "submitting": "Wird gesendet...",
       "privacy": {
@@ -297,14 +303,14 @@
   },
   "About": {
     "hero": {
-      "title": "Smarte Autodeals mit Automatisierung",
-      "subtitle": "Verwandeln Sie Händlerwissen in ein automatisiertes Tool.",
-      "body1": "Wir haben Händler in Europa verbunden und unser Netzwerk in der Schweiz aufgebaut. Mit über 15 Jahren in der Autobranche haben wir die besten Händler-Einblicke in ein automatisiertes Tool verwandelt.",
-      "body2": "Wir starteten mit der Idee, manuelle Arbeit zu automatisieren. AutoMargin basiert auf dem Wissen unserer besten Händler und ihrer Art, Deals zu vergleichen und zu finden.",
+      "title": "Gebaut dafür, wie Händler wirklich Geld verdienen",
+      "subtitle": "Weniger Autos prüfen. Mehr Deals machen.",
+      "body1": "Viele Händler verbringen ihre Zeit mit Prüfung: Inserate vergleichen, Preise checken und Entscheidungen hinterfragen. Dort entsteht kein Geld.",
+      "body2": "AutoMargin nimmt die Analyse ab. Sie laden Angebote hoch und sehen schnell, welche Autos Geld bringen, welche stehen bleiben, welche schon platziert sind und welche Lieferanten passen.",
       "stats": {
         "founded": "Gegründet",
         "industry": "Jahre in der Branche",
-        "dealers": "Verbundene Händler",
+        "dealers": "Händler verbunden",
         "network": "HQ & Netzwerk"
       }
     },
@@ -312,19 +318,19 @@
       "images": {
         "dashboard": "Analyse-Dashboard",
         "marketAnalysis": "Europaweite Marktanalyse",
-        "carDashboard": "Fahrzeugspezifisches Dashboard",
+        "carDashboard": "Fahrzeug-Dashboard",
         "dealerLeaderboard": "Händler-Rangliste"
       },
       "team": {
         "title": "Das Team",
-        "p1": "Wir sind ein schlankes, inhabergeführtes Team aus Brancheninsidern und Entwicklern.",
-        "p2": "Jeder Teil des Tools ist darauf ausgelegt, wie die besten Händler tatsächlich arbeiten.",
-        "p3": "Sie erhalten mehr als Preisunterschiede: beste Marken, beste Händler, Land für Land und mehr.",
+        "p1": "Wir sind ein schlankes, inhabergeführtes Team aus Auto-Operatoren und Entwicklern. Unser Fokus: Händlern helfen, Intake über bessere Lieferantenentscheidungen zu steuern.",
+        "p2": "Das Produkt basiert auf einem einfachen Wechsel: nicht länger an Autos arbeiten, sondern mit Lieferanten.",
+        "p3": "Das bedeutet weniger Prüfung, schnellere Anrufe und bessere Deals.",
         "cta": "Kontakt aufnehmen"
       },
       "product": {
-        "p1": "AutoMargin bietet mehr als Preisunterschiede: Live-Marktdaten, Margenanalyse und Händler-Einblicke an einem Ort.",
-        "p2": "Ob Händler oder Entwickler: Sie erhalten saubere, strukturierte Ergebnisse und können sich auf Abschlüsse statt Tabellenarbeit konzentrieren."
+        "p1": "Das ist kein Pricing-Tool. Es hilft, Intake zu steuern und schneller zu entscheiden, was in den Bestand gehört.",
+        "p2": "Der echte Wert liegt darin zu wissen, wer Marge bringt, wer Volumen ohne Gewinn sendet und wie Sie ein Lieferantennetzwerk aufbauen, das Geld verdient."
       }
     }
   },
@@ -337,7 +343,7 @@
     },
     "tryDemo": "Demo testen",
     "contactUs": "Kontakt",
-    "slogan": "Weniger Zeit mit Deal-Sortierung.",
+    "slogan": "Bauen Sie das Netzwerk hinter Ihrer Marge.",
     "privacy": "Datenschutzerklärung"
   }
 }

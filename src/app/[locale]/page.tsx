@@ -19,9 +19,8 @@ export default function Home() {
       </Background>
       <Background variant="bottom">
         <HomeDeferredSections />
-        <FAQ />
+        <FAQ homeHeader />
       </Background>
     </>
   );
 }
-

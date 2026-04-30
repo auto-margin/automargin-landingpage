@@ -27,21 +27,22 @@ const ITEMS = [
     href: "/#features",
     dropdownItems: [
       {
-        title: "Modern Comparison Tool",
+        title: "Control Intake",
         href: "/#feature-modern-teams",
         description:
-          "AutoMargin is built on the habits that make the best car dealerships successful",
+          "See which offers make money and which ones are not worth the time.",
       },
       {
-        title: "Dealer-Level Insight",
+        title: "Work the Right Suppliers",
         href: "/#automation-for-your-busniess",
-        description: "AutoMargin your resource allocation and execution",
+        description:
+          "Know who consistently brings margin and who sends volume without profit.",
       },
       {
         title: "Browser Extension",
         href: "/browser-extension",
         description:
-          "See list prices in context and spot stronger deals while you browse marketplaces.",
+          "See marketplace prices in context and move faster while you browse.",
       },
     ],
   },

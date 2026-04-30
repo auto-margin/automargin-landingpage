@@ -27,7 +27,7 @@ const welcomeMessage: ChatMessage = {
   id: "welcome",
   role: "assistant",
   content:
-    "Hi, I am Bot. Ask me about Auto-margin, pricing, the demo, supported files, markets, or how to contact the team.",
+    "Hi, I am Bot. Ask me about Auto-margin, pricing, the demo, supported files, supplier workflow, or how to contact the team.",
   source: "static",
 };
 
@@ -50,7 +50,7 @@ function sleep(ms: number) {
 
 function renderTextWithLinks(text: string) {
   const parts = text.split(
-    /(\[[^\]]+\]\(\/[a-z0-9-/#]*\)|\s\/[a-z0-9-/]+|\binfo@auto-margin\.com\b)/gi,
+    /(\[[^\]]+\]\(\/[a-z0-9-/#]*\)|\s\/[a-z0-9-/]+|\bto@auto-margin\.com\b)/gi,
   );
 
   return parts.map((part, index) => {
@@ -81,11 +81,11 @@ function renderTextWithLinks(text: string) {
       );
     }
 
-    if (trimmed.toLowerCase() === "info@auto-margin.com") {
+    if (trimmed.toLowerCase() === "to@auto-margin.com") {
       return (
         <a
           key={`${part}-${index}`}
-          href="mailto:info@auto-margin.com"
+          href={`mailto:${trimmed}`}
           className="font-medium underline underline-offset-4"
         >
           {part}
@@ -280,7 +280,7 @@ export function AliceChatbot({ className }: { className?: string }) {
           id: createId(),
           role: "assistant",
           content:
-            "I am temporarily unavailable. You can still reach Auto-margin on the [Contact page](/contact) or at info@auto-margin.com.",
+            "I am temporarily unavailable. You can still reach Auto-margin on the [Contact page](/contact) or at to@auto-margin.com.",
           source: "fallback",
         },
       ]);
@@ -379,7 +379,9 @@ export function AliceChatbot({ className }: { className?: string }) {
                 >
                   <p>{renderTextWithLinks(message.content)}</p>
                   {message.role === "assistant" && message.source === "ai" ? (
-                    <p className="mt-1 text-[11px] opacity-70">AI assisted</p>
+                    <p className="mt-1 text-[11px] opacity-70">
+                      Assistant response
+                    </p>
                   ) : null}
                 </div>
               </div>

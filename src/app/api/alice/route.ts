@@ -61,7 +61,7 @@ function unavailableAnswer(): AliceResponse {
   return {
     source: "fallback",
     answer:
-      "I can answer common Auto-margin questions here, but the AI fallback is temporarily unavailable. For anything specific, use the [Contact page](/contact) or email info@auto-margin.com.",
+      "I can answer common Auto-margin questions here, but the assistant fallback is temporarily unavailable. For anything specific, use the [Contact page](/contact) or email to@auto-margin.com.",
     suggestions: ["How does pricing work?", "What does Auto-margin do?"],
   };
 }
@@ -176,7 +176,7 @@ export async function POST(request: Request) {
         {
           source: "fallback",
           answer:
-            "I have reached the AI question limit for this browser/IP window. I can still help with common Auto-margin topics like pricing, demo, files, markets, and contact.",
+            "I have reached the question limit for this browser/IP window. I can still help with common Auto-margin topics like pricing, demo, files, markets, and contact.",
           suggestions: ["How does pricing work?", "Contact sales"],
         },
         429,
