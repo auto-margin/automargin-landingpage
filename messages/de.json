@@ -79,8 +79,8 @@
         "2": {
           "name": "Verbundene Marktdaten",
           "shortName": "Marktdaten",
-          "description": "Daten aus Europa, Südkorea und China vergleichen und verbinden.",
-          "hoverText": "Sehen Sie, wie dasselbe Angebot in mehreren Märkten wirkt."
+          "description": "Europa ist die Listing-Basis. Südkorea und China ergänzen Marktkontext.",
+          "hoverText": "Nutzen Sie europäische Listings mit breiterem Import- und Exportkontext."
         },
         "3": {
           "name": "Benachrichtigungen",

@@ -51,7 +51,7 @@ function MarketFlag({
       />
       <div className="absolute inset-0 bg-black/10" />
       {showCode ? (
-        <span className="absolute inset-0 flex items-center justify-center text-xs font-black tracking-[0.02em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-base sm:text-sm">
+        <span className="absolute inset-0 flex items-center justify-center text-[0.65rem] font-black tracking-[0.02em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] min-[1440px]:text-sm sm:text-xs">
           {code}
         </span>
       ) : null}
@@ -60,7 +60,7 @@ function MarketFlag({
 }
 
 const marketCircleClass =
-  "border-border h-12 w-[4.5rem] overflow-hidden rounded-2xl border p-0 shadow-[0_12px_24px_-22px_rgba(15,23,42,0.75)] min-[1440px]:h-[3.55rem] min-[1440px]:w-[5.05rem] sm:h-[3.25rem] sm:w-[4.6rem] md:h-14 md:w-20 lg:h-[3.45rem] lg:w-[4.9rem]";
+  "border-border h-10 w-[4.75rem] overflow-hidden rounded-lg border p-0 shadow-[0_10px_22px_-20px_rgba(15,23,42,0.75)] min-[1440px]:h-12 min-[1440px]:w-[5.6rem] sm:h-11 sm:w-[5.1rem] md:h-12 md:w-[5.7rem] lg:h-12 lg:w-[5.45rem]";
 const miniMarketClass =
   "border-border h-6 w-8 overflow-hidden rounded-lg border bg-white p-0 shadow-[0_10px_18px_-18px_rgba(15,23,42,0.7)] sm:h-7 sm:w-9";
 
@@ -73,10 +73,6 @@ export function AnimatedBeamMultipleOutputDemo({
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
   const div3Ref = useRef<HTMLDivElement>(null);
-  const germanyRef = useRef<HTMLDivElement>(null);
-  const swedenRef = useRef<HTMLDivElement>(null);
-  const switzerlandRef = useRef<HTMLDivElement>(null);
-  const belgiumRef = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
 
@@ -115,45 +111,9 @@ export function AnimatedBeamMultipleOutputDemo({
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-2 sm:gap-2 md:gap-2.5">
-          <div className="relative flex flex-col gap-1.5 sm:gap-2">
-            <Circle ref={div1Ref} className={marketCircleClass}>
-              <MarketFlag alt="Europe" code="EU" src="/flags/eu.svg" />
-            </Circle>
-            <div className="relative flex items-center justify-center gap-1.5 sm:gap-2">
-              <div ref={germanyRef} className={miniMarketClass}>
-                <MarketFlag
-                  alt="Germany"
-                  code="DE"
-                  src="/flags/de.svg"
-                  showCode={false}
-                />
-              </div>
-              <div ref={swedenRef} className={miniMarketClass}>
-                <MarketFlag
-                  alt="Sweden"
-                  code="SE"
-                  src="/flags/se.svg"
-                  showCode={false}
-                />
-              </div>
-              <div ref={switzerlandRef} className={miniMarketClass}>
-                <MarketFlag
-                  alt="Switzerland"
-                  code="CH"
-                  src="/flags/ch.svg"
-                  showCode={false}
-                />
-              </div>
-              <div ref={belgiumRef} className={miniMarketClass}>
-                <MarketFlag
-                  alt="Belgium"
-                  code="BE"
-                  src="/flags/be.svg"
-                  showCode={false}
-                />
-              </div>
-            </div>
-          </div>
+          <Circle ref={div1Ref} className={marketCircleClass}>
+            <MarketFlag alt="Europe" code="EU" src="/flags/eu.svg" />
+          </Circle>
           <Circle ref={div3Ref} className={marketCircleClass}>
             <MarketFlag alt="China" code="CN" src="/flags/cn.svg" />
           </Circle>
@@ -181,41 +141,6 @@ export function AnimatedBeamMultipleOutputDemo({
         fromRef={div3Ref}
         toRef={div6Ref}
         duration={3}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={switzerlandRef}
-        duration={3}
-        curvature={18}
-        pathWidth={1.5}
-        pathOpacity={0.16}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={germanyRef}
-        toRef={swedenRef}
-        duration={3}
-        pathWidth={1.5}
-        pathOpacity={0.16}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={swedenRef}
-        toRef={switzerlandRef}
-        duration={3}
-        pathWidth={1.5}
-        pathOpacity={0.16}
-        delay={0.35}
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={switzerlandRef}
-        toRef={belgiumRef}
-        duration={3}
-        pathWidth={1.5}
-        pathOpacity={0.16}
-        delay={0.7}
       />
       <AnimatedBeam
         containerRef={containerRef}

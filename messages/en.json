@@ -79,8 +79,8 @@
         "2": {
           "name": "Connected market data",
           "shortName": "Market Data",
-          "description": "Compare and connect data across Europe, South Korea, and China.",
-          "hoverText": "See how the same offer looks across markets."
+          "description": "Europe is the listing base. South Korea and China add connected market context.",
+          "hoverText": "Use European listings with wider import and export context."
         },
         "3": {
           "name": "Notifications",

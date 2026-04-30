@@ -79,8 +79,8 @@
         "2": {
           "name": "Kopplad marknadsdata",
           "shortName": "Marknadsdata",
-          "description": "Jämför data över Europa, Sydkorea och Kina.",
-          "hoverText": "Se hur samma erbjudande ser ut på olika marknader."
+          "description": "Europa är basen för listings. Sydkorea och Kina ger extra marknadskontext.",
+          "hoverText": "Använd europeiska listings med bredare import- och exportkontext."
         },
         "3": {
           "name": "Notiser",

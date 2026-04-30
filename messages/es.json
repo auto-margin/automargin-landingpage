@@ -79,8 +79,8 @@
         "2": {
           "name": "Datos de mercado conectados",
           "shortName": "Datos mercado",
-          "description": "Compara y conecta datos de Europa, Corea del Sur y China.",
-          "hoverText": "Ve cómo se comporta la misma oferta en varios mercados."
+          "description": "Europa es la base de listings. Corea del Sur y China añaden contexto.",
+          "hoverText": "Usa listings europeos con contexto más amplio de importación y exportación."
         },
         "3": {
           "name": "Notificaciones",

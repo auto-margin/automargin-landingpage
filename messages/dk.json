@@ -79,8 +79,8 @@
         "2": {
           "name": "Forbundne markedsdata",
           "shortName": "Markedsdata",
-          "description": "Sammenlign og forbind data fra Europa, Sydkorea og Kina.",
-          "hoverText": "Se hvordan samme tilbud ser ud på flere markeder."
+          "description": "Europa er listing-basen. Sydkorea og Kina giver ekstra markedskontekst.",
+          "hoverText": "Brug europæiske listings med bredere import- og eksportkontekst."
         },
         "3": {
           "name": "Notifikationer",
