@@ -34,7 +34,7 @@ const ITEMS = [
       },
       {
         title: "Work the Right Suppliers",
-        href: "/#automation-for-your-busniess",
+        href: "/#automation-for-your-business",
         description:
           "Know who consistently brings margin and who sends volume without profit.",
       },
@@ -124,7 +124,8 @@ export const Navbar = () => {
                     href={link.href}
                     className={cn(
                       "relative bg-transparent px-1.5 text-sm font-medium transition-opacity hover:opacity-75",
-                      normalizedPathname === link.href && "text-muted-foreground",
+                      normalizedPathname === link.href &&
+                        "text-muted-foreground",
                     )}
                   >
                     {t(link.labelKey)}
@@ -186,10 +187,7 @@ export const Navbar = () => {
         <nav className="divide-border flex flex-1 flex-col divide-y">
           {ITEMS.map((link) =>
             link.dropdownItems ? (
-              <div
-                key={link.labelKey}
-                className="py-4 first:pt-0 last:pb-0"
-              >
+              <div key={link.labelKey} className="py-4 first:pt-0 last:pb-0">
                 <button
                   onClick={() =>
                     setOpenDropdown(

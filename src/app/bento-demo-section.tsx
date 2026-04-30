@@ -22,7 +22,7 @@ export function BentoDemoSection() {
 
         {/* Content */}
         <div className="mx-auto my-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
-          <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="text-2xl tracking-tight whitespace-pre-line md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
           <p className="text-muted-foreground leading-snug">

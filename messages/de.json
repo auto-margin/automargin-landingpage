@@ -47,123 +47,262 @@
       "description": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft, damit Ihr Team nicht zwischen Marktplätzen springt.",
       "comingSoon": "Bald verfügbar",
       "countries": {
-        "DE": { "name": "Deutschland", "metric": "2,3 Mio.+ Inserate" },
-        "FR": { "name": "Frankreich", "metric": "1,2 Mio.+ Inserate" },
-        "PL": { "name": "Polen", "metric": "870 Tsd.+ Inserate" },
-        "IT": { "name": "Italien", "metric": "720 Tsd.+ Inserate" },
-        "CH": { "name": "Schweiz", "metric": "540 Tsd.+ Inserate" },
-        "ES": { "name": "Spanien", "metric": "660 Tsd.+ Inserate" },
-        "NL": { "name": "Niederlande", "metric": "540 Tsd.+ Inserate" },
-        "BE": { "name": "Belgien", "metric": "410 Tsd.+ Inserate" },
-        "SE": { "name": "Schweden", "metric": "380 Tsd.+ Inserate" },
-        "CZ": { "name": "Tschechien", "metric": "320 Tsd.+ Inserate" }
+        "DE": {
+          "name": "Deutschland",
+          "metric": "2,3 Mio.+ Inserate"
+        },
+        "FR": {
+          "name": "Frankreich",
+          "metric": "1,2 Mio.+ Inserate"
+        },
+        "PL": {
+          "name": "Polen",
+          "metric": "870 Tsd.+ Inserate"
+        },
+        "IT": {
+          "name": "Italien",
+          "metric": "720 Tsd.+ Inserate"
+        },
+        "CH": {
+          "name": "Schweiz",
+          "metric": "540 Tsd.+ Inserate"
+        },
+        "ES": {
+          "name": "Spanien",
+          "metric": "660 Tsd.+ Inserate"
+        },
+        "NL": {
+          "name": "Niederlande",
+          "metric": "540 Tsd.+ Inserate"
+        },
+        "BE": {
+          "name": "Belgien",
+          "metric": "410 Tsd.+ Inserate"
+        },
+        "SE": {
+          "name": "Schweden",
+          "metric": "380 Tsd.+ Inserate"
+        },
+        "CZ": {
+          "name": "Tschechien",
+          "metric": "320 Tsd.+ Inserate"
+        }
       }
     },
     "bento": {
       "label": "WENIGER PRÜFEN. MEHR DEALS.",
-      "title": "Sie brauchen bessere Deals.",
-      "description": "Geld entsteht im Deal: mit dem richtigen Lieferanten, im richtigen Moment, mit dem richtigen Auto. Sie sehen, wer Marge bringt, wer Volumen ohne Gewinn sendet und wer zu Ihrem Geschäft passt."
+      "title": "Fokus auf\ndie richtigen Lieferanten.",
+      "description": "Geld entsteht im Deal: mit dem richtigen Lieferanten, Moment und Auto. Sehen Sie, wer Marge bringt, wer Volumen ohne Gewinn sendet und wer zu Ihrem Geschäft passt."
     },
     "bentoCards": {
       "items": {
         "0": {
           "name": "Jedes Format hochladen",
           "description": "E-Mail, PDF, Excel, CSV und mehr.",
-          "hoverText": "Nutzen Sie die Angebote, die Sie bereits erhalten."
+          "hoverText": "Nutzen Sie vorhandene Angebote."
         },
         "1": {
-          "name": "Lieferanten sichtbar machen",
-          "description": "Sehen Sie, wer regelmäßig Marge sendet.",
-          "hoverText": "Wissen, wen Sie anrufen und wen Sie ignorieren."
+          "name": "Lieferantenblick",
+          "description": "Sehen Sie, wer Marge sendet.",
+          "hoverText": "Wissen, wen Sie anrufen."
         },
         "2": {
-          "name": "Verbundene Marktdaten",
+          "name": "Verknüpfte Marktdaten",
           "shortName": "Marktdaten",
-          "description": "Europa ist die Listing-Basis. Südkorea und China ergänzen Marktkontext.",
-          "hoverText": "Nutzen Sie europäische Listings mit breiterem Import- und Exportkontext."
+          "description": "Europa ist die Listing-Basis. Korea und China zeigen Nachfrage.",
+          "hoverText": "Europäische Listings mit Import-/Export-Kontext nutzen."
         },
         "3": {
           "name": "Benachrichtigungen",
-          "description": "Angebote hochladen und klare nächste Schritte erhalten.",
-          "hoverText": "Schneller handeln, ohne extra Prüfung."
+          "description": "Angebote hochladen, nächste Schritte erhalten.",
+          "hoverText": "Handeln ohne Extra-Prüfung."
         }
       }
     },
     "salesPricing": {
-      "title": "Auf Ihren Intake gebaut.",
-      "description1": "Wir richten AutoMargin danach ein, wie Ihre Angebote heute ankommen.",
-      "description2": "Volumen, Märkte und Workflow bestimmen den Rollout.",
-      "bullets": {
-        "dealFlow": "Gebaut für Ihren Angebots-Intake",
-        "markets": "Marktspezifisches Setup",
-        "workflow": "Manueller oder API-gestützter Workflow",
-        "support": "Direkte Onboarding-Unterstützung"
-      },
+      "eyebrow": "Lieferantennetzwerk",
+      "title": "Das Auto ist das Symptom. Ihre Lieferantenliste ist die Ursache.",
+      "description": "Die meisten Analyse-Tools zeigen, was ein Auto wert ist. Automargin zeigt, welche Lieferanten wiederholt Marge bringen und welche Ihre Woche leise kosten. Dort steuern Sie den Intake.",
       "proposal": {
         "title": "Zugang anfragen",
         "description": "Zum Start arbeiten wir mit wenigen Händlern. Sagen Sie uns, wie Angebote ankommen, und wir planen das passende Setup.",
         "primaryCta": "Zugang anfragen",
         "secondaryCta": "Mehr Informationen"
+      },
+      "dashboard": {
+        "best": {
+          "eyebrow": "Lieferant · Autoselekt Berlin",
+          "title": "Bester Lieferant · letzte 90 Tage",
+          "badge": "Tier 1"
+        },
+        "stats": {
+          "margin": {
+            "value": "+24.6%",
+            "label": "Ø Marge pro Angebot"
+          },
+          "won": {
+            "value": "38/142",
+            "label": "gewonnen · 90 T"
+          },
+          "profit": {
+            "value": "€1.28M",
+            "label": "realisierter Gewinn"
+          },
+          "time": {
+            "value": "2.1 T",
+            "label": "Ø Zeit bis Deal"
+          }
+        },
+        "chart": {
+          "title": "Margenbeitrag · 12W rollierend",
+          "delta": "+18.2% Margenlift"
+        },
+        "tags": {
+          "fuel": "Premium deutscher Diesel",
+          "history": "wenig km, gute Historie",
+          "market": "CH-Zielmarkt",
+          "volume": "B2B Inzahlungnahmen"
+        },
+        "dropping": {
+          "eyebrow": "Fallender Tier",
+          "title": "Hansa Mobility",
+          "trend": "-7.2pp",
+          "volume": "211 Angebote",
+          "conversion": "8.5%",
+          "note": "Hohe Menge, niedrige Marge. Passt wohl nicht zu Ihrem Modell."
+        },
+        "rising": {
+          "eyebrow": "Steigender Tier",
+          "title": "Genève Auto Trading",
+          "trend": "+12.4pp",
+          "volume": "64 Angebote",
+          "conversion": "25.0%",
+          "note": "Kleineres Volumen, aber jedes genommene Auto gewinnt."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Weniger prüfen.\nMehr abschließen.",
+      "description": "Echte Beispiele dafür, wie Händler AutoMargin jeden Tag nutzen.",
+      "cta": "Mehr über uns",
+      "items": {
+        "offers": {
+          "quote": "Zu viele Angebote? Hochladen und sehen, was sich lohnt.",
+          "role": "Sales Manager"
+        },
+        "flow": {
+          "quote": "Gebaut aus einem Einkaufsfluss, der bereits 20% Marge zeigt.",
+          "role": "CEO"
+        },
+        "stock": {
+          "quote": "Langsame Ware? Früh erkennen und bessere Autos einfordern.",
+          "role": "Einkäufer"
+        },
+        "margin": {
+          "quote": "Sehen, wer Marge bringt und wer nur Volumen liefert.",
+          "role": "Operations Lead"
+        },
+        "deals": {
+          "quote": "Schwache Deals? Auf Chancen mit über 20% Marge steuern.",
+          "role": "Sales Consultant"
+        }
       }
     }
   },
   "PricingPage": {
     "hero": {
-      "title": "Preise rund um Ihren Intake",
-      "description": "Zum Start gibt es keine festen öffentlichen Pläne. Jedes Setup hängt von Angebotsvolumen, Lieferantenfluss, Märkten, Workflow und Supportbedarf ab.",
-      "cta": "Sales kontaktieren"
+      "title": "Kommerzieller Access für Händler mit klareren Kaufentscheidungen",
+      "description": "Wir richten AutoMargin so ein, wie Ihr Team arbeitet: automatic, managed oder API access. Kontaktieren Sie uns, wir mappen das passende Setup.",
+      "cta": "Sales kontaktieren",
+      "secondaryCta": "Accessmodelle vergleichen"
+    },
+    "supplierNetwork": {
+      "eyebrow": "Lieferantennetzwerk",
+      "title": "Sie brauchen nicht mehr Analyse.\nSie brauchen bessere Deals.",
+      "description": "Die meisten Händler prüfen Autos. Vergleichen Listings. Checken Preise. Hinterfragen Entscheidungen.\nGeld entsteht im Deal. Mit dem richtigen Lieferanten. Im richtigen Moment. Mit dem richtigen Auto.\nAutomargin entfernt die Analyse. Damit Sie weniger an Autos arbeiten und mehr mit Lieferanten.",
+      "points": {
+        "quality": {
+          "title": "Marge pro Lieferant",
+          "description": "Sehen, wer profitable Autos bringt, nicht nur Volumen."
+        },
+        "drain": {
+          "title": "Versteckte Zeitfresser",
+          "description": "Lieferanten mit dauerhaft niedriger Marge erkennen."
+        },
+        "control": {
+          "title": "Bessere Intake-Regeln",
+          "description": "Historie nutzen, um zuerst das Richtige zu prüfen."
+        }
+      },
+      "comment": "Dort entsteht nicht das Geld."
     },
     "drivers": {
-      "title": "Wovon das Setup abhängt",
-      "description": "Wir strukturieren Preise nach den Faktoren, die Rollout, Intake-Kontrolle und Support prägen.",
+      "title": "Was wir vor dem Angebot abstimmen",
+      "description": "Das Angebot basiert auf Accessmodell, operativem Setup, Lieferantenarbeit und Supportniveau.",
       "items": {
         "volume": {
-          "title": "Angebotsvolumen",
-          "description": "Wie viele Lieferantenangebote, Fahrzeuge oder Sourcing-Anfragen Ihr Team bearbeitet."
+          "title": "Offer-Volumen",
+          "description": "Anzahl Angebote, Fahrzeuge oder Sourcing Requests."
         },
         "markets": {
           "title": "Zielmärkte",
-          "description": "Länder, Regionen und Lieferantenzugänge, die benötigt werden."
+          "description": "Länder, Regionen und nötiger Lieferantenzugang."
         },
         "workflow": {
           "title": "Workflow-Setup",
-          "description": "Upload-Flow, Managed Access, API-Zugang oder interne Prozessunterstützung."
+          "description": "Upload flow, managed access, API access oder Prozesshilfe."
         },
         "support": {
-          "title": "Support-Level",
-          "description": "Onboarding, Reporting, Account-Support und operative Hilfe."
+          "title": "Supportniveau",
+          "description": "Onboarding, Reporting, Account Support und operative Hilfe."
         }
       }
     },
     "process": {
-      "title": "So läuft der Rollout",
-      "description": "Ein einfacher Prozess, um Fit zu verstehen und schnell weiterzukommen.",
+      "title": "So funktioniert das kommerzielle Setup",
+      "description": "Ein klarer Weg vom Erstkontakt zum passenden Accessmodell.",
       "steps": {
-        "request": "Zugang anfragen",
-        "qualification": "Qualifizierungsgespräch",
-        "proposal": "Kommerzielles Angebot",
-        "onboarding": "Onboarding",
-        "optimization": "Laufende Optimierung"
+        "request": "Kontakt aufnehmen",
+        "qualification": "Erstes Meeting",
+        "proposal": "Setup scopen",
+        "onboarding": "Kommerzielles Angebot",
+        "optimization": "Launch optimieren"
+      },
+      "details": {
+        "request": "Sagen Sie uns, wie Angebote heute ankommen und was besser werden soll.",
+        "qualification": "Wir besprechen Offer-Flow, Ziele und wo AutoMargin zuerst hilft.",
+        "proposal": "Gemeinsam wählen wir automatic, managed oder API access und Scope.",
+        "onboarding": "Sie erhalten Angebot und Rollout-Plan vor dem Start.",
+        "optimization": "Nach Launch optimieren wir Intake-Regeln, Supplier Tracking und Output."
       }
     },
     "engagement": {
-      "title": "So können Sie starten",
-      "description": "Keine öffentlichen Preise. Wählen Sie das Setup, das zu Ihrem Betrieb passt.",
+      "title": "So kann die Plattform genutzt werden",
+      "description": "Wählen Sie das Modell für Team, Supplier Flow und Technik.",
       "cta": "Kontakt aufnehmen",
       "models": {
         "automatic": {
-          "title": "Automatischer Zugang",
-          "description": "Wir verarbeiten Angebote für Sie und senden das Ergebnis zurück, damit Ihr Team ohne manuellen Intake handeln kann."
+          "title": "Automatic access",
+          "description": "Leiten Sie Angebote an AutoMargin weiter. Wir verarbeiten den Intake für Sie und liefern klare Ergebnisse.",
+          "fit": "Ideal für schnellen Wert mit wenig interner Änderung."
         },
         "managed": {
-          "title": "Managed Access",
-          "description": "Ihre Nutzer können Angebote selbst hochladen und den Intake direkt in Auto-margin steuern."
+          "title": "Managed access",
+          "description": "Nutzer laden Angebote hoch, pflegen Supplier Lists und arbeiten direkt in AutoMargin.",
+          "fit": "Ideal, wenn mehrere Nutzer prüfen, vergleichen und handeln."
         },
         "api": {
-          "title": "Enterprise API-Zugang",
-          "description": "API-Zugang, API-Key und Dokumentation, damit Ihr Team den eigenen Intake auf Auto-margin aufbauen kann."
+          "title": "Enterprise API access",
+          "description": "Verbinden Sie AutoMargin per API, Keys und Dokumentation mit eigenen Tools.",
+          "fit": "Ideal bei internen Systemen oder Marketplace Workflows."
         }
       }
+    },
+    "cta": {
+      "title": "Das passende Setup finden?",
+      "description": "Senden Sie uns Ihren Intake Flow. Wir mappen Accessmodell, Supplier Network Scope und Angebot.",
+      "primary": "Sales kontaktieren",
+      "secondary": "Demo testen"
     }
   },
   "FAQ": {
@@ -275,7 +414,10 @@
           "label": "E-Mail-Adresse *",
           "placeholder": "ich@firma.com"
         },
-        "company": { "label": "Firma", "placeholder": "Firmenname" },
+        "company": {
+          "label": "Firma",
+          "placeholder": "Firmenname"
+        },
         "employees": {
           "label": "Anzahl Mitarbeitende",
           "placeholder": "z. B. 11-50"
@@ -303,10 +445,10 @@
   },
   "About": {
     "hero": {
-      "title": "Gebaut dafür, wie Händler wirklich Geld verdienen",
-      "subtitle": "Weniger Autos prüfen. Mehr Deals machen.",
-      "body1": "Viele Händler verbringen ihre Zeit mit Prüfung: Inserate vergleichen, Preise checken und Entscheidungen hinterfragen. Dort entsteht kein Geld.",
-      "body2": "AutoMargin nimmt die Analyse ab. Sie laden Angebote hoch und sehen schnell, welche Autos Geld bringen, welche stehen bleiben, welche schon platziert sind und welche Lieferanten passen.",
+      "title": "Gebaut für die Arbeit hinter jedem Deal",
+      "subtitle": "Autos kaufen ist nur ein Teil des Jobs. Execution beginnt nach dem Ja.",
+      "body1": "AutoMargin wurde aus der Realität gebaut, dass Buyer nicht nur Autos bewerten. Sie verfolgen Offers, vergleichen Märkte, koordinieren Dokumente, Logistik und müssen trotzdem wissen, welcher Lieferant den nächsten Anruf verdient.",
+      "body2": "Wir helfen Händlern, Buying-Arbeit vor dem Start des Tages vorzubereiten, damit Teams mehr Zeit für Closing, Übergabe und saubere Execution haben.",
       "stats": {
         "founded": "Gegründet",
         "industry": "Jahre in der Branche",
@@ -315,22 +457,62 @@
       }
     },
     "content": {
-      "images": {
-        "dashboard": "Analyse-Dashboard",
-        "marketAnalysis": "Europaweite Marktanalyse",
-        "carDashboard": "Fahrzeug-Dashboard",
-        "dealerLeaderboard": "Händler-Rangliste"
+      "story": {
+        "eyebrow": "Warum wir es gebaut haben",
+        "title": "Händler verloren Zeit, bevor die eigentliche Arbeit begann.",
+        "p1": "Der langsame Teil war nicht fehlender Wille. Es waren die manuellen Einschätzungen, bevor ein Buyer handeln konnte: Dateien öffnen, Listings vergleichen, Kontext prüfen und relevante Offers erkennen.",
+        "p2": "Nach einem geschlossenen Deal hört die Arbeit nicht auf. Dokumente, Logistik, Supplier Follow-up und interne Übergabe konkurrieren um dieselbe Buyer-Zeit.",
+        "p3": "AutoMargin räumt Review-Arbeit früher aus dem Weg, damit Buyer sich auf Entscheidungen, Execution und Lieferantenbeziehungen konzentrieren können.",
+        "cta": "Mit uns sprechen"
       },
-      "team": {
-        "title": "Das Team",
-        "p1": "Wir sind ein schlankes, inhabergeführtes Team aus Auto-Operatoren und Entwicklern. Unser Fokus: Händlern helfen, Intake über bessere Lieferantenentscheidungen zu steuern.",
-        "p2": "Das Produkt basiert auf einem einfachen Wechsel: nicht länger an Autos arbeiten, sondern mit Lieferanten.",
-        "p3": "Das bedeutet weniger Prüfung, schnellere Anrufe und bessere Deals.",
-        "cta": "Kontakt aufnehmen"
+      "pain": {
+        "items": {
+          "review": {
+            "label": "Use Case 01",
+            "title": "Offers kommen schneller rein, als Teams sie qualifizieren können.",
+            "description": "Dateien und Nachrichten erzeugen eine Review-Queue, bevor klar ist, was Handlung verdient."
+          },
+          "handover": {
+            "label": "Use Case 02",
+            "title": "Closing erzeugt sofort operative Arbeit.",
+            "description": "Der Buyer muss nach dem Deal weiter Dokumente, Transport, interne Notizen und Supplier-Koordination erledigen."
+          },
+          "supplierNoise": {
+            "label": "Use Case 03",
+            "title": "Supplier-Volumen kann Supplier-Qualität verdecken.",
+            "description": "Ein aktiver Supplier ist nicht automatisch profitabel. Teams müssen wissen, wer wiederholt gute Chancen sendet."
+          }
+        }
       },
       "product": {
-        "p1": "Das ist kein Pricing-Tool. Es hilft, Intake zu steuern und schneller zu entscheiden, was in den Bestand gehört.",
-        "p2": "Der echte Wert liegt darin zu wissen, wer Marge bringt, wer Volumen ohne Gewinn sendet und wie Sie ein Lieferantennetzwerk aufbauen, das Geld verdient."
+        "eyebrow": "Wie AutoMargin hilft",
+        "title": "Stellt euch vor, jedes Offer ist analysiert, bevor euer Team startet.",
+        "p1": "AutoMargin macht eingehende Offers zu einer klareren Arbeitsliste: was Aktion braucht, was warten kann und welches Supplier-Muster dahinterliegt.",
+        "p2": "Das Ziel ist kein weiteres Dashboard. Es geht darum, Low-Value-Review aus dem Buyer-Tag zu entfernen und Management einen klareren Blick auf Intake-Verbesserung zu geben."
+      },
+      "principles": {
+        "eyebrow": "Prinzipien",
+        "title": "Wir bauen für Buying-Teams, die Tempo brauchen, ohne Kontrolle zu verlieren.",
+        "items": {
+          "preAnalysed": {
+            "title": "Vorbereitet vor Aktion",
+            "description": "Offers sollten strukturiert und bewertet sein, bevor Buyer Zeit investieren."
+          },
+          "execution": {
+            "title": "Für Execution gebaut",
+            "description": "Die Plattform unterstützt die Arbeit nach der Entscheidung: Follow-up, Übergabe und wiederholte Supplier-Aktion."
+          },
+          "network": {
+            "title": "Supplier-Gedächtnis",
+            "description": "Jedes Offer soll besser zeigen, welche Beziehungen langfristig Wert schaffen."
+          }
+        }
+      },
+      "images": {
+        "dashboard": "Operatives Dashboard",
+        "marketAnalysis": "Workspace für Marktanalyse",
+        "carDashboard": "Workspace für Offer Review",
+        "dealerLeaderboard": "Übersicht zur Supplier Performance"
       }
     }
   },
@@ -343,7 +525,7 @@
     },
     "tryDemo": "Demo testen",
     "contactUs": "Kontakt",
-    "slogan": "Bauen Sie das Netzwerk hinter Ihrer Marge.",
+    "slogan": "Weniger Zeit fürs Sortieren von Deals. Mehr Zeit fürs Abschließen.",
     "privacy": "Datenschutzerklärung"
   }
 }

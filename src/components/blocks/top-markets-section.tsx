@@ -79,9 +79,18 @@ export function TopMarketsSection() {
                   className={
                     soon
                       ? "bg-muted/50 text-muted-foreground border-muted-foreground/15 flex h-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed px-3 py-5 text-center shadow-none sm:px-4 sm:py-6"
-                      : "bg-card text-card-foreground border-border flex h-full flex-col items-center justify-center gap-3 rounded-2xl border px-3 py-5 text-center shadow-sm transition-[box-shadow,transform] duration-200 hover:shadow-md sm:px-4 sm:py-6"
+                      : "bg-card text-card-foreground border-border relative flex h-full flex-col items-center justify-center gap-3 rounded-2xl border px-3 py-5 text-center shadow-sm transition-[box-shadow,transform] duration-200 hover:shadow-md sm:px-4 sm:py-6"
                   }
                 >
+                  {!soon && (
+                    <span className="text-muted-foreground absolute top-3 left-3 flex items-center gap-1.5 text-[10px] font-bold tracking-[0.16em] uppercase">
+                      <span className="relative flex size-2">
+                        <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/50" />
+                        <span className="relative inline-flex size-2 rounded-full bg-emerald-600" />
+                      </span>
+                      Live
+                    </span>
+                  )}
                   <div
                     className={
                       soon
@@ -122,7 +131,9 @@ export function TopMarketsSection() {
                           : "text-muted-foreground text-xs sm:text-sm"
                       }
                     >
-                      {soon ? t("comingSoon") : t(`countries.${item.code}.metric`)}
+                      {soon
+                        ? t("comingSoon")
+                        : t(`countries.${item.code}.metric`)}
                     </p>
                   </div>
                 </article>

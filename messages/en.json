@@ -47,21 +47,51 @@
       "description": "Every offer is checked against current market context, so your team does not waste time jumping between marketplaces.",
       "comingSoon": "Coming soon",
       "countries": {
-        "DE": { "name": "Germany", "metric": "2.3M+ listings" },
-        "FR": { "name": "France", "metric": "1.2M+ listings" },
-        "PL": { "name": "Poland", "metric": "870K+ listings" },
-        "IT": { "name": "Italy", "metric": "720K+ listings" },
-        "CH": { "name": "Switzerland", "metric": "540K+ listings" },
-        "ES": { "name": "Spain", "metric": "660K+ listings" },
-        "NL": { "name": "Netherlands", "metric": "540K+ listings" },
-        "BE": { "name": "Belgium", "metric": "410K+ listings" },
-        "SE": { "name": "Sweden", "metric": "380K+ listings" },
-        "CZ": { "name": "Czech Republic", "metric": "320K+ listings" }
+        "DE": {
+          "name": "Germany",
+          "metric": "2.3M+ listings"
+        },
+        "FR": {
+          "name": "France",
+          "metric": "1.2M+ listings"
+        },
+        "PL": {
+          "name": "Poland",
+          "metric": "870K+ listings"
+        },
+        "IT": {
+          "name": "Italy",
+          "metric": "720K+ listings"
+        },
+        "CH": {
+          "name": "Switzerland",
+          "metric": "540K+ listings"
+        },
+        "ES": {
+          "name": "Spain",
+          "metric": "660K+ listings"
+        },
+        "NL": {
+          "name": "Netherlands",
+          "metric": "540K+ listings"
+        },
+        "BE": {
+          "name": "Belgium",
+          "metric": "410K+ listings"
+        },
+        "SE": {
+          "name": "Sweden",
+          "metric": "380K+ listings"
+        },
+        "CZ": {
+          "name": "Czech Republic",
+          "metric": "320K+ listings"
+        }
       }
     },
     "bento": {
       "label": "STOP REVIEWING. START DEALING.",
-      "title": "You need better deals.",
+      "title": "Focus on finding\nright suppliers.",
       "description": "Money is made in the deal: with the right supplier, at the right moment, with the right car. You see who brings margin, who sends volume without profit, and who fits your business."
     },
     "bentoCards": {
@@ -79,7 +109,7 @@
         "2": {
           "name": "Connected market data",
           "shortName": "Market Data",
-          "description": "Europe is the listing base. South Korea and China add connected market context.",
+          "description": "Europe is the listing base. South Korea and China show where demand is moving.",
           "hoverText": "Use European listings with wider import and export context."
         },
         "3": {
@@ -90,32 +120,125 @@
       }
     },
     "salesPricing": {
-      "title": "Built around your intake.",
-      "description1": "We set things up around how your offers already arrive.",
-      "description2": "Your volume, markets, and workflow shape the rollout.",
-      "bullets": {
-        "dealFlow": "Built around your offer intake",
-        "markets": "Market-specific setup",
-        "workflow": "Manual or API-supported workflow",
-        "support": "Direct onboarding support"
-      },
+      "eyebrow": "Supplier network",
+      "title": "The car is the symptom. Your supplier list is the cause.",
+      "description": "Most analytics tools tell you what a car is worth. Automargin tells you which suppliers consistently bring you margin — and which ones are quietly draining your week. That's where you control your intake.",
       "proposal": {
         "title": "Request access",
         "description": "We work with a limited number of dealers at launch. Tell us how your offers arrive and we will map the right setup.",
         "primaryCta": "Request access",
         "secondaryCta": "More information"
+      },
+      "dashboard": {
+        "best": {
+          "eyebrow": "Supplier · Autoselekt Berlin",
+          "title": "Best supplier · last 90 days",
+          "badge": "Tier 1"
+        },
+        "stats": {
+          "margin": {
+            "value": "+24.6%",
+            "label": "avg margin per offer"
+          },
+          "won": {
+            "value": "38/142",
+            "label": "won · last 90d"
+          },
+          "profit": {
+            "value": "€1.28M",
+            "label": "realized profit"
+          },
+          "time": {
+            "value": "2.1d",
+            "label": "avg time to deal"
+          }
+        },
+        "chart": {
+          "title": "Margin contribution · 12w rolling",
+          "delta": "+18.2% margin lift"
+        },
+        "tags": {
+          "fuel": "premium German diesel",
+          "history": "low km, good service history",
+          "market": "CH target market",
+          "volume": "B2B trade-in volume"
+        },
+        "dropping": {
+          "eyebrow": "Dropping tier",
+          "title": "Hansa Mobility",
+          "trend": "-7.2pp",
+          "volume": "211 offers",
+          "conversion": "8.5%",
+          "note": "High volume, low margin — likely won't fit your model."
+        },
+        "rising": {
+          "eyebrow": "Rising tier",
+          "title": "Genève Auto Trading",
+          "trend": "+12.4pp",
+          "volume": "64 offers",
+          "conversion": "25.0%",
+          "note": "Smaller volume, but every car you take wins."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Less reviewing.\nMore closing.",
+      "description": "Real examples of how dealers use AutoMargin every day.",
+      "cta": "Read more About Us",
+      "items": {
+        "offers": {
+          "quote": "Too many offers? Upload them and see what is worth buying.",
+          "role": "Sales Manager"
+        },
+        "flow": {
+          "quote": "Built from a buying flow already proving 20% margin targets.",
+          "role": "CEO"
+        },
+        "stock": {
+          "quote": "Slow stock? Spot it early and push suppliers for better cars.",
+          "role": "Buyer"
+        },
+        "margin": {
+          "quote": "See who brings margin and who only brings volume.",
+          "role": "Operations Lead"
+        },
+        "deals": {
+          "quote": "Weak deals? Push toward +20% margin opportunities.",
+          "role": "Sales Consultant"
+        }
       }
     }
   },
   "PricingPage": {
     "hero": {
-      "title": "Pricing built around your intake",
-      "description": "We do not offer fixed public plans at launch. Each setup depends on your offer volume, supplier flow, markets, workflow, and support needs.",
-      "cta": "Contact Sales"
+      "title": "Commercial access for dealers who want cleaner buying decisions",
+      "description": "We set up AutoMargin around how your team wants to use the platform: automatic processing, managed access, or API access. Contact us and we will map the right commercial setup with you.",
+      "cta": "Contact Sales",
+      "secondaryCta": "Compare access models"
+    },
+    "supplierNetwork": {
+      "eyebrow": "Supplier network",
+      "title": "You don't need more analysis.\nYou need better deals.",
+      "description": "Most dealers spend their day reviewing cars. Comparing listings. Checking prices. Second-guessing decisions.\nMoney is made in the deal. With the right supplier. At the right moment. With the right car.\nAutomargin removes the analysis. So you stop working on cars - and start working with suppliers.",
+      "points": {
+        "quality": {
+          "title": "Margin by supplier",
+          "description": "See who brings profitable cars, not just more volume."
+        },
+        "drain": {
+          "title": "Hidden time drains",
+          "description": "Spot suppliers that keep sending low-margin offers."
+        },
+        "control": {
+          "title": "Better intake rules",
+          "description": "Use supplier history to decide what gets reviewed first."
+        }
+      },
+      "comment": "That's not where money is made."
     },
     "drivers": {
-      "title": "What the setup depends on",
-      "description": "We structure pricing around the inputs that shape rollout, intake control, and support.",
+      "title": "What we align before a proposal",
+      "description": "The commercial proposal is based on the access model, operational setup, supplier network work, and support level that actually fits your team.",
       "items": {
         "volume": {
           "title": "Offer volume",
@@ -136,34 +259,50 @@
       }
     },
     "process": {
-      "title": "How rollout works",
-      "description": "A simple process to understand fit and move quickly.",
+      "title": "How the commercial setup works",
+      "description": "A clearer path from first contact to the right access model.",
       "steps": {
-        "request": "Request access",
-        "qualification": "Qualification call",
-        "proposal": "Commercial proposal",
-        "onboarding": "Onboarding",
-        "optimization": "Ongoing optimization"
+        "request": "Contact us",
+        "qualification": "First meeting",
+        "proposal": "We scope the setup",
+        "onboarding": "Commercial proposal",
+        "optimization": "Launch and optimize"
+      },
+      "details": {
+        "request": "Tell us how you receive offers today and what you want to improve.",
+        "qualification": "We talk through your current offer flow, goals, and where AutoMargin can help first.",
+        "proposal": "Together we choose automatic, managed, or API access and define scope.",
+        "onboarding": "You receive the commercial proposal and rollout plan before anything starts.",
+        "optimization": "After launch, we tune intake rules, supplier tracking, and output quality."
       }
     },
     "engagement": {
-      "title": "Ways to run it",
-      "description": "No public prices. Choose the setup that matches your operation.",
+      "title": "How to use the platform",
+      "description": "Choose the operating model that matches your team, supplier flow, and technical setup.",
       "cta": "Contact us",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "We process offers on your behalf and send back the result, so your team can act without handling the intake workflow manually."
+          "description": "Forward offers to AutoMargin and we process the intake for you. Your team receives clear output without changing how suppliers send deals.",
+          "fit": "Best when you want fast value with minimal internal workflow change."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Your users or members can upload offers themselves and manage the intake process directly inside Auto-margin."
+          "description": "Your users upload offers, manage supplier lists, and work directly inside AutoMargin. This gives your team more control over daily intake.",
+          "fit": "Best when several users need to review, compare, and act inside the platform."
         },
         "api": {
           "title": "Enterprise API access",
-          "description": "Get API access, an API key, and documentation so your team can build its own intake workflow on top of Auto-margin."
+          "description": "Connect AutoMargin to your own tools with API access, keys, and documentation. Build your intake workflow on top of our analysis layer.",
+          "fit": "Best when you already have internal systems or marketplace workflows."
         }
       }
+    },
+    "cta": {
+      "title": "Want the right setup?",
+      "description": "Send us your current intake flow. We will map access model, supplier network scope, and the commercial proposal with you.",
+      "primary": "Contact Sales",
+      "secondary": "Try demo"
     }
   },
   "FAQ": {
@@ -275,7 +414,10 @@
           "label": "Email address *",
           "placeholder": "me@company.com"
         },
-        "company": { "label": "Company name", "placeholder": "Company name" },
+        "company": {
+          "label": "Company name",
+          "placeholder": "Company name"
+        },
         "employees": {
           "label": "Number of employees",
           "placeholder": "e.g. 11-50"
@@ -303,10 +445,10 @@
   },
   "About": {
     "hero": {
-      "title": "Built around how dealers actually make money",
-      "subtitle": "Less time reviewing cars. More time making deals.",
-      "body1": "Most dealers spend their time reviewing cars: comparing listings, checking prices, and second-guessing decisions. That is not where money is made.",
-      "body2": "AutoMargin removes the analysis. You upload the offers you already receive and quickly see which cars make money, which ones will sit, which ones are already placed, and which suppliers fit your business.",
+      "title": "Built for the work behind every deal",
+      "subtitle": "Buying cars is only one part of the job. Execution starts after the yes.",
+      "body1": "AutoMargin was built from the reality that buyers do not just evaluate cars. They chase offers, compare markets, coordinate paperwork, manage transport, and still need to know which supplier deserves the next call.",
+      "body2": "We help dealers prepare the buying work before the day starts, so teams can spend more time closing, handing over, and executing with confidence.",
       "stats": {
         "founded": "Founded",
         "industry": "Years in industry",
@@ -315,22 +457,62 @@
       }
     },
     "content": {
-      "images": {
-        "dashboard": "Analytical dashboard",
-        "marketAnalysis": "Europe-wide market analysis",
-        "carDashboard": "Car-specific dashboard",
-        "dealerLeaderboard": "Dealer leaderboard"
+      "story": {
+        "eyebrow": "Why we built it",
+        "title": "Dealers were losing time before the real work began.",
+        "p1": "The slow part was not ambition. It was the amount of manual judgement required before a buyer could move: open files, compare listings, check context, and decide which offers were worth attention.",
+        "p2": "After a deal is closed, the work does not stop. Paperwork, logistics, supplier follow-up, and internal handover all compete for the same buyer's time.",
+        "p3": "AutoMargin exists to clear the review work earlier, so buyers can focus on decisions, execution, and the supplier relationships that move the business forward.",
+        "cta": "Talk to us"
       },
-      "team": {
-        "title": "The team",
-        "p1": "We're a lean, founder-owned team of car-industry operators and builders. We focus on one thing: helping dealers control intake through better supplier decisions.",
-        "p2": "The product is built around a simple shift: stop working on cars and start working with suppliers.",
-        "p3": "That means less reviewing, faster calls, and better deals.",
-        "cta": "Get in touch"
+      "pain": {
+        "items": {
+          "review": {
+            "label": "Use case 01",
+            "title": "Offers arrive faster than teams can qualify them.",
+            "description": "Incoming files and messages create a review queue before anyone knows what is worth acting on."
+          },
+          "handover": {
+            "label": "Use case 02",
+            "title": "Closing creates operational work immediately.",
+            "description": "The buyer still has documents, transport, internal notes, and supplier coordination to handle after the deal is agreed."
+          },
+          "supplierNoise": {
+            "label": "Use case 03",
+            "title": "Supplier volume can hide supplier quality.",
+            "description": "A busy supplier is not always a profitable supplier. Teams need to know who repeatedly sends the right opportunities."
+          }
+        }
       },
       "product": {
-        "p1": "This is not a pricing tool. It is a way to control intake and decide faster what belongs in stock.",
-        "p2": "The real value is knowing who brings you margin, who sends volume without profit, and how to build a supplier network that makes you money."
+        "eyebrow": "How AutoMargin helps",
+        "title": "Imagine every offer already analysed before your team starts working.",
+        "p1": "AutoMargin turns incoming offers into a clearer working list: what deserves action, what should wait, and which supplier pattern sits behind the opportunity.",
+        "p2": "The goal is not to add another dashboard to check. It is to remove low-value reviewing from the buyer's day and give management a cleaner view of where intake is improving."
+      },
+      "principles": {
+        "eyebrow": "Operating principles",
+        "title": "We build for buying teams that need speed without losing control.",
+        "items": {
+          "preAnalysed": {
+            "title": "Prepared before action",
+            "description": "Offers should be structured and scored before the buyer spends time on them."
+          },
+          "execution": {
+            "title": "Built for execution",
+            "description": "The platform supports the work after the decision: follow-up, handover, and repeated supplier action."
+          },
+          "network": {
+            "title": "Supplier memory",
+            "description": "Every offer should improve the understanding of which relationships create value over time."
+          }
+        }
+      },
+      "images": {
+        "dashboard": "Operational dashboard",
+        "marketAnalysis": "Market analysis workspace",
+        "carDashboard": "Offer review workspace",
+        "dealerLeaderboard": "Supplier performance overview"
       }
     }
   },
@@ -343,7 +525,7 @@
     },
     "tryDemo": "Try Demo",
     "contactUs": "Contact Us",
-    "slogan": "Build the network behind your margin.",
+    "slogan": "Less time sorting deals. More time closing them.",
     "privacy": "Privacy Policy"
   }
 }

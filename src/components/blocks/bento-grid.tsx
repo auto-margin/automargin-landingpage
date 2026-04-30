@@ -106,7 +106,7 @@ const features = [
           rootMargin="300px"
           threshold={0.1}
         >
-          <AnimatedBeamMultipleOutputDemo className="h-[280px] border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-transform duration-300 ease-out group-hover:scale-105 max-sm:h-[260px] min-[1440px]:h-[340px] sm:h-[290px] md:h-[315px] lg:h-[300px]" />
+          <AnimatedBeamMultipleOutputDemo className="h-[280px] border-none [mask-image:linear-gradient(to_top,transparent_8%,#000_100%)] transition-transform duration-300 ease-out group-hover:scale-105 max-sm:h-[260px] min-[1440px]:h-[340px] sm:h-[290px] md:h-[315px] lg:h-[300px]" />
         </MountWhenInView>
       </div>
     ),
@@ -146,6 +146,7 @@ export function BentoDemo() {
       ),
     description: t(`items.${index}.description`),
     hoverText: t(`items.${index}.hoverText`),
+    hideDescriptionOnMobile: index === 2,
   }));
 
   return (

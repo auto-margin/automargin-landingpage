@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { DashedLine } from "../dashed-line";
 
@@ -18,41 +19,36 @@ import { cn } from "@/lib/utils";
 
 const items = [
   {
-    quote: "Too many offers? Upload them and see what is worth buying.",
+    id: "offers",
     author: "Alex",
-    role: "Sales Manager",
     company: "EuroMotors AG",
     image: "/testimonials/emotors.svg",
   },
   {
-    quote: "Built from a buying flow already proving 20% margin targets.",
+    id: "flow",
     author: "Besnik Rulani",
-    role: "CEO",
     company: "CarTrade24",
     image: "/testimonials/cartrade.svg",
   },
   {
-    quote: "Slow stock? Spot it early and push suppliers for better cars.",
+    id: "stock",
     author: "Stepan K",
-    role: "Buyer",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
   },
   {
-    quote: "See who brings margin and who only brings volume.",
+    id: "margin",
     author: "Kim B",
-    role: "Operations Lead",
     company: "EuroMotors AG",
     image: "/testimonials/emotors.svg",
   },
   {
-    quote: "Weak deals? Push toward +20% margin opportunities.",
+    id: "deals",
     author: "Patrik T",
-    role: "Sales Consultant",
     company: "CarTrade24",
     image: "/testimonials/cartrade.svg",
   },
-];
+] as const;
 
 export const Testimonials = ({
   className,
@@ -61,20 +57,22 @@ export const Testimonials = ({
   className?: string;
   dashedLineClassName?: string;
 }) => {
+  const t = useTranslations("Home.testimonials");
+
   return (
     <>
       <section className={cn("overflow-hidden py-28 lg:py-32", className)}>
         <div className="container">
           <div className="space-y-4">
             <h2 className="text-2xl tracking-tight whitespace-pre-line md:text-4xl lg:text-5xl">
-              {"Less reviewing.\nMore closing."}
+              {t("title")}
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Real examples of how dealers use AutoMargin every day.
+              {t("description")}
             </p>
             <Button variant="outline" className="shadow-md" asChild>
               <Link href="/about">
-                Read more About Us <ArrowRight className="size-4" />
+                {t("cta")} <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>
@@ -109,11 +107,12 @@ export const Testimonials = ({
                         </div>
                         <div className="flex flex-1 flex-col justify-between gap-10 p-6">
                           <blockquote className="font-display text-lg leading-none! font-medium md:text-xl lg:text-2xl">
-                            {testimonial.quote}
+                            {t(`items.${testimonial.id}.quote`)}
                           </blockquote>
                           <div className="space-y-0.5">
                             <div className="text-primary-on-muted font-semibold">
-                              {testimonial.author}, {testimonial.role}
+                              {testimonial.author},{" "}
+                              {t(`items.${testimonial.id}.role`)}
                             </div>
                             <div className="text-muted-foreground text-sm">
                               {testimonial.company}

@@ -17,6 +17,14 @@ const SalesPricingSection = dynamic(
   { ssr: false },
 );
 
+const MarketFeedDivider = dynamic(
+  () =>
+    import("@/components/blocks/market-feed-divider").then(
+      (m) => m.MarketFeedDivider,
+    ),
+  { ssr: false },
+);
+
 const TestimonialsSection = dynamic(
   () => import("@/components/blocks/testimonials").then((m) => m.Testimonials),
   { ssr: false },
@@ -30,7 +38,8 @@ export function HomeDeferredSections() {
       ) : (
         <SalesPricingSection className="pb-10 lg:pb-12" />
       )}
-      <TestimonialsSection className="pt-10 lg:pt-12" />
+      <MarketFeedDivider />
+      <TestimonialsSection className="pt-[74px] lg:pt-[106px]" />
     </>
   );
 }

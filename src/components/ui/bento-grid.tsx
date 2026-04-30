@@ -14,6 +14,7 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   Icon: React.ElementType;
   description: string;
   hoverText: string;
+  hideDescriptionOnMobile?: boolean;
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
@@ -37,6 +38,7 @@ const BentoCard = ({
   Icon,
   description,
   hoverText,
+  hideDescriptionOnMobile = false,
   ...props
 }: BentoCardProps) => (
   <div
@@ -54,7 +56,14 @@ const BentoCard = ({
       <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 transition-all duration-300 lg:group-hover:-translate-y-10">
         <Icon className="text-primary h-10 w-10 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75" />
         <h3 className="text-card-foreground text-xl font-semibold">{name}</h3>
-        <p className="text-muted-foreground max-w-lg">{description}</p>
+        <p
+          className={cn(
+            "text-muted-foreground max-w-lg",
+            hideDescriptionOnMobile && "hidden sm:block",
+          )}
+        >
+          {description}
+        </p>
       </div>
 
       <div

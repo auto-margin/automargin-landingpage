@@ -45,7 +45,7 @@ export const Features = () => {
   }));
 
   return (
-    <section id="automation-for-your-busniess" className="pb-28 lg:pb-32">
+    <section id="automation-for-your-business" className="pb-28 lg:pb-32">
       <div className="container">
         {/* Top dashed line with text */}
         <div className="relative flex items-center justify-center">
@@ -54,7 +54,7 @@ export const Features = () => {
 
         {/* Content */}
         <div className="mx-auto mt-10 max-w-4xl lg:mt-24">
-          <h2 className="text-2xl tracking-tight whitespace-nowrap md:text-4xl lg:text-5xl">
+          <h2 className="max-w-4xl text-2xl leading-tight tracking-tight text-balance md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
         </div>
