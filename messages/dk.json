@@ -44,7 +44,7 @@
     },
     "markets": {
       "title": "Data fra topmarkeder",
-      "description": "Hvert tilbud tjekkes mod aktuel markedskontekst, så teamet slipper for at hoppe mellem markedspladser.",
+      "description": "Landene her viser vores europæiske markedsdækning. Hvert tilbud sammenlignes med live listings, så teamet bruger mindre tid på markedspladser.",
       "comingSoon": "Kommer snart",
       "countries": {
         "DE": {

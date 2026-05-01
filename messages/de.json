@@ -44,7 +44,7 @@
     },
     "markets": {
       "title": "Daten aus Top-Märkten",
-      "description": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft, damit Ihr Team nicht zwischen Marktplätzen springt.",
+      "description": "Die hier gezeigten Länder sind unsere europäische Marktabdeckung. Jedes Angebot wird mit Live-Listings verglichen, damit Ihr Team weniger Zeit auf Marktplätzen verbringt.",
       "comingSoon": "Bald verfügbar",
       "countries": {
         "DE": {

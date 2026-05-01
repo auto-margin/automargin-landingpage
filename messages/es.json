@@ -44,7 +44,7 @@
     },
     "markets": {
       "title": "Datos de mercados principales",
-      "description": "Cada oferta se compara con contexto de mercado actual, para que tu equipo no salte entre marketplaces.",
+      "description": "Los países que se muestran aquí son nuestra cobertura de mercado europea. Cada oferta se compara con listings en vivo, para que tu equipo pase menos tiempo revisando marketplaces.",
       "comingSoon": "Próximamente",
       "countries": {
         "DE": {

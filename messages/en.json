@@ -44,7 +44,7 @@
     },
     "markets": {
       "title": "Data from top markets",
-      "description": "Every offer is checked against current market context, so your team does not waste time jumping between marketplaces.",
+      "description": "The countries shown here are our European market coverage. Each offer is compared with live listings, so your team spends less time checking marketplaces.",
       "comingSoon": "Coming soon",
       "countries": {
         "DE": {
