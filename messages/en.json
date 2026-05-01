@@ -211,15 +211,15 @@
   },
   "PricingPage": {
     "hero": {
-      "title": "Commercial access for dealers who want cleaner buying decisions",
-      "description": "We set up AutoMargin around how your team wants to use the platform: automatic processing, managed access, or API access. Contact us and we will map the right commercial setup with you.",
-      "cta": "Contact Sales",
+      "title": "Flexible access for better buying decisions",
+      "description": "AutoMargin can be set up for individuals, small businesses, and larger companies. Use automatic processing, managed access, or API access depending on how you review offers today.",
+      "cta": "Contact us",
       "secondaryCta": "Compare access models"
     },
     "supplierNetwork": {
       "eyebrow": "Supplier network",
-      "title": "You don't need more analysis.\nYou need better deals.",
-      "description": "Most dealers spend their day reviewing cars. Comparing listings. Checking prices. Second-guessing decisions.\nMoney is made in the deal. With the right supplier. At the right moment. With the right car.\nAutomargin removes the analysis. So you stop working on cars - and start working with suppliers.",
+      "title": "Less manual checking.\nMore clarity on each offer.",
+      "description": "AutoMargin helps you review incoming vehicle offers, compare them with live listings, and understand which suppliers create margin. Use it as an individual buyer, a growing business, or a larger operation with more structured workflows.",
       "points": {
         "quality": {
           "title": "Margin by supplier",
@@ -234,15 +234,15 @@
           "description": "Use supplier history to decide what gets reviewed first."
         }
       },
-      "comment": "That's not where money is made."
+      "comment": "A setup should match the way offers already come in."
     },
     "drivers": {
       "title": "What we align before a proposal",
-      "description": "The commercial proposal is based on the access model, operational setup, supplier network work, and support level that actually fits your team.",
+      "description": "The proposal is based on your offer volume, markets, workflow, and the level of support you need.",
       "items": {
         "volume": {
           "title": "Offer volume",
-          "description": "How many supplier offers, vehicles, or sourcing requests your team handles."
+          "description": "How many supplier offers, vehicles, or sourcing requests you want to review."
         },
         "markets": {
           "title": "Target markets",
@@ -259,37 +259,37 @@
       }
     },
     "process": {
-      "title": "How the commercial setup works",
+      "title": "How setup works",
       "description": "A clearer path from first contact to the right access model.",
       "steps": {
         "request": "Contact us",
         "qualification": "First meeting",
         "proposal": "We scope the setup",
-        "onboarding": "Commercial proposal",
+        "onboarding": "Access proposal",
         "optimization": "Launch and optimize"
       },
       "details": {
         "request": "Tell us how you receive offers today and what you want to improve.",
         "qualification": "We talk through your current offer flow, goals, and where AutoMargin can help first.",
         "proposal": "Together we choose automatic, managed, or API access and define scope.",
-        "onboarding": "You receive the commercial proposal and rollout plan before anything starts.",
+        "onboarding": "You receive the access proposal and rollout plan before anything starts.",
         "optimization": "After launch, we tune intake rules, supplier tracking, and output quality."
       }
     },
     "engagement": {
       "title": "How to use the platform",
-      "description": "Choose the operating model that matches your team, supplier flow, and technical setup.",
+      "description": "Choose the operating model that matches how you receive offers, review stock, and want to work.",
       "cta": "Contact us",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "Forward offers to AutoMargin and we process the intake for you. Your team receives clear output without changing how suppliers send deals.",
+          "description": "Forward offers to AutoMargin and we process the intake for you. You receive clear output without changing how suppliers send deals.",
           "fit": "Best when you want fast value with minimal internal workflow change."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Your users upload offers, manage supplier lists, and work directly inside AutoMargin. This gives your team more control over daily intake.",
-          "fit": "Best when several users need to review, compare, and act inside the platform."
+          "description": "Upload offers, manage supplier lists, and work directly inside AutoMargin. This gives you more control over daily intake.",
+          "fit": "Best when you want to review, compare, and act inside the platform."
         },
         "api": {
           "title": "Enterprise API access",
@@ -300,8 +300,8 @@
     },
     "cta": {
       "title": "Want the right setup?",
-      "description": "Send us your current intake flow. We will map access model, supplier network scope, and the commercial proposal with you.",
-      "primary": "Contact Sales",
+      "description": "Send us how you review offers today. We will map the access model, market scope, and proposal with you.",
+      "primary": "Contact us",
       "secondary": "Try demo"
     }
   },

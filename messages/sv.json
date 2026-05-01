@@ -211,15 +211,15 @@
   },
   "PricingPage": {
     "hero": {
-      "title": "Kommersiell access fär handlare som vill köpa tydligare",
-      "description": "Vi sätter upp AutoMargin efter hur ert team vill använda plattformen: automatic, managed eller API access. Kontakta oss så mappar vi rätt setup.",
-      "cta": "Kontakta sales",
+      "title": "Flexibel access för bättre köpbeslut",
+      "description": "AutoMargin kan sättas upp för individer, mindre företag och större bolag. Använd automatic processing, managed access eller API access beroende på hur du granskar offers idag.",
+      "cta": "Kontakta oss",
       "secondaryCta": "Jämför accessmodeller"
     },
     "supplierNetwork": {
       "eyebrow": "Leverantärsnätverk",
-      "title": "Du behöver inte mer analys.\nDu behöver bättre deals.",
-      "description": "De flesta handlare granskar bilar. Jämför listings. Kollar priser. Tvekar kring beslut.\nPengarna skapas i dealen. Med rätt leverantör. Vid rätt tillfälle. Med rätt bil.\nAutomargin tar bort analysen. Så du slutar jobba på bilar och bärjar jobba med leverantörer.",
+      "title": "Mindre manuell kontroll.\nMer klarhet i varje offer.",
+      "description": "AutoMargin hjälper dig granska inkommande biloffers, jämföra dem med live listings och se vilka leverantörer som skapar marginal. Använd det som individuell buyer, växande företag eller större verksamhet med mer strukturerade workflows.",
       "points": {
         "quality": {
           "title": "Marginal per leverantör",
@@ -234,15 +234,15 @@
           "description": "Använd historik fär att veta vad som granskas färst."
         }
       },
-      "comment": "Det är inte där pengarna skapas."
+      "comment": "Ett setup bör passa hur offers redan kommer in idag."
     },
     "drivers": {
       "title": "Vad vi stämmer av färe färslag",
-      "description": "Färslaget bygger på accessmodell, operativ setup, leverantörsarbete och supportnivå som passar teamet.",
+      "description": "Förslaget bygger på din offer volume, marknader, workflow och den supportnivå du behöver.",
       "items": {
         "volume": {
           "title": "Offer-volym",
-          "description": "Antal offers, bilar eller sourcing requests teamet hanterar."
+          "description": "Hur många supplier offers, bilar eller sourcing requests du vill granska."
         },
         "markets": {
           "title": "Målmarknader",
@@ -259,37 +259,37 @@
       }
     },
     "process": {
-      "title": "Så fungerar kommersiell setup",
+      "title": "Så fungerar setup",
       "description": "En tydlig väg från färsta kontakt till rätt accessmodell.",
       "steps": {
         "request": "Kontakta oss",
         "qualification": "Första möte",
         "proposal": "Vi scopar setup",
-        "onboarding": "Kommersiellt färslag",
+        "onboarding": "Accessförslag",
         "optimization": "Launch och optimera"
       },
       "details": {
         "request": "Berätta hur ni fär offers idag och vad ni vill förbättra.",
         "qualification": "Vi går igenom offerflöde, mål och var AutoMargin hjälper färst.",
         "proposal": "Tillsammans väljer vi automatic, managed eller API access och scope.",
-        "onboarding": "Ni fär kommersiellt färslag och rollout-plan innan start.",
+        "onboarding": "Du får accessförslag och rollout plan innan något startar.",
         "optimization": "Efter launch finjusterar vi intake-regler, supplier tracking och output."
       }
     },
     "engagement": {
       "title": "Så kan plattformen användas",
-      "description": "Välj modellen som passar team, supplier flow och teknisk setup.",
+      "description": "Välj modellen som passar hur du tar emot offers, granskar stock och vill arbeta.",
       "cta": "Kontakta oss",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "Forwarda offers till AutoMargin så processar vi intake åt er. Teamet fär tydligt output utan ändrat supplier-flow.",
+          "description": "Forwarda offers till AutoMargin så processar vi intake åt dig. Du får tydligt output utan att ändra hur suppliers skickar deals.",
           "fit": "Bäst när ni vill få värde snabbt med minimal intern förändring."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Användare laddar upp offers, hanterar supplier lists och jobbar direkt i AutoMargin.",
-          "fit": "Bäst när flera användare ska granska, jämföra och agera."
+          "description": "Ladda upp offers, hantera supplier lists och arbeta direkt i AutoMargin. Det ger dig mer kontroll över daglig intake.",
+          "fit": "Bäst när du vill granska, jämföra och agera direkt i plattformen."
         },
         "api": {
           "title": "Enterprise API access",
@@ -299,9 +299,9 @@
       }
     },
     "cta": {
-      "title": "Vill ni hitta rätt setupå",
-      "description": "Skicka ert intake flow. Vi mappar accessmodell, supplier network scope och kommersiellt färslag med er.",
-      "primary": "Kontakta sales",
+      "title": "Vill du ha rätt setup?",
+      "description": "Skicka hur du granskar offers idag. Vi mappar accessmodell, market scope och förslag med dig.",
+      "primary": "Kontakta oss",
       "secondary": "Testa demo"
     }
   },

@@ -211,15 +211,15 @@
   },
   "PricingPage": {
     "hero": {
-      "title": "Kommerzieller Access für Händler mit klareren Kaufentscheidungen",
-      "description": "Wir richten AutoMargin so ein, wie Ihr Team arbeitet: automatic, managed oder API access. Kontaktieren Sie uns, wir mappen das passende Setup.",
-      "cta": "Sales kontaktieren",
-      "secondaryCta": "Accessmodelle vergleichen"
+      "title": "Flexibler Zugang für bessere Kaufentscheidungen",
+      "description": "AutoMargin kann für Einzelpersonen, kleine Unternehmen und größere Firmen eingerichtet werden. Nutzen Sie automatische Verarbeitung, Managed Access oder API-Zugang, je nachdem, wie Sie Angebote heute prüfen.",
+      "cta": "Kontakt aufnehmen",
+      "secondaryCta": "Access-Modelle vergleichen"
     },
     "supplierNetwork": {
       "eyebrow": "Lieferantennetzwerk",
-      "title": "Sie brauchen nicht mehr Analyse.\nSie brauchen bessere Deals.",
-      "description": "Die meisten Händler prüfen Autos. Vergleichen Listings. Checken Preise. Hinterfragen Entscheidungen.\nGeld entsteht im Deal. Mit dem richtigen Lieferanten. Im richtigen Moment. Mit dem richtigen Auto.\nAutomargin entfernt die Analyse. Damit Sie weniger an Autos arbeiten und mehr mit Lieferanten.",
+      "title": "Weniger manuelles Prüfen.\nMehr Klarheit zu jedem Angebot.",
+      "description": "AutoMargin hilft Ihnen, eingehende Fahrzeugangebote zu prüfen, mit Live-Listings zu vergleichen und zu sehen, welche Lieferanten Marge schaffen. Nutzen Sie es als einzelner Käufer, wachsendes Unternehmen oder größere Organisation mit strukturierten Workflows.",
       "points": {
         "quality": {
           "title": "Marge pro Lieferant",
@@ -234,15 +234,15 @@
           "description": "Historie nutzen, um zuerst das Richtige zu prüfen."
         }
       },
-      "comment": "Dort entsteht nicht das Geld."
+      "comment": "Das Setup sollte dazu passen, wie Angebote heute ankommen."
     },
     "drivers": {
       "title": "Was wir vor dem Angebot abstimmen",
-      "description": "Das Angebot basiert auf Accessmodell, operativem Setup, Lieferantenarbeit und Supportniveau.",
+      "description": "Das Angebot basiert auf Ihrem Angebotsvolumen, Ihren Märkten, Ihrem Workflow und dem Support, den Sie brauchen.",
       "items": {
         "volume": {
           "title": "Offer-Volumen",
-          "description": "Anzahl Angebote, Fahrzeuge oder Sourcing Requests."
+          "description": "Wie viele Lieferantenangebote, Fahrzeuge oder Sourcing Requests Sie prüfen möchten."
         },
         "markets": {
           "title": "Zielmärkte",
@@ -259,37 +259,37 @@
       }
     },
     "process": {
-      "title": "So funktioniert das kommerzielle Setup",
+      "title": "So funktioniert das Setup",
       "description": "Ein klarer Weg vom Erstkontakt zum passenden Accessmodell.",
       "steps": {
         "request": "Kontakt aufnehmen",
         "qualification": "Erstes Meeting",
         "proposal": "Setup scopen",
-        "onboarding": "Kommerzielles Angebot",
+        "onboarding": "Access-Angebot",
         "optimization": "Launch optimieren"
       },
       "details": {
         "request": "Sagen Sie uns, wie Angebote heute ankommen und was besser werden soll.",
         "qualification": "Wir besprechen Offer-Flow, Ziele und wo AutoMargin zuerst hilft.",
         "proposal": "Gemeinsam wählen wir automatic, managed oder API access und Scope.",
-        "onboarding": "Sie erhalten Angebot und Rollout-Plan vor dem Start.",
+        "onboarding": "Sie erhalten das Access-Angebot und den Rollout-Plan, bevor etwas startet.",
         "optimization": "Nach Launch optimieren wir Intake-Regeln, Supplier Tracking und Output."
       }
     },
     "engagement": {
       "title": "So kann die Plattform genutzt werden",
-      "description": "Wählen Sie das Modell für Team, Supplier Flow und Technik.",
+      "description": "Wählen Sie das Modell, das dazu passt, wie Sie Angebote erhalten, Fahrzeuge prüfen und arbeiten möchten.",
       "cta": "Kontakt aufnehmen",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "Leiten Sie Angebote an AutoMargin weiter. Wir verarbeiten den Intake für Sie und liefern klare Ergebnisse.",
+          "description": "Leiten Sie Angebote an AutoMargin weiter und wir verarbeiten den Intake für Sie. Sie erhalten klare Ergebnisse, ohne zu ändern, wie Lieferanten Angebote senden.",
           "fit": "Ideal für schnellen Wert mit wenig interner Änderung."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Nutzer laden Angebote hoch, pflegen Supplier Lists und arbeiten direkt in AutoMargin.",
-          "fit": "Ideal, wenn mehrere Nutzer prüfen, vergleichen und handeln."
+          "description": "Laden Sie Angebote hoch, verwalten Sie Lieferantenlisten und arbeiten Sie direkt in AutoMargin. So haben Sie mehr Kontrolle über den täglichen Intake.",
+          "fit": "Am besten, wenn Sie direkt in der Plattform prüfen, vergleichen und handeln möchten."
         },
         "api": {
           "title": "Enterprise API access",
@@ -299,9 +299,9 @@
       }
     },
     "cta": {
-      "title": "Das passende Setup finden?",
-      "description": "Senden Sie uns Ihren Intake Flow. Wir mappen Accessmodell, Supplier Network Scope und Angebot.",
-      "primary": "Sales kontaktieren",
+      "title": "Möchten Sie das passende Setup?",
+      "description": "Senden Sie uns, wie Sie Angebote heute prüfen. Wir mappen Access-Modell, Marktscope und Angebot mit Ihnen.",
+      "primary": "Kontakt aufnehmen",
       "secondary": "Demo testen"
     }
   },

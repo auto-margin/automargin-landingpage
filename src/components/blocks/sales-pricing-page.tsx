@@ -279,7 +279,7 @@ export function SalesPricingPage({ className }: { className?: string }) {
                   <h2 className="mt-4 max-w-3xl text-3xl leading-[1.08] tracking-tight whitespace-pre-line md:text-4xl">
                     {t("supplierNetwork.title")}
                   </h2>
-                  <p className="text-primary-foreground/80 mt-4 max-w-fit rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold md:text-sm">
+                  <p className="text-primary-foreground/75 my-5 max-w-2xl border-l border-white/25 pl-4 text-sm leading-relaxed italic md:text-base">
                     {t("supplierNetwork.comment")}
                   </p>
                   <p className="text-primary-foreground/75 mt-3 max-w-4xl text-sm leading-snug whitespace-pre-line md:text-base">

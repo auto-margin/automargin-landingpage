@@ -211,15 +211,15 @@
   },
   "PricingPage": {
     "hero": {
-      "title": "Kommerciel access til dealers der vil købe klarere",
-      "description": "Vi sætter AutoMargin op efter hvordan jeres team bruger platformen: automatic, managed eller API access. Kontakt os, så mapper vi setup.",
-      "cta": "Kontakt sales",
-      "secondaryCta": "Sammenlign modeller"
+      "title": "Fleksibel adgang til bedre købsbeslutninger",
+      "description": "AutoMargin kan sættes op til enkeltpersoner, mindre virksomheder og større selskaber. Brug automatic processing, managed access eller API access afhængigt af hvordan du reviewer offers i dag.",
+      "cta": "Kontakt os",
+      "secondaryCta": "Sammenlign access-modeller"
     },
     "supplierNetwork": {
       "eyebrow": "Supplier network",
-      "title": "I behøver ikke mere analyse.\nI behøver bedre deals.",
-      "description": "De fleste dealers reviewer biler. Sammenligner listings. Tjekker priser. Tvivler på beslutninger.\nPengene skabes i dealen. Med den rigtige supplier. På det rigtige tidspunkt. Med den rigtige bil.\nAutomargin fjerner analysen. Så I stopper med at arbejde på biler og starter med suppliers.",
+      "title": "Mindre manuel kontrol.\nMere klarhed på hvert offer.",
+      "description": "AutoMargin hjælper dig med at reviewe indkommende biloffers, sammenligne dem med live listings og se hvilke leverandører der skaber margin. Brug det som individuel buyer, voksende virksomhed eller større operation med mere strukturerede workflows.",
       "points": {
         "quality": {
           "title": "Margin pr. supplier",
@@ -234,15 +234,15 @@
           "description": "Brug historik til at vælge hvad der reviewes fårst."
         }
       },
-      "comment": "Det er ikke dér pengene skabes."
+      "comment": "Et setup bør passe til den måde offers allerede kommer ind på."
     },
     "drivers": {
       "title": "Hvad vi afstemmer får forslag",
-      "description": "Forslaget bygger på accessmodel, operationelt setup, supplier-arbejde og supportniveau.",
+      "description": "Forslaget bygger på din offer volume, markeder, workflow og det supportniveau du har brug for.",
       "items": {
         "volume": {
           "title": "Offer-volumen",
-          "description": "Antal offers, biler eller sourcing requests teamet håndterer."
+          "description": "Hvor mange supplier offers, biler eller sourcing requests du vil reviewe."
         },
         "markets": {
           "title": "Målmarkeder",
@@ -259,37 +259,37 @@
       }
     },
     "process": {
-      "title": "Sådan fungerer kommerciel setup",
+      "title": "Sådan fungerer setup",
       "description": "En klar vej fra fårste kontakt til den rigtige accessmodel.",
       "steps": {
         "request": "Kontakt os",
         "qualification": "Første møde",
         "proposal": "Vi scoper setup",
-        "onboarding": "Kommercielt forslag",
+        "onboarding": "Access-forslag",
         "optimization": "Launch og optimer"
       },
       "details": {
         "request": "Fortæl hvordan I modtager offers i dag og hvad I vil forbedre.",
         "qualification": "Vi gennemgår flow, mål og hvor AutoMargin hjælper fårst.",
         "proposal": "Sammen vælger vi automatic, managed eller API access og scope.",
-        "onboarding": "I får kommercielt forslag og rollout-plan får start.",
+        "onboarding": "Du modtager access-forslag og rollout plan, før noget starter.",
         "optimization": "Efter launch justerer vi intake-regler, supplier tracking og output."
       }
     },
     "engagement": {
       "title": "Sådan kan platformen bruges",
-      "description": "Vælg modellen der passer til team, supplier flow og teknik.",
+      "description": "Vælg modellen der passer til hvordan du modtager offers, reviewer stock og vil arbejde.",
       "cta": "Kontakt os",
       "models": {
         "automatic": {
           "title": "Automatic access",
-          "description": "Forward offers til AutoMargin. Vi processer intake og sender klart output tilbage.",
+          "description": "Forward offers til AutoMargin, så processer vi intake for dig. Du får klart output uden at ændre hvordan suppliers sender deals.",
           "fit": "Bedst når I vil hurtigt i gang med minimal intern ændring."
         },
         "managed": {
           "title": "Managed access",
-          "description": "Brugere uploader offers, styrer supplier lists og arbejder direkte i AutoMargin.",
-          "fit": "Bedst når flere brugere skal reviewe, sammenligne og handle."
+          "description": "Upload offers, styr supplier lists og arbejd direkte i AutoMargin. Det giver dig mere kontrol over daglig intake.",
+          "fit": "Bedst når du vil reviewe, sammenligne og handle direkte i platformen."
         },
         "api": {
           "title": "Enterprise API access",
@@ -299,9 +299,9 @@
       }
     },
     "cta": {
-      "title": "Vil I finde rigtigt setup?",
-      "description": "Send jeres intake flow. Vi mapper accessmodel, supplier network scope og kommercielt forslag.",
-      "primary": "Kontakt sales",
+      "title": "Vil du have det rigtige setup?",
+      "description": "Send os hvordan du reviewer offers i dag. Vi mapper access model, market scope og forslag med dig.",
+      "primary": "Kontakt os",
       "secondary": "Prøv demo"
     }
   },
