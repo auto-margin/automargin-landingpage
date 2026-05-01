@@ -121,8 +121,8 @@
     },
     "salesPricing": {
       "eyebrow": "Leverandørnetværk",
-      "title": "Bilen er symptomet. Leverandørlisten er årsagen.",
-      "description": "De fleste analyseværktøjer viser hvad en bil er værd. Automargin viser hvilke suppliers der skaber margin, og hvem der stille dræner ugen. Dér styrer I intake.",
+      "title": "Se hvilke leverandører der er værd at bruge tid på.",
+      "description": "AutoMargin viser hvilke leverandører der sender profitable tilbud, hvilke der sender volumen uden margin, og hvor du bør fokusere næste gang.",
       "proposal": {
         "title": "Anmod om adgang",
         "description": "Vi arbejder med få forhandlere ved lancering. Fortæl hvordan tilbud kommer ind, så finder vi det rigtige setup.",

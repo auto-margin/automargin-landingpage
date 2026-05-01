@@ -121,8 +121,8 @@
     },
     "salesPricing": {
       "eyebrow": "Red de proveedores",
-      "title": "El coche es el síntoma. Tu lista de proveedores es la causa.",
-      "description": "La mayoría de herramientas dice cuánto vale un coche. Automargin muestra qué proveedores traen margen y cuáles consumen tu semana. Ahí controlas el intake.",
+      "title": "Sabe qué proveedores merecen tu tiempo.",
+      "description": "AutoMargin muestra qué proveedores envían ofertas rentables, cuáles envían volumen sin margen y dónde centrarse después.",
       "proposal": {
         "title": "Solicitar acceso",
         "description": "Trabajamos con pocos dealers al lanzamiento. Cuéntanos cómo llegan tus ofertas y diseñamos el setup correcto.",

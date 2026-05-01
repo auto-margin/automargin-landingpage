@@ -121,8 +121,8 @@
     },
     "salesPricing": {
       "eyebrow": "Leverantärsnätverk",
-      "title": "Bilen är symptomet. Leverantärslistan är orsaken.",
-      "description": "De flesta analysverktyg visar vad en bil är värd. Automargin visar vilka leverantörer som återkommande ger marginal och vilka som tyst dränerar veckan. Där styr du ditt intake.",
+      "title": "Se vilka leverantörer som är värda er tid.",
+      "description": "AutoMargin visar vilka leverantörer som skickar lönsamma offers, vilka som skickar volym utan marginal och var du bör fokusera härnäst.",
       "proposal": {
         "title": "Begär access",
         "description": "Vi jobbar med ett begränsat antal handlare vid launch. Berätta hur offers kommer in så mappar vi rätt setup.",

@@ -121,8 +121,8 @@
     },
     "salesPricing": {
       "eyebrow": "Supplier network",
-      "title": "The car is the symptom. Your supplier list is the cause.",
-      "description": "Most analytics tools tell you what a car is worth. Automargin tells you which suppliers consistently bring you margin — and which ones are quietly draining your week. That's where you control your intake.",
+      "title": "Know which suppliers are worth your time.",
+      "description": "AutoMargin shows which suppliers send profitable offers, which send volume without margin, and where to focus next.",
       "proposal": {
         "title": "Request access",
         "description": "We work with a limited number of dealers at launch. Tell us how your offers arrive and we will map the right setup.",

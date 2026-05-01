@@ -121,8 +121,8 @@
     },
     "salesPricing": {
       "eyebrow": "Lieferantennetzwerk",
-      "title": "Das Auto ist das Symptom. Ihre Lieferantenliste ist die Ursache.",
-      "description": "Die meisten Analyse-Tools zeigen, was ein Auto wert ist. Automargin zeigt, welche Lieferanten wiederholt Marge bringen und welche Ihre Woche leise kosten. Dort steuern Sie den Intake.",
+      "title": "Sehen Sie, welche Lieferanten Ihre Zeit wert sind.",
+      "description": "AutoMargin zeigt, welche Lieferanten profitable Angebote senden, welche Volumen ohne Marge bringen und worauf Sie sich als Nächstes konzentrieren sollten.",
       "proposal": {
         "title": "Zugang anfragen",
         "description": "Zum Start arbeiten wir mit wenigen Händlern. Sagen Sie uns, wie Angebote ankommen, und wir planen das passende Setup.",
