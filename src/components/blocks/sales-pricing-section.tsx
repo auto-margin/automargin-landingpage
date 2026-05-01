@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -35,6 +37,8 @@ const mobileChartPoints = [
 
 export function SalesPricingSection({ className }: { className?: string }) {
   const t = useTranslations("Home.salesPricing");
+  const [activeChartPoint, setActiveChartPoint] =
+    useState<(typeof chartPoints)[number]["week"]>(defaultChartPoint);
 
   return (
     <section className={cn("py-20 lg:py-24", className)}>
@@ -116,7 +120,7 @@ export function SalesPricingSection({ className }: { className?: string }) {
                 {chartPoints.map((point) => {
                   const tooltipX = Math.min(Math.max(point.x - 54, 4), 408);
                   const tooltipY = point.y > 68 ? point.y - 58 : point.y + 18;
-                  const isDefaultPoint = point.week === defaultChartPoint;
+                  const isActivePoint = point.week === activeChartPoint;
 
                   return (
                     <g
@@ -124,6 +128,12 @@ export function SalesPricingSection({ className }: { className?: string }) {
                       className="group outline-none"
                       tabIndex={0}
                       aria-label={`${point.week}: ${point.margin} margin, ${point.deals}`}
+                      onMouseEnter={() => setActiveChartPoint(point.week)}
+                      onFocus={() => setActiveChartPoint(point.week)}
+                      onMouseLeave={() =>
+                        setActiveChartPoint(defaultChartPoint)
+                      }
+                      onBlur={() => setActiveChartPoint(defaultChartPoint)}
                     >
                       <line
                         x1={point.x}
@@ -133,8 +143,8 @@ export function SalesPricingSection({ className }: { className?: string }) {
                         stroke="currentColor"
                         strokeDasharray="3 5"
                         className={cn(
-                          "text-primary/40 transition-opacity group-hover:opacity-100 group-focus:opacity-100",
-                          isDefaultPoint ? "opacity-100" : "opacity-0",
+                          "text-primary/40 transition-opacity",
+                          isActivePoint ? "opacity-100" : "opacity-0",
                         )}
                       />
                       <circle
@@ -148,8 +158,8 @@ export function SalesPricingSection({ className }: { className?: string }) {
                         cy={point.y}
                         r="8"
                         className={cn(
-                          "fill-primary/15 transition-opacity group-hover:opacity-100 group-focus:opacity-100",
-                          isDefaultPoint ? "opacity-100" : "opacity-0",
+                          "fill-primary/15 transition-opacity",
+                          isActivePoint ? "opacity-100" : "opacity-0",
                         )}
                       />
                       <circle
@@ -161,8 +171,8 @@ export function SalesPricingSection({ className }: { className?: string }) {
                       <g
                         transform={`translate(${tooltipX} ${tooltipY})`}
                         className={cn(
-                          "pointer-events-none transition-opacity group-hover:opacity-100 group-focus:opacity-100",
-                          isDefaultPoint ? "opacity-100" : "opacity-0",
+                          "pointer-events-none transition-opacity",
+                          isActivePoint ? "opacity-100" : "opacity-0",
                         )}
                       >
                         <rect
