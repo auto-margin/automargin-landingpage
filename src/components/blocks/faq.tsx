@@ -57,7 +57,7 @@ export const FAQ = ({
             )}
             {homeHeader ? (
               <div className="space-y-5">
-                <p className="text-muted-foreground max-w-md leading-snug lg:mx-auto">
+                <p className="text-muted-foreground max-w-md leading-snug whitespace-pre-line lg:mx-auto">
                   {t("homeDescription")}
                 </p>
                 <Button variant="outline" asChild>

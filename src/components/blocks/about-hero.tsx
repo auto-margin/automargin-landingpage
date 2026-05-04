@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { DashedLine } from "@/components/dashed-line";
 
 const stats = [
-  { value: "2025", key: "founded" },
+  { value: "2021", key: "founded" },
   { value: "15+", key: "industry" },
   { value: "Europe", key: "dealers" },
   { value: "Swiss", key: "network" },

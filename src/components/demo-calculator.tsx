@@ -16,6 +16,7 @@ import {
   TriangleAlert,
   X,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -36,6 +37,8 @@ const DotLottieReact = dynamic(
 
 const DEMO_CAR_EXAMPLE =
   "BMW X5 2020 30d xDrive, 85,000 km, diesel, automatic, asking price 32,000 EUR";
+
+const recommendedFieldKeys = ["0", "1", "2", "3", "4"] as const;
 
 type DemoStageEvent = {
   stage?: string;
@@ -186,15 +189,6 @@ function SignalBadge({ signal }: { signal?: string }) {
   );
 }
 
-function stageCopy(stage?: string) {
-  const s = (stage ?? "").toLowerCase();
-  if (s.includes("parse")) return "We are now parsing all information…";
-  if (s.includes("compar")) return "We are now comparing the vehicle…";
-  if (s.includes("calcul")) return "We are now calculating…";
-  if (s.includes("analy")) return "We are analyzing the vehicle…";
-  return "We are analyzing the vehicle…";
-}
-
 const BRAND_TOKENS = [
   "audi",
   "bmw",
@@ -250,6 +244,7 @@ function getUrlLabel(raw: string) {
 }
 
 export function DemoCalculator() {
+  const t = useTranslations("DemoPage.calculator");
   const searchParams = useSearchParams();
   const [input, setInput] = useState("");
   const [sourceCountry, setSourceCountry] = useState("DE");
@@ -264,6 +259,15 @@ export function DemoCalculator() {
   const [exampleCopied, setExampleCopied] = useState(false);
   const exampleCopyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  function stageCopy(stage?: string) {
+    const s = (stage ?? "").toLowerCase();
+    if (s.includes("parse")) return t("stages.parsing");
+    if (s.includes("compar")) return t("stages.comparing");
+    if (s.includes("calcul")) return t("stages.calculating");
+    if (s.includes("analy")) return t("stages.analyzing");
+    return t("stages.analyzing");
+  }
 
   useEffect(() => {
     if (!helpOpen) {
@@ -357,8 +361,8 @@ export function DemoCalculator() {
           json?.error ||
             json?.message ||
             (res.status === 429
-              ? "Demo limit reached. One demo run per IP / 24 hours."
-              : "Unable to run demo right now."),
+              ? t("errors.limitReached")
+              : t("errors.generic")),
         );
         return;
       }
@@ -366,7 +370,7 @@ export function DemoCalculator() {
       if (!res.ok || !contentType.includes("text/event-stream") || !res.body) {
         const text = await res.text().catch(() => "");
         setStatus("error");
-        setError(text || "Unable to run demo right now.");
+        setError(text || t("errors.generic"));
         return;
       }
 
@@ -397,11 +401,11 @@ export function DemoCalculator() {
 
       setStatus(completeEvent ? "complete" : "error");
       if (completeEvent) triggerSuccessAnim();
-      if (!completeEvent) setError("No result was returned. Please try again.");
+      if (!completeEvent) setError(t("errors.noResult"));
     } catch (e) {
       if ((e as any)?.name === "AbortError") return;
       setStatus("error");
-      setError("Unable to run demo right now. Please try again.");
+      setError(t("errors.genericRetry"));
     }
   }
 
@@ -430,7 +434,7 @@ export function DemoCalculator() {
           </span>
           <div>
             <p className="text-muted-foreground text-xs md:text-sm">
-              Paste a car offer. We’ll stream the analysis and show the result.
+              {t("intro")}
             </p>
           </div>
         </div>
@@ -438,12 +442,12 @@ export function DemoCalculator() {
         {status === "running" ? (
           <div className="text-muted-foreground hidden items-center gap-2 text-xs sm:flex">
             <Loader2 className="size-4 animate-spin" aria-hidden />
-            Running…
+            {t("running")}
           </div>
         ) : status === "complete" ? (
           <div className="text-muted-foreground hidden items-center gap-2 text-xs sm:flex">
             <CheckCircle2 className="size-4 text-emerald-500" aria-hidden />
-            Complete
+            {t("complete")}
           </div>
         ) : null}
       </div>
@@ -460,18 +464,18 @@ export function DemoCalculator() {
                 aria-expanded={helpOpen}
               >
                 <Info className="text-chart-1 size-5" aria-hidden />
-                What should I include?
+                {t("helpButton")}
               </button>
             </div>
 
             <div className="order-2 space-y-2 sm:order-1">
               <Label htmlFor="demo-input" className="text-foreground ml-0.25">
-                Enter vehicle
+                {t("enterVehicle")}
               </Label>
               <Textarea
                 id="demo-input"
                 rows={6}
-                placeholder="Details about the vehicle…"
+                placeholder={t("placeholder")}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 maxLength={800}
@@ -480,7 +484,7 @@ export function DemoCalculator() {
               />
               {showBrandError ? (
                 <p className="ml-0.25 text-xs font-medium text-rose-700 dark:text-rose-300">
-                  Must include a brand (e.g., BMW, Audi, Volvo).
+                  {t("brandError")}
                 </p>
               ) : null}
             </div>
@@ -492,7 +496,7 @@ export function DemoCalculator() {
                 htmlFor="source-country"
                 className="text-foreground ml-0.25"
               >
-                Country to compare from
+                {t("countryLabel")}
               </Label>
               <Select
                 value={sourceCountry}
@@ -500,31 +504,51 @@ export function DemoCalculator() {
                 disabled={status === "running"}
               >
                 <SelectTrigger id="source-country" className="w-full">
-                  <SelectValue placeholder="Choose country" />
+                  <SelectValue placeholder={t("countryPlaceholder")} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="DE">DE — Germany</SelectItem>
-                  <SelectItem value="CH">CH — Switzerland</SelectItem>
-                  <SelectItem value="BE">BE — Belgium</SelectItem>
+                  <SelectItem value="DE">{t("country.DE")}</SelectItem>
+                  <SelectItem value="CH">{t("country.CH")}</SelectItem>
+                  <SelectItem value="BE">{t("country.BE")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="text-muted-foreground text-xs leading-relaxed md:text-sm">
-              <p>We compare against live listings.</p>
-              <p>We estimate resale + margin by market.</p>
+              <p>{t("weCompare")}</p>
+              <p>{t("weEstimate")}</p>
             </div>
           </div>
         </div>
 
+        {/* Mobile-only: action buttons rendered above the result window. */}
+        <div className="flex items-center justify-between gap-2 sm:hidden">
+          <Button type="button" onClick={run} disabled={!canRun}>
+            {status === "running"
+              ? t("calculating")
+              : status === "complete"
+                ? t("completed")
+                : t("calculate")}
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={reset}
+            disabled={status === "running" || status === "idle"}
+            className={status === "idle" ? "invisible" : undefined}
+          >
+            {t("reset")}
+          </Button>
+        </div>
+
         <div className="am-scrollbar border-border/60 bg-muted/20 flex h-[500px] flex-col overflow-auto rounded-lg border p-4 sm:h-[540px] sm:p-5">
           {status !== "complete" ? (
-            <p className="text-foreground text-sm font-semibold">Result</p>
+            <p className="text-foreground text-sm font-semibold">{t("result")}</p>
           ) : null}
 
           <div className="flex min-h-0 flex-1 flex-col pt-3 pr-2 pb-3 sm:pb-4">
             {status === "idle" ? (
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Paste an offer and run the demo to see results here.
+                {t("idleHint")}
               </p>
             ) : status === "running" ? (
               <div className="space-y-3">
@@ -540,17 +564,16 @@ export function DemoCalculator() {
                   />
                 </div>
                 <p className="text-muted-foreground text-xs">
-                  Tip: if nothing happens, you may have reached the demo limit
-                  or the backend endpoint is unavailable.
+                  {t("runningTip")}
                 </p>
               </div>
             ) : status === "error" ? (
               <div className="flex items-start gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 text-rose-700 dark:text-rose-300">
                 <TriangleAlert className="mt-0.5 size-5" aria-hidden />
                 <div>
-                  <p className="text-sm font-semibold">Couldn’t run demo</p>
+                  <p className="text-sm font-semibold">{t("errorTitle")}</p>
                   <p className="mt-1 text-sm opacity-90">
-                    {error ?? "Please try again."}
+                    {error ?? t("errorDefault")}
                   </p>
                 </div>
               </div>
@@ -568,7 +591,7 @@ export function DemoCalculator() {
               <div className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-foreground text-center text-sm font-semibold">
-                    Buy signal
+                    {t("buySignal")}
                   </p>
                   <div className="flex flex-col items-center gap-2 text-center">
                     <div className="space-y-2">
@@ -584,7 +607,7 @@ export function DemoCalculator() {
                 {completeEvent?.markets ? (
                   <div className="space-y-2">
                     <p className="text-foreground ml-1 text-sm font-semibold">
-                      Markets
+                      {t("markets")}
                     </p>
                     <div className="grid gap-2">
                       {Object.entries(completeEvent.markets).map(([key, m]) => (
@@ -604,12 +627,12 @@ export function DemoCalculator() {
                               <div className="flex items-center gap-2">
                                 <div className="text-muted-foreground text-xs">
                                   <span className="hidden sm:inline">
-                                    Based on{" "}
+                                    {t("basedOn")}{" "}
                                   </span>
                                   <span className="text-foreground font-semibold tabular-nums">
                                     {m.listings?.sampleSize ?? "—"}
                                   </span>{" "}
-                                  <span>listings</span>
+                                  <span>{t("listings")}</span>
                                 </div>
                                 <svg
                                   aria-hidden="true"
@@ -631,7 +654,7 @@ export function DemoCalculator() {
                             <div className="bg-muted/20 border-border/60 grid grid-cols-2 gap-3 rounded-lg border p-3">
                               <div>
                                 <p className="text-muted-foreground text-[11px] font-semibold tracking-wide uppercase">
-                                  Profit
+                                  {t("profit")}
                                 </p>
                                 <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
                                   {formatMoney(m.profit, m.currency)}
@@ -639,7 +662,7 @@ export function DemoCalculator() {
                               </div>
                               <div className="text-right">
                                 <p className="text-muted-foreground text-[11px] font-semibold tracking-wide uppercase">
-                                  Margin
+                                  {t("margin")}
                                 </p>
                                 <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
                                   {m.profitPct != null
@@ -658,7 +681,7 @@ export function DemoCalculator() {
                 {completeEvent?.sources ? (
                   <div className="space-y-2">
                     <p className="text-foreground ml-1 text-sm font-semibold">
-                      Sources
+                      {t("sources")}
                     </p>
                     <div className="space-y-2 pb-3">
                       {Object.entries(completeEvent.sources).map(
@@ -682,7 +705,7 @@ export function DemoCalculator() {
                             </div>
 
                             <span className="text-chart-1 shrink-0 text-sm font-semibold group-hover:opacity-80">
-                              Open
+                              {t("open")}
                             </span>
                           </a>
                         ),
@@ -697,13 +720,13 @@ export function DemoCalculator() {
       </div>
 
       <div className="border-border/60 mt-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center justify-between gap-2">
+        <div className="hidden items-center justify-between gap-2 sm:flex">
           <Button type="button" onClick={run} disabled={!canRun}>
             {status === "running"
-              ? "Calculating…"
+              ? t("calculating")
               : status === "complete"
-                ? "Completed"
-                : "Calculate profit"}
+                ? t("completed")
+                : t("calculate")}
           </Button>
           <Button
             type="button"
@@ -712,23 +735,23 @@ export function DemoCalculator() {
             disabled={status === "running" || status === "idle"}
             className={status === "idle" ? "invisible" : undefined}
           >
-            Reset
+            {t("reset")}
           </Button>
         </div>
 
         <div className="space-y-1 text-pretty">
           <p className="text-muted-foreground mt-2 text-xs sm:mt-0 md:text-xs">
-            Limited to one demo run per IP / 24 hours.
+            {t("rateLimitNotice")}
           </p>
           <p className="text-muted-foreground mt-2 text-xs">
-            By running the demo, you agree to our{" "}
+            {t("privacyAgreement")}{" "}
             <Link href="/privacy" className="underline underline-offset-4">
-              privacy policy
+              {t("privacyLink")}
             </Link>
             .
           </p>
           <p className="text-muted-foreground mt-2 text-xs">
-            We may log requests and apply rate limits to prevent abuse.
+            {t("abuseNotice")}
           </p>
         </div>
       </div>
@@ -738,7 +761,7 @@ export function DemoCalculator() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
           role="dialog"
           aria-modal="true"
-          aria-label="Car description help"
+          aria-label={t("help.dialogAria")}
           onMouseDown={(e) => {
             if (e.target === e.currentTarget) setHelpOpen(false);
           }}
@@ -746,16 +769,16 @@ export function DemoCalculator() {
           <div className="bg-background text-foreground border-border w-full max-w-lg rounded-2xl border shadow-xl">
             <div className="border-border flex items-start justify-between gap-3 border-b px-5 py-4">
               <div>
-                <p className="text-sm font-semibold">What to paste</p>
+                <p className="text-sm font-semibold">{t("help.title")}</p>
                 <p className="text-muted-foreground mt-1 text-sm">
-                  The more detail, the better the validation.
+                  {t("help.subtitle")}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setHelpOpen(false)}
                 className="text-muted-foreground hover:text-foreground hover:bg-muted/40 inline-flex size-9 items-center justify-center rounded-lg"
-                aria-label="Close"
+                aria-label={t("help.closeAria")}
               >
                 <X className="size-4" aria-hidden />
               </button>
@@ -764,19 +787,17 @@ export function DemoCalculator() {
             <div className="px-5 py-4">
               <div className="space-y-4 text-sm">
                 <div>
-                  <p className="font-semibold">Recommended fields</p>
+                  <p className="font-semibold">{t("help.recommendedTitle")}</p>
                   <ul className="text-muted-foreground mt-2 list-disc space-y-1 pl-5">
-                    <li>Brand + model + year</li>
-                    <li>Mileage</li>
-                    <li>Fuel type + transmission</li>
-                    <li>Asking price + currency</li>
-                    <li>Any notable options / trim</li>
+                    {recommendedFieldKeys.map((key) => (
+                      <li key={key}>{t(`help.recommendedFields.${key}`)}</li>
+                    ))}
                   </ul>
                 </div>
 
                 <div>
                   <div className="flex items-center justify-between gap-2">
-                    <p className="font-semibold">Example</p>
+                    <p className="font-semibold">{t("help.exampleTitle")}</p>
                     <Button
                       type="button"
                       variant="outline"
@@ -784,8 +805,8 @@ export function DemoCalculator() {
                       className="shrink-0 gap-1.5"
                       aria-label={
                         exampleCopied
-                          ? "Example text copied to clipboard"
-                          : "Copy example text to clipboard"
+                          ? t("help.copiedAria")
+                          : t("help.copyAria")
                       }
                       onClick={async () => {
                         try {
@@ -806,12 +827,12 @@ export function DemoCalculator() {
                       {exampleCopied ? (
                         <>
                           <Check className="size-3.5" aria-hidden />
-                          Copied
+                          {t("help.copied")}
                         </>
                       ) : (
                         <>
                           <Copy className="size-3.5" aria-hidden />
-                          Copy
+                          {t("help.copy")}
                         </>
                       )}
                     </Button>
@@ -829,7 +850,7 @@ export function DemoCalculator() {
                 variant="outline"
                 onClick={() => setHelpOpen(false)}
               >
-                OK
+                {t("help.ok")}
               </Button>
             </div>
           </div>

@@ -10,8 +10,8 @@
   },
   "Home": {
     "hero": {
-      "title": "Sluta jobba\nmed bilar.\nBörja jobba med leverantörer.",
-      "subtitle": "Tar bort analysen. Ladda upp offers, se marginal på minuter och lär dig vilka leverantörer som faktiskt ger pengar.",
+      "title": "Sluta jobba med bilarna.\nBörja jobba med marginalen.",
+      "subtitle": "Lägg mindre tid på att granska offers och mer tid på pålitliga partners.",
       "primaryCta": "Begär access",
       "secondaryCta": "Testa demo",
       "features": {
@@ -21,25 +21,25 @@
         },
         "margin": {
           "title": "Vet vad som rär sig",
-          "description": "Förstå vilka bilar som säljer, vilka som stär och var intake fastnar."
+          "description": "Förstå vilka bilar som säljer eller står och var intake fastnar."
         },
         "comparison": {
           "title": "Jobba från riktiga offers",
           "description": "Ladda upp filer, mejl och listor ni redan fär från leverantörer."
         },
         "insights": {
-          "title": "Agera på leverantörskvalitet",
-          "description": "Se vilka leverantörer som ger marginal och vilka som bara skapar brus."
+          "title": "Utöka ditt nätverk",
+          "description": "Fokusera på framtida partners, se vem som konsekvent ger marginal och vem som inte gör det."
         }
       }
     },
     "features": {
-      "title": "Från inbox till deal med leverantörsnätverk.",
+      "title": "Från inbox till deal med partnernätverk.",
       "imageAlt": "{title} interface",
       "items": {
         "market": "Ladda upp offers ni redan fär",
         "competitor": "Se vilka bilar som ger vinst.",
-        "insights": "Agera på rätt leverantörer"
+        "insights": "Agera på rätt partners"
       }
     },
     "markets": {
@@ -91,8 +91,8 @@
     },
     "bento": {
       "label": "SLUTA GRANSKA. BÖRJA DEALA.",
-      "title": "Fokusera på\nrätt leverantörer.",
-      "description": "Pengar skapas i dealen: med rätt leverantör, rätt timing och rätt bil. Se vem som ger marginal, skickar volym utan vinst och passar er affär."
+      "title": "Fokusera på\nrätt partners.",
+      "description": "Pengar skapas i dealen: med rätt partner, rätt timing och rätt bil. Se vem som ger marginal, skickar volym utan vinst och passar er affär."
     },
     "bentoCards": {
       "items": {
@@ -102,7 +102,7 @@
           "hoverText": "Använd offers ni redan fär."
         },
         "1": {
-          "name": "Leverantärsinsikt",
+          "name": "Partnerinsikt",
           "description": "Se vem som skickar marginal.",
           "hoverText": "Vet vem du ska ringa."
         },
@@ -120,9 +120,9 @@
       }
     },
     "salesPricing": {
-      "eyebrow": "Leverantärsnätverk",
+      "eyebrow": "Partnernätverk",
       "title": "Se vilka leverantörer som är värda er tid.",
-      "description": "AutoMargin visar vilka leverantörer som skickar lönsamma offers, vilka som skickar volym utan marginal och var du bör fokusera härnäst.",
+      "description": "Tänk inte på det förflutna. Sluta försöka organisera all historisk prissättning på gamla offers. Vi gör varje uppladdning till en tydlig leverantörsöversikt.",
       "proposal": {
         "title": "Begär access",
         "description": "Vi jobbar med ett begränsat antal handlare vid launch. Berätta hur offers kommer in så mappar vi rätt setup.",
@@ -131,8 +131,8 @@
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Leverantör · Autoselekt Berlin",
-          "title": "Bästa leverantör · senaste 90 dagar",
+          "eyebrow": "Partner · Autoselekt Berlin",
+          "title": "Bästa partner · senaste 90 dagar",
           "badge": "Tier 1"
         },
         "stats": {
@@ -217,12 +217,12 @@
       "secondaryCta": "Jämför accessmodeller"
     },
     "supplierNetwork": {
-      "eyebrow": "Leverantärsnätverk",
+      "eyebrow": "Partnernätverk",
       "title": "Mindre manuell kontroll.\nMer klarhet i varje offer.",
-      "description": "AutoMargin hjälper dig granska inkommande biloffers, jämföra dem med live listings och se vilka leverantörer som skapar marginal. Använd det som individuell buyer, växande företag eller större verksamhet med mer strukturerade workflows.",
+      "description": "AutoMargin hjälper dig granska inkommande biloffers, jämföra dem med live listings och se vilka partners som skapar marginal. Använd det som individuell buyer, växande företag eller större verksamhet med mer strukturerade workflows.",
       "points": {
         "quality": {
-          "title": "Marginal per leverantör",
+          "title": "Marginal per partner",
           "description": "Se vem som ger lönsamma bilar, inte bara volym."
         },
         "drain": {
@@ -273,7 +273,7 @@
         "qualification": "Vi går igenom offerflöde, mål och var AutoMargin hjälper färst.",
         "proposal": "Tillsammans väljer vi automatic, managed eller API access och scope.",
         "onboarding": "Du får accessförslag och rollout plan innan något startar.",
-        "optimization": "Efter launch finjusterar vi intake-regler, supplier tracking och output."
+        "optimization": "Efter launch finjusterar vi intake-regler, partner tracking och output."
       }
     },
     "engagement": {
@@ -308,7 +308,7 @@
   "FAQ": {
     "title": "Direkta svar.",
     "homeTitle": "Direkta svar.\nIngen marknadsdimma.",
-    "homeDescription": "Hittar du inte det du behöver, skriv till oss. Vi svarar inom en arbetsdag.",
+    "homeDescription": "Hittar du inte det du behöver, skriv till oss.\nVi svarar inom en arbetsdag.",
     "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "Om du inte hittar det du söker,",
     "contactLink": "kontakta oss",
@@ -318,11 +318,11 @@
         "questions": {
           "what": {
             "q": "Vad gör AutoMargin?",
-            "a": "AutoMargin hjälper handlare att granska inkommande erbjudanden snabbare och fokusera på bättre affärer. Du laddar upp erbjudanden du redan får, och AutoMargin visar vilka bilar som skapar marginal, vilka som blir stående och vilka som redan är placerade."
+            "a": "AutoMargin hjälper handlare att granska inkommande erbjudanden snabbare och fokusera på bättre affärer. Du laddar upp erbjudanden du redan får och AutoMargin visar vilka bilar som skapar marginal, vilka som blir stående och vilka som redan är placerade."
           },
           "identify": {
             "q": "Hur hittar systemet de bästa affärerna?",
-            "a": "Det kontrollerar varje erbjudande mot aktuell marknadsdata och gör det till ett tydligt nästa steg. Du ser vilka bilar som är värda att agera på och vilka leverantörer som konsekvent ger rätt lager."
+            "a": "Det kontrollerar varje erbjudande mot aktuell marknadsdata och gör det till ett tydligt nästa steg. Du ser vilka bilar som är värda att agera på och vilka partners som konsekvent ger rätt lager."
           },
           "files": {
             "q": "Vilka filtyper stöds?",
@@ -447,10 +447,10 @@
     "hero": {
       "title": "Byggt fär arbetet bakom varje deal",
       "subtitle": "Att köpa bilar är bara en del av jobbet. Execution bärjar efter ett ja.",
-      "body1": "AutoMargin bygger på verkligheten att buyers inte bara värderar bilar. De jagar offers, jämför marknader, löser papper och logistik, och måste ändå veta vilken leverantör som förtjänar nästa samtal.",
+      "body1": "AutoMargin bygger på verkligheten att buyers inte bara värderar bilar. De jagar offers, jämför marknader, löser papper och logistik och måste ändå veta vilken partner som förtjänar nästa samtal.",
       "body2": "Vi hjälper handlare färbereda buying-arbetet innan dagen startar, så teamet får mer tid till closing, handover och execution.",
       "stats": {
-        "founded": "Grundat",
+        "founded": "Startat",
         "industry": "är i branschen",
         "dealers": "Handlare anslutna",
         "network": "HQ & nätverk"
@@ -462,7 +462,7 @@
         "title": "Handlare tappade tid innan arbetet bärjade.",
         "p1": "Det långsamma var inte ambitionen. Det var all manuell bedömning innan en buyer kunde agera: öppna filer, jämföra listings, kontrollera kontext och välja rätt offers.",
         "p2": "Efter en stängd deal fortsätter jobbet. Papper, logistik, supplier follow-up och intern handover tar samma buyer-tid.",
-        "p3": "AutoMargin rensar review-arbetet tidigare, så buyers kan fokusera på beslut, execution och leverantörsrelationer.",
+        "p3": "AutoMargin rensar review-arbetet tidigare, så buyers kan fokusera på beslut, execution och partnerrelationer.",
         "cta": "Prata med oss"
       },
       "pain": {
@@ -487,7 +487,7 @@
       "product": {
         "eyebrow": "Hur AutoMargin hjälper",
         "title": "Tänk om varje offer var analyserat innan teamet bärjar.",
-        "p1": "AutoMargin gär inkommande offers till en tydlig arbetslista: vad som kräver action, vad som kan vänta och vilket supplier-mönster som ligger bakom.",
+        "p1": "AutoMargin gär inkommande offers till en tydlig arbetslista: vad som kräver action, vad som kan vänta och vilket partner-mönster som ligger bakom.",
         "p2": "Målet är inte ännu en dashboard. Det är att ta bort låg-värde-review och ge management en renare bild av intake."
       },
       "principles": {
@@ -503,7 +503,7 @@
             "description": "Plattformen stöttar arbetet efter beslutet: follow-up, handover och upprepad supplier action."
           },
           "network": {
-            "title": "Supplier-minne",
+            "title": "Partner-minne",
             "description": "Varje offer ska förbättra bilden av vilka relationer som skapar värde."
           }
         }
@@ -512,7 +512,127 @@
         "dashboard": "Operativ dashboard",
         "marketAnalysis": "Workspace fär marknadsanalys",
         "carDashboard": "Workspace fär offer review",
-        "dealerLeaderboard": "Supplier performance"
+        "dealerLeaderboard": "Partner performance"
+      }
+    }
+  },
+  "BrowserExtension": {
+    "hero": {
+      "eyebrow": "Byggd för handlare som granskar priser manuellt",
+      "title": "Auto-margin browser-tillägg",
+      "subtitle": "Din assistent för att granska priser och hitta bättre bilaffärer medan du surfar, utan att lämna annonsen.",
+      "bullets": {
+        "0": "Upptäck undervärderade annonser i en blick medan du stannar på marknadsplatsen.",
+        "1": "Jämför begärt pris med marknadskontext så du agerar före konkurrenterna.",
+        "2": "Fungerar tillsammans med ditt arbetsflöde utan copy-paste mellan flikar eller kalkylblad."
+      },
+      "cta": "Få access till tillägget",
+      "noCreditCard": "Inget kreditkort krävs"
+    },
+    "mockup": {
+      "dealSignal": "Affärssignal",
+      "vsMarket": "mot marknadsband",
+      "listPrice": "Listpris",
+      "suggestedRange": "Föreslaget intervall",
+      "marginHeadroom": "Marginalutrymme mot typisk retail",
+      "localComps": "Lokala jämförelser (urval)",
+      "syncedFromLive": "Synkat från live-listings",
+      "active": "Aktiv"
+    }
+  },
+  "DemoPage": {
+    "hero": {
+      "eyebrow": "Live vinst-demo",
+      "title": "Testa AutoMargin på ett riktigt biloffer.",
+      "subtitle": "Beskriv vilken bil som helst du överväger så visar vi hur AutoMargin kan analysera dess vinstpotential med live marknadsdata från ledande marknadsplatser."
+    },
+    "info": {
+      "title": "Vad denna demo visar",
+      "body": "Detta är en begränsad demo som illustrerar hur en validering av ett enskilt bilpris kan se ut i Auto-margin.",
+      "includedTitle": "Ingår (demo)",
+      "notIncludedTitle": "Ingår inte",
+      "included": {
+        "0": "Validering av en enskild bil från textinmatning",
+        "1": "Marknadsjämförelse och en enkel rekommendationssignal"
+      },
+      "notIncluded": {
+        "0": "Batch-granskning av supplier lists",
+        "1": "Filuppladdning eller auto-upload från mejl",
+        "2": "Dealer insights / dealer-fit-signaler",
+        "3": "Integrationer, exporter, dashboards",
+        "4": "Full data-berikning och workflows",
+        "5": "…och mer"
+      }
+    },
+    "calculator": {
+      "intro": "Klistra in ett biloffer. Vi streamar analysen och visar resultatet.",
+      "running": "Kör…",
+      "complete": "Klar",
+      "helpButton": "Vad ska jag inkludera?",
+      "enterVehicle": "Ange fordon",
+      "placeholder": "Detaljer om fordonet…",
+      "brandError": "Måste innehålla ett varumärke (t.ex. BMW, Audi, Volvo).",
+      "countryLabel": "Land att jämföra från",
+      "countryPlaceholder": "Välj land",
+      "country": {
+        "DE": "DE - Tyskland",
+        "CH": "CH - Schweiz",
+        "BE": "BE - Belgien"
+      },
+      "weCompare": "Vi jämför mot live-listings.",
+      "weEstimate": "Vi uppskattar återförsäljning och marginal per marknad.",
+      "result": "Resultat",
+      "idleHint": "Kör demon för att se resultat här.",
+      "runningTip": "Tips: om inget händer kan du ha nått demo-gränsen eller backend-endpointen är otillgänglig.",
+      "errorTitle": "Kunde inte köra demo",
+      "errorDefault": "Försök igen.",
+      "buySignal": "Köpsignal",
+      "markets": "Marknader",
+      "basedOn": "Baserat på",
+      "listings": "annonser",
+      "profit": "Vinst",
+      "margin": "Marginal",
+      "sources": "Källor",
+      "open": "Öppna",
+      "calculate": "Beräkna vinst",
+      "calculating": "Beräknar…",
+      "completed": "Klar",
+      "reset": "Återställ",
+      "rateLimitNotice": "Begränsad till en demo-körning per IP / 24 timmar.",
+      "privacyAgreement": "Genom att köra demon godkänner du vår",
+      "privacyLink": "integritetspolicy",
+      "abuseNotice": "Vi kan logga förfrågningar och tillämpa rate limits för att förhindra missbruk.",
+      "stages": {
+        "parsing": "Vi parsar nu all information…",
+        "comparing": "Vi jämför nu fordonet…",
+        "calculating": "Vi beräknar nu…",
+        "analyzing": "Vi analyserar fordonet…"
+      },
+      "errors": {
+        "limitReached": "Demo-gräns nådd. En demo-körning per IP / 24 timmar.",
+        "generic": "Kan inte köra demo just nu.",
+        "genericRetry": "Kan inte köra demo just nu. Försök igen.",
+        "noResult": "Inget resultat returnerades. Försök igen."
+      },
+      "help": {
+        "title": "Vad du ska klistra in",
+        "subtitle": "Ju mer detaljer, desto bättre validering.",
+        "closeAria": "Stäng",
+        "recommendedTitle": "Rekommenderade fält",
+        "recommendedFields": {
+          "0": "Märke + modell + år",
+          "1": "Mil",
+          "2": "Bränsle + växellåda",
+          "3": "Begärt pris + valuta",
+          "4": "Anmärkningsvärda optioner / trim"
+        },
+        "exampleTitle": "Exempel",
+        "copy": "Kopiera",
+        "copied": "Kopierad",
+        "copyAria": "Kopiera exempeltext till urklipp",
+        "copiedAria": "Exempeltext kopierad till urklipp",
+        "ok": "OK",
+        "dialogAria": "Hjälp för bilbeskrivning"
       }
     }
   },

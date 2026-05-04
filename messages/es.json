@@ -10,8 +10,8 @@
   },
   "Home": {
     "hero": {
-      "title": "Deja de trabajar\nen coches.\nTrabaja con proveedores.",
-      "subtitle": "Quitamos el análisis. Sube ofertas, ve margen en minutos y descubre qué proveedores realmente te hacen ganar dinero.",
+      "title": "Deja de trabajar en coches.\nTrabaja en el margen.",
+      "subtitle": "Dedica menos tiempo a revisar ofertas y más tiempo a socios fiables.",
       "primaryCta": "Solicitar acceso",
       "secondaryCta": "Probar demo",
       "features": {
@@ -21,25 +21,25 @@
         },
         "margin": {
           "title": "Sabe qué se venderá",
-          "description": "Entiende qué coches se moverán, cuáles se quedarán y dónde se bloquea la entrada."
+          "description": "Entiende qué coches se moverán o se quedarán y dónde se bloquea la entrada."
         },
         "comparison": {
           "title": "Trabaja con ofertas reales",
-          "description": "Sube los archivos, emails y listas que ya recibes de proveedores."
+          "description": "Sube archivos, emails y listas que ya recibes de proveedores."
         },
         "insights": {
-          "title": "Actúa por calidad de proveedor",
-          "description": "Ve quién trae margen de forma constante y quién solo genera ruido."
+          "title": "Amplía tu red",
+          "description": "Enfócate en futuros socios: ve quién aporta margen de forma constante y quién no."
         }
       }
     },
     "features": {
-      "title": "Del inbox al deal con tu red de proveedores.",
+      "title": "Del inbox al deal con tu red de socios.",
       "imageAlt": "Interfaz de {title}",
       "items": {
         "market": "Sube las ofertas que ya recibes",
         "competitor": "Ve qué coches generan beneficio.",
-        "insights": "Actúa con los proveedores correctos"
+        "insights": "Actúa con los socios correctos"
       }
     },
     "markets": {
@@ -91,8 +91,8 @@
     },
     "bento": {
       "label": "DEJA DE REVISAR. EMPIEZA A CERRAR.",
-      "title": "Enfócate en\nproveedores correctos.",
-      "description": "El dinero está en el deal: proveedor correcto, momento correcto y coche correcto. Ve quién trae margen, quién trae volumen sin beneficio y quién encaja."
+      "title": "Enfócate en\nsocios correctos.",
+      "description": "El dinero está en el deal: socio correcto, momento correcto y coche correcto. Ve quién trae margen, quién trae volumen sin beneficio y quién encaja."
     },
     "bentoCards": {
       "items": {
@@ -102,7 +102,7 @@
           "hoverText": "Usa las ofertas que ya recibes."
         },
         "1": {
-          "name": "Visibilidad de proveedores",
+          "name": "Visibilidad de socios",
           "description": "Ve quién trae margen.",
           "hoverText": "Sepa a quién llamar."
         },
@@ -120,9 +120,9 @@
       }
     },
     "salesPricing": {
-      "eyebrow": "Red de proveedores",
+      "eyebrow": "Red de socios",
       "title": "Sabe qué proveedores merecen tu tiempo.",
-      "description": "AutoMargin muestra qué proveedores envían ofertas rentables, cuáles envían volumen sin margen y dónde centrarse después.",
+      "description": "No pienses en tu pasado. Deja de intentar organizar todos los precios históricos de ofertas antiguas. Convertimos cada subida en una visión clara de tus proveedores.",
       "proposal": {
         "title": "Solicitar acceso",
         "description": "Trabajamos con pocos dealers al lanzamiento. Cuéntanos cómo llegan tus ofertas y diseñamos el setup correcto.",
@@ -131,8 +131,8 @@
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Proveedor · Autoselekt Berlin",
-          "title": "Mejor proveedor · últimos 90 días",
+          "eyebrow": "Socio · Autoselekt Berlin",
+          "title": "Mejor socio · últimos 90 días",
           "badge": "Tier 1"
         },
         "stats": {
@@ -217,12 +217,12 @@
       "secondaryCta": "Comparar modelos de acceso"
     },
     "supplierNetwork": {
-      "eyebrow": "Red de proveedores",
+      "eyebrow": "Red de socios",
       "title": "Menos revisión manual.\nMás claridad en cada oferta.",
-      "description": "AutoMargin te ayuda a revisar ofertas de vehículos, compararlas con listings en vivo y entender qué proveedores generan margen. Úsalo como comprador individual, negocio en crecimiento o empresa con workflows más estructurados.",
+      "description": "AutoMargin te ayuda a revisar ofertas de vehículos, compararlas con listings en vivo y entender qué socios generan margen. Úsalo como comprador individual, negocio en crecimiento o empresa con workflows más estructurados.",
       "points": {
         "quality": {
-          "title": "Margen por proveedor",
+          "title": "Margen por socio",
           "description": "Ve quién trae coches rentables, no solo volumen."
         },
         "drain": {
@@ -273,7 +273,7 @@
         "qualification": "Hablamos de flujo, objetivos y dónde AutoMargin ayuda primero.",
         "proposal": "Elegimos automatic, managed o API access y definimos scope.",
         "onboarding": "Recibes la propuesta de acceso y el plan de rollout antes de empezar.",
-        "optimization": "Tras launch ajustamos reglas, supplier tracking y output."
+        "optimization": "Tras launch ajustamos reglas, partner tracking y output."
       }
     },
     "engagement": {
@@ -308,7 +308,7 @@
   "FAQ": {
     "title": "Respuestas directas.",
     "homeTitle": "Respuestas directas.\nSin niebla comercial.",
-    "homeDescription": "Si no encuentras lo que necesitas, escríbenos. Respondemos en un día laborable.",
+    "homeDescription": "Si no encuentras lo que necesitas, escríbenos.\nRespondemos en un día laborable.",
     "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "Si no encuentras lo que buscas,",
     "contactLink": "contacta con nosotros",
@@ -322,7 +322,7 @@
           },
           "identify": {
             "q": "¿Cómo identifica los mejores deals?",
-            "a": "Compara cada oferta con contexto de mercado actual y la convierte en un próximo paso claro. Ves qué coches merecen acción y qué proveedores traen el stock correcto de forma constante."
+            "a": "Compara cada oferta con contexto de mercado actual y la convierte en un próximo paso claro. Ves qué coches merecen acción y qué socios traen el stock correcto de forma constante."
           },
           "files": {
             "q": "¿Qué tipos de archivo soporta?",
@@ -447,10 +447,10 @@
     "hero": {
       "title": "Construido para el trabajo detrás de cada deal",
       "subtitle": "Comprar coches es solo una parte. La ejecución empieza después del sí.",
-      "body1": "AutoMargin nace de una realidad: los buyers no solo valoran coches. Persiguen ofertas, comparan mercados, coordinan papeleo, logística y aún necesitan saber qué proveedor merece la siguiente llamada.",
+      "body1": "AutoMargin nace de una realidad: los buyers no solo valoran coches. Persiguen ofertas, comparan mercados, coordinan papeleo, logística y aún necesitan saber qué socio merece la siguiente llamada.",
       "body2": "Ayudamos a dealers a preparar el trabajo de compra antes de empezar el día, para que el equipo dedique más tiempo a cerrar, entregar y ejecutar con confianza.",
       "stats": {
-        "founded": "Fundado",
+        "founded": "Iniciado",
         "industry": "Años en la industria",
         "dealers": "Dealers conectados",
         "network": "HQ y red"
@@ -462,7 +462,7 @@
         "title": "Los dealers perdían tiempo antes de que empezara el trabajo real.",
         "p1": "Lo lento no era la ambición. Era la cantidad de juicio manual antes de que un buyer pudiera actuar: abrir archivos, comparar listings, revisar contexto y decidir qué ofertas merecen atención.",
         "p2": "Después de cerrar un deal, el trabajo sigue. Papeleo, logística, follow-up con proveedores y handover interno compiten por el mismo tiempo del buyer.",
-        "p3": "AutoMargin existe para limpiar antes el trabajo de revisión, para que los buyers se enfoquen en decisiones, ejecución y relaciones con proveedores que mueven el negocio.",
+        "p3": "AutoMargin existe para limpiar antes el trabajo de revisión, para que los buyers se enfoquen en decisiones, ejecución y relaciones con socios que mueven el negocio.",
         "cta": "Habla con nosotros"
       },
       "pain": {
@@ -487,7 +487,7 @@
       "product": {
         "eyebrow": "Cómo ayuda AutoMargin",
         "title": "Imagina cada oferta analizada antes de que tu equipo empiece a trabajar.",
-        "p1": "AutoMargin convierte ofertas entrantes en una lista de trabajo clara: qué necesita acción, qué puede esperar y qué patrón de proveedor hay detrás.",
+        "p1": "AutoMargin convierte ofertas entrantes en una lista de trabajo clara: qué necesita acción, qué puede esperar y qué patrón de socio hay detrás.",
         "p2": "El objetivo no es añadir otro dashboard. Es quitar revisión de bajo valor del día del buyer y dar a management una vista más clara de cómo mejora el intake."
       },
       "principles": {
@@ -503,7 +503,7 @@
             "description": "La plataforma apoya el trabajo posterior: follow-up, handover y acción repetida con proveedores."
           },
           "network": {
-            "title": "Memoria de proveedor",
+            "title": "Memoria de socio",
             "description": "Cada oferta debe mejorar la comprensión de qué relaciones crean valor con el tiempo."
           }
         }
@@ -512,7 +512,127 @@
         "dashboard": "Dashboard operativo",
         "marketAnalysis": "Workspace de análisis de mercado",
         "carDashboard": "Workspace de revisión de ofertas",
-        "dealerLeaderboard": "Vista de rendimiento de proveedores"
+        "dealerLeaderboard": "Vista de rendimiento de socios"
+      }
+    }
+  },
+  "BrowserExtension": {
+    "hero": {
+      "eyebrow": "Hecho para dealers que revisan precios manualmente",
+      "title": "Extensión de navegador Auto-margin",
+      "subtitle": "Tu asistente para revisar precios y descubrir mejores ofertas de coches mientras navegas, sin salir del listing.",
+      "bullets": {
+        "0": "Detecta listings infravalorados de un vistazo sin salir del marketplace.",
+        "1": "Compara el precio pedido con el contexto del mercado y actúa antes que la competencia.",
+        "2": "Funciona junto a tu flujo de trabajo sin copy-paste entre pestañas u hojas de cálculo."
+      },
+      "cta": "Obtener acceso a la extensión",
+      "noCreditCard": "No se requiere tarjeta de crédito"
+    },
+    "mockup": {
+      "dealSignal": "Señal de oferta",
+      "vsMarket": "vs. banda de mercado",
+      "listPrice": "Precio de lista",
+      "suggestedRange": "Rango sugerido",
+      "marginHeadroom": "Margen vs. retail típico",
+      "localComps": "Comparables locales (muestra)",
+      "syncedFromLive": "Sincronizado con listings en vivo",
+      "active": "Activo"
+    }
+  },
+  "DemoPage": {
+    "hero": {
+      "eyebrow": "Demo de beneficio en vivo",
+      "title": "Prueba AutoMargin con una oferta real.",
+      "subtitle": "Describe cualquier coche que estés considerando y te mostramos cómo AutoMargin puede analizar su potencial de beneficio con datos de mercado en vivo de los principales marketplaces."
+    },
+    "info": {
+      "title": "Qué muestra esta demo",
+      "body": "Esta es una demo limitada para ilustrar cómo se ve la validación de precio de un vehículo en Auto-margin.",
+      "includedTitle": "Incluido (demo)",
+      "notIncludedTitle": "No incluido",
+      "included": {
+        "0": "Validación de un solo vehículo desde texto",
+        "1": "Comparación de mercado y señal simple de recomendación"
+      },
+      "notIncluded": {
+        "0": "Screening masivo de listas de proveedores",
+        "1": "Subida de archivos o auto-upload desde email",
+        "2": "Dealer insights / señales dealer-fit",
+        "3": "Integraciones, exports, dashboards",
+        "4": "Enriquecimiento completo y workflows",
+        "5": "…y más"
+      }
+    },
+    "calculator": {
+      "intro": "Pega una oferta de coche. Transmitimos el análisis y mostramos el resultado.",
+      "running": "Ejecutando…",
+      "complete": "Listo",
+      "helpButton": "¿Qué debo incluir?",
+      "enterVehicle": "Introducir vehículo",
+      "placeholder": "Detalles del vehículo…",
+      "brandError": "Debe incluir una marca (p.ej. BMW, Audi, Volvo).",
+      "countryLabel": "País desde el que comparar",
+      "countryPlaceholder": "Elegir país",
+      "country": {
+        "DE": "DE - Alemania",
+        "CH": "CH - Suiza",
+        "BE": "BE - Bélgica"
+      },
+      "weCompare": "Comparamos con listings en vivo.",
+      "weEstimate": "Estimamos reventa y margen por mercado.",
+      "result": "Resultado",
+      "idleHint": "Ejecuta la demo para ver resultados aquí.",
+      "runningTip": "Tip: si no pasa nada, puede que hayas alcanzado el límite de demo o el endpoint backend no esté disponible.",
+      "errorTitle": "No se pudo ejecutar la demo",
+      "errorDefault": "Inténtalo de nuevo.",
+      "buySignal": "Señal de compra",
+      "markets": "Mercados",
+      "basedOn": "Basado en",
+      "listings": "anuncios",
+      "profit": "Beneficio",
+      "margin": "Margen",
+      "sources": "Fuentes",
+      "open": "Abrir",
+      "calculate": "Calcular beneficio",
+      "calculating": "Calculando…",
+      "completed": "Completado",
+      "reset": "Restablecer",
+      "rateLimitNotice": "Limitado a una ejecución de demo por IP / 24 horas.",
+      "privacyAgreement": "Al ejecutar la demo, aceptas nuestra",
+      "privacyLink": "política de privacidad",
+      "abuseNotice": "Podemos registrar solicitudes y aplicar rate limits para prevenir abusos.",
+      "stages": {
+        "parsing": "Estamos analizando toda la información…",
+        "comparing": "Estamos comparando el vehículo…",
+        "calculating": "Estamos calculando…",
+        "analyzing": "Estamos analizando el vehículo…"
+      },
+      "errors": {
+        "limitReached": "Límite de demo alcanzado. Una ejecución por IP / 24 horas.",
+        "generic": "No se puede ejecutar la demo ahora mismo.",
+        "genericRetry": "No se puede ejecutar la demo ahora mismo. Inténtalo de nuevo.",
+        "noResult": "No se devolvió ningún resultado. Inténtalo de nuevo."
+      },
+      "help": {
+        "title": "Qué pegar",
+        "subtitle": "Cuantos más detalles, mejor la validación.",
+        "closeAria": "Cerrar",
+        "recommendedTitle": "Campos recomendados",
+        "recommendedFields": {
+          "0": "Marca + modelo + año",
+          "1": "Kilometraje",
+          "2": "Combustible + transmisión",
+          "3": "Precio pedido + moneda",
+          "4": "Opciones / acabado destacado"
+        },
+        "exampleTitle": "Ejemplo",
+        "copy": "Copiar",
+        "copied": "Copiado",
+        "copyAria": "Copiar texto de ejemplo al portapapeles",
+        "copiedAria": "Texto de ejemplo copiado al portapapeles",
+        "ok": "OK",
+        "dialogAria": "Ayuda para descripción del coche"
       }
     }
   },

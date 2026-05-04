@@ -33,7 +33,7 @@ const ITEMS = [
           "See which offers make money and which ones are not worth the time.",
       },
       {
-        title: "Work the Right Suppliers",
+        title: "Work the Right Partners",
         href: "/#automation-for-your-business",
         description:
           "Know who consistently brings margin and who sends volume without profit.",

@@ -10,8 +10,8 @@
   },
   "Home": {
     "hero": {
-      "title": "Stop working\non cars.\nStart working with suppliers.",
-      "subtitle": "Removes the analysis. You upload offers, see margin in minutes, and learn which suppliers actually make you money.",
+      "title": "Stop working on cars.\nStart working on margin.",
+      "subtitle": "Spend less time reviewing offers and more time on reliable partners.",
       "primaryCta": "Request Access",
       "secondaryCta": "Try Demo",
       "features": {
@@ -21,25 +21,25 @@
         },
         "margin": {
           "title": "Know what will move",
-          "description": "Understand which cars will sell, which will sit, and where your intake gets stuck."
+          "description": "Understand which cars will sell or sit and where your intake gets stuck."
         },
         "comparison": {
           "title": "Work from real offers",
-          "description": "Upload the files, emails, and lists you already receive from suppliers."
+          "description": "Upload files, emails and lists you already receive from suppliers."
         },
         "insights": {
-          "title": "Act on supplier quality",
-          "description": "See which suppliers consistently bring margin and which ones only create noise."
+          "title": "Extend your network",
+          "description": "Focus on future partners, see who consistently brings margin and who doesn't."
         }
       }
     },
     "features": {
-      "title": "From inbox to deal with supplier network.",
+      "title": "From inbox to deal with partner network.",
       "imageAlt": "{title} interface",
       "items": {
         "market": "Upload the offers you already receive",
         "competitor": "See which cars make profit.",
-        "insights": "Act on the right suppliers"
+        "insights": "Act on the right partners"
       }
     },
     "markets": {
@@ -91,8 +91,8 @@
     },
     "bento": {
       "label": "STOP REVIEWING. START DEALING.",
-      "title": "Focus on finding\nright suppliers.",
-      "description": "Money is made in the deal: with the right supplier, at the right moment, with the right car. You see who brings margin, who sends volume without profit, and who fits your business."
+      "title": "Focus on finding\nright partners.",
+      "description": "Money is made in the deal: with the right partner, at the right moment, with the right car. You see who brings margin, who sends volume without profit and who fits your business."
     },
     "bentoCards": {
       "items": {
@@ -102,7 +102,7 @@
           "hoverText": "Use the offers you already receive."
         },
         "1": {
-          "name": "Supplier visibility",
+          "name": "Partner visibility",
           "description": "See who consistently sends margin.",
           "hoverText": "Know who to call and who to ignore."
         },
@@ -120,9 +120,9 @@
       }
     },
     "salesPricing": {
-      "eyebrow": "Supplier network",
+      "eyebrow": "Partner network",
       "title": "Know which suppliers are worth your time.",
-      "description": "AutoMargin shows which suppliers send profitable offers, which send volume without margin, and where to focus next.",
+      "description": "Don't think about your past. Stop trying to organize all historical pricing on old offers. We turn every upload into a clear supplier overview.",
       "proposal": {
         "title": "Request access",
         "description": "We work with a limited number of dealers at launch. Tell us how your offers arrive and we will map the right setup.",
@@ -131,8 +131,8 @@
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Supplier · Autoselekt Berlin",
-          "title": "Best supplier · last 90 days",
+          "eyebrow": "Partner · Autoselekt Berlin",
+          "title": "Best partner · last 90 days",
           "badge": "Tier 1"
         },
         "stats": {
@@ -169,7 +169,7 @@
           "trend": "-7.2pp",
           "volume": "211 offers",
           "conversion": "8.5%",
-          "note": "High volume, low margin — likely won't fit your model."
+          "note": "High volume, low margin. Likely won't fit your model."
         },
         "rising": {
           "eyebrow": "Rising tier",
@@ -212,17 +212,17 @@
   "PricingPage": {
     "hero": {
       "title": "Flexible access for better buying decisions",
-      "description": "AutoMargin can be set up for individuals, small businesses, and larger companies. Use automatic processing, managed access, or API access depending on how you review offers today.",
+      "description": "AutoMargin can be set up for individuals, small businesses and larger companies. Use automatic processing, managed access, or API access depending on how you review offers today.",
       "cta": "Contact us",
       "secondaryCta": "Compare access models"
     },
     "supplierNetwork": {
-      "eyebrow": "Supplier network",
+      "eyebrow": "Partner network",
       "title": "Less manual checking.\nMore clarity on each offer.",
-      "description": "AutoMargin helps you review incoming vehicle offers, compare them with live listings, and understand which suppliers create margin. Use it as an individual buyer, a growing business, or a larger operation with more structured workflows.",
+      "description": "AutoMargin helps you review incoming vehicle offers, compare them with live listings and understand which partners create margin. Use it as an individual buyer, a growing business, or a larger operation with more structured workflows.",
       "points": {
         "quality": {
-          "title": "Margin by supplier",
+          "title": "Margin by partner",
           "description": "See who brings profitable cars, not just more volume."
         },
         "drain": {
@@ -231,14 +231,14 @@
         },
         "control": {
           "title": "Better intake rules",
-          "description": "Use supplier history to decide what gets reviewed first."
+          "description": "Use partner history to decide what gets reviewed first."
         }
       },
       "comment": "A setup should match the way offers already come in."
     },
     "drivers": {
       "title": "What we align before a proposal",
-      "description": "The proposal is based on your offer volume, markets, workflow, and the level of support you need.",
+      "description": "The proposal is based on your offer volume, markets, workflow and the level of support you need.",
       "items": {
         "volume": {
           "title": "Offer volume",
@@ -246,7 +246,7 @@
         },
         "markets": {
           "title": "Target markets",
-          "description": "Countries, regions, and supplier access required."
+          "description": "Countries, regions and supplier access required."
         },
         "workflow": {
           "title": "Workflow setup",
@@ -254,7 +254,7 @@
         },
         "support": {
           "title": "Support level",
-          "description": "Onboarding, reporting, account support, and operational assistance."
+          "description": "Onboarding, reporting, account support and operational assistance."
         }
       }
     },
@@ -270,15 +270,15 @@
       },
       "details": {
         "request": "Tell us how you receive offers today and what you want to improve.",
-        "qualification": "We talk through your current offer flow, goals, and where AutoMargin can help first.",
+        "qualification": "We talk through your current offer flow, goals and where AutoMargin can help first.",
         "proposal": "Together we choose automatic, managed, or API access and define scope.",
         "onboarding": "You receive the access proposal and rollout plan before anything starts.",
-        "optimization": "After launch, we tune intake rules, supplier tracking, and output quality."
+        "optimization": "After launch, we tune intake rules, partner tracking and output quality."
       }
     },
     "engagement": {
       "title": "How to use the platform",
-      "description": "Choose the operating model that matches how you receive offers, review stock, and want to work.",
+      "description": "Choose the operating model that matches how you receive offers, review stock and want to work.",
       "cta": "Contact us",
       "models": {
         "automatic": {
@@ -288,19 +288,19 @@
         },
         "managed": {
           "title": "Managed access",
-          "description": "Upload offers, manage supplier lists, and work directly inside AutoMargin. This gives you more control over daily intake.",
-          "fit": "Best when you want to review, compare, and act inside the platform."
+          "description": "Upload offers, manage supplier lists and work directly inside AutoMargin. This gives you more control over daily intake.",
+          "fit": "Best when you want to review, compare and act inside the platform."
         },
         "api": {
           "title": "Enterprise API access",
-          "description": "Connect AutoMargin to your own tools with API access, keys, and documentation. Build your intake workflow on top of our analysis layer.",
+          "description": "Connect AutoMargin to your own tools with API access, keys and documentation. Build your intake workflow on top of our analysis layer.",
           "fit": "Best when you already have internal systems or marketplace workflows."
         }
       }
     },
     "cta": {
       "title": "Want the right setup?",
-      "description": "Send us how you review offers today. We will map the access model, market scope, and proposal with you.",
+      "description": "Send us how you review offers today. We will map the access model, market scope and proposal with you.",
       "primary": "Contact us",
       "secondary": "Try demo"
     }
@@ -308,7 +308,7 @@
   "FAQ": {
     "title": "Direct answers.",
     "homeTitle": "Direct answers.\nNo marketing fog.",
-    "homeDescription": "If you can't find what you need, write us. We answer within one business day.",
+    "homeDescription": "If you can't find what you need, write us.\nWe answer within one business day.",
     "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "If you can't find what you're looking for,",
     "contactLink": "get in touch",
@@ -318,15 +318,15 @@
         "questions": {
           "what": {
             "q": "What does AutoMargin do?",
-            "a": "AutoMargin helps dealers review incoming offers faster and focus on better deals. You upload the offers you already receive, and AutoMargin shows which cars create margin, which ones will sit, and which ones are already placed."
+            "a": "AutoMargin helps dealers review incoming offers faster and focus on better deals. You upload the offers you already receive and AutoMargin shows which cars create margin, which ones will sit and which ones are already placed."
           },
           "identify": {
             "q": "How does it identify the best deals?",
-            "a": "It checks each offer against current market context and turns it into a clear next step. You see which cars are worth acting on and which suppliers consistently bring the right stock."
+            "a": "It checks each offer against current market context and turns it into a clear next step. You see which cars are worth acting on and which partners consistently bring the right stock."
           },
           "files": {
             "q": "Which file types are supported?",
-            "a": "PDF, Excel, Word, Google Sheets, and emails - including mixed formats in one batch. Our auto-forwarding handles the rest. Just send it and we parse it."
+            "a": "PDF, Excel, Word, Google Sheets and emails - including mixed formats in one batch. Our auto-forwarding handles the rest. Just send it and we parse it."
           }
         }
       },
@@ -335,15 +335,15 @@
         "questions": {
           "audience": {
             "q": "Who is AutoMargin for?",
-            "a": "Independent dealers, trading companies, and B2B marketplaces who handle high volumes of offers and want tighter control over intake, supplier quality, and margin."
+            "a": "Independent dealers, trading companies and B2B marketplaces who handle high volumes of offers and want tighter control over intake, supplier quality and margin."
           },
           "trial": {
             "q": "Can I try AutoMargin before choosing a plan?",
-            "a": "You can use the public demo with text input to see how AutoMargin works. Account access or a trial period is planned directly with our team after we understand your intake workflow, volume, and supplier setup."
+            "a": "You can use the public demo with text input to see how AutoMargin works. Account access or a trial period is planned directly with our team after we understand your intake workflow, volume and supplier setup."
           },
           "security": {
             "q": "Is my data safe?",
-            "a": "Absolutely. Your files are encrypted, processed in secure environments, and never shared with third parties."
+            "a": "Absolutely. Your files are encrypted, processed in secure environments and never shared with third parties."
           }
         }
       },
@@ -356,7 +356,7 @@
           },
           "start": {
             "q": "How do I get started?",
-            "a": "Submit your request through our contact form or by email, and our team will walk you through the setup. Most users get started the same day."
+            "a": "Submit your request through our contact form or by email and our team will walk you through the setup. Most users get started the same day."
           }
         }
       }
@@ -376,7 +376,7 @@
       "cards": {
         "faq": {
           "title": "FAQ",
-          "description": "Get quick answers about the product, plans, and how the demo works."
+          "description": "Get quick answers about the product, plans and how the demo works."
         },
         "guidebook": {
           "title": "Guidebook",
@@ -447,10 +447,10 @@
     "hero": {
       "title": "Built for the work behind every deal",
       "subtitle": "Buying cars is only one part of the job. Execution starts after the yes.",
-      "body1": "AutoMargin was built from the reality that buyers do not just evaluate cars. They chase offers, compare markets, coordinate paperwork, manage transport, and still need to know which supplier deserves the next call.",
-      "body2": "We help dealers prepare the buying work before the day starts, so teams can spend more time closing, handing over, and executing with confidence.",
+      "body1": "AutoMargin was built from the reality that buyers do not just evaluate cars. They chase offers, compare markets, coordinate paperwork, manage transport and still need to know which partner deserves the next call.",
+      "body2": "We help dealers prepare the buying work before the day starts, so teams can spend more time closing, handing over and executing with confidence.",
       "stats": {
-        "founded": "Founded",
+        "founded": "Started",
         "industry": "Years in industry",
         "dealers": "Dealers connected",
         "network": "HQ & Network"
@@ -460,9 +460,9 @@
       "story": {
         "eyebrow": "Why we built it",
         "title": "Dealers were losing time before the real work began.",
-        "p1": "The slow part was not ambition. It was the amount of manual judgement required before a buyer could move: open files, compare listings, check context, and decide which offers were worth attention.",
-        "p2": "After a deal is closed, the work does not stop. Paperwork, logistics, supplier follow-up, and internal handover all compete for the same buyer's time.",
-        "p3": "AutoMargin exists to clear the review work earlier, so buyers can focus on decisions, execution, and the supplier relationships that move the business forward.",
+        "p1": "The slow part was not ambition. It was the amount of manual judgement required before a buyer could move: open files, compare listings, check context and decide which offers were worth attention.",
+        "p2": "After a deal is closed, the work does not stop. Paperwork, logistics, supplier follow-up and internal handover all compete for the same buyer's time.",
+        "p3": "AutoMargin exists to clear the review work earlier, so buyers can focus on decisions, execution and the partner relationships that move the business forward.",
         "cta": "Talk to us"
       },
       "pain": {
@@ -475,7 +475,7 @@
           "handover": {
             "label": "Use case 02",
             "title": "Closing creates operational work immediately.",
-            "description": "The buyer still has documents, transport, internal notes, and supplier coordination to handle after the deal is agreed."
+            "description": "The buyer still has documents, transport, internal notes and supplier coordination to handle after the deal is agreed."
           },
           "supplierNoise": {
             "label": "Use case 03",
@@ -487,7 +487,7 @@
       "product": {
         "eyebrow": "How AutoMargin helps",
         "title": "Imagine every offer already analysed before your team starts working.",
-        "p1": "AutoMargin turns incoming offers into a clearer working list: what deserves action, what should wait, and which supplier pattern sits behind the opportunity.",
+        "p1": "AutoMargin turns incoming offers into a clearer working list: what deserves action, what should wait and which partner pattern sits behind the opportunity.",
         "p2": "The goal is not to add another dashboard to check. It is to remove low-value reviewing from the buyer's day and give management a cleaner view of where intake is improving."
       },
       "principles": {
@@ -500,10 +500,10 @@
           },
           "execution": {
             "title": "Built for execution",
-            "description": "The platform supports the work after the decision: follow-up, handover, and repeated supplier action."
+            "description": "The platform supports the work after the decision: follow-up, handover and repeated supplier action."
           },
           "network": {
-            "title": "Supplier memory",
+            "title": "Partner memory",
             "description": "Every offer should improve the understanding of which relationships create value over time."
           }
         }
@@ -512,7 +512,127 @@
         "dashboard": "Operational dashboard",
         "marketAnalysis": "Market analysis workspace",
         "carDashboard": "Offer review workspace",
-        "dealerLeaderboard": "Supplier performance overview"
+        "dealerLeaderboard": "Partner performance overview"
+      }
+    }
+  },
+  "BrowserExtension": {
+    "hero": {
+      "eyebrow": "Built for dealers who check prices manually",
+      "title": "Auto-margin browser extension",
+      "subtitle": "Your assistant for checking prices and surfacing better vehicle deals while you browse, without leaving the listing.",
+      "bullets": {
+        "0": "Spot undervalued listings in one glance while you stay on the marketplace page.",
+        "1": "Compare ask price to market context so you move before the competition.",
+        "2": "Works alongside your workflow without copy-paste between tabs or spreadsheets."
+      },
+      "cta": "Get extension access",
+      "noCreditCard": "No credit card required"
+    },
+    "mockup": {
+      "dealSignal": "Deal signal",
+      "vsMarket": "vs. market band",
+      "listPrice": "List price",
+      "suggestedRange": "Suggested range",
+      "marginHeadroom": "Margin headroom vs. typical retail",
+      "localComps": "Local comps (sample)",
+      "syncedFromLive": "Synced from live listings",
+      "active": "Active"
+    }
+  },
+  "DemoPage": {
+    "hero": {
+      "eyebrow": "Live profit demo",
+      "title": "Try AutoMargin on a real car offer.",
+      "subtitle": "Describe any car you're considering and we'll show you how AutoMargin could analyze its profit potential using live market data from major leading marketplaces."
+    },
+    "info": {
+      "title": "What this demo shows",
+      "body": "This is a limited demo to illustrate how a single vehicle price validation can look in Auto-margin.",
+      "includedTitle": "Included (demo)",
+      "notIncludedTitle": "Not included",
+      "included": {
+        "0": "Single-vehicle validation from text input",
+        "1": "Market comparison and a simple recommendation signal"
+      },
+      "notIncluded": {
+        "0": "Batch screening of supplier lists",
+        "1": "File upload or auto-upload from email",
+        "2": "Dealer insight / dealer-fit signals",
+        "3": "Integrations, exports, dashboards",
+        "4": "Full vehicle data enrichment and workflows",
+        "5": "…and more"
+      }
+    },
+    "calculator": {
+      "intro": "Paste a car offer. We'll stream the analysis and show the result.",
+      "running": "Running…",
+      "complete": "Complete",
+      "helpButton": "What should I include?",
+      "enterVehicle": "Enter vehicle",
+      "placeholder": "Details about the vehicle…",
+      "brandError": "Must include a brand (e.g., BMW, Audi, Volvo).",
+      "countryLabel": "Country to compare from",
+      "countryPlaceholder": "Choose country",
+      "country": {
+        "DE": "DE - Germany",
+        "CH": "CH - Switzerland",
+        "BE": "BE - Belgium"
+      },
+      "weCompare": "We compare against live listings.",
+      "weEstimate": "We estimate resale and margin by market.",
+      "result": "Result",
+      "idleHint": "Run the demo to see results here.",
+      "runningTip": "Tip: if nothing happens, you may have reached the demo limit or the backend endpoint is unavailable.",
+      "errorTitle": "Couldn't run demo",
+      "errorDefault": "Please try again.",
+      "buySignal": "Buy signal",
+      "markets": "Markets",
+      "basedOn": "Based on",
+      "listings": "listings",
+      "profit": "Profit",
+      "margin": "Margin",
+      "sources": "Sources",
+      "open": "Open",
+      "calculate": "Calculate profit",
+      "calculating": "Calculating…",
+      "completed": "Completed",
+      "reset": "Reset",
+      "rateLimitNotice": "Limited to one demo run per IP / 24 hours.",
+      "privacyAgreement": "By running the demo, you agree to our",
+      "privacyLink": "privacy policy",
+      "abuseNotice": "We may log requests and apply rate limits to prevent abuse.",
+      "stages": {
+        "parsing": "We are now parsing all information…",
+        "comparing": "We are now comparing the vehicle…",
+        "calculating": "We are now calculating…",
+        "analyzing": "We are analyzing the vehicle…"
+      },
+      "errors": {
+        "limitReached": "Demo limit reached. One demo run per IP / 24 hours.",
+        "generic": "Unable to run demo right now.",
+        "genericRetry": "Unable to run demo right now. Please try again.",
+        "noResult": "No result was returned. Please try again."
+      },
+      "help": {
+        "title": "What to paste",
+        "subtitle": "The more detail, the better the validation.",
+        "closeAria": "Close",
+        "recommendedTitle": "Recommended fields",
+        "recommendedFields": {
+          "0": "Brand + model + year",
+          "1": "Mileage",
+          "2": "Fuel type + transmission",
+          "3": "Asking price + currency",
+          "4": "Any notable options / trim"
+        },
+        "exampleTitle": "Example",
+        "copy": "Copy",
+        "copied": "Copied",
+        "copyAria": "Copy example text to clipboard",
+        "copiedAria": "Example text copied to clipboard",
+        "ok": "OK",
+        "dialogAria": "Car description help"
       }
     }
   },

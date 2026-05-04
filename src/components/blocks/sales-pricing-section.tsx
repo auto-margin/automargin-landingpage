@@ -98,7 +98,7 @@ export function SalesPricingSection({ className }: { className?: string }) {
                 viewBox="0 0 520 170"
                 className="mt-5 hidden w-full overflow-visible sm:block sm:h-44 lg:h-52 xl:h-56"
                 role="img"
-                aria-label="Supplier margin trend by week"
+                aria-label="Partner margin trend by week"
               >
                 <path
                   d="M0 42H520M0 90H520M0 138H520"
@@ -211,7 +211,7 @@ export function SalesPricingSection({ className }: { className?: string }) {
                 viewBox="0 0 520 170"
                 className="mt-4 block h-36 w-full overflow-visible sm:hidden"
                 role="img"
-                aria-label="Supplier margin trend by week"
+                aria-label="Partner margin trend by week"
               >
                 <path
                   d="M0 42H520M0 90H520M0 138H520"

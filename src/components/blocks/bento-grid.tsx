@@ -71,9 +71,9 @@ const features = [
   },
   {
     Icon: ShieldCheckIcon,
-    name: "Supplier verification",
+    name: "Partner verification",
     description: "See who sends the best offers.",
-    hoverText: "Discover your favorite supplier.",
+    hoverText: "Discover your favorite partner.",
     className: "col-span-3 lg:col-span-2",
     background: (
       <div className="absolute top-4 right-4 left-4 flex h-[300px] justify-center overflow-hidden [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out md:right-6 md:left-6 md:h-[320px]">

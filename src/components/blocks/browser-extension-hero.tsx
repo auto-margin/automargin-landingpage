@@ -1,15 +1,13 @@
 import { Check, CreditCard, RefreshCw, Settings, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-const bullets = [
-  "Spot undervalued listings in one glance while you stay on the marketplace page.",
-  "Compare ask price to market context so you move before the competition.",
-  "Works alongside your workflow—no copy-paste between tabs or spreadsheets.",
-];
+const bulletKeys = ["0", "1", "2"] as const;
 
 function ExtensionMockup() {
+  const t = useTranslations("BrowserExtension.mockup");
   const bars = [40, 72, 55, 88, 62, 95, 58, 78, 50, 84, 66, 90];
 
   return (
@@ -31,10 +29,10 @@ function ExtensionMockup() {
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="bg-primary/15 text-primary ring-primary/20 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1">
-              Deal signal
+              {t("dealSignal")}
             </span>
             <span className="text-muted-foreground text-xs">
-              vs. market band
+              {t("vsMarket")}
             </span>
           </div>
 
@@ -42,7 +40,7 @@ function ExtensionMockup() {
             <div className="flex items-baseline justify-between gap-4">
               <div>
                 <p className="text-muted-foreground text-[0.65rem] font-medium tracking-wide uppercase">
-                  List price
+                  {t("listPrice")}
                 </p>
                 <p className="text-foreground font-display text-xl font-semibold tracking-tight">
                   €18,400
@@ -50,7 +48,7 @@ function ExtensionMockup() {
               </div>
               <div className="text-right">
                 <p className="text-muted-foreground text-[0.65rem] font-medium tracking-wide uppercase">
-                  Suggested range
+                  {t("suggestedRange")}
                 </p>
                 <p className="text-primary font-display text-xl font-semibold tracking-tight">
                   €17.1k – €19.2k
@@ -59,7 +57,7 @@ function ExtensionMockup() {
             </div>
             <div className="border-border flex items-center justify-between gap-2 border-t border-dashed pt-3">
               <p className="text-muted-foreground text-xs">
-                Margin headroom vs. typical retail
+                {t("marginHeadroom")}
               </p>
               <span className="text-primary text-sm font-semibold tabular-nums">
                 +6.2%
@@ -69,7 +67,7 @@ function ExtensionMockup() {
 
           <div>
             <p className="text-muted-foreground mb-2 text-[0.65rem] font-medium tracking-wide uppercase">
-              Local comps (sample)
+              {t("localComps")}
             </p>
             <div className="flex h-14 items-end gap-1 px-0.5">
               {bars.map((h, i) => (
@@ -85,9 +83,9 @@ function ExtensionMockup() {
           <div className="text-muted-foreground border-border flex items-center justify-between border-t pt-3 text-xs">
             <span className="flex items-center gap-1.5">
               <RefreshCw className="size-3.5 opacity-80" aria-hidden />
-              Synced from live listings
+              {t("syncedFromLive")}
             </span>
-            <span className="text-primary font-medium">Active</span>
+            <span className="text-primary font-medium">{t("active")}</span>
           </div>
         </div>
       </div>
@@ -96,28 +94,29 @@ function ExtensionMockup() {
 }
 
 export function BrowserExtensionHero() {
+  const t = useTranslations("BrowserExtension.hero");
+
   return (
     <section className="py-28 lg:py-32 lg:pt-44">
       <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         <div className="flex-1">
           <p className="text-primary mb-4 text-xs font-medium tracking-wide uppercase">
-            Built for dealers who check prices manually
+            {t("eyebrow")}
           </p>
           <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl">
-            Auto-margin browser extension
+            {t("title")}
           </h1>
           <p className="text-muted-foreground mt-5 text-xl md:text-3xl">
-            Your assistant for checking prices and surfacing better vehicle
-            deals while you browse - without leaving the listing.
+            {t("subtitle")}
           </p>
           <ul className="mt-8 max-w-160 space-y-3">
-            {bullets.map((line) => (
-              <li key={line} className="flex gap-3">
+            {bulletKeys.map((key) => (
+              <li key={key} className="flex gap-3">
                 <span className="bg-primary/20 text-primary ring-primary/30 mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full ring-1">
                   <Check className="size-3.5 stroke-[2.5]" aria-hidden />
                 </span>
                 <span className="text-muted-foreground text-sm leading-snug md:text-base">
-                  {line}
+                  {t(`bullets.${key}`)}
                 </span>
               </li>
             ))}
@@ -125,12 +124,12 @@ export function BrowserExtensionHero() {
           <div className="mt-8 flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-4 lg:flex-nowrap">
               <Button asChild>
-                <Link href="/contact">Get extension access</Link>
+                <Link href="/contact">{t("cta")}</Link>
               </Button>
             </div>
             <p className="text-muted-foreground flex items-center gap-2 text-sm">
               <CreditCard className="size-4 shrink-0 opacity-80" aria-hidden />
-              No credit card required
+              {t("noCreditCard")}
             </p>
           </div>
         </div>

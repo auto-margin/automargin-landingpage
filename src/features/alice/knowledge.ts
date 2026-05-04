@@ -73,7 +73,7 @@ const staticAnswers: Array<{
       "supplier",
       "intake",
     ],
-    answer: `Core features include uploaded offer intake, market-backed margin checks, supplier visibility, offer triage, notifications, and support for uploaded files. See the ${pageLink("features")}.`,
+    answer: `Core features include uploaded offer intake, market-backed margin checks, partner visibility, offer triage, notifications, and support for uploaded files. See the ${pageLink("features")}.`,
     suggestions: ["Which markets are supported?", "Which files are supported?"],
   },
   {
@@ -149,7 +149,7 @@ const staticAnswers: Array<{
     ],
     answer:
       "Auto-margin supports vehicle offers from emails, PDFs, Excel, Word, Google Sheets, CSV-style workflows, and mixed batches. The goal is to work with the offers dealers already receive instead of forcing more manual review.",
-    suggestions: ["How does supplier verification work?", "Try the demo"],
+    suggestions: ["How does partner verification work?", "Try the demo"],
   },
   {
     id: "security",
@@ -175,7 +175,7 @@ const staticAnswers: Array<{
       "b2b",
     ],
     answer:
-      "Auto-margin is built for independent car dealers, automotive trading companies, vehicle import/export businesses, dealer networks, and B2B marketplaces handling high volumes of offers and supplier relationships.",
+      "Auto-margin is built for independent car dealers, automotive trading companies, vehicle import/export businesses, dealer networks, and B2B marketplaces handling high volumes of offers and partner relationships.",
     suggestions: ["How does it identify deals?", "How do I get started?"],
   },
   {
@@ -189,7 +189,7 @@ const staticAnswers: Array<{
       "profit",
     ],
     answer:
-      "Auto-margin checks each offer against current market context and turns it into a clear next step. The goal is to help dealers spend less time reviewing cars and more time acting on the right suppliers and stock.",
+      "Auto-margin checks each offer against current market context and turns it into a clear next step. The goal is to help dealers spend less time reviewing cars and more time acting on the right partners and stock.",
     suggestions: ["Can I trust the prices?", "Which markets are supported?"],
   },
   {
@@ -222,7 +222,7 @@ const staticAnswers: Array<{
   {
     id: "about",
     keywords: ["about", "team", "company", "founded", "story", "mission"],
-    answer: `Auto-margin is a lean, founder-owned team with car-industry experience across Europe and a network in Switzerland. The company mission is to help dealers control intake and build stronger supplier networks. Read more on the ${pageLink("about")}.`,
+    answer: `Auto-margin is a lean, founder-owned team with car-industry experience across Europe and a network in Switzerland. The company mission is to help dealers control intake and build stronger partner networks. Read more on the ${pageLink("about")}.`,
     suggestions: ["Who is Auto-margin for?", "Contact the team"],
   },
   {
@@ -284,9 +284,9 @@ export function findStaticAliceAnswer(message: string): AliceAnswer | null {
 export const ALICE_SITE_CONTEXT = `
 Auto-margin is a platform for professional vehicle traders and dealerships in Europe.
 It helps dealers review incoming offers faster, see which cars create margin, which ones will sit, and which ones are already placed.
-The broader goal is intake control: better supplier decisions, less time reviewing cars, and more time making deals.
+The broader goal is intake control: better partner decisions, less time reviewing cars, and more time making deals.
 Target customers: independent dealers, trading companies, import/export businesses, dealer networks, and B2B marketplaces.
-Core features: uploaded offer intake, market-backed margin checks, supplier visibility, offer triage, notifications, and multi-market context.
+Core features: uploaded offer intake, market-backed margin checks, partner visibility, offer triage, notifications, and multi-market context.
 Supported inputs mentioned on the site: email, PDF, Excel, Word, Google Sheets, and mixed offer batches.
 Market and data context: current European market context including Germany, France, Poland, Italy, Switzerland, Spain, Netherlands, Belgium, Sweden, and Czech Republic. The homepage also shows connected context for South Korea and China where relevant.
 Pricing: custom/tailored pricing at launch. Pricing depends on offer volume, target markets, workflow setup, API or managed access, onboarding, reporting, account support, and operational assistance.

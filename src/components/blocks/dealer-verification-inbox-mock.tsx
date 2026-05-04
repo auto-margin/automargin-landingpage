@@ -104,7 +104,7 @@ export function DealerVerificationInboxMock({
             ·
           </span>
           <span className="text-muted-foreground truncate text-[10px] font-medium tracking-tight">
-            Supplier insight
+            Partner insight
           </span>
         </div>
         <div className="text-muted-foreground flex items-center gap-2">
@@ -115,7 +115,7 @@ export function DealerVerificationInboxMock({
       </header>
 
       <div className="bg-muted/35 text-muted-foreground border-border grid grid-cols-[1.7fr_1fr_0.65fr_1.05fr_1fr] border-b px-2 py-2 text-[8px] font-bold tracking-[0.08em] uppercase sm:text-[9px]">
-        <span>Supplier</span>
+        <span>Partner</span>
         <span>Avg margin</span>
         <span>Cars</span>
         <span>Total profit</span>

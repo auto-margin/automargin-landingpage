@@ -10,8 +10,8 @@
   },
   "Home": {
     "hero": {
-      "title": "Nicht länger\nan Autos arbeiten.\nMit Lieferanten arbeiten.",
-      "subtitle": "Wir nehmen die Analyse ab. Angebote hochladen, Marge in Minuten sehen und erkennen, welche Lieferanten wirklich Geld bringen.",
+      "title": "Hör auf, an Autos zu arbeiten.\nArbeite an der Marge.",
+      "subtitle": "Verbringen Sie weniger Zeit mit der Prüfung von Angeboten und mehr Zeit mit zuverlässigen Partnern.",
       "primaryCta": "Zugang anfragen",
       "secondaryCta": "Demo testen",
       "features": {
@@ -21,25 +21,25 @@
         },
         "margin": {
           "title": "Wissen, was sich dreht",
-          "description": "Sehen Sie, welche Autos sich verkaufen, welche stehen bleiben und wo der Intake stockt."
+          "description": "Sehen Sie, welche Autos sich verkaufen oder stehen bleiben und wo der Intake stockt."
         },
         "comparison": {
           "title": "Mit echten Angeboten arbeiten",
           "description": "Laden Sie Dateien, E-Mails und Listen hoch, die Sie bereits von Lieferanten erhalten."
         },
         "insights": {
-          "title": "Nach Lieferantenqualität handeln",
-          "description": "Sehen Sie, wer regelmäßig Marge bringt und wer nur Rauschen erzeugt."
+          "title": "Erweitern Sie Ihr Netzwerk",
+          "description": "Konzentrieren Sie sich auf zukünftige Partner – sehen Sie, wer konstant Marge bringt und wer nicht."
         }
       }
     },
     "features": {
-      "title": "Vom Posteingang zum Deal mit Lieferantennetzwerk.",
+      "title": "Vom Posteingang zum Deal mit Partnernetzwerk.",
       "imageAlt": "{title}-Oberfläche",
       "items": {
         "market": "Bestehende Angebote hochladen",
         "competitor": "Sehen, welche Autos Gewinn bringen.",
-        "insights": "Auf die richtigen Lieferanten setzen"
+        "insights": "Auf die richtigen Partner setzen"
       }
     },
     "markets": {
@@ -91,8 +91,8 @@
     },
     "bento": {
       "label": "WENIGER PRÜFEN. MEHR DEALS.",
-      "title": "Fokus auf\ndie richtigen Lieferanten.",
-      "description": "Geld entsteht im Deal: mit dem richtigen Lieferanten, Moment und Auto. Sehen Sie, wer Marge bringt, wer Volumen ohne Gewinn sendet und wer zu Ihrem Geschäft passt."
+      "title": "Fokus auf\ndie richtigen Partner.",
+      "description": "Geld entsteht im Deal: mit dem richtigen Partner, Moment und Auto. Sehen Sie, wer Marge bringt, wer Volumen ohne Gewinn sendet und wer zu Ihrem Geschäft passt."
     },
     "bentoCards": {
       "items": {
@@ -102,7 +102,7 @@
           "hoverText": "Nutzen Sie vorhandene Angebote."
         },
         "1": {
-          "name": "Lieferantenblick",
+          "name": "Partnerblick",
           "description": "Sehen Sie, wer Marge sendet.",
           "hoverText": "Wissen, wen Sie anrufen."
         },
@@ -120,19 +120,19 @@
       }
     },
     "salesPricing": {
-      "eyebrow": "Lieferantennetzwerk",
+      "eyebrow": "Partnernetzwerk",
       "title": "Sehen Sie, welche Lieferanten Ihre Zeit wert sind.",
-      "description": "AutoMargin zeigt, welche Lieferanten profitable Angebote senden, welche Volumen ohne Marge bringen und worauf Sie sich als Nächstes konzentrieren sollten.",
+      "description": "Denken Sie nicht an die Vergangenheit. Hören Sie auf, alle historischen Preise alter Angebote zu organisieren. Wir machen aus jedem Upload eine klare Lieferantenübersicht.",
       "proposal": {
         "title": "Zugang anfragen",
-        "description": "Zum Start arbeiten wir mit wenigen Händlern. Sagen Sie uns, wie Angebote ankommen, und wir planen das passende Setup.",
+        "description": "Zum Start arbeiten wir mit wenigen Händlern. Sagen Sie uns, wie Angebote ankommen und wir planen das passende Setup.",
         "primaryCta": "Zugang anfragen",
         "secondaryCta": "Mehr Informationen"
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Lieferant · Autoselekt Berlin",
-          "title": "Bester Lieferant · letzte 90 Tage",
+          "eyebrow": "Partner · Autoselekt Berlin",
+          "title": "Bester Partner · letzte 90 Tage",
           "badge": "Tier 1"
         },
         "stats": {
@@ -217,12 +217,12 @@
       "secondaryCta": "Access-Modelle vergleichen"
     },
     "supplierNetwork": {
-      "eyebrow": "Lieferantennetzwerk",
+      "eyebrow": "Partnernetzwerk",
       "title": "Weniger manuelles Prüfen.\nMehr Klarheit zu jedem Angebot.",
-      "description": "AutoMargin hilft Ihnen, eingehende Fahrzeugangebote zu prüfen, mit Live-Listings zu vergleichen und zu sehen, welche Lieferanten Marge schaffen. Nutzen Sie es als einzelner Käufer, wachsendes Unternehmen oder größere Organisation mit strukturierten Workflows.",
+      "description": "AutoMargin hilft Ihnen, eingehende Fahrzeugangebote zu prüfen, mit Live-Listings zu vergleichen und zu sehen, welche Partner Marge schaffen. Nutzen Sie es als einzelner Käufer, wachsendes Unternehmen oder größere Organisation mit strukturierten Workflows.",
       "points": {
         "quality": {
-          "title": "Marge pro Lieferant",
+          "title": "Marge pro Partner",
           "description": "Sehen, wer profitable Autos bringt, nicht nur Volumen."
         },
         "drain": {
@@ -273,7 +273,7 @@
         "qualification": "Wir besprechen Offer-Flow, Ziele und wo AutoMargin zuerst hilft.",
         "proposal": "Gemeinsam wählen wir automatic, managed oder API access und Scope.",
         "onboarding": "Sie erhalten das Access-Angebot und den Rollout-Plan, bevor etwas startet.",
-        "optimization": "Nach Launch optimieren wir Intake-Regeln, Supplier Tracking und Output."
+        "optimization": "Nach Launch optimieren wir Intake-Regeln, Partner Tracking und Output."
       }
     },
     "engagement": {
@@ -308,7 +308,7 @@
   "FAQ": {
     "title": "Direkte Antworten.",
     "homeTitle": "Direkte Antworten.\nKein Marketingnebel.",
-    "homeDescription": "Wenn Sie nicht finden, was Sie brauchen, schreiben Sie uns. Wir antworten innerhalb eines Werktags.",
+    "homeDescription": "Wenn Sie nicht finden, was Sie brauchen, schreiben Sie uns.\nWir antworten innerhalb eines Werktags.",
     "homeEmailCta": "to@auto-margin.com",
     "contactPrefix": "Wenn Sie nicht finden, wonach Sie suchen,",
     "contactLink": "kontaktieren Sie uns",
@@ -322,7 +322,7 @@
           },
           "identify": {
             "q": "Wie erkennt es die besten Deals?",
-            "a": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft und in einen klaren nächsten Schritt übersetzt. Sie sehen, welche Autos sich lohnen und welche Lieferanten regelmäßig den richtigen Bestand bringen."
+            "a": "Jedes Angebot wird gegen aktuellen Marktkontext geprüft und in einen klaren nächsten Schritt übersetzt. Sie sehen, welche Autos sich lohnen und welche Partner regelmäßig den richtigen Bestand bringen."
           },
           "files": {
             "q": "Welche Dateitypen werden unterstützt?",
@@ -365,7 +365,7 @@
   "Contact": {
     "eyebrow": "Kontakt",
     "title": "Wir helfen Ihnen weiter.",
-    "description": "Sagen Sie uns, was Sie brauchen, und wir leiten Ihre Anfrage an die richtige Person weiter. Wir antworten meist innerhalb eines Werktags.",
+    "description": "Sagen Sie uns, was Sie brauchen und wir leiten Ihre Anfrage an die richtige Person weiter. Wir antworten meist innerhalb eines Werktags.",
     "detailsTitle": "Kontaktdaten",
     "openHours": "Mo-Fr, 9:00-17:00 (CET)",
     "nextSteps": {
@@ -390,7 +390,7 @@
     },
     "form": {
       "title": "Lassen Sie uns sprechen",
-      "description": "Teilen Sie ein paar Details, und wir melden uns.",
+      "description": "Teilen Sie ein paar Details und wir melden uns.",
       "errors": {
         "unavailable": "Das Kontaktformular ist vorübergehend nicht verfügbar.",
         "submit": "Senden ist gerade nicht möglich. Bitte versuchen Sie es gleich erneut."
@@ -447,10 +447,10 @@
     "hero": {
       "title": "Gebaut für die Arbeit hinter jedem Deal",
       "subtitle": "Autos kaufen ist nur ein Teil des Jobs. Execution beginnt nach dem Ja.",
-      "body1": "AutoMargin wurde aus der Realität gebaut, dass Buyer nicht nur Autos bewerten. Sie verfolgen Offers, vergleichen Märkte, koordinieren Dokumente, Logistik und müssen trotzdem wissen, welcher Lieferant den nächsten Anruf verdient.",
+      "body1": "AutoMargin wurde aus der Realität gebaut, dass Buyer nicht nur Autos bewerten. Sie verfolgen Offers, vergleichen Märkte, koordinieren Dokumente, Logistik und müssen trotzdem wissen, welcher Partner den nächsten Anruf verdient.",
       "body2": "Wir helfen Händlern, Buying-Arbeit vor dem Start des Tages vorzubereiten, damit Teams mehr Zeit für Closing, Übergabe und saubere Execution haben.",
       "stats": {
-        "founded": "Gegründet",
+        "founded": "Gestartet",
         "industry": "Jahre in der Branche",
         "dealers": "Händler verbunden",
         "network": "HQ & Netzwerk"
@@ -462,7 +462,7 @@
         "title": "Händler verloren Zeit, bevor die eigentliche Arbeit begann.",
         "p1": "Der langsame Teil war nicht fehlender Wille. Es waren die manuellen Einschätzungen, bevor ein Buyer handeln konnte: Dateien öffnen, Listings vergleichen, Kontext prüfen und relevante Offers erkennen.",
         "p2": "Nach einem geschlossenen Deal hört die Arbeit nicht auf. Dokumente, Logistik, Supplier Follow-up und interne Übergabe konkurrieren um dieselbe Buyer-Zeit.",
-        "p3": "AutoMargin räumt Review-Arbeit früher aus dem Weg, damit Buyer sich auf Entscheidungen, Execution und Lieferantenbeziehungen konzentrieren können.",
+        "p3": "AutoMargin räumt Review-Arbeit früher aus dem Weg, damit Buyer sich auf Entscheidungen, Execution und Partnerbeziehungen konzentrieren können.",
         "cta": "Mit uns sprechen"
       },
       "pain": {
@@ -487,7 +487,7 @@
       "product": {
         "eyebrow": "Wie AutoMargin hilft",
         "title": "Stellt euch vor, jedes Offer ist analysiert, bevor euer Team startet.",
-        "p1": "AutoMargin macht eingehende Offers zu einer klareren Arbeitsliste: was Aktion braucht, was warten kann und welches Supplier-Muster dahinterliegt.",
+        "p1": "AutoMargin macht eingehende Offers zu einer klareren Arbeitsliste: was Aktion braucht, was warten kann und welches Partner-Muster dahinterliegt.",
         "p2": "Das Ziel ist kein weiteres Dashboard. Es geht darum, Low-Value-Review aus dem Buyer-Tag zu entfernen und Management einen klareren Blick auf Intake-Verbesserung zu geben."
       },
       "principles": {
@@ -503,7 +503,7 @@
             "description": "Die Plattform unterstützt die Arbeit nach der Entscheidung: Follow-up, Übergabe und wiederholte Supplier-Aktion."
           },
           "network": {
-            "title": "Supplier-Gedächtnis",
+            "title": "Partner-Gedächtnis",
             "description": "Jedes Offer soll besser zeigen, welche Beziehungen langfristig Wert schaffen."
           }
         }
@@ -512,7 +512,127 @@
         "dashboard": "Operatives Dashboard",
         "marketAnalysis": "Workspace für Marktanalyse",
         "carDashboard": "Workspace für Offer Review",
-        "dealerLeaderboard": "Übersicht zur Supplier Performance"
+        "dealerLeaderboard": "Übersicht zur Partner Performance"
+      }
+    }
+  },
+  "BrowserExtension": {
+    "hero": {
+      "eyebrow": "Für Händler, die Preise manuell prüfen",
+      "title": "Auto-margin Browser-Erweiterung",
+      "subtitle": "Ihr Assistent zur Preisprüfung und für bessere Fahrzeugdeals beim Browsen, ohne das Inserat zu verlassen.",
+      "bullets": {
+        "0": "Unterbewertete Inserate auf einen Blick erkennen, während Sie auf der Marktplatzseite bleiben.",
+        "1": "Vergleichen Sie den Angebotspreis mit dem Marktkontext und handeln Sie vor der Konkurrenz.",
+        "2": "Arbeitet im Hintergrund Ihres Workflows ohne Copy-Paste zwischen Tabs oder Tabellen."
+      },
+      "cta": "Zugang zur Erweiterung erhalten",
+      "noCreditCard": "Keine Kreditkarte erforderlich"
+    },
+    "mockup": {
+      "dealSignal": "Deal-Signal",
+      "vsMarket": "vs. Marktband",
+      "listPrice": "Listenpreis",
+      "suggestedRange": "Vorgeschlagener Bereich",
+      "marginHeadroom": "Margenspielraum vs. typischer Retail",
+      "localComps": "Lokale Vergleiche (Beispiel)",
+      "syncedFromLive": "Synchronisiert mit Live-Listings",
+      "active": "Aktiv"
+    }
+  },
+  "DemoPage": {
+    "hero": {
+      "eyebrow": "Live Gewinn-Demo",
+      "title": "Testen Sie AutoMargin an einem echten Fahrzeugangebot.",
+      "subtitle": "Beschreiben Sie ein Fahrzeug, das Sie in Erwägung ziehen, und wir zeigen, wie AutoMargin sein Gewinnpotenzial anhand von Live-Marktdaten führender Marktplätze analysieren würde."
+    },
+    "info": {
+      "title": "Was diese Demo zeigt",
+      "body": "Dies ist eine begrenzte Demo, die zeigt, wie eine einzelne Fahrzeugpreis-Validierung in Auto-margin aussehen kann.",
+      "includedTitle": "Enthalten (Demo)",
+      "notIncludedTitle": "Nicht enthalten",
+      "included": {
+        "0": "Einzelfahrzeug-Validierung aus Texteingabe",
+        "1": "Marktvergleich und einfaches Empfehlungssignal"
+      },
+      "notIncluded": {
+        "0": "Bulk-Screening von Lieferantenlisten",
+        "1": "Datei-Upload oder Auto-Upload aus E-Mail",
+        "2": "Dealer-Insights / Dealer-Fit-Signale",
+        "3": "Integrationen, Exporte, Dashboards",
+        "4": "Vollständige Fahrzeugdaten-Anreicherung und Workflows",
+        "5": "…und mehr"
+      }
+    },
+    "calculator": {
+      "intro": "Fügen Sie ein Fahrzeugangebot ein. Wir streamen die Analyse und zeigen das Ergebnis.",
+      "running": "Läuft…",
+      "complete": "Fertig",
+      "helpButton": "Was soll ich angeben?",
+      "enterVehicle": "Fahrzeug eingeben",
+      "placeholder": "Details zum Fahrzeug…",
+      "brandError": "Muss eine Marke enthalten (z.B. BMW, Audi, Volvo).",
+      "countryLabel": "Vergleichsland",
+      "countryPlaceholder": "Land wählen",
+      "country": {
+        "DE": "DE - Deutschland",
+        "CH": "CH - Schweiz",
+        "BE": "BE - Belgien"
+      },
+      "weCompare": "Wir vergleichen mit Live-Listings.",
+      "weEstimate": "Wir schätzen Wiederverkauf und Marge pro Markt.",
+      "result": "Ergebnis",
+      "idleHint": "Starten Sie die Demo, um Ergebnisse zu sehen.",
+      "runningTip": "Tipp: Wenn nichts passiert, haben Sie möglicherweise das Demo-Limit erreicht oder der Backend-Endpunkt ist nicht verfügbar.",
+      "errorTitle": "Demo konnte nicht ausgeführt werden",
+      "errorDefault": "Bitte erneut versuchen.",
+      "buySignal": "Kaufsignal",
+      "markets": "Märkte",
+      "basedOn": "Basierend auf",
+      "listings": "Inseraten",
+      "profit": "Gewinn",
+      "margin": "Marge",
+      "sources": "Quellen",
+      "open": "Öffnen",
+      "calculate": "Gewinn berechnen",
+      "calculating": "Berechne…",
+      "completed": "Abgeschlossen",
+      "reset": "Zurücksetzen",
+      "rateLimitNotice": "Begrenzt auf eine Demo-Ausführung pro IP / 24 Stunden.",
+      "privacyAgreement": "Mit dem Ausführen der Demo akzeptieren Sie unsere",
+      "privacyLink": "Datenschutzerklärung",
+      "abuseNotice": "Wir können Anfragen protokollieren und Rate Limits anwenden, um Missbrauch zu verhindern.",
+      "stages": {
+        "parsing": "Wir parsen jetzt alle Informationen…",
+        "comparing": "Wir vergleichen das Fahrzeug…",
+        "calculating": "Wir berechnen…",
+        "analyzing": "Wir analysieren das Fahrzeug…"
+      },
+      "errors": {
+        "limitReached": "Demo-Limit erreicht. Eine Demo-Ausführung pro IP / 24 Stunden.",
+        "generic": "Demo kann derzeit nicht ausgeführt werden.",
+        "genericRetry": "Demo kann derzeit nicht ausgeführt werden. Bitte erneut versuchen.",
+        "noResult": "Kein Ergebnis zurückgegeben. Bitte erneut versuchen."
+      },
+      "help": {
+        "title": "Was einfügen",
+        "subtitle": "Je mehr Details, desto besser die Validierung.",
+        "closeAria": "Schließen",
+        "recommendedTitle": "Empfohlene Felder",
+        "recommendedFields": {
+          "0": "Marke + Modell + Jahr",
+          "1": "Kilometer",
+          "2": "Kraftstoff + Getriebe",
+          "3": "Angebotspreis + Währung",
+          "4": "Bemerkenswerte Ausstattung / Trim"
+        },
+        "exampleTitle": "Beispiel",
+        "copy": "Kopieren",
+        "copied": "Kopiert",
+        "copyAria": "Beispieltext in Zwischenablage kopieren",
+        "copiedAria": "Beispieltext in Zwischenablage kopiert",
+        "ok": "OK",
+        "dialogAria": "Hilfe zur Fahrzeugbeschreibung"
       }
     }
   },

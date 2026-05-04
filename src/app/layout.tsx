@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     template: "%s | Auto-margin",
   },
   description:
-    "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
+    "Auto-margin helps dealers review incoming offers, control intake, and focus on the partners and cars that create margin.",
   keywords: [
     "Auto-margin",
     "car offer",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Auto-margin - Better deals, better intake",
     description:
-      "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
+      "Auto-margin helps dealers review incoming offers, control intake, and focus on the partners and cars that create margin.",
     siteName: "Auto-margin",
     images: [
       {
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Auto-margin - Better deals, better intake",
     description:
-      "Auto-margin helps dealers review incoming offers, control intake, and focus on the suppliers and cars that create margin.",
+      "Auto-margin helps dealers review incoming offers, control intake, and focus on the partners and cars that create margin.",
     images: ["/og-image.jpg"],
     creator: "@auto-margin",
     site: "https://auto-margin.com",

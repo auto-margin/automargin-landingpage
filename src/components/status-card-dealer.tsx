@@ -24,7 +24,7 @@ export const StatusCardDealer = ({
       <div className="flex flex-1 flex-col justify-between gap-6 px-3.5 py-5 sm:px-4 sm:py-6">
         <div>
           <p className="text-foreground font-semibold tracking-tight">
-            Supplier info
+            Partner info
           </p>
           <div
             className="bg-border/70 my-3 h-px w-8 rounded-full"
@@ -32,12 +32,12 @@ export const StatusCardDealer = ({
           />
           <p className="text-muted-foreground">
             You have more than {dealerCount}% of all excellent offers coming
-            from this supplier.
+            from this partner.
           </p>
         </div>
         <div className="space-y-3">
           <p className="text-muted-foreground">
-            Supplier:{" "}
+            Partner:{" "}
             <span className="font-semibold text-sky-600 dark:text-sky-400">
               Nordic Auto Supply GmbH
             </span>
