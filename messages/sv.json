@@ -519,8 +519,8 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Byggd för handlare som granskar priser manuellt",
-      "title": "Auto-margin browser-tillägg",
-      "subtitle": "Din assistent för att granska priser och hitta bättre bilaffärer medan du surfar, utan att lämna annonsen.",
+      "title": "Chrome Browser-tillägg",
+      "subtitle": "Din Auto-margin-assistent för att granska priser och hitta bättre bilaffärer medan du surfar, utan att lämna annonsen.",
       "bullets": {
         "0": "Upptäck undervärderade annonser i en blick medan du stannar på marknadsplatsen.",
         "1": "Jämför begärt pris med marknadskontext så du agerar före konkurrenterna.",

@@ -519,8 +519,8 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Für Händler, die Preise manuell prüfen",
-      "title": "Auto-margin Browser-Erweiterung",
-      "subtitle": "Ihr Assistent zur Preisprüfung und für bessere Fahrzeugdeals beim Browsen, ohne das Inserat zu verlassen.",
+      "title": "Chrome Browser-Erweiterung",
+      "subtitle": "Ihr Auto-margin-Assistent zur Preisprüfung und für bessere Fahrzeugdeals beim Browsen, ohne das Inserat zu verlassen.",
       "bullets": {
         "0": "Unterbewertete Inserate auf einen Blick erkennen, während Sie auf der Marktplatzseite bleiben.",
         "1": "Vergleichen Sie den Angebotspreis mit dem Marktkontext und handeln Sie vor der Konkurrenz.",

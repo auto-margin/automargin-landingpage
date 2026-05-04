@@ -519,8 +519,8 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Bygget til forhandlere der tjekker priser manuelt",
-      "title": "Auto-margin browser-udvidelse",
-      "subtitle": "Din assistent til at tjekke priser og finde bedre bil-deals mens du surfer, uden at forlade annoncen.",
+      "title": "Chrome Browser-udvidelse",
+      "subtitle": "Din Auto-margin-assistent til at tjekke priser og finde bedre bil-deals mens du surfer, uden at forlade annoncen.",
       "bullets": {
         "0": "Spot undervurderede annoncer på et splitsekund mens du bliver på marketplace-siden.",
         "1": "Sammenlign udbudspris med markedskontekst og handl før konkurrenterne.",

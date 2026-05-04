@@ -519,8 +519,8 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Hecho para dealers que revisan precios manualmente",
-      "title": "Extensión de navegador Auto-margin",
-      "subtitle": "Tu asistente para revisar precios y descubrir mejores ofertas de coches mientras navegas, sin salir del listing.",
+      "title": "Extensión de Chrome",
+      "subtitle": "Tu asistente de Auto-margin para revisar precios y descubrir mejores ofertas de coches mientras navegas, sin salir del listing.",
       "bullets": {
         "0": "Detecta listings infravalorados de un vistazo sin salir del marketplace.",
         "1": "Compara el precio pedido con el contexto del mercado y actúa antes que la competencia.",

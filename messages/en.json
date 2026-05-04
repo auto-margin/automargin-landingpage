@@ -519,8 +519,8 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Built for dealers who check prices manually",
-      "title": "Auto-margin browser extension",
-      "subtitle": "Your assistant for checking prices and surfacing better vehicle deals while you browse, without leaving the listing.",
+      "title": "Chrome Browser-extension",
+      "subtitle": "Your Auto-margin assistant for checking prices and surfacing better vehicle deals while you browse, without leaving the listing.",
       "bullets": {
         "0": "Spot undervalued listings in one glance while you stay on the marketplace page.",
         "1": "Compare ask price to market context so you move before the competition.",
