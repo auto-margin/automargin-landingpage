@@ -37,7 +37,7 @@ export function MarketFeedDivider({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "border-border/70 bg-background/70 overflow-hidden border-y",
+        "border-border/70 bg-background/70 mx-4 overflow-hidden border-y sm:mx-0",
         className,
       )}
       aria-hidden

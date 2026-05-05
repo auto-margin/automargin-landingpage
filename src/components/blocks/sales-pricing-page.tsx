@@ -403,7 +403,7 @@ export function SalesPricingPage({ className }: { className?: string }) {
               </div>
               <Button
                 variant="outline"
-                className="bg-background w-full gap-2 sm:w-auto"
+                className="bg-background hidden w-full gap-2 sm:inline-flex sm:w-auto"
                 asChild
               >
                 <Link href="/contact">

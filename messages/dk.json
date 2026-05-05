@@ -519,25 +519,40 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Bygget til forhandlere der tjekker priser manuelt",
-      "title": "Chrome Browser-udvidelse",
-      "subtitle": "Din Auto-margin-assistent til at tjekke priser og finde bedre bil-deals mens du surfer, uden at forlade annoncen.",
+      "title": "Browser-udvidelse",
+      "subtitle": "Assistent til hurtigere bilbeslutninger i din browser.",
       "bullets": {
-        "0": "Spot undervurderede annoncer på et splitsekund mens du bliver på marketplace-siden.",
-        "1": "Sammenlign udbudspris med markedskontekst og handl før konkurrenterne.",
-        "2": "Fungerer ved siden af dit workflow uden copy-paste mellem faner eller regneark."
+        "0": "Se undervurderede annoncer uden at forlade siden.",
+        "1": "Sammenlign udbudspris med live markedsdata.",
+        "2": "Arbejd hurtigere uden copy-paste mellem faner."
       },
       "cta": "Få adgang til udvidelsen",
       "noCreditCard": "Intet kreditkort kræves"
     },
     "mockup": {
-      "dealSignal": "Deal-signal",
-      "vsMarket": "vs. markedsbånd",
-      "listPrice": "Listepris",
-      "suggestedRange": "Foreslået interval",
-      "marginHeadroom": "Marginplads vs. typisk retail",
-      "localComps": "Lokale sammenligninger (eksempel)",
-      "syncedFromLive": "Synkroniseret med live-listings",
-      "active": "Aktiv"
+      "topbarHint": "Spot undervurderede annoncer i ?n visning.",
+      "vehicleRoi": "Bil-ROI",
+      "roiDescription": "Konvert?r en NET-pris til CHF, l?g skatter og logistik p?, og se din margin.",
+      "netPrice": "NET-pris",
+      "netPriceHint": "Bilens angivne NET-pris",
+      "salePrice": "Schweizisk salgspris (CHF)",
+      "salePriceHint": "Det du planl?gger at s?lge den for i Schweiz",
+      "exchangeRates": "Valutakurser",
+      "fetched": "Hentet 14:12",
+      "calculate": "Beregn",
+      "navCalculator": "Kalkule",
+      "navMarket": "Marked",
+      "navFavorites": "Favoritter",
+      "navSettings": "Indstillinger",
+      "selectedPrice": "EUR 12,990",
+      "menuCopy": "Kopier",
+      "menuNewTab": "Abn i ny fane",
+      "menuCopyHighlight": "Kopier link til markering",
+      "menuSearch": "Sog pa Google efter \"EUR 12,990\"",
+      "menuPrint": "Udskriv...",
+      "menuCommand": "AM: Beregn ROI for denne pris",
+      "menuSource": "Vis sidekilde",
+      "menuInspect": "Inspicer"
     }
   },
   "DemoPage": {

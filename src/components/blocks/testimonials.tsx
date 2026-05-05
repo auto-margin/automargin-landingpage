@@ -132,10 +132,14 @@ export const Testimonials = ({
           </div>
         </div>
       </section>
-      <DashedLine
-        orientation="horizontal"
-        className={cn("mx-auto max-w-[80%]", dashedLineClassName)}
-      />
+      <div className="container">
+        <div className="relative flex items-center justify-center">
+          <DashedLine
+            orientation="horizontal"
+            className={cn("text-muted-foreground", dashedLineClassName)}
+          />
+        </div>
+      </div>
     </>
   );
 };

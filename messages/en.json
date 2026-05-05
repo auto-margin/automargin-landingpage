@@ -519,25 +519,40 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Built for dealers who check prices manually",
-      "title": "Chrome Browser-extension",
-      "subtitle": "Your Auto-margin assistant for checking prices and surfacing better vehicle deals while you browse, without leaving the listing.",
+      "title": "Browser extension",
+      "subtitle": "Assistant for faster car decisions in your browser.",
       "bullets": {
-        "0": "Spot undervalued listings in one glance while you stay on the marketplace page.",
-        "1": "Compare ask price to market context so you move before the competition.",
-        "2": "Works alongside your workflow without copy-paste between tabs or spreadsheets."
+        "0": "Spot undervalued listings without leaving the page.",
+        "1": "Compare asking price to live market context.",
+        "2": "Work faster without copy-paste between tabs."
       },
       "cta": "Get extension access",
       "noCreditCard": "No credit card required"
     },
     "mockup": {
-      "dealSignal": "Deal signal",
-      "vsMarket": "vs. market band",
-      "listPrice": "List price",
-      "suggestedRange": "Suggested range",
-      "marginHeadroom": "Margin headroom vs. typical retail",
-      "localComps": "Local comps (sample)",
-      "syncedFromLive": "Synced from live listings",
-      "active": "Active"
+      "topbarHint": "Spot undervalued listings in one view.",
+      "vehicleRoi": "Vehicle ROI",
+      "roiDescription": "Convert a NET ask price to CHF, apply taxes and logistics, and see your margin.",
+      "netPrice": "NET price",
+      "netPriceHint": "Listed NET price of the vehicle",
+      "salePrice": "Swiss sale price (CHF)",
+      "salePriceHint": "What you plan to sell it for in Switzerland",
+      "exchangeRates": "Exchange rates",
+      "fetched": "Fetched 14:12",
+      "calculate": "Calculate",
+      "navCalculator": "Calculator",
+      "navMarket": "Market",
+      "navFavorites": "Favorites",
+      "navSettings": "Settings",
+      "selectedPrice": "EUR 12,990",
+      "menuCopy": "Copy",
+      "menuNewTab": "Open in a new tab",
+      "menuCopyHighlight": "Copy link to highlight",
+      "menuSearch": "Search Google for \"EUR 12,990\"",
+      "menuPrint": "Print...",
+      "menuCommand": "AM: Calculate ROI for this price",
+      "menuSource": "View page source",
+      "menuInspect": "Inspect"
     }
   },
   "DemoPage": {

@@ -70,7 +70,8 @@ export const Features = () => {
                       src={item.image}
                       alt={t("imageAlt", { title: item.title })}
                     />
-                    <div className="from-background absolute inset-0 z-10 bg-linear-to-t via-transparent to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-14 bg-linear-to-t from-background via-background/80 to-transparent md:h-16" />
+                    <div className="pointer-events-none bg-background absolute inset-x-0 bottom-0 z-10 h-4 md:h-5" />
                   </div>
 
                   <div className="flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6">

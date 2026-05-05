@@ -1,10 +1,22 @@
 "use server";
+
+import { Resend } from "resend";
+
 import { actionClient } from "./safe-action";
 
 import { isHoneypotTriggered, isSubmissionTooFast } from "@/lib/anti-bot";
 import { formSchema } from "@/lib/form-schema";
 import { checkContactLimit } from "@/lib/rate-limit";
 import { getRequestIdentity } from "@/lib/request-identity";
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
 export const serverAction = actionClient
   .inputSchema(formSchema)
@@ -31,8 +43,11 @@ export const serverAction = actionClient
         };
       }
 
-      const backendContactUrl = process.env.BACKEND_CONTACT_URL;
-      if (!backendContactUrl) {
+      const resendApiKey = process.env.RESEND_API_KEY;
+      const resendFromEmail = process.env.RESEND_FROM_EMAIL;
+      const contactToEmail = process.env.CONTACT_TO_EMAIL;
+
+      if (!resendApiKey || !resendFromEmail || !contactToEmail) {
         return {
           success: false,
           code: "CONTACT_NOT_CONFIGURED",
@@ -40,26 +55,61 @@ export const serverAction = actionClient
         };
       }
 
-      const response = await fetch(backendContactUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        cache: "no-store",
-        body: JSON.stringify({
-          inquiryType: parsedInput.inquiryType,
-          name: parsedInput.name,
-          email: parsedInput.email,
-          company: parsedInput.company ?? "",
-          employees: parsedInput.employees ?? "",
-          message: parsedInput.message,
-        }),
+      const resend = new Resend(resendApiKey);
+      const company = parsedInput.company?.trim() || "Not provided";
+      const employees = parsedInput.employees?.trim() || "Not provided";
+      const html = `
+        <h2>New contact form submission</h2>
+        <p><strong>Inquiry type:</strong> ${escapeHtml(parsedInput.inquiryType)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(parsedInput.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(parsedInput.email)}</p>
+        <p><strong>Company:</strong> ${escapeHtml(company)}</p>
+        <p><strong>Employees:</strong> ${escapeHtml(employees)}</p>
+        <p><strong>Message:</strong></p>
+        <p>${escapeHtml(parsedInput.message).replaceAll("\n", "<br />")}</p>
+      `;
+      const text = [
+        "New contact form submission",
+        `Inquiry type: ${parsedInput.inquiryType}`,
+        `Name: ${parsedInput.name}`,
+        `Email: ${parsedInput.email}`,
+        `Company: ${company}`,
+        `Employees: ${employees}`,
+        "Message:",
+        parsedInput.message,
+      ].join("\n");
+
+      const { data, error } = await resend.emails.send({
+        from: resendFromEmail,
+        to: [contactToEmail],
+        replyTo: parsedInput.email,
+        subject: `Contact form: ${parsedInput.inquiryType} from ${parsedInput.name}`,
+        html,
+        text,
       });
 
-      if (!response.ok) {
+      if (error) {
+        console.error("Resend send failed", {
+          error,
+          to: contactToEmail,
+          from: resendFromEmail,
+        });
         return {
           success: false,
-          code: "BACKEND_ERROR",
+          code: "EMAIL_SEND_FAILED",
+          message: "Unable to submit right now. Please try again shortly.",
+        };
+      }
+
+      if (!data?.id) {
+        console.error("Resend send returned no message id", {
+          data,
+          to: contactToEmail,
+          from: resendFromEmail,
+        });
+        return {
+          success: false,
+          code: "EMAIL_NOT_ACCEPTED",
           message: "Unable to submit right now. Please try again shortly.",
         };
       }
@@ -68,7 +118,9 @@ export const serverAction = actionClient
         success: true,
         message: "Form submitted successfully",
       };
-    } catch {
+    } catch (error) {
+      console.error("Unexpected contact form error", error);
+
       return {
         success: false,
         code: "UNEXPECTED_ERROR",

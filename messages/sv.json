@@ -99,7 +99,7 @@
         "0": {
           "name": "Ladda upp alla format",
           "description": "Mejl, PDF, Excel, CSV och mer.",
-          "hoverText": "Använd offers ni redan fär."
+          "hoverText": "Använd offers ni redan får."
         },
         "1": {
           "name": "Partnerinsikt",
@@ -109,7 +109,7 @@
         "2": {
           "name": "Kopplad marknadsdata",
           "shortName": "Marknadsdata",
-          "description": "Europa är listingbasen. Korea och Kina visar hur efterfrågan rär sig.",
+          "description": "Europa är listingbasen. Korea och Kina visar hur efterfrågan rör sig.",
           "hoverText": "Använd europeiska listings med bredare import/export-context."
         },
         "3": {
@@ -519,25 +519,40 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Byggd för handlare som granskar priser manuellt",
-      "title": "Chrome Browser-tillägg",
-      "subtitle": "Din Auto-margin-assistent för att granska priser och hitta bättre bilaffärer medan du surfar, utan att lämna annonsen.",
+      "title": "Browser-tillägg",
+      "subtitle": "Assistent för snabbare bilbeslut i din webbläsare.",
       "bullets": {
-        "0": "Upptäck undervärderade annonser i en blick medan du stannar på marknadsplatsen.",
-        "1": "Jämför begärt pris med marknadskontext så du agerar före konkurrenterna.",
-        "2": "Fungerar tillsammans med ditt arbetsflöde utan copy-paste mellan flikar eller kalkylblad."
+        "0": "Se undervärderade annonser utan att lämna sidan.",
+        "1": "Jämför utropspris med live marknadsdata.",
+        "2": "Jobba snabbare utan copy-paste mellan flikar."
       },
       "cta": "Få access till tillägget",
       "noCreditCard": "Inget kreditkort krävs"
     },
     "mockup": {
-      "dealSignal": "Affärssignal",
-      "vsMarket": "mot marknadsband",
-      "listPrice": "Listpris",
-      "suggestedRange": "Föreslaget intervall",
-      "marginHeadroom": "Marginalutrymme mot typisk retail",
-      "localComps": "Lokala jämförelser (urval)",
-      "syncedFromLive": "Synkat från live-listings",
-      "active": "Aktiv"
+      "topbarHint": "Se underv?rderade annonser i en vy.",
+      "vehicleRoi": "Bil-ROI",
+      "roiDescription": "Konvertera ett NET-pris till CHF, l?gg p? skatt och logistik och se din marginal.",
+      "netPrice": "NET-pris",
+      "netPriceHint": "Bilens listade NET-pris",
+      "salePrice": "Schweiziskt s?ljpris (CHF)",
+      "salePriceHint": "Vad du planerar att s?lja den f?r i Schweiz",
+      "exchangeRates": "V?xelkurser",
+      "fetched": "H?mtad 14:12",
+      "calculate": "Ber?kna",
+      "navCalculator": "Kalkyl",
+      "navMarket": "Marknad",
+      "navFavorites": "Favoriter",
+      "navSettings": "Inst?llningar",
+      "selectedPrice": "EUR 12,990",
+      "menuCopy": "Kopiera",
+      "menuNewTab": "Oppna i ny flik",
+      "menuCopyHighlight": "Kopiera lank till markering",
+      "menuSearch": "Sok pa Google efter \"EUR 12,990\"",
+      "menuPrint": "Skriv ut...",
+      "menuCommand": "AM: Rakna ROI for detta pris",
+      "menuSource": "Visa sidkalla",
+      "menuInspect": "Inspektera"
     }
   },
   "DemoPage": {

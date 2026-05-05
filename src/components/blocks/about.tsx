@@ -78,7 +78,7 @@ const About = () => {
         />
       </div>
 
-      <div className="bg-card mt-14 rounded-2xl border p-6 shadow-sm md:p-8 lg:mt-20">
+      <div className="mt-14 p-0 md:bg-card md:rounded-2xl md:border md:p-8 md:shadow-sm lg:mt-20">
         <div className="mb-6 max-w-2xl">
           <p className="text-muted-foreground font-mono text-xs tracking-[0.18em] uppercase">
             {t("principles.eyebrow")}

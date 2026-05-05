@@ -519,25 +519,40 @@
   "BrowserExtension": {
     "hero": {
       "eyebrow": "Hecho para dealers que revisan precios manualmente",
-      "title": "Extensión de Chrome",
-      "subtitle": "Tu asistente de Auto-margin para revisar precios y descubrir mejores ofertas de coches mientras navegas, sin salir del listing.",
+      "title": "Extensión del navegador",
+      "subtitle": "Asistente para tomar decisiones de coche más rápido en tu navegador.",
       "bullets": {
-        "0": "Detecta listings infravalorados de un vistazo sin salir del marketplace.",
-        "1": "Compara el precio pedido con el contexto del mercado y actúa antes que la competencia.",
-        "2": "Funciona junto a tu flujo de trabajo sin copy-paste entre pestañas u hojas de cálculo."
+        "0": "Detecta anuncios infravalorados sin salir de la página.",
+        "1": "Compara el precio con datos de mercado en directo.",
+        "2": "Trabaja más rápido sin copiar entre pestañas."
       },
       "cta": "Obtener acceso a la extensión",
       "noCreditCard": "No se requiere tarjeta de crédito"
     },
     "mockup": {
-      "dealSignal": "Señal de oferta",
-      "vsMarket": "vs. banda de mercado",
-      "listPrice": "Precio de lista",
-      "suggestedRange": "Rango sugerido",
-      "marginHeadroom": "Margen vs. retail típico",
-      "localComps": "Comparables locales (muestra)",
-      "syncedFromLive": "Sincronizado con listings en vivo",
-      "active": "Activo"
+      "topbarHint": "Detecta listings infravalorados en una vista.",
+      "vehicleRoi": "ROI del veh?culo",
+      "roiDescription": "Convierte un precio NET a CHF, aplica impuestos y log?stica y mira tu margen.",
+      "netPrice": "Precio NET",
+      "netPriceHint": "Precio NET listado del veh?culo",
+      "salePrice": "Precio de venta en Suiza (CHF)",
+      "salePriceHint": "Por cu?nto planeas venderlo en Suiza",
+      "exchangeRates": "Tipos de cambio",
+      "fetched": "Cargado 14:12",
+      "calculate": "Calcular",
+      "navCalculator": "Calculadora",
+      "navMarket": "Mercado",
+      "navFavorites": "Favoritos",
+      "navSettings": "Ajustes",
+      "selectedPrice": "EUR 12,990",
+      "menuCopy": "Copiar",
+      "menuNewTab": "Abrir en una nueva pestana",
+      "menuCopyHighlight": "Copiar enlace al resaltado",
+      "menuSearch": "Buscar en Google \"EUR 12,990\"",
+      "menuPrint": "Imprimir...",
+      "menuCommand": "AM: Calcular ROI para este precio",
+      "menuSource": "Ver codigo fuente",
+      "menuInspect": "Inspeccionar"
     }
   },
   "DemoPage": {

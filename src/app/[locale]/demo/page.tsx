@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 
 import { Background } from "@/components/background";
+import { DashedLine } from "@/components/dashed-line";
 import { DemoCalculator } from "@/components/demo-calculator";
 
 const includedKeys = ["0", "1"] as const;
@@ -38,7 +39,7 @@ export default function DemoPage() {
             {/* Mobile: collapsible lists to reduce scroll (simple) */}
             <div className="mt-6 grid gap-4 md:hidden">
               <details className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-1/40 [&::-webkit-details-marker]:hidden">
+                <summary className="focus-visible:ring-chart-1/40 flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:ring-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden">
                   <span className="text-foreground text-sm font-semibold">
                     {t("info.includedTitle")}
                   </span>
@@ -63,7 +64,7 @@ export default function DemoPage() {
               </details>
 
               <details className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-1/40 [&::-webkit-details-marker]:hidden">
+                <summary className="focus-visible:ring-chart-1/40 flex cursor-pointer list-none items-center justify-between gap-3 py-1 focus-visible:ring-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden">
                   <span className="text-foreground text-sm font-semibold">
                     {t("info.notIncludedTitle")}
                   </span>
@@ -123,6 +124,10 @@ export default function DemoPage() {
           >
             <DemoCalculator />
           </Suspense>
+
+          <div className="relative mt-21 flex items-center justify-center md:hidden">
+            <DashedLine className="text-muted-foreground" />
+          </div>
         </div>
       </section>
     </Background>

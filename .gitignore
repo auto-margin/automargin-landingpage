@@ -40,7 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .qodo
+tsconfig.tsbuildinfo
 
 # cursor / agent workspaces
 .cursor
 .playwright-mcp
+.claude
+.CLAUDE.md
+CLAUDE.md
