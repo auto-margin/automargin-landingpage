@@ -106,24 +106,30 @@ export default function Contact() {
               <div className="mt-4 space-y-3 text-sm">
                 <a
                   href={`mailto:${EMAIL_GENERAL}`}
-                  className="text-muted-foreground hover:text-foreground flex items-center gap-2"
+                  className="text-muted-foreground hover:text-foreground flex items-start gap-3"
                 >
-                  <Mail className="size-4 opacity-80" aria-hidden />
-                  {EMAIL_GENERAL}
+                  <span className="flex size-6 shrink-0 items-center justify-center">
+                    <Mail className="size-4 opacity-80" aria-hidden />
+                  </span>
+                  <span className="leading-6">{EMAIL_GENERAL}</span>
                 </a>
-                <div className="text-muted-foreground flex items-center gap-2">
-                  <Clock className="size-4 opacity-80" aria-hidden />
-                  <span>{t("openHours")}</span>
+                <div className="text-muted-foreground flex items-start gap-3">
+                  <span className="flex size-6 shrink-0 items-center justify-center">
+                    <Clock className="size-4 opacity-80" aria-hidden />
+                  </span>
+                  <span className="leading-6">{t("openHours")}</span>
                 </div>
                 <a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground flex items-center gap-2 pt-1"
+                  className="text-muted-foreground hover:text-foreground flex items-start gap-3"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="size-4 opacity-80" aria-hidden />
-                  <span className="text-sm">LinkedIn</span>
+                  <span className="flex size-6 shrink-0 items-center justify-center">
+                    <Linkedin className="size-4 opacity-80" aria-hidden />
+                  </span>
+                  <span className="pt-[2px] leading-6">LinkedIn</span>
                 </a>
               </div>
             </div>

@@ -70,7 +70,7 @@ export function Footer() {
 
         {/* Slogan – start-aligned, above circle in stack order */}
         <div className="mt-16 self-center py-2 text-start md:mt-24 lg:mt-0 lg:py-12">
-          <h2 className="text-5xl leading-tight font-bold tracking-tight md:text-6xl lg:-ml-0.5 lg:text-7xl xl:-ml-1 xl:text-8xl">
+          <h2 className="text-4xl leading-tight font-bold tracking-tight md:text-6xl lg:-ml-0.5 lg:text-7xl xl:-ml-1 xl:text-8xl">
             <span className="text-foreground block">{t("slogan")}</span>
           </h2>
         </div>

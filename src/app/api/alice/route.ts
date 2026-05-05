@@ -1,6 +1,10 @@
 import {
-  ALICE_SITE_CONTEXT,
   findStaticAliceAnswer,
+  getAliceAiSuggestions,
+  getAliceFallbackCopy,
+  getAliceInstructions,
+  getAliceUnavailableAnswer,
+  resolveAliceLocale,
   type AliceAnswer,
 } from "@/features/alice/knowledge";
 import { checkAliceLimit } from "@/lib/rate-limit";
@@ -16,6 +20,7 @@ type AliceMessage = {
 type AliceRequest = {
   message?: unknown;
   path?: unknown;
+  locale?: unknown;
   transcript?: unknown;
 };
 
@@ -57,39 +62,26 @@ function json(data: AliceResponse, status = 200) {
   });
 }
 
-function unavailableAnswer(): AliceResponse {
+function unavailableAnswer(locale: ReturnType<typeof resolveAliceLocale>): AliceResponse {
   return {
     source: "fallback",
-    answer:
-      "I can answer common Auto-margin questions here, but the assistant fallback is temporarily unavailable. For anything specific, use the [Contact page](/contact) or email to@auto-margin.com.",
-    suggestions: ["How does pricing work?", "What does Auto-margin do?"],
+    ...getAliceUnavailableAnswer(locale),
   };
-}
-
-function buildInstructions(path: string) {
-  return `You are ALICE, the concise assistant for the Auto-margin landing page.
-Use only the provided Auto-margin context and the current conversation.
-If the user asks for something outside Auto-margin, politely say you can only help with Auto-margin, its website, pricing, demo, guidebook, contact, and product information.
-Do not invent prices, legal claims, integrations, guarantees, or availability.
-Prefer directing users to the Contact page at /contact for sales, partnership, support, custom pricing, account, or private-data questions.
-Keep answers under 90 words.
-Current page path: ${path || "/"}
-
-Auto-margin context:
-${ALICE_SITE_CONTEXT}`;
 }
 
 async function callOpenAI({
   message,
+  locale,
   path,
   transcript,
 }: {
   message: string;
+  locale: ReturnType<typeof resolveAliceLocale>;
   path: string;
   transcript: AliceMessage[];
 }): Promise<AliceResponse> {
   const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return unavailableAnswer();
+  if (!apiKey) return unavailableAnswer(locale);
 
   const input = [
     ...transcript.map((item) => ({
@@ -110,7 +102,7 @@ async function callOpenAI({
     },
     body: JSON.stringify({
       model: MODEL,
-      instructions: buildInstructions(path),
+      instructions: getAliceInstructions(locale, path),
       input,
       max_output_tokens: 220,
       store: false,
@@ -119,18 +111,18 @@ async function callOpenAI({
   });
 
   if (!response.ok) {
-    return unavailableAnswer();
+    return unavailableAnswer(locale);
   }
 
   const data = (await response.json()) as { output_text?: unknown };
   const answer = cleanText(data.output_text, 1200);
 
-  if (!answer) return unavailableAnswer();
+  if (!answer) return unavailableAnswer(locale);
 
   return {
     source: "ai",
     answer,
-    suggestions: ["Contact sales", "Try the demo"],
+    suggestions: getAliceAiSuggestions(locale),
   };
 }
 
@@ -139,10 +131,12 @@ export async function POST(request: Request) {
   try {
     body = (await request.json()) as AliceRequest;
   } catch {
+    const locale = resolveAliceLocale("en");
+    const fallbackCopy = getAliceFallbackCopy(locale);
     return json(
       {
         source: "fallback",
-        answer: "I could not read that message. Please try again.",
+        answer: fallbackCopy.unreadableMessage,
       },
       400,
     );
@@ -150,19 +144,21 @@ export async function POST(request: Request) {
 
   const message = cleanText(body.message);
   const path = cleanText(body.path, 160);
+  const locale = resolveAliceLocale(body.locale);
   const transcript = cleanTranscript(body.transcript);
+  const fallbackCopy = getAliceFallbackCopy(locale);
 
   if (!message || message.length < 2) {
     return json(
       {
         source: "fallback",
-        answer: "Send me a short question about Auto-margin and I will help.",
+        answer: fallbackCopy.shortMessage,
       },
       400,
     );
   }
 
-  const staticAnswer = findStaticAliceAnswer(message);
+  const staticAnswer = findStaticAliceAnswer(locale, message);
   if (staticAnswer) {
     return json({ source: "static", ...staticAnswer });
   }
@@ -175,22 +171,21 @@ export async function POST(request: Request) {
       return json(
         {
           source: "fallback",
-          answer:
-            "I have reached the question limit for this browser/IP window. I can still help with common Auto-margin topics like pricing, demo, files, markets, and contact.",
-          suggestions: ["How does pricing work?", "Contact sales"],
+          answer: fallbackCopy.rateLimit,
+          suggestions: getAliceAiSuggestions(locale),
         },
         429,
       );
     }
   } catch {
     if (process.env.NODE_ENV === "production") {
-      return json(unavailableAnswer(), 503);
+      return json(unavailableAnswer(locale), 503);
     }
   }
 
   try {
-    return json(await callOpenAI({ message, path, transcript }));
+    return json(await callOpenAI({ message, locale, path, transcript }));
   } catch {
-    return json(unavailableAnswer(), 503);
+    return json(unavailableAnswer(locale), 503);
   }
 }

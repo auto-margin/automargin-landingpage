@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 type TocItem = { id: string; text: string; level: 2 | 3 };
 
 function slugify(input: string) {
@@ -14,6 +16,7 @@ function slugify(input: string) {
 }
 
 export function GuidebookToc() {
+  const pathname = usePathname();
   const [items, setItems] = useState<TocItem[]>([]);
 
   useEffect(() => {
@@ -50,13 +53,13 @@ export function GuidebookToc() {
 
     const id = window.requestAnimationFrame(() => setItems(next));
     return () => window.cancelAnimationFrame(id);
-  }, []);
+  }, [pathname]);
 
   const hasItems = useMemo(() => items.length > 1, [items.length]);
   if (!hasItems) return null;
 
   return (
-    <aside className="sticky top-10 hidden self-start lg:block">
+    <aside className="hidden self-start pl-2 lg:block">
       <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
         Table of contents
       </p>

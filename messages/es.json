@@ -279,7 +279,7 @@
     "engagement": {
       "title": "Cómo usar la plataforma",
       "description": "Elige el modelo que encaja con cómo recibes ofertas, revisas stock y quieres trabajar.",
-      "cta": "Contáctanos",
+      "cta": "Abrir guidebook",
       "models": {
         "automatic": {
           "title": "Automatic access",

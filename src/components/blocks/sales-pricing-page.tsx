@@ -39,8 +39,8 @@ function AccessModelVisual({
   if (model === "automatic") {
     return (
       <svg
-        viewBox="0 0 260 72"
-        className="text-primary h-18 w-full dark:text-sky-300"
+        viewBox="20 0 220 72"
+        className="text-primary h-20 w-full dark:text-sky-300"
         aria-hidden
       >
         <path
@@ -52,53 +52,109 @@ function AccessModelVisual({
           strokeDasharray="6 7"
         />
         <rect
-          x="20"
-          y="16"
-          width="54"
-          height="40"
+          x="23"
+          y="18"
+          width="48"
+          height="36"
           rx="10"
           className="fill-primary/10 stroke-border dark:fill-sky-300/10 dark:stroke-sky-300/25"
         />
         <rect
-          x="103"
-          y="16"
-          width="54"
-          height="40"
+          x="106"
+          y="18"
+          width="48"
+          height="36"
           rx="10"
           className="fill-primary/10 stroke-border dark:fill-sky-300/10 dark:stroke-sky-300/25"
         />
         <rect
-          x="186"
-          y="16"
-          width="54"
-          height="40"
+          x="189"
+          y="18"
+          width="48"
+          height="36"
           rx="10"
           className="fill-primary/10 stroke-border dark:fill-sky-300/10 dark:stroke-sky-300/25"
         />
-        <path
-          d="M35 28h24a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H35a3 3 0 0 1-3-3V31a3 3 0 0 1 3-3ZM33 32l14 9 14-9"
-          className="stroke-primary"
+        <svg
+          x="35"
+          y="24"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           fill="none"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M127.5 46a2.5 2.5 0 0 0 5 0M121 40h18M123 40c2.5-2.8 3.5-5.5 3.5-10.5a4.5 4.5 0 0 1 9 0c0 5 1 7.7 3.5 10.5"
           className="stroke-primary"
+        >
+          <path
+            d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <rect x="2" y="4" width="20" height="16" rx="2" strokeWidth="2" />
+        </svg>
+        <svg
+          x="118"
+          y="24"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           fill="none"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M209 45.5h-5a2 2 0 0 1 0-10h4M223.5 47l-3.2-3.2M204 44V27a3.5 3.5 0 0 1 3.5-3.5H219a1.3 1.3 0 0 1 1.3 1.3V35M218.5 41a4.2 4.2 0 1 1-8.4 0 4.2 4.2 0 0 1 8.4 0"
           className="stroke-primary"
+        >
+          <path
+            d="M10.268 21a2 2 0 0 0 3.464 0"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <svg
+          x="201"
+          y="24"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           fill="none"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+          className="stroke-primary"
+        >
+          <path
+            d="M3 7V5a2 2 0 0 1 2-2h2"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17 3h2a2 2 0 0 1 2 2v2"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M21 17v2a2 2 0 0 1-2 2h-2"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7 21H5a2 2 0 0 1-2-2v-2"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="12" cy="12" r="3" strokeWidth="2" />
+          <path
+            d="m16 16-1.9-1.9"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
         <circle r="3" className="fill-primary">
           <animateMotion
             dur="2.4s"
@@ -135,20 +191,26 @@ function AccessModelVisual({
     return (
       <svg
         viewBox="0 0 220 72"
-        className="text-primary h-18 w-full dark:text-sky-300"
+        className="text-primary h-20 w-full dark:text-sky-300"
         aria-hidden
       >
         {[52, 110, 168].map((x, index) => (
           <g key={x}>
-            <circle cx={x} cy="26" r="10" className="fill-primary/15" />
+            <circle cx={x} cy="27" r="8" className="fill-primary/15" />
             <path
-              d={`M${x - 17} 56c2-13 32-13 34 0`}
+              d={`M${x - 14} 53c1.6-10 26.4-10 28 0`}
               className="stroke-primary/70"
               fill="none"
               strokeWidth="2"
               strokeLinecap="round"
             />
-            <circle cx={x} cy="26" r="3" className="fill-primary" opacity=".35">
+            <circle
+              cx={x}
+              cy="27"
+              r="2.5"
+              className="fill-primary"
+              opacity=".35"
+            >
               <animate
                 attributeName="opacity"
                 values=".35;1;.35"
@@ -173,22 +235,22 @@ function AccessModelVisual({
   return (
     <svg
       viewBox="0 0 220 72"
-      className="text-primary h-18 w-full dark:text-sky-300"
+      className="text-primary h-20 w-full dark:text-sky-300"
       aria-hidden
     >
       <rect
-        x="18"
-        y="16"
-        width="54"
-        height="40"
+        x="21"
+        y="18"
+        width="48"
+        height="36"
         rx="10"
         className="fill-primary/10 stroke-border dark:fill-sky-300/10 dark:stroke-sky-300/25"
       />
       <rect
-        x="148"
-        y="16"
-        width="54"
-        height="40"
+        x="151"
+        y="18"
+        width="48"
+        height="36"
         rx="10"
         className="fill-primary/10 stroke-border dark:fill-sky-300/10 dark:stroke-sky-300/25"
       />
@@ -200,22 +262,58 @@ function AccessModelVisual({
         strokeLinecap="round"
         strokeDasharray="6 7"
       />
-      <path
-        d="M31 23h28v25H31zM42 23v7M31 30h28M37 23v7"
-        className="stroke-primary"
+      <svg
+        x="33"
+        y="24"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
         fill="none"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M162 27c0-4 22-4 22 0M162 27v18c0 4 22 4 22 0V27M162 36c0 4 22 4 22 0"
         className="stroke-primary"
+      >
+        <rect x="2" y="4" width="20" height="16" rx="2" strokeWidth="2" />
+        <path
+          d="M10 4v4"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2 8h20"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6 4v4"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <svg
+        x="163"
+        y="24"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
         fill="none"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+        className="stroke-primary"
+      >
+        <ellipse cx="12" cy="5" rx="9" ry="3" strokeWidth="2" />
+        <path
+          d="M3 5V19A9 3 0 0 0 21 19V5"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M3 12A9 3 0 0 0 21 12"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
       <circle r="4.8" className="fill-primary">
         <animateMotion
           dur="3s"
@@ -403,10 +501,10 @@ export function SalesPricingPage({ className }: { className?: string }) {
               </div>
               <Button
                 variant="outline"
-                className="bg-background hidden w-full gap-2 sm:inline-flex sm:w-auto"
+                className="bg-background hidden gap-2 sm:inline-flex sm:w-auto"
                 asChild
               >
-                <Link href="/contact">
+                <Link href="/guidebook">
                   {t("engagement.cta")} <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -416,7 +514,7 @@ export function SalesPricingPage({ className }: { className?: string }) {
               {engagementModels.map((model) => (
                 <Card
                   key={model}
-                  className="flex h-full min-h-[360px] rounded-2xl shadow-sm"
+                  className="flex h-full min-h-[380px] rounded-2xl shadow-sm"
                 >
                   <div className="flex h-full flex-col">
                     <CardHeader className="space-y-4 pb-3">
@@ -437,6 +535,16 @@ export function SalesPricingPage({ className }: { className?: string }) {
                 </Card>
               ))}
             </div>
+
+            <Button
+              variant="outline"
+              className="bg-background mt-4 w-full gap-2 sm:hidden"
+              asChild
+            >
+              <Link href="/guidebook">
+                {t("engagement.cta")} <ArrowRight className="size-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

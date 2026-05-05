@@ -18,10 +18,12 @@ type NavGroup = { label: string; items: NavTreeItem[] };
 
 const NAV: NavGroup[] = [
   {
-    label: "Guides",
+    label: "General",
     items: [
       { label: "Overview", href: "/guidebook" },
-      { label: "How to use", href: "/guidebook/how-to-use" },
+      { label: "How to use optimally", href: "/guidebook/how-to-use" },
+      { label: "Find dealers", href: "/guidebook/find-dealers" },
+      { label: "Is my car good?", href: "/guidebook/is-my-car-good" },
       {
         label: "Auto forwarding",
         href: "/guidebook/auto-forwarding",
@@ -34,8 +36,6 @@ const NAV: NavGroup[] = [
           },
         ],
       },
-      { label: "Find dealers", href: "/guidebook/find-dealers" },
-      { label: "Is my car good?", href: "/guidebook/is-my-car-good" },
     ],
   },
   {

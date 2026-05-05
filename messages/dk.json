@@ -279,7 +279,7 @@
     "engagement": {
       "title": "Sådan kan platformen bruges",
       "description": "Vælg modellen der passer til hvordan du modtager offers, reviewer stock og vil arbejde.",
-      "cta": "Kontakt os",
+      "cta": "Åbn guidebook",
       "models": {
         "automatic": {
           "title": "Automatic access",

@@ -279,7 +279,7 @@
     "engagement": {
       "title": "So kann die Plattform genutzt werden",
       "description": "Wählen Sie das Modell, das dazu passt, wie Sie Angebote erhalten, Fahrzeuge prüfen und arbeiten möchten.",
-      "cta": "Kontakt aufnehmen",
+      "cta": "Guidebook öffnen",
       "models": {
         "automatic": {
           "title": "Automatic access",

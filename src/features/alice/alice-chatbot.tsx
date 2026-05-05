@@ -5,9 +5,16 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { Bot, MessageCircle, Minus, Send, X } from "lucide-react";
+import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  getAliceDefaultSuggestions,
+  getAliceUiCopy,
+  resolveAliceLocale,
+} from "@/features/alice/knowledge";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 type ChatMessage = {
@@ -23,21 +30,7 @@ type AliceApiResponse = {
   suggestions?: string[];
 };
 
-const welcomeMessage: ChatMessage = {
-  id: "welcome",
-  role: "assistant",
-  content:
-    "Hi, I am Bot. Ask me about Auto-margin, pricing, the demo, supported files, supplier workflow, or how to contact the team.",
-  source: "static",
-};
-
-const quickPrompts = [
-  "What does Auto-margin do?",
-  "How does pricing work?",
-  "Can I try a demo?",
-];
 const MIN_TYPING_MS = 650;
-const STORAGE_KEY = "automargin:bot-chat";
 const MAX_STORED_MESSAGES = 20;
 
 function createId() {
@@ -59,25 +52,25 @@ function renderTextWithLinks(text: string) {
     const mappedLink = trimmed.match(/^\[([^\]]+)\]\((\/[a-z0-9-/#]*)\)$/i);
     if (mappedLink?.[1] && mappedLink?.[2]) {
       return (
-        <a
+        <Link
           key={`${part}-${index}`}
-          href={mappedLink[2]}
+          href={mappedLink[2] as "/"}
           className="font-medium underline underline-offset-4"
         >
           {mappedLink[1]}
-        </a>
+        </Link>
       );
     }
 
     if (trimmed.startsWith("/")) {
       return (
-        <a
+        <Link
           key={`${part}-${index}`}
-          href={trimmed}
+          href={trimmed as "/"}
           className="font-medium underline underline-offset-4"
         >
           {part}
-        </a>
+        </Link>
       );
     }
 
@@ -99,10 +92,26 @@ function renderTextWithLinks(text: string) {
 
 export function AliceChatbot({ className }: { className?: string }) {
   const pathname = usePathname();
+  const locale = resolveAliceLocale(useLocale());
+  const copy = useMemo(() => getAliceUiCopy(locale), [locale]);
+  const defaultSuggestions = useMemo(
+    () => getAliceDefaultSuggestions(locale),
+    [locale],
+  );
+  const welcomeMessage = useMemo<ChatMessage>(
+    () => ({
+      id: "welcome",
+      role: "assistant",
+      content: copy.welcomeMessage,
+      source: "static",
+    }),
+    [copy.welcomeMessage],
+  );
+  const storageKey = useMemo(() => `automargin:bot-chat:${locale}`, [locale]);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [pending, setPending] = useState(false);
-  const [suggestions, setSuggestions] = useState(quickPrompts);
+  const [suggestions, setSuggestions] = useState<string[]>(defaultSuggestions);
   const [messages, setMessages] = useState<ChatMessage[]>([welcomeMessage]);
   const [hydrated, setHydrated] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
@@ -130,8 +139,10 @@ export function AliceChatbot({ className }: { className?: string }) {
 
   useEffect(() => {
     try {
-      const raw = window.sessionStorage.getItem(STORAGE_KEY);
+      const raw = window.sessionStorage.getItem(storageKey);
       if (!raw) {
+        setSuggestions(defaultSuggestions);
+        setMessages([welcomeMessage]);
         setHydrated(true);
         return;
       }
@@ -151,6 +162,8 @@ export function AliceChatbot({ className }: { className?: string }) {
         saved.suggestions.every((item) => typeof item === "string")
       ) {
         setSuggestions(saved.suggestions.slice(0, 3));
+      } else {
+        setSuggestions(defaultSuggestions);
       }
 
       if (Array.isArray(saved.messages)) {
@@ -185,21 +198,25 @@ export function AliceChatbot({ className }: { className?: string }) {
 
         if (safeMessages.length) {
           setMessages(safeMessages);
+        } else {
+          setMessages([welcomeMessage]);
         }
+      } else {
+        setMessages([welcomeMessage]);
       }
     } catch {
-      window.sessionStorage.removeItem(STORAGE_KEY);
+      window.sessionStorage.removeItem(storageKey);
     } finally {
       setHydrated(true);
     }
-  }, []);
+  }, [defaultSuggestions, storageKey, welcomeMessage]);
 
   useEffect(() => {
     if (!hydrated) return;
 
     try {
       window.sessionStorage.setItem(
-        STORAGE_KEY,
+        storageKey,
         JSON.stringify({
           open,
           suggestions,
@@ -209,7 +226,7 @@ export function AliceChatbot({ className }: { className?: string }) {
     } catch {
       // Ignore storage failures; the chatbot should still work without memory.
     }
-  }, [hydrated, messages, open, suggestions]);
+  }, [hydrated, messages, open, storageKey, suggestions]);
 
   async function sendMessage(rawMessage: string) {
     const content = rawMessage.trim();
@@ -237,14 +254,13 @@ export function AliceChatbot({ className }: { className?: string }) {
         body: JSON.stringify({
           message: content,
           path: pathname,
+          locale,
           transcript,
         }),
       });
 
       const data = (await response.json()) as AliceApiResponse;
-      const answer =
-        data.answer ??
-        "I could not answer that right now. Please try again or use the [Contact page](/contact).";
+      const answer = data.answer ?? copy.genericFailure;
 
       const elapsed = Date.now() - startedAt;
       if (elapsed < MIN_TYPING_MS) {
@@ -280,7 +296,7 @@ export function AliceChatbot({ className }: { className?: string }) {
           id: createId(),
           role: "assistant",
           content:
-            "I am temporarily unavailable. You can still reach Auto-margin on the [Contact page](/contact) or at to@auto-margin.com.",
+            copy.temporaryUnavailable,
           source: "fallback",
         },
       ]);
@@ -306,9 +322,9 @@ export function AliceChatbot({ className }: { className?: string }) {
     setOpen(false);
     setInput("");
     setPending(false);
-    setSuggestions(quickPrompts);
+    setSuggestions(defaultSuggestions);
     setMessages([welcomeMessage]);
-    window.sessionStorage.removeItem(STORAGE_KEY);
+    window.sessionStorage.removeItem(storageKey);
   }
 
   return (
@@ -320,7 +336,7 @@ export function AliceChatbot({ className }: { className?: string }) {
     >
       {open ? (
         <section
-          aria-label="Bot chatbot"
+          aria-label={copy.openAria}
           className="border-border bg-background text-foreground flex h-[min(620px,calc(100vh-2rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-lg border shadow-2xl sm:w-[390px]"
         >
           <header className="border-border flex items-center justify-between border-b px-4 py-3">
@@ -329,9 +345,11 @@ export function AliceChatbot({ className }: { className?: string }) {
                 <Bot className="size-5" aria-hidden />
               </span>
               <div className="min-w-0">
-                <h2 className="truncate text-sm font-semibold">Bot</h2>
+                <h2 className="truncate text-sm font-semibold">
+                  {copy.botLabel}
+                </h2>
                 <p className="text-muted-foreground truncate text-xs">
-                  Auto-margin assistant
+                  {copy.botSubtitle}
                 </p>
               </div>
             </div>
@@ -341,7 +359,7 @@ export function AliceChatbot({ className }: { className?: string }) {
                 variant="ghost"
                 size="icon-sm"
                 onClick={minimizeChat}
-                aria-label="Minimize Bot"
+                aria-label={copy.minimizeAria}
               >
                 <Minus className="size-4" aria-hidden />
               </Button>
@@ -350,7 +368,7 @@ export function AliceChatbot({ className }: { className?: string }) {
                 variant="ghost"
                 size="icon-sm"
                 onClick={closeAndResetChat}
-                aria-label="Close and reset Bot"
+                aria-label={copy.closeAria}
               >
                 <X className="size-4" aria-hidden />
               </Button>
@@ -380,7 +398,7 @@ export function AliceChatbot({ className }: { className?: string }) {
                   <p>{renderTextWithLinks(message.content)}</p>
                   {message.role === "assistant" && message.source === "ai" ? (
                     <p className="mt-1 text-[11px] opacity-70">
-                      Assistant response
+                      {copy.aiBadge}
                     </p>
                   ) : null}
                 </div>
@@ -390,7 +408,7 @@ export function AliceChatbot({ className }: { className?: string }) {
             {pending ? (
               <div className="flex justify-start">
                 <div className="bg-muted rounded-lg px-3 py-2 text-sm">
-                  Bot is typing...
+                  {copy.typing}
                 </div>
               </div>
             ) : null}
@@ -422,7 +440,7 @@ export function AliceChatbot({ className }: { className?: string }) {
                     event.currentTarget.form?.requestSubmit();
                   }
                 }}
-                placeholder="Ask Bot..."
+                placeholder={copy.inputPlaceholder}
                 className="max-h-28 min-h-11 resize-none text-sm"
                 maxLength={600}
                 disabled={pending}
@@ -431,7 +449,7 @@ export function AliceChatbot({ className }: { className?: string }) {
                 type="submit"
                 size="icon"
                 disabled={!input.trim() || pending}
-                aria-label="Send message"
+                aria-label={copy.sendAria}
               >
                 <Send className="size-4" aria-hidden />
               </Button>
@@ -444,10 +462,10 @@ export function AliceChatbot({ className }: { className?: string }) {
           size="lg"
           className="h-12 gap-2 rounded-full px-4 shadow-xl"
           onClick={() => setOpen(true)}
-          aria-label="Open Bot chatbot"
+          aria-label={copy.openAria}
         >
           <MessageCircle className="size-5" aria-hidden />
-          <span>Ask</span>
+          <span>{copy.openButton}</span>
         </Button>
       )}
     </div>

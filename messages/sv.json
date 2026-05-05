@@ -279,7 +279,7 @@
     "engagement": {
       "title": "Så kan plattformen användas",
       "description": "Välj modellen som passar hur du tar emot offers, granskar stock och vill arbeta.",
-      "cta": "Kontakta oss",
+      "cta": "Öppna guidebook",
       "models": {
         "automatic": {
           "title": "Automatic access",

@@ -234,7 +234,7 @@
           "description": "Use partner history to decide what gets reviewed first."
         }
       },
-      "comment": "A setup should match the way offers already come in."
+      "comment": "Choose the setup that fits how you already receive offers."
     },
     "drivers": {
       "title": "What we align before a proposal",
@@ -279,7 +279,7 @@
     "engagement": {
       "title": "How to use the platform",
       "description": "Choose the operating model that matches how you receive offers, review stock and want to work.",
-      "cta": "Contact us",
+      "cta": "Open guidebook",
       "models": {
         "automatic": {
           "title": "Automatic access",
