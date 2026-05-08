@@ -1,10 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 
 import { Footer } from "@/components/blocks/footer";
 import { Navbar } from "@/components/blocks/navbar";
-import { AliceChatbot } from "@/features/alice/alice-chatbot";
+
+const AliceChatbot = dynamic(
+  () => import("@/features/alice/alice-chatbot").then((m) => m.AliceChatbot),
+  { ssr: false },
+);
 
 export function AppChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

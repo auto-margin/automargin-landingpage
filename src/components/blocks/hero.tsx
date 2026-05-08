@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { HeroImageOverlays } from "@/components/blocks/hero-image-overlays";
+import { HeroOverlaysClient } from "@/components/blocks/hero-overlays.client";
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -86,7 +86,7 @@ export const Hero = () => {
       </div>
 
       <div className="animate-fade-in-up relative mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24 lg:overflow-visible">
-        <HeroImageOverlays />
+        <HeroOverlaysClient />
       </div>
     </section>
   );

@@ -1,19 +1,12 @@
+import { GuidebookArticle } from "../../_shared/guidebook-article";
+
 export default function GuidebookAutoForwardingOutlookPage() {
   return (
-    <article className="prose prose-slate max-w-none dark:prose-invert">
-      <header className="not-prose border-b border-slate-200 pb-6 dark:border-slate-800">
-        <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          Guides · Auto forwarding
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-          Outlook (Microsoft 365)
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
-          Automatically forward specific deal emails to Auto-margin for
-          validation checks.
-        </p>
-      </header>
-
+    <GuidebookArticle
+      sectionLabel="Guides · Auto forwarding"
+      title="Outlook (Microsoft 365)"
+      description="Automatically forward specific deal emails to Auto-margin for validation checks."
+    >
       <section className="mt-8">
         <h2>Recommended setup</h2>
         <ul>
@@ -57,7 +50,7 @@ export default function GuidebookAutoForwardingOutlookPage() {
           </li>
         </ul>
       </section>
-    </article>
+    </GuidebookArticle>
   );
 }
 

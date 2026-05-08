@@ -111,7 +111,7 @@ interface ImageSectionProps {
   className?: string;
 }
 
-export function ImageSection({ images, className }: ImageSectionProps) {
+function ImageSection({ images, className }: ImageSectionProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       {images.map((image, index) => (
@@ -143,7 +143,7 @@ interface TextSectionProps {
   className?: string;
 }
 
-export function TextSection({
+function TextSection({
   eyebrow,
   title,
   paragraphs,

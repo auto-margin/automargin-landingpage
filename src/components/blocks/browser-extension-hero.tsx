@@ -59,7 +59,7 @@ function ExtensionMockup() {
   return (
     <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[25rem]">
       <div
-        className={`absolute -top-8 -left-16 z-20 hidden w-[17.5rem] rounded-2xl border border-black/8 bg-white/98 p-2 shadow-[0_18px_45px_rgba(15,23,42,0.18)] backdrop-blur-sm transition-all duration-500 ease-out md:block dark:border-white/10 dark:bg-slate-950/95 ${
+        className={`absolute -top-8 -left-16 z-20 hidden w-[17.5rem] rounded-2xl border border-black/8 bg-white/98 p-2 text-slate-950 shadow-[0_18px_45px_rgba(15,23,42,0.18)] backdrop-blur-sm transition-all duration-500 ease-out md:block dark:border-black/8 dark:bg-white/98 dark:text-slate-950 ${
           showContextMenu
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-2 opacity-0"
@@ -69,32 +69,32 @@ function ExtensionMockup() {
           {t("selectedPrice")}
         </div>
         <div className="space-y-0.5 rounded-xl">
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuCopy")}</span>
-            <span className="text-muted-foreground text-[10px]">Ctrl+C</span>
+            <span className="text-slate-500 text-[10px]">Ctrl+C</span>
           </div>
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuNewTab")}</span>
             <span />
           </div>
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuCopyHighlight")}</span>
             <span />
           </div>
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuSearch")}</span>
             <span />
           </div>
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuPrint")}</span>
-            <span className="text-muted-foreground text-[10px]">Ctrl+P</span>
+            <span className="text-slate-500 text-[10px]">Ctrl+P</span>
           </div>
-          <div className="my-1 h-px bg-black/8 dark:bg-white/10" />
+          <div className="my-1 h-px bg-black/8" />
           <div className="relative grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-xl bg-sky-50 px-2.5 py-1.75 ring-1 ring-sky-200 dark:bg-sky-500/10 dark:ring-sky-400/20">
             <span className="inline-flex h-4 w-[1.2rem] shrink-0 items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -103,10 +103,10 @@ function ExtensionMockup() {
                 alt="Auto-margin logo"
                 width={24}
                 height={Math.round((24 * 75) / 396)}
-                className="h-auto w-4.5 max-w-none dark:invert"
+                className="h-auto w-4.5 max-w-none"
               />
             </span>
-            <span className="text-foreground text-[12px] font-medium">
+            <span className="text-slate-950 text-[12px] font-medium">
               {t("menuCommand")}
             </span>
             <span className="absolute -right-3 top-1/2 -translate-y-1/2 rotate-6">
@@ -125,13 +125,13 @@ function ExtensionMockup() {
               </svg>
             </span>
           </div>
-          <div className="my-1 h-px bg-black/8 dark:bg-white/10" />
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="my-1 h-px bg-black/8" />
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuSource")}</span>
             <span />
           </div>
-          <div className="text-foreground/88 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
+          <div className="text-slate-900/90 grid grid-cols-[1.2rem_minmax(0,1fr)_auto] items-center gap-x-2 rounded-lg px-2.5 py-1.5 text-[12px]">
             <span />
             <span>{t("menuInspect")}</span>
             <span />

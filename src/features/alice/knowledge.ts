@@ -5,7 +5,7 @@ export type AliceAnswer = {
   suggestions?: string[];
 };
 
-export type AliceUiCopy = {
+type AliceUiCopy = {
   welcomeMessage: string;
   quickPrompts: string[];
   botLabel: string;

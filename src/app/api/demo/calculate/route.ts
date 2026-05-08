@@ -1,41 +1,21 @@
+import { invalidBodyResponse, parseDemoRequest } from "./_shared";
+
 import { checkDemoLimit } from "@/lib/rate-limit";
 import { getRequestIdentity } from "@/lib/request-identity";
 
 export const runtime = "nodejs";
 
-type DemoRequest = {
-  input: string;
-  sourceCountry: string;
-};
-
 export async function POST(request: Request) {
-  let body: DemoRequest;
+  let body: unknown;
   try {
-    body = (await request.json()) as DemoRequest;
+    body = await request.json();
   } catch {
-    return Response.json(
-      { success: false, message: "Invalid request body." },
-      { status: 400 },
-    );
+    return invalidBodyResponse();
   }
 
-  const input = typeof body?.input === "string" ? body.input.trim() : "";
-  const sourceCountry =
-    typeof body?.sourceCountry === "string" ? body.sourceCountry.trim() : "";
-
-  if (!input || input.length < 10) {
-    return Response.json(
-      { success: false, message: "Please enter a longer car description." },
-      { status: 400 },
-    );
-  }
-
-  if (!sourceCountry) {
-    return Response.json(
-      { success: false, message: "Please select a source country." },
-      { status: 400 },
-    );
-  }
+  const parsed = parseDemoRequest(body);
+  if (!parsed.ok) return parsed.response;
+  const { input, sourceCountry } = parsed;
 
   try {
     const identity = await getRequestIdentity();

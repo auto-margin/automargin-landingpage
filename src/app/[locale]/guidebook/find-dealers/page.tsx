@@ -1,21 +1,13 @@
+import { GuidebookArticle } from "../_shared/guidebook-article";
 import { GuidebookPager } from "../guidebook-pager";
 
 export default function GuidebookFindDealersPage() {
   return (
-    <article className="prose prose-slate max-w-none dark:prose-invert">
-      <header className="not-prose border-b border-slate-200 pb-6 dark:border-slate-800">
-        <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          General
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-          Find dealers
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
-          This section applies to users conducting B2B outreach to other
-          dealers. Users selling directly to end customers can skip this page.
-        </p>
-      </header>
-
+    <GuidebookArticle
+      sectionLabel="General"
+      title="Find dealers"
+      description="This section applies to users conducting B2B outreach to other dealers. Users selling directly to end customers can skip this page."
+    >
       <section className="mt-8">
         <p>
           After a vehicle has been evaluated, the next step is identifying
@@ -76,6 +68,6 @@ export default function GuidebookFindDealersPage() {
         nextHref="/guidebook/is-my-car-good"
         nextLabel="Is my car good?"
       />
-    </article>
+    </GuidebookArticle>
   );
 }

@@ -1,3 +1,5 @@
+import { invalidBodyResponse, parseDemoRequest } from "../_shared";
+
 export const runtime = "nodejs";
 
 function sleep(ms: number) {
@@ -27,27 +29,15 @@ export async function POST(request: Request) {
   }
 
   // Basic validation to exercise UI errors.
-  let body: any = null;
+  let body: unknown = null;
   try {
     body = await request.json();
   } catch {
-    return Response.json({ success: false, message: "Invalid request body." }, { status: 400 });
+    return invalidBodyResponse();
   }
 
-  const input = typeof body?.input === "string" ? body.input.trim() : "";
-  const sourceCountry = typeof body?.sourceCountry === "string" ? body.sourceCountry.trim() : "";
-  if (!input || input.length < 10) {
-    return Response.json(
-      { success: false, message: "Please enter a longer car description." },
-      { status: 400 },
-    );
-  }
-  if (!sourceCountry) {
-    return Response.json(
-      { success: false, message: "Please select a source country." },
-      { status: 400 },
-    );
-  }
+  const parsed = parseDemoRequest(body);
+  if (!parsed.ok) return parsed.response;
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {

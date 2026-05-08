@@ -1,19 +1,12 @@
+import { GuidebookArticle } from "../_shared/guidebook-article";
+
 export default function GuidebookDocumentationPage() {
   return (
-    <article className="prose prose-slate max-w-none dark:prose-invert">
-      <header className="not-prose border-b border-slate-200 pb-6 dark:border-slate-800">
-        <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          Documentation
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-          Data inputs and outputs
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
-          A reference for the fields teams typically provide, and the outputs
-          Auto-margin returns for screening and margin validation.
-        </p>
-      </header>
-
+    <GuidebookArticle
+      sectionLabel="Documentation"
+      title="Data inputs and outputs"
+      description="A reference for the fields teams typically provide, and the outputs Auto-margin returns for screening and margin validation."
+    >
       <section className="mt-8">
         <h2>Start here</h2>
         <ul>
@@ -48,7 +41,7 @@ export default function GuidebookDocumentationPage() {
           <li>Dealer-fit / outreach hints</li>
         </ul>
       </section>
-    </article>
+    </GuidebookArticle>
   );
 }
 

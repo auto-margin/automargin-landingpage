@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { GuidebookArticle } from "./_shared/guidebook-article";
 import { GuidebookPager } from "./guidebook-pager";
 
 export const metadata: Metadata = {
@@ -9,21 +10,11 @@ export const metadata: Metadata = {
 
 export default function GuidebookPage() {
   return (
-    <article className="prose prose-slate max-w-none dark:prose-invert">
-      <header className="not-prose border-b border-slate-200 pb-6 dark:border-slate-800">
-        <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          General
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-          Overview
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
-          This guidebook is a working reference for Auto-margin users. It
-          explains how the tool evaluates a vehicle, what input data produces
-          reliable results, and how to interpret the output.
-        </p>
-      </header>
-
+    <GuidebookArticle
+      sectionLabel="General"
+      title="Overview"
+      description="This guidebook is a working reference for Auto-margin users. It explains how the tool evaluates a vehicle, what input data produces reliable results, and how to interpret the output."
+    >
       <section className="mt-8">
         <h2>Sections in this guide</h2>
         <ul>
@@ -67,6 +58,6 @@ export default function GuidebookPage() {
         nextHref="/guidebook/how-to-use"
         nextLabel="How to use optimally"
       />
-    </article>
+    </GuidebookArticle>
   );
 }

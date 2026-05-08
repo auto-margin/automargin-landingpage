@@ -89,11 +89,6 @@ export const serverAction = actionClient
       });
 
       if (error) {
-        console.error("Resend send failed", {
-          error,
-          to: contactToEmail,
-          from: resendFromEmail,
-        });
         return {
           success: false,
           code: "EMAIL_SEND_FAILED",
@@ -102,11 +97,6 @@ export const serverAction = actionClient
       }
 
       if (!data?.id) {
-        console.error("Resend send returned no message id", {
-          data,
-          to: contactToEmail,
-          from: resendFromEmail,
-        });
         return {
           success: false,
           code: "EMAIL_NOT_ACCEPTED",
@@ -119,8 +109,6 @@ export const serverAction = actionClient
         message: "Form submitted successfully",
       };
     } catch (error) {
-      console.error("Unexpected contact form error", error);
-
       return {
         success: false,
         code: "UNEXPECTED_ERROR",

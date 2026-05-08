@@ -1,20 +1,12 @@
+import { GuidebookArticle } from "../_shared/guidebook-article";
+
 export default function GuidebookAutoForwardingPage() {
   return (
-    <article className="prose prose-slate max-w-none dark:prose-invert">
-      <header className="not-prose border-b border-slate-200 pb-6 dark:border-slate-800">
-        <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          Guides
-        </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 md:text-4xl">
-          Auto forwarding
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
-          Set up automatic forwarding so new deals sent to your inbox are routed
-          to Auto-margin for validation checks. This keeps your workflow fast
-          and consistent across the team.
-        </p>
-      </header>
-
+    <GuidebookArticle
+      sectionLabel="Guides"
+      title="Auto forwarding"
+      description="Set up automatic forwarding so new deals sent to your inbox are routed to Auto-margin for validation checks. This keeps your workflow fast and consistent across the team."
+    >
       <section className="mt-8">
         <h2>Before you start</h2>
         <ul>
@@ -111,7 +103,7 @@ export default function GuidebookAutoForwardingPage() {
           <li>We run screening and return a result you can act on</li>
         </ul>
       </section>
-    </article>
+    </GuidebookArticle>
   );
 }
 

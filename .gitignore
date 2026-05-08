@@ -48,3 +48,5 @@ tsconfig.tsbuildinfo
 .claude
 .CLAUDE.md
 CLAUDE.md
+.fallow
+.vscode
