@@ -131,7 +131,7 @@
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Socio · Autoselekt Berlin",
+          "eyebrow": "Socio · Example Auto Group",
           "title": "Mejor socio · últimos 90 días",
           "badge": "Tier 1"
         },
@@ -165,7 +165,7 @@
         },
         "dropping": {
           "eyebrow": "Tier bajando",
-          "title": "Hansa Mobility",
+          "title": "Northline Mobility",
           "trend": "-7.2pp",
           "volume": "211 ofertas",
           "conversion": "8.5%",
@@ -173,7 +173,7 @@
         },
         "rising": {
           "eyebrow": "Tier subiendo",
-          "title": "Genève Auto Trading",
+          "title": "Lakeside Auto Trading",
           "trend": "+12.4pp",
           "volume": "64 ofertas",
           "conversion": "25.0%",

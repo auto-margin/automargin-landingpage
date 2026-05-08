@@ -24,7 +24,7 @@ type SupplierRow = {
 const ROWS: SupplierRow[] = [
   {
     initials: "FA",
-    supplier: "Fr Automobils",
+    supplier: "Falken Auto",
     margin: "19.5%",
     cars: 12,
     profit: "EUR46k",
@@ -35,7 +35,7 @@ const ROWS: SupplierRow[] = [
   },
   {
     initials: "CT",
-    supplier: "Currus Trading",
+    supplier: "Crescent Trading",
     margin: "20.0%",
     cars: 8,
     profit: "EUR36k",
@@ -46,7 +46,7 @@ const ROWS: SupplierRow[] = [
   },
   {
     initials: "V",
-    supplier: "VWFS",
+    supplier: "Vendor Network",
     margin: "19.4%",
     trend: "up",
     cars: 21,
@@ -58,7 +58,7 @@ const ROWS: SupplierRow[] = [
   },
   {
     initials: "TA",
-    supplier: "Tavi Auto Group",
+    supplier: "Sample Auto Group",
     margin: "21.6%",
     trend: "down",
     cars: 2,
@@ -70,7 +70,7 @@ const ROWS: SupplierRow[] = [
   },
   {
     initials: "AP",
-    supplier: "Alex Puller",
+    supplier: "Apex Partners",
     margin: "13.8%",
     trend: "down",
     cars: 44,

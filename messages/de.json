@@ -131,7 +131,7 @@
       },
       "dashboard": {
         "best": {
-          "eyebrow": "Partner · Autoselekt Berlin",
+          "eyebrow": "Partner · Example Auto Group",
           "title": "Bester Partner · letzte 90 Tage",
           "badge": "Tier 1"
         },
@@ -165,7 +165,7 @@
         },
         "dropping": {
           "eyebrow": "Fallender Tier",
-          "title": "Hansa Mobility",
+          "title": "Northline Mobility",
           "trend": "-7.2pp",
           "volume": "211 Angebote",
           "conversion": "8.5%",
@@ -173,7 +173,7 @@
         },
         "rising": {
           "eyebrow": "Steigender Tier",
-          "title": "Genève Auto Trading",
+          "title": "Lakeside Auto Trading",
           "trend": "+12.4pp",
           "volume": "64 Angebote",
           "conversion": "25.0%",
