@@ -25,7 +25,7 @@ const MARKETS: Market[] = [
     flagFile: "pl",
     comingSoon: true,
   },
-  { code: "IT", flagFile: "it" },
+  { code: "IT", flagFile: "it", comingSoon: true },
   {
     code: "CH",
     flagFile: "ch",
@@ -41,6 +41,7 @@ const MARKETS: Market[] = [
   {
     code: "CZ",
     flagFile: "cz",
+    comingSoon: true,
   },
 ];
 
