@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
-const EMAIL = "to@auto-margin.com";
+const EMAIL = "contact@auto-margin.com";
 
 const LINKEDIN_URL = "https://linkedin.com/company/auto-margin";
 const WHATSAPP_URL = "https://wa.me/+41566185544";
