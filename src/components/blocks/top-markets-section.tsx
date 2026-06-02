@@ -16,9 +16,8 @@ type Market = {
 const MARKETS: Market[] = [
   { code: "DE", flagFile: "de" },
   {
-    code: "FR",
-    flagFile: "fr",
-    comingSoon: true,
+    code: "CH",
+    flagFile: "ch",
   },
   {
     code: "PL",
@@ -27,17 +26,18 @@ const MARKETS: Market[] = [
   },
   { code: "IT", flagFile: "it", comingSoon: true },
   {
-    code: "CH",
-    flagFile: "ch",
+    code: "FR",
+    flagFile: "fr",
+    comingSoon: true,
   },
-  { code: "ES", flagFile: "es" },
+  { code: "ES", flagFile: "es", comingSoon: true },
   {
     code: "NL",
     flagFile: "nl",
     comingSoon: true,
   },
-  { code: "BE", flagFile: "be" },
-  { code: "SE", flagFile: "se" },
+  { code: "BE", flagFile: "be", comingSoon: true },
+  { code: "SE", flagFile: "se", comingSoon: true },
   {
     code: "CZ",
     flagFile: "cz",
