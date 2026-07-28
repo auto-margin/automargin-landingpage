@@ -23,6 +23,7 @@ const items = [
     author: "Alan L",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
+    hidden: false,
   },
   {
     id: "flow",
@@ -36,12 +37,14 @@ const items = [
     author: "Stephan",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
+    hidden: false,
   },
   {
     id: "margin",
     author: "Thomas B",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
+    hidden: false,
   },
   {
     id: "deals",
