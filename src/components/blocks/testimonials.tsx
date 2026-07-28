@@ -20,33 +20,35 @@ import { cn } from "@/lib/utils";
 const items = [
   {
     id: "offers",
-    author: "Alex",
-    company: "EuroMotors AG",
-    image: "/testimonials/emotors.svg",
+    author: "Alan L",
+    company: "Swiss Select Import",
+    image: "/testimonials/ssi1337.svg",
   },
   {
     id: "flow",
     author: "Besnik Rulani",
     company: "CarTrade24",
     image: "/testimonials/cartrade.svg",
+    hidden: true,
   },
   {
     id: "stock",
-    author: "Stepan K",
+    author: "Stephan",
     company: "Swiss Select Import",
     image: "/testimonials/ssi1337.svg",
   },
   {
     id: "margin",
-    author: "Kim B",
-    company: "EuroMotors AG",
-    image: "/testimonials/emotors.svg",
+    author: "Thomas B",
+    company: "Swiss Select Import",
+    image: "/testimonials/ssi1337.svg",
   },
   {
     id: "deals",
     author: "Patrik T",
     company: "CarTrade24",
     image: "/testimonials/cartrade.svg",
+    hidden: true,
   },
 ] as const;
 
@@ -86,43 +88,45 @@ export const Testimonials = ({
               className="w-full"
             >
               <CarouselContent className="">
-                {items.map((testimonial, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="xl:basis-1/3.5 grow basis-4/5 sm:basis-3/5 md:basis-2/5 lg:basis-[28%] 2xl:basis-[24%]"
-                  >
-                    <Card className="bg-muted h-full overflow-hidden border-none">
-                      <CardContent className="flex h-full flex-col p-0">
-                        <div className="relative h-[288px] lg:h-[328px]">
-                          <Image
-                            src={testimonial.image}
-                            alt={testimonial.author}
-                            fill
-                            className={cn(
-                              "object-cover object-top opacity-70",
-                              testimonial.image ===
-                                "/testimonials/ssi1337.svg" && "dark:invert",
-                            )}
-                          />
-                        </div>
-                        <div className="flex flex-1 flex-col justify-between gap-10 p-6">
-                          <blockquote className="font-display text-lg leading-none! font-medium md:text-xl lg:text-2xl">
-                            {t(`items.${testimonial.id}.quote`)}
-                          </blockquote>
-                          <div className="space-y-0.5">
-                            <div className="text-primary-on-muted font-semibold">
-                              {testimonial.author},{" "}
-                              {t(`items.${testimonial.id}.role`)}
-                            </div>
-                            <div className="text-muted-foreground text-sm">
-                              {testimonial.company}
+                {items
+                  .filter((testimonial) => !testimonial.hidden)
+                  .map((testimonial, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="xl:basis-1/3.5 grow basis-4/5 sm:basis-3/5 md:basis-2/5 lg:basis-[28%] 2xl:basis-[24%]"
+                    >
+                      <Card className="bg-muted h-full overflow-hidden border-none">
+                        <CardContent className="flex h-full flex-col p-0">
+                          <div className="relative h-[288px] lg:h-[328px]">
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.author}
+                              fill
+                              className={cn(
+                                "object-cover object-top opacity-70",
+                                testimonial.image ===
+                                  "/testimonials/ssi1337.svg" && "dark:invert",
+                              )}
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col justify-between gap-10 p-6">
+                            <blockquote className="font-display text-lg leading-none! font-medium md:text-xl lg:text-2xl">
+                              {t(`items.${testimonial.id}.quote`)}
+                            </blockquote>
+                            <div className="space-y-0.5">
+                              <div className="text-primary-on-muted font-semibold">
+                                {testimonial.author},{" "}
+                                {t(`items.${testimonial.id}.role`)}
+                              </div>
+                              <div className="text-muted-foreground text-sm">
+                                {testimonial.company}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
               </CarouselContent>
               <div className="mt-8 flex gap-3">
                 <CarouselPrevious className="bg-muted hover:bg-muted/80 static size-14.5 translate-x-0 translate-y-0 transition-colors [&>svg]:size-6 lg:[&>svg]:size-8" />

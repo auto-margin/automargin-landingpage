@@ -97,7 +97,7 @@ export function Footer() {
                   LinkedIn <ArrowRight className="size-4" />
                 </a>
               </Button>
-              <Button variant="outline" className="shadow-md" asChild>
+              <Button variant="outline" className="hidden shadow-md" asChild>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
