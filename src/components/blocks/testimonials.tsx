@@ -35,8 +35,8 @@ const items = [
   {
     id: "stock",
     author: "Stephan",
-    company: "Swiss Select Import",
-    image: "/testimonials/ssi1337.svg",
+    company: "EuroMotors AG",
+    image: "/testimonials/emotors.svg",
     hidden: false,
   },
   {
@@ -99,7 +99,7 @@ export const Testimonials = ({
                       className="xl:basis-1/3.5 grow basis-4/5 sm:basis-3/5 md:basis-2/5 lg:basis-[28%] 2xl:basis-[24%]"
                     >
                       <Card className="bg-muted h-full overflow-hidden border-none">
-                        <CardContent className="flex h-full flex-col p-0">
+                        <CardContent className="flex h-full flex-col">
                           <div className="relative h-[288px] lg:h-[328px]">
                             <Image
                               src={testimonial.image}

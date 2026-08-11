@@ -57,7 +57,7 @@ export const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const t = useTranslations("Navbar");
-  const clientLoginUrl = "https://client.auto-margin.com";
+  const clientLoginUrl = "https://you.auto-margin.com";
 
   const normalizedPathname =
     pathname.replace(/^\/(en|sv|de|es|dk)(?=\/|$)/, "") || "/";
@@ -90,7 +90,7 @@ export const Navbar = () => {
           <NavigationMenuList>
             {ITEMS.map((link) =>
               link.dropdownItems ? (
-                <NavigationMenuItem key={link.labelKey} className="">
+                <NavigationMenuItem key={link.labelKey} className="mt-0.5">
                   <NavigationMenuTrigger className="data-[state=open]:bg-accent/50 bg-transparent! px-1.5">
                     {t(link.labelKey)}
                   </NavigationMenuTrigger>

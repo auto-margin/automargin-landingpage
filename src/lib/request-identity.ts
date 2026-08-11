@@ -17,7 +17,7 @@ function firstIp(value: string) {
   return raw;
 }
 
-export async function getRequestIdentity() {
+export async function getClientIp() {
   const requestHeaders = await headers();
   // Prefer CDN/proxy-provided client IP headers (order matters).
   const forwardedFor = requestHeaders.get("x-forwarded-for") ?? "";
@@ -26,22 +26,26 @@ export async function getRequestIdentity() {
   const cfConnectingIp = requestHeaders.get("cf-connecting-ip") ?? "";
   const trueClientIp = requestHeaders.get("true-client-ip") ?? "";
 
-  const userAgent = requestHeaders.get("user-agent") ?? "unknown";
-  const acceptLanguage = requestHeaders.get("accept-language") ?? "";
-
-  const ip =
+  return (
     firstIp(cfConnectingIp) ||
     firstIp(trueClientIp) ||
     firstIp(realIp) ||
     firstIp(vercelForwardedFor) ||
     firstIp(forwardedFor) ||
-    "unknown";
+    "unknown"
+  );
+}
 
+export async function getRequestIdentity() {
+  const ip = await getClientIp();
   if (ip !== "unknown") {
     return ip;
   }
 
   // Fallback when IP isn't available: stable per browser-ish fingerprint.
+  const requestHeaders = await headers();
+  const userAgent = requestHeaders.get("user-agent") ?? "unknown";
+  const acceptLanguage = requestHeaders.get("accept-language") ?? "";
   return createHash("sha256")
     .update(`${userAgent}|${acceptLanguage}`)
     .digest("hex");

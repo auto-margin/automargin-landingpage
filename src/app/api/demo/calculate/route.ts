@@ -1,9 +1,11 @@
 import { invalidBodyResponse, parseDemoRequest } from "./_shared";
 
 import { checkDemoLimit } from "@/lib/rate-limit";
-import { getRequestIdentity } from "@/lib/request-identity";
+import { getClientIp, getRequestIdentity } from "@/lib/request-identity";
 
 export const runtime = "nodejs";
+// Upstream pipeline can take up to ~3 minutes; keep the function alive for the full run.
+export const maxDuration = 180;
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -23,7 +25,7 @@ export async function POST(request: Request) {
     if (!rateLimit.ok) {
       return Response.json(
         {
-          error: "Demo limit reached. Please try again later.",
+          error: "Demo limit reached. Please try again within 24 hours.",
           limitReached: true,
         },
         { status: 429 },
@@ -41,9 +43,15 @@ export async function POST(request: Request) {
     }
   }
 
-  const upstream =
-    process.env.LANDING_DEMO_CALCULATE_URL ??
-    "https://test.auto-margin.com/api/landing/demo/calculate";
+  const upstream = process.env.LANDING_DEMO_CALCULATE_URL;
+  if (!upstream) {
+    return Response.json(
+      { error: "Demo is temporarily unavailable. Please try again shortly." },
+      { status: 503 },
+    );
+  }
+
+  const clientIp = await getClientIp();
 
   let upstreamResponse: Response;
   try {
@@ -52,8 +60,13 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "application/json",
         Accept: "text/event-stream",
+        ...(clientIp !== "unknown" ? { "X-Forwarded-For": clientIp } : {}),
       },
-      body: JSON.stringify({ input, sourceCountry }),
+      body: JSON.stringify({
+        carInput: input,
+        sourceCountry,
+        website: "",
+      }),
       cache: "no-store",
     });
   } catch {
@@ -63,14 +76,22 @@ export async function POST(request: Request) {
     );
   }
 
+  // Honeypot trip on the upstream side: silently drop, matching upstream's 204.
+  if (upstreamResponse.status === 204) {
+    return new Response(null, { status: 204 });
+  }
+
   const contentType = upstreamResponse.headers.get("content-type") ?? "";
 
   // Rate limit is documented as JSON 429.
-  if (upstreamResponse.status === 429 && contentType.includes("application/json")) {
+  if (
+    upstreamResponse.status === 429 &&
+    contentType.includes("application/json")
+  ) {
     // Don't leak upstream copy — keep demo policy consistent on the landing page.
     return Response.json(
       {
-        error: "Demo limit reached. Please try again later.",
+        error: "Demo limit reached. Please try again within 24 hours.",
         message: "Demo limit reached. One demo run per IP / 24 hours.",
         limitReached: true,
       },
@@ -99,4 +120,3 @@ export async function POST(request: Request) {
     },
   });
 }
-
