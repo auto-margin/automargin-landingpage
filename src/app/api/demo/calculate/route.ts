@@ -31,9 +31,10 @@ export async function POST(request: Request) {
         { status: 429 },
       );
     }
-  } catch {
+  } catch (err) {
     // Fail-open in development so UI testing never gets blocked.
     if (process.env.NODE_ENV === "production") {
+      console.error("[demo/calculate] rate-limit check failed:", err);
       return Response.json(
         {
           error: "Demo is temporarily unavailable. Please try again shortly.",
@@ -43,13 +44,9 @@ export async function POST(request: Request) {
     }
   }
 
-  const upstream = process.env.LANDING_DEMO_CALCULATE_URL;
-  if (!upstream) {
-    return Response.json(
-      { error: "Demo is temporarily unavailable. Please try again shortly." },
-      { status: 503 },
-    );
-  }
+  const upstream =
+    process.env.LANDING_DEMO_CALCULATE_URL ??
+    "https://you.auto-margin.com/api/landing/calculate-profit";
 
   const clientIp = await getClientIp();
 
