@@ -10,17 +10,9 @@ type MarketFeedItem = {
 };
 
 const markets: MarketFeedItem[] = [
-  { code: "CZ", country: "Czechia", volume: "0.32M", change: "+0.2%" },
   { code: "DE", country: "Germany", volume: "2.34M", change: "+0.4%" },
-  {
-    code: "IT",
-    country: "Italy",
-    volume: "0.72M",
-    change: "-0.1%",
-    down: true,
-  },
+  { code: "FR", country: "France", volume: "1.24M", change: "+0.3%" },
   { code: "ES", country: "Spain", volume: "0.94M", change: "+0.1%" },
-  { code: "SE", country: "Sweden", volume: "0.41M", change: "+0.3%" },
   { code: "CH", country: "Switzerland", volume: "0.29M", change: "+0.5%" },
   {
     code: "BE",
@@ -46,7 +38,7 @@ export function MarketFeedDivider({ className }: { className?: string }) {
         <div className="border-border/60 bg-background text-muted-foreground z-10 flex h-full shrink-0 items-center gap-3 border-r px-4 text-xs whitespace-nowrap sm:px-8">
           <span className="bg-primary size-1.5 rounded-full" />
           <span className="font-mono text-[10px] font-bold tracking-[0.18em] uppercase">
-            EU Market Feed
+            Market Feed
           </span>
         </div>
 

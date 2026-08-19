@@ -20,23 +20,22 @@ const MARKETS: Market[] = [
     flagFile: "ch",
   },
   {
+    code: "FR",
+    flagFile: "fr",
+  },
+  { code: "ES", flagFile: "es" },
+  { code: "BE", flagFile: "be" },
+  {
     code: "PL",
     flagFile: "pl",
     comingSoon: true,
   },
   { code: "IT", flagFile: "it", comingSoon: true },
   {
-    code: "FR",
-    flagFile: "fr",
-    comingSoon: true,
-  },
-  { code: "ES", flagFile: "es", comingSoon: true },
-  {
     code: "NL",
     flagFile: "nl",
     comingSoon: true,
   },
-  { code: "BE", flagFile: "be", comingSoon: true },
   { code: "SE", flagFile: "se", comingSoon: true },
   {
     code: "CZ",
