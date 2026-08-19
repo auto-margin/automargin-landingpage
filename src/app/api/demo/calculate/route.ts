@@ -4,6 +4,55 @@ import { checkDemoLimit } from "@/lib/rate-limit";
 import { getClientIp, getRequestIdentity } from "@/lib/request-identity";
 
 export const runtime = "nodejs";
+
+// Development only: dump what the upstream pipeline actually returns. The
+// result panel was once built against the mock's invented contract and shipped
+// unable to read a single field, so keep this available for contract drift.
+const DEBUG_UPSTREAM = process.env.NODE_ENV !== "production";
+
+// Production keeps the 1-run-per-IP-per-24h demo limit; development does not.
+const ENFORCE_DEMO_LIMIT = process.env.NODE_ENV === "production";
+
+function logUpstream(label: string, payload: string) {
+  if (!DEBUG_UPSTREAM) return;
+  // eslint-disable-next-line no-console
+  console.log(`[demo/upstream] ${label}: ${payload}`);
+}
+
+/**
+ * Passes every byte straight through while inspecting the SSE frames, so the
+ * response keeps streaming (the pipeline runs for up to ~3 minutes and must not
+ * be buffered).
+ */
+function teeUpstreamForDebug(body: ReadableStream<Uint8Array>) {
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  return body.pipeThrough(
+    new TransformStream<Uint8Array, Uint8Array>({
+      transform(chunk, controller) {
+        controller.enqueue(chunk);
+
+        buffer += decoder.decode(chunk, { stream: true });
+        const frames = buffer.split("\n\n");
+        buffer = frames.pop() ?? "";
+
+        for (const frame of frames) {
+          for (const line of frame.split("\n")) {
+            if (!line.startsWith("data:")) continue;
+            const raw = line.slice(5).trim();
+            if (!raw) continue;
+            if (raw.includes('"complete"') || raw.includes('"error"')) {
+              logUpstream("terminal event", raw);
+            } else {
+              logUpstream("stage", raw);
+            }
+          }
+        }
+      },
+    }),
+  );
+}
 // Upstream pipeline can take up to ~3 minutes; keep the function alive for the full run.
 export const maxDuration = 180;
 
@@ -19,21 +68,25 @@ export async function POST(request: Request) {
   if (!parsed.ok) return parsed.response;
   const { input, sourceCountry } = parsed;
 
-  try {
-    const identity = await getRequestIdentity();
-    const rateLimit = await checkDemoLimit(identity);
-    if (!rateLimit.ok) {
-      return Response.json(
-        {
-          error: "Demo limit reached. Please try again within 24 hours.",
-          limitReached: true,
-        },
-        { status: 429 },
-      );
-    }
-  } catch (err) {
-    // Fail-open in development so UI testing never gets blocked.
-    if (process.env.NODE_ENV === "production") {
+  // The 1-run-per-24h limit makes the demo untestable locally, so it is only
+  // enforced in production. Upstream applies its own per-IP limit regardless,
+  // so this does not hand out unlimited real pipeline runs.
+  if (ENFORCE_DEMO_LIMIT) {
+    try {
+      const identity = await getRequestIdentity();
+      const rateLimit = await checkDemoLimit(identity);
+      if (!rateLimit.ok) {
+        return Response.json(
+          {
+            error: "Demo limit reached. Please try again within 24 hours.",
+            limitReached: true,
+          },
+          { status: 429 },
+        );
+      }
+    } catch (err) {
+      // Never let production run unprotected if the limiter is unreachable.
+      // eslint-disable-next-line no-console
       console.error("[demo/calculate] rate-limit check failed:", err);
       return Response.json(
         {
@@ -85,6 +138,15 @@ export async function POST(request: Request) {
     upstreamResponse.status === 429 &&
     contentType.includes("application/json")
   ) {
+    if (DEBUG_UPSTREAM) {
+      logUpstream(
+        "429 body",
+        await upstreamResponse
+          .clone()
+          .text()
+          .catch(() => "<unreadable>"),
+      );
+    }
     // Don't leak upstream copy — keep demo policy consistent on the landing page.
     return Response.json(
       {
@@ -99,6 +161,7 @@ export async function POST(request: Request) {
   // Pass through any non-stream errors as JSON/text.
   if (!upstreamResponse.ok || !contentType.includes("text/event-stream")) {
     const text = await upstreamResponse.text().catch(() => "");
+    logUpstream(`non-stream ${upstreamResponse.status} (${contentType})`, text);
     return new Response(text || "Unable to run demo right now.", {
       status: upstreamResponse.status || 500,
       headers: {
@@ -108,7 +171,12 @@ export async function POST(request: Request) {
   }
 
   // Stream SSE through to the client.
-  return new Response(upstreamResponse.body, {
+  const outgoing =
+    DEBUG_UPSTREAM && upstreamResponse.body
+      ? teeUpstreamForDebug(upstreamResponse.body)
+      : upstreamResponse.body;
+
+  return new Response(outgoing, {
     status: 200,
     headers: {
       "Content-Type": "text/event-stream; charset=utf-8",

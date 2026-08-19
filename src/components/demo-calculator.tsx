@@ -14,13 +14,15 @@ import {
   HelpDialog,
   ResultPanel,
 } from "@/components/demo-calculator-components";
-import { getDemoEndpoint, streamDemoEvents } from "@/components/demo-calculator-runner";
+import {
+  getDemoEndpoint,
+  streamDemoEvents,
+} from "@/components/demo-calculator-runner";
 import {
   type DemoStageEvent,
   includesBrandToken,
 } from "@/components/demo-calculator-utils";
 import { Link } from "@/i18n/navigation";
-
 
 export function DemoCalculator() {
   const t = useTranslations("DemoPage.calculator");
@@ -36,7 +38,9 @@ export function DemoCalculator() {
   const [error, setError] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
   const [exampleCopied, setExampleCopied] = useState(false);
-  const exampleCopyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const exampleCopyResetRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const abortRef = useRef<AbortController | null>(null);
 
   function stageCopy(stage?: string) {
@@ -75,7 +79,6 @@ export function DemoCalculator() {
     return found ?? null;
   }, [events]);
 
-  const signal = completeEvent?.recommendation?.signal ?? null;
   const successDotLottieRef = useRef<any>(null);
   const successCompleteHandlerRef = useRef<(() => void) | null>(null);
 

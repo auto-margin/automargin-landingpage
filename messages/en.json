@@ -1,7 +1,7 @@
 {
   "Navbar": {
     "features": "Features",
-    "about": "About Us",
+    "about": "About us",
     "pricing": "Pricing",
     "faq": "FAQ",
     "contact": "Contact",
@@ -601,11 +601,9 @@
       "runningTip": "Tip: if nothing happens, you may have reached the demo limit or the backend endpoint is unavailable.",
       "errorTitle": "Couldn't run demo",
       "errorDefault": "Please try again.",
-      "buySignal": "Buy signal",
       "markets": "Markets",
       "basedOn": "Based on",
       "listings": "listings",
-      "profit": "Profit",
       "margin": "Margin",
       "sources": "Sources",
       "open": "Open",
@@ -648,7 +646,9 @@
         "copiedAria": "Example text copied to clipboard",
         "ok": "OK",
         "dialogAria": "Car description help"
-      }
+      },
+      "estimatedProfit": "Estimated profit",
+      "comparablePrices": "Comparable prices"
     }
   },
   "Footer": {

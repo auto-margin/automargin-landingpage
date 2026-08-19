@@ -1,6 +1,9 @@
 "use client";
 
-import { parseSseDataLines, type DemoStageEvent } from "@/components/demo-calculator-utils";
+import {
+  parseSseDataLines,
+  type DemoStageEvent,
+} from "@/components/demo-calculator-utils";
 
 export function getDemoEndpoint(searchParams: URLSearchParams) {
   const mockMode = searchParams.get("mockDemo");
@@ -12,11 +15,18 @@ export function getDemoEndpoint(searchParams: URLSearchParams) {
     : "/api/demo/calculate";
 }
 
-export async function streamDemoEvents(res: Response, onEvents: (events: DemoStageEvent[]) => void) {
+export async function streamDemoEvents(
+  res: Response,
+  onEvents: (events: DemoStageEvent[]) => void,
+) {
   const contentType = res.headers.get("content-type") ?? "";
   if (!res.ok || !contentType.includes("text/event-stream") || !res.body) {
     const text = await res.text().catch(() => "");
-    return { ok: false as const, errorText: text || null, isJson: false as const };
+    return {
+      ok: false as const,
+      errorText: text || null,
+      isJson: false as const,
+    };
   }
 
   const reader = res.body.getReader();
@@ -37,4 +47,3 @@ export async function streamDemoEvents(res: Response, onEvents: (events: DemoSta
 
   return { ok: true as const };
 }
-

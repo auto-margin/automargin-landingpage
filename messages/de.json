@@ -601,11 +601,9 @@
       "runningTip": "Tipp: Wenn nichts passiert, haben Sie möglicherweise das Demo-Limit erreicht oder der Backend-Endpunkt ist nicht verfügbar.",
       "errorTitle": "Demo konnte nicht ausgeführt werden",
       "errorDefault": "Bitte erneut versuchen.",
-      "buySignal": "Kaufsignal",
       "markets": "Märkte",
       "basedOn": "Basierend auf",
       "listings": "Inseraten",
-      "profit": "Gewinn",
       "margin": "Marge",
       "sources": "Quellen",
       "open": "Öffnen",
@@ -648,7 +646,9 @@
         "copiedAria": "Beispieltext in Zwischenablage kopiert",
         "ok": "OK",
         "dialogAria": "Hilfe zur Fahrzeugbeschreibung"
-      }
+      },
+      "estimatedProfit": "Geschätzter Gewinn",
+      "comparablePrices": "Vergleichspreise"
     }
   },
   "Footer": {

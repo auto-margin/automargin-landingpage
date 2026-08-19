@@ -601,11 +601,9 @@
       "runningTip": "Tips: om inget händer kan du ha nått demo-gränsen eller backend-endpointen är otillgänglig.",
       "errorTitle": "Kunde inte köra demo",
       "errorDefault": "Försök igen.",
-      "buySignal": "Köpsignal",
       "markets": "Marknader",
       "basedOn": "Baserat på",
       "listings": "annonser",
-      "profit": "Vinst",
       "margin": "Marginal",
       "sources": "Källor",
       "open": "Öppna",
@@ -648,7 +646,9 @@
         "copiedAria": "Exempeltext kopierad till urklipp",
         "ok": "OK",
         "dialogAria": "Hjälp för bilbeskrivning"
-      }
+      },
+      "estimatedProfit": "Uppskattad vinst",
+      "comparablePrices": "Jämförbara priser"
     }
   },
   "Footer": {

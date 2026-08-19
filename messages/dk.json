@@ -601,11 +601,9 @@
       "runningTip": "Tip: hvis intet sker, kan du have nået demo-grænsen eller backend-endpointet er utilgængeligt.",
       "errorTitle": "Kunne ikke køre demo",
       "errorDefault": "Prøv igen.",
-      "buySignal": "Købssignal",
       "markets": "Markeder",
       "basedOn": "Baseret på",
       "listings": "annoncer",
-      "profit": "Profit",
       "margin": "Margin",
       "sources": "Kilder",
       "open": "Åbn",
@@ -648,7 +646,9 @@
         "copiedAria": "Eksempeltekst kopieret til udklipsholder",
         "ok": "OK",
         "dialogAria": "Hjælp til bilbeskrivelse"
-      }
+      },
+      "estimatedProfit": "Estimeret fortjeneste",
+      "comparablePrices": "Sammenlignelige priser"
     }
   },
   "Footer": {

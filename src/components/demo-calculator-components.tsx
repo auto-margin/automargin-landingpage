@@ -12,9 +12,12 @@ import {
   type DemoStageEvent,
   formatMoney,
   getUrlLabel,
+  marketLink,
+  marketMargin,
+  marketName,
+  marketPricePoints,
+  marketSampleSize,
   recommendedFieldKeys,
-  signalLabel,
-  toneForSignal,
 } from "@/components/demo-calculator-utils";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -32,63 +35,6 @@ const DotLottieReact = dynamic(
   () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
   { ssr: false },
 );
-
-function SignalBadge({ signal }: { signal?: string }) {
-  const s = (signal ?? "").toUpperCase();
-  const isUp = s === "MUSTHAVE" || s === "YES";
-  const isDown = s === "NO";
-
-  return (
-    <span
-      className={[
-        "inline-flex size-8 items-center justify-center rounded-md text-xs font-semibold ring-1",
-        toneForSignal(signal),
-      ].join(" ")}
-    >
-      {isUp ? (
-        <svg
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-4"
-        >
-          <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
-          <path d="M7 10v12" />
-        </svg>
-      ) : isDown ? (
-        <svg
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-4"
-        >
-          <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" />
-          <path d="M17 14V2" />
-        </svg>
-      ) : s === "MAYBE" ? (
-        <span aria-hidden="true" className="text-[12px] leading-none">
-          ?
-        </span>
-      ) : (
-        <span aria-hidden="true" className="text-[12px] leading-none">
-          —
-        </span>
-      )}
-
-      <span className="sr-only">{signalLabel(signal)}</span>
-    </span>
-  );
-}
 
 export function DemoHeader({
   icon,
@@ -280,6 +226,27 @@ export function ResultPanel({
   bindSuccessRef: (next: any) => void;
   completeEvent: DemoStageEvent | null;
 }) {
+  const car = completeEvent?.carSummary;
+  const vehicleLine = [
+    [car?.brand, car?.model].filter(Boolean).join(" "),
+    car?.modelYear,
+    car?.mileage ? `${Number(car.mileage).toLocaleString("en-US")} km` : null,
+    car?.fuelType,
+    car?.transmission,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
+  // Upstream nests each market's search link under a differently named field.
+  const marketSources = (completeEvent?.markets ?? [])
+    .map((market, index) => ({
+      market: market.key ?? String(index),
+      url: marketLink(market),
+    }))
+    .filter((source): source is { market: string; url: string } =>
+      Boolean(source.url),
+    );
+
   return (
     <div className="am-scrollbar border-border/60 bg-muted/20 flex h-[500px] flex-col overflow-auto rounded-lg border p-4 sm:h-[540px] sm:p-5">
       {status !== "complete" ? (
@@ -330,16 +297,23 @@ export function ResultPanel({
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-foreground text-center text-sm font-semibold">
-                {t("buySignal")}
+                {t("estimatedProfit")}
               </p>
               <div className="flex flex-col items-center gap-2 text-center">
-                <div className="space-y-2">
-                  {completeEvent?.recommendation?.text ? (
-                    <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
-                      {completeEvent.recommendation.text}
-                    </p>
-                  ) : null}
-                </div>
+                <p className="text-foreground text-2xl font-semibold tabular-nums">
+                  {completeEvent?.profitMin != null &&
+                  completeEvent?.profitMax != null
+                    ? `${formatMoney(completeEvent.profitMin, "EUR")} – ${formatMoney(
+                        completeEvent.profitMax,
+                        "EUR",
+                      )}`
+                    : "—"}
+                </p>
+                {vehicleLine ? (
+                  <p className="text-muted-foreground max-w-sm text-sm leading-relaxed">
+                    {vehicleLine}
+                  </p>
+                ) : null}
               </div>
             </div>
 
@@ -349,16 +323,18 @@ export function ResultPanel({
                   {t("markets")}
                 </p>
                 <div className="grid gap-2">
-                  {Object.entries(completeEvent.markets).map(([key, m]) => (
+                  {completeEvent.markets.map((m, index) => (
                     <details
-                      key={key}
+                      key={m.key ?? index}
                       className="border-border/60 bg-background/40 group rounded-xl border"
                     >
                       <summary className="hover:bg-background/55 focus-visible:ring-chart-1/40 flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl px-3 py-3 focus-visible:ring-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden">
                         <div className="flex min-w-0 items-center gap-2">
-                          <SignalBadge signal={m.signal} />
+                          <span className="bg-muted/20 text-muted-foreground ring-border inline-flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold uppercase ring-1">
+                            {m.key ?? index + 1}
+                          </span>
                           <span className="text-foreground truncate text-sm font-semibold">
-                            {key}
+                            {marketName(m, index)}
                           </span>
                         </div>
 
@@ -369,7 +345,7 @@ export function ResultPanel({
                                 {t("basedOn")}{" "}
                               </span>
                               <span className="text-foreground font-semibold tabular-nums">
-                                {m.listings?.sampleSize ?? "—"}
+                                {marketSampleSize(m) ?? "—"}
                               </span>{" "}
                               <span>{t("listings")}</span>
                             </div>
@@ -393,10 +369,16 @@ export function ResultPanel({
                         <div className="bg-muted/20 border-border/60 grid grid-cols-2 gap-3 rounded-lg border p-3">
                           <div>
                             <p className="text-muted-foreground text-[11px] font-semibold tracking-wide uppercase">
-                              {t("profit")}
+                              {t("comparablePrices")}
                             </p>
                             <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
-                              {formatMoney(m.profit, m.currency)}
+                              {marketPricePoints(m).length
+                                ? marketPricePoints(m)
+                                    .map((price) =>
+                                      formatMoney(price, m.currency),
+                                    )
+                                    .join(" · ")
+                                : "—"}
                             </p>
                           </div>
                           <div className="text-right">
@@ -404,9 +386,7 @@ export function ResultPanel({
                               {t("margin")}
                             </p>
                             <p className="text-foreground mt-1 text-base font-semibold tabular-nums">
-                              {m.profitPct != null
-                                ? `${m.profitPct.toFixed(1)}%`
-                                : "—"}
+                              {marketMargin(m) ?? "—"}
                             </p>
                           </div>
                         </div>
@@ -417,13 +397,13 @@ export function ResultPanel({
               </div>
             ) : null}
 
-            {completeEvent?.sources ? (
+            {marketSources.length ? (
               <div className="space-y-2">
                 <p className="text-foreground ml-1 text-sm font-semibold">
                   {t("sources")}
                 </p>
                 <div className="space-y-2 pb-3">
-                  {Object.entries(completeEvent.sources).map(([market, url]) => (
+                  {marketSources.map(({ market, url }) => (
                     <a
                       key={market}
                       href={url}
@@ -567,4 +547,3 @@ export function HelpDialog({
     </div>
   );
 }
-

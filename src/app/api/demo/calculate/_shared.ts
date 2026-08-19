@@ -3,7 +3,9 @@ type DemoRequest = {
   sourceCountry: string;
 };
 
-export function parseDemoRequest(body: unknown):
+export function parseDemoRequest(
+  body: unknown,
+):
   | { ok: true; input: string; sourceCountry: string }
   | { ok: false; response: Response } {
   const input =
@@ -37,6 +39,8 @@ export function parseDemoRequest(body: unknown):
 }
 
 export function invalidBodyResponse() {
-  return Response.json({ success: false, message: "Invalid request body." }, { status: 400 });
+  return Response.json(
+    { success: false, message: "Invalid request body." },
+    { status: 400 },
+  );
 }
-
