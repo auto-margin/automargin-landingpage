@@ -9,6 +9,15 @@ import { formSchema } from "@/lib/form-schema";
 import { checkContactLimit } from "@/lib/rate-limit";
 import { getRequestIdentity } from "@/lib/request-identity";
 
+/**
+ * Surfaces the failing branch in the server runtime logs. Submitter PII
+ * (name, email, company, message) is deliberately never logged.
+ */
+function logFailure(code: string, detail?: unknown) {
+  // eslint-disable-next-line no-console
+  console.error(`[contact] ${code}`, detail ?? "");
+}
+
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -26,6 +35,7 @@ export const serverAction = actionClient
         isHoneypotTriggered(parsedInput.website) ||
         isSubmissionTooFast(parsedInput.startedAt)
       ) {
+        logFailure("INVALID_SUBMISSION");
         return {
           success: false,
           code: "INVALID_SUBMISSION",
@@ -33,14 +43,30 @@ export const serverAction = actionClient
         };
       }
 
-      const identity = await getRequestIdentity();
-      const rateLimit = await checkContactLimit(identity);
-      if (!rateLimit.ok) {
-        return {
-          success: false,
-          code: "RATE_LIMITED",
-          message: "Too many attempts. Please wait a minute and try again.",
-        };
+      try {
+        const identity = await getRequestIdentity();
+        const rateLimit = await checkContactLimit(identity);
+        if (!rateLimit.ok) {
+          logFailure("RATE_LIMITED", { reset: rateLimit.reset });
+          return {
+            success: false,
+            code: "RATE_LIMITED",
+            message: "Too many attempts. Please wait a minute and try again.",
+          };
+        }
+      } catch (err) {
+        // Same policy as the alice and demo routes: never run production
+        // unprotected, but fail open in development so a limiter outage
+        // doesn't block local testing.
+        logFailure("RATE_LIMIT_UNAVAILABLE", err);
+        if (process.env.NODE_ENV === "production") {
+          return {
+            success: false,
+            code: "RATE_LIMIT_UNAVAILABLE",
+            message:
+              "Contact form is temporarily unavailable. Please try again.",
+          };
+        }
       }
 
       const resendApiKey = process.env.RESEND_API_KEY;
@@ -48,6 +74,11 @@ export const serverAction = actionClient
       const contactToEmail = process.env.CONTACT_TO_EMAIL;
 
       if (!resendApiKey || !resendFromEmail || !contactToEmail) {
+        logFailure("CONTACT_NOT_CONFIGURED", {
+          hasApiKey: Boolean(resendApiKey),
+          hasFrom: Boolean(resendFromEmail),
+          hasTo: Boolean(contactToEmail),
+        });
         return {
           success: false,
           code: "CONTACT_NOT_CONFIGURED",
@@ -89,6 +120,7 @@ export const serverAction = actionClient
       });
 
       if (error) {
+        logFailure("EMAIL_SEND_FAILED", error);
         return {
           success: false,
           code: "EMAIL_SEND_FAILED",
@@ -97,6 +129,7 @@ export const serverAction = actionClient
       }
 
       if (!data?.id) {
+        logFailure("EMAIL_NOT_ACCEPTED");
         return {
           success: false,
           code: "EMAIL_NOT_ACCEPTED",
@@ -109,6 +142,7 @@ export const serverAction = actionClient
         message: "Form submitted successfully",
       };
     } catch (error) {
+      logFailure("UNEXPECTED_ERROR", error);
       return {
         success: false,
         code: "UNEXPECTED_ERROR",

@@ -38,6 +38,7 @@ type Schema = z.infer<typeof formSchema>;
 export function ContactForm() {
   const t = useTranslations("Contact.form");
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [lockedHeight, setLockedHeight] = useState<number | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
   const form = useForm<Schema, any, Schema>({
@@ -67,10 +68,12 @@ export function ContactForm() {
   const formAction = useAction(serverAction, {
     onSuccess: ({ data }) => {
       if (!data?.success) {
+        setIsSuccess(false);
         setSubmitError(data?.message ?? t("errors.unavailable"));
         return;
       }
       setSubmitError(null);
+      setIsSuccess(true);
       form.reset({
         inquiryType: "business",
         name: "",
@@ -84,6 +87,7 @@ export function ContactForm() {
       });
     },
     onError: () => {
+      setIsSuccess(false);
       setSubmitError(t("errors.submit"));
     },
   });
@@ -91,18 +95,16 @@ export function ContactForm() {
     formAction.execute(data);
   });
 
-  const { isExecuting, hasSucceeded } = formAction;
+  const { isExecuting } = formAction;
 
   return (
     <div
       className="relative"
-      style={
-        hasSucceeded && lockedHeight ? { height: `${lockedHeight}px` } : {}
-      }
+      style={isSuccess && lockedHeight ? { height: `${lockedHeight}px` } : {}}
     >
       <div
         ref={measureRef}
-        className={hasSucceeded ? "pointer-events-none invisible" : ""}
+        className={isSuccess ? "pointer-events-none invisible" : ""}
       >
         <div className="mb-6">
           <h2 className="text-foreground text-xl font-semibold">
@@ -340,7 +342,7 @@ export function ContactForm() {
         </p>
       </div>
 
-      {hasSucceeded ? (
+      {isSuccess ? (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
