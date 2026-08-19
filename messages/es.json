@@ -622,7 +622,7 @@
         "analyzing": "Estamos analizando el vehículo…"
       },
       "errors": {
-        "limitReached": "Límite de demo alcanzado. Una ejecución por IP / 24 horas.",
+        "limitReached": "Límite de demo alcanzado: una ejecución cada 24 horas. Contáctanos para acceso completo.",
         "generic": "No se puede ejecutar la demo ahora mismo.",
         "genericRetry": "No se puede ejecutar la demo ahora mismo. Inténtalo de nuevo.",
         "noResult": "No se devolvió ningún resultado. Inténtalo de nuevo."

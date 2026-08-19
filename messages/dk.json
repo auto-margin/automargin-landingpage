@@ -622,7 +622,7 @@
         "analyzing": "Vi analyserer køretøjet…"
       },
       "errors": {
-        "limitReached": "Demo-grænse nået. Én demo-kørsel pr. IP / 24 timer.",
+        "limitReached": "Demo-grænse nået – én kørsel pr. 24 timer. Kontakt os for fuld adgang.",
         "generic": "Kan ikke køre demo lige nu.",
         "genericRetry": "Kan ikke køre demo lige nu. Prøv igen.",
         "noResult": "Intet resultat returneret. Prøv igen."

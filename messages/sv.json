@@ -622,7 +622,7 @@
         "analyzing": "Vi analyserar fordonet…"
       },
       "errors": {
-        "limitReached": "Demo-gräns nådd. En demo-körning per IP / 24 timmar.",
+        "limitReached": "Demo-gräns nådd — en körning per 24 timmar. Kontakta oss för full åtkomst.",
         "generic": "Kan inte köra demo just nu.",
         "genericRetry": "Kan inte köra demo just nu. Försök igen.",
         "noResult": "Inget resultat returnerades. Försök igen."

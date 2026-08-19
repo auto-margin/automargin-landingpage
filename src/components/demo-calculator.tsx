@@ -145,14 +145,12 @@ export function DemoCalculator() {
           return;
         }
 
+        // Never surface upstream's copy to visitors: it is English-only, so it
+        // breaks on the localised pages, and it advertises a signup flow that
+        // does not exist yet. Map to our own strings instead.
+        const limitReached = json?.limitReached === true || res.status === 429;
         setStatus("error");
-        setError(
-          json?.error ||
-            json?.message ||
-            (res.status === 429
-              ? t("errors.limitReached")
-              : t("errors.generic")),
-        );
+        setError(limitReached ? t("errors.limitReached") : t("errors.generic"));
         return;
       }
 

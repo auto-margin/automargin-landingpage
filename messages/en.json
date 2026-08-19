@@ -622,7 +622,7 @@
         "analyzing": "We are analyzing the vehicle…"
       },
       "errors": {
-        "limitReached": "Demo limit reached. One demo run per IP / 24 hours.",
+        "limitReached": "Demo limit reached — one run per 24 hours. Contact us for full access.",
         "generic": "Unable to run demo right now.",
         "genericRetry": "Unable to run demo right now. Please try again.",
         "noResult": "No result was returned. Please try again."
