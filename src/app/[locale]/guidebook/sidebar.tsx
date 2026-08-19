@@ -45,6 +45,10 @@ const NAV: NavGroup[] = [
       { label: "How to setup", href: "/guidebook/documentation/how-to-setup" },
       { label: "Installation", href: "/guidebook/documentation/installation" },
       {
+        label: "Uploading files",
+        href: "/guidebook/documentation/uploading-files",
+      },
+      {
         label: "Tips & tricks",
         href: "/guidebook/documentation/tips-and-tricks",
       },
@@ -207,4 +211,3 @@ export function GuidebookSidebar() {
     </nav>
   );
 }
-
