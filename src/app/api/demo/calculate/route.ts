@@ -13,6 +13,15 @@ const DEBUG_UPSTREAM = process.env.NODE_ENV !== "production";
 // Production keeps the 1-run-per-IP-per-24h demo limit; development does not.
 const ENFORCE_DEMO_LIMIT = process.env.NODE_ENV === "production";
 
+function hasCachedResult(body: string) {
+  try {
+    const parsed = JSON.parse(body) as { resultData?: { markets?: unknown } };
+    return Array.isArray(parsed?.resultData?.markets);
+  } catch {
+    return false;
+  }
+}
+
 function logUpstream(label: string, payload: string) {
   if (!DEBUG_UPSTREAM) return;
   // eslint-disable-next-line no-console
@@ -133,29 +142,38 @@ export async function POST(request: Request) {
 
   const contentType = upstreamResponse.headers.get("content-type") ?? "";
 
-  // Rate limit is documented as JSON 429.
-  if (
-    upstreamResponse.status === 429 &&
-    contentType.includes("application/json")
-  ) {
-    if (DEBUG_UPSTREAM) {
-      logUpstream(
-        "429 body",
-        await upstreamResponse
-          .clone()
-          .text()
-          .catch(() => "<unreadable>"),
+  // A repeat run inside upstream's cache window is not a stream. It is
+  // documented as a 429 carrying the previous result, but is actually served as
+  // a 200 with `cached: true`. Either way, forward the cached payload so the
+  // visitor sees their result; only fall back to the limit copy when there is
+  // no result to show.
+  if (contentType.includes("application/json")) {
+    const text = await upstreamResponse.text().catch(() => "");
+    logUpstream(`json ${upstreamResponse.status}`, text);
+
+    if (hasCachedResult(text)) {
+      return new Response(text, {
+        status: 200,
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+      });
+    }
+
+    if (upstreamResponse.status === 429) {
+      // Don't leak upstream copy — keep demo policy consistent on the landing page.
+      return Response.json(
+        {
+          error: "Demo limit reached. Please try again within 24 hours.",
+          message: "Demo limit reached. One demo run per IP / 24 hours.",
+          limitReached: true,
+        },
+        { status: 429 },
       );
     }
-    // Don't leak upstream copy — keep demo policy consistent on the landing page.
-    return Response.json(
-      {
-        error: "Demo limit reached. Please try again within 24 hours.",
-        message: "Demo limit reached. One demo run per IP / 24 hours.",
-        limitReached: true,
-      },
-      { status: 429 },
-    );
+
+    return new Response(text || "Unable to run demo right now.", {
+      status: upstreamResponse.ok ? 502 : upstreamResponse.status,
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+    });
   }
 
   // Pass through any non-stream errors as JSON/text.

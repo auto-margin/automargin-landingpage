@@ -20,6 +20,7 @@ export async function streamDemoEvents(
   onEvents: (events: DemoStageEvent[]) => void,
 ) {
   const contentType = res.headers.get("content-type") ?? "";
+
   if (!res.ok || !contentType.includes("text/event-stream") || !res.body) {
     const text = await res.text().catch(() => "");
     return {

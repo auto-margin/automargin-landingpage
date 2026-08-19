@@ -648,7 +648,8 @@
         "dialogAria": "Ayuda para descripción del coche"
       },
       "estimatedProfit": "Beneficio estimado",
-      "comparablePrices": "Precios comparables"
+      "comparablePrices": "Precios comparables",
+      "cachedNotice": "Mostrando tu análisis más reciente de las últimas 24 horas."
     }
   },
   "Footer": {

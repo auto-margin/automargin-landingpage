@@ -648,7 +648,8 @@
         "dialogAria": "Hjælp til bilbeskrivelse"
       },
       "estimatedProfit": "Estimeret fortjeneste",
-      "comparablePrices": "Sammenlignelige priser"
+      "comparablePrices": "Sammenlignelige priser",
+      "cachedNotice": "Viser din seneste kørsel fra de sidste 24 timer."
     }
   },
   "Footer": {

@@ -19,6 +19,7 @@ import {
   streamDemoEvents,
 } from "@/components/demo-calculator-runner";
 import {
+  cachedResultToEvent,
   type DemoStageEvent,
   includesBrandToken,
 } from "@/components/demo-calculator-utils";
@@ -132,6 +133,18 @@ export function DemoCalculator() {
 
       if (contentType.includes("application/json")) {
         const json = (await res.json().catch(() => null)) as any;
+
+        // A run served from upstream's per-IP cache is JSON rather than a
+        // stream, and is flagged limitReached even though it carries the full
+        // previous result. Render the result instead of an error.
+        const cached = cachedResultToEvent(json);
+        if (cached) {
+          setEvents([cached]);
+          setStatus("complete");
+          triggerSuccessAnim();
+          return;
+        }
+
         setStatus("error");
         setError(
           json?.error ||

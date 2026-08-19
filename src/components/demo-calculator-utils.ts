@@ -34,6 +34,8 @@ export type DemoCarSummary = {
 export type DemoStageEvent = {
   stage?: string;
   success?: boolean;
+  /** Set locally when the result came from upstream's per-IP cache. */
+  cached?: boolean;
   message?: string;
   error?: string;
   limitReached?: boolean;
@@ -103,6 +105,36 @@ export function marketPricePoints(market: DemoMarket) {
 
 export function marketName(market: DemoMarket, index: number) {
   return market.label ?? market.key?.toUpperCase() ?? `Market ${index + 1}`;
+}
+
+/**
+ * A repeat run inside upstream's per-IP cache window does not stream. It answers
+ * with JSON carrying the previous run under `resultData` — documented as a 429,
+ * but observed in practice as a 200 with `cached: true`. Normalise either into
+ * the same `complete` event the stream produces, so a cached run renders as a
+ * result instead of surfacing raw JSON in the error box.
+ */
+export function cachedResultToEvent(payload: unknown): DemoStageEvent | null {
+  if (!payload || typeof payload !== "object") return null;
+  const root = payload as Record<string, unknown>;
+  const data = root.resultData;
+  if (!data || typeof data !== "object") return null;
+
+  const result = data as Record<string, unknown>;
+  const markets = result.markets;
+  if (!Array.isArray(markets)) return null;
+
+  return {
+    stage: "complete",
+    success: true,
+    cached: true,
+    carInput: result.carInput as string | undefined,
+    carSummary: result.carSummary as DemoStageEvent["carSummary"],
+    parsedCar: result.parsedCar as DemoStageEvent["parsedCar"],
+    markets: markets as DemoStageEvent["markets"],
+    profitMin: (result.profitMin ?? root.profitMin) as string | undefined,
+    profitMax: (result.profitMax ?? root.profitMax) as string | undefined,
+  };
 }
 
 export const DEMO_CAR_EXAMPLE =

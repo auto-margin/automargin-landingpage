@@ -648,7 +648,8 @@
         "dialogAria": "Car description help"
       },
       "estimatedProfit": "Estimated profit",
-      "comparablePrices": "Comparable prices"
+      "comparablePrices": "Comparable prices",
+      "cachedNotice": "Showing your most recent run from the last 24 hours."
     }
   },
   "Footer": {

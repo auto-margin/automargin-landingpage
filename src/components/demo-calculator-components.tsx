@@ -314,6 +314,11 @@ export function ResultPanel({
                     {vehicleLine}
                   </p>
                 ) : null}
+                {completeEvent?.cached ? (
+                  <p className="text-muted-foreground/80 max-w-sm text-xs leading-relaxed">
+                    {t("cachedNotice")}
+                  </p>
+                ) : null}
               </div>
             </div>
 

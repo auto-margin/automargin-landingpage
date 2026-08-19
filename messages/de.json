@@ -648,7 +648,8 @@
         "dialogAria": "Hilfe zur Fahrzeugbeschreibung"
       },
       "estimatedProfit": "Geschätzter Gewinn",
-      "comparablePrices": "Vergleichspreise"
+      "comparablePrices": "Vergleichspreise",
+      "cachedNotice": "Zeigt Ihren letzten Lauf aus den vergangenen 24 Stunden."
     }
   },
   "Footer": {
