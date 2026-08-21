@@ -12,8 +12,9 @@
     "hero": {
       "title": "Sluta jobba med bilarna.\nBörja jobba med marginalen.",
       "subtitle": "Lägg mindre tid på att granska offers och mer tid på pålitliga partners.",
-      "primaryCta": "Begär access",
-      "secondaryCta": "Testa demo",
+      "demoCta": "Testa live-demon",
+      "accessCta": "Begär åtkomst",
+      "demoCtaNote": "Gratis interaktiv demo · Ingen registrering krävs",
       "features": {
         "market": {
           "title": "Se vad som är värt att köpa",
@@ -562,8 +563,8 @@
       "subtitle": "Beskriv vilken bil som helst du överväger så visar vi hur AutoMargin kan analysera dess vinstpotential med live marknadsdata från ledande marknadsplatser."
     },
     "info": {
-      "title": "Vad denna demo visar",
-      "body": "Detta är en begränsad demo som illustrerar hur en validering av ett enskilt bilpris kan se ut i Auto-margin.",
+      "title": "Vad demon visar",
+      "body": "Det här är en begränsad demo som visar hur en prisvalidering för en enskild bil kan se ut i Auto-margin.",
       "includedTitle": "Ingår (demo)",
       "notIncludedTitle": "Ingår inte",
       "included": {
@@ -579,77 +580,193 @@
         "5": "…och mer"
       }
     },
-    "calculator": {
-      "intro": "Klistra in ett biloffer. Vi streamar analysen och visar resultatet.",
-      "running": "Kör…",
-      "complete": "Klar",
-      "helpButton": "Vad ska jag inkludera?",
-      "enterVehicle": "Ange fordon",
-      "placeholder": "Detaljer om fordonet…",
-      "brandError": "Måste innehålla ett varumärke (t.ex. BMW, Audi, Volvo).",
-      "countryLabel": "Land att jämföra från",
-      "countryPlaceholder": "Välj land",
-      "country": {
-        "DE": "DE - Tyskland",
-        "CH": "CH - Schweiz",
-        "BE": "BE - Belgien"
-      },
-      "weCompare": "Vi jämför mot live-listings.",
-      "weEstimate": "Vi uppskattar återförsäljning och marginal per marknad.",
-      "result": "Resultat",
-      "idleHint": "Kör demon för att se resultat här.",
-      "runningTip": "Tips: om inget händer kan du ha nått demo-gränsen eller backend-endpointen är otillgänglig.",
-      "errorTitle": "Kunde inte köra demo",
-      "errorDefault": "Försök igen.",
-      "markets": "Marknader",
-      "basedOn": "Baserat på",
-      "listings": "annonser",
-      "margin": "Marginal",
-      "sources": "Källor",
-      "open": "Öppna",
-      "calculate": "Beräkna vinst",
-      "calculating": "Beräknar…",
-      "completed": "Klar",
-      "reset": "Återställ",
-      "rateLimitNotice": "Begränsad till en demo-körning per IP / 24 timmar.",
+    "markets": {
+      "DE": "Tyskland",
+      "AT": "Österrike",
+      "BE": "Belgien",
+      "ES": "Spanien",
+      "FR": "Frankrike",
+      "IT": "Italien",
+      "NL": "Nederländerna",
+      "SE": "Sverige",
+      "CH": "Schweiz"
+    },
+    "workspace": {
+      "intro": "Ange ett biloffer. Vi streamar analysen och visar resultatet.",
+      "titleAnalysis": "Marknadsanalys",
+      "titleResult": "Resultat",
+      "subtitleAnalysis": "Beräknad från aktuella annonser på marknadsplatserna.",
+      "editInputs": "Ändra uppgifter",
+      "startOver": "Börja om",
+      "resultKept": "Din analys finns kvar.",
+      "backToResult": "Tillbaka till resultatet",
+      "rateLimitNotice": "Begränsat till tre demokörningar per IP / 24 timmar.",
       "privacyAgreement": "Genom att köra demon godkänner du vår",
       "privacyLink": "integritetspolicy",
-      "abuseNotice": "Vi kan logga förfrågningar och tillämpa rate limits för att förhindra missbruk.",
-      "stages": {
-        "parsing": "Vi parsar nu all information…",
-        "comparing": "Vi jämför nu fordonet…",
-        "calculating": "Vi beräknar nu…",
-        "analyzing": "Vi analyserar fordonet…"
+      "abuseNotice": "Vi kan logga förfrågningar och tillämpa gränser för att förhindra missbruk."
+    },
+    "form": {
+      "vehicleTitle": "Ange fordon",
+      "vehicleSubtitle": "Ju mer du fyller i, desto skarpare blir jämförelsen.",
+      "vehicleSubtitlePaste": "Klistra in en offertrad — vi tolkar märke, modell, miltal och pris.",
+      "inputModeLabel": "Hur du anger fordonet",
+      "inputModePaste": "Klistra in",
+      "inputModeFields": "Fyll i fält",
+      "pasteLabel": "Biloffer",
+      "pastePlaceholder": "t.ex. BMW X5 2020 30d xDrive, 85 000 km, diesel, automat, utpris 32 000 EUR",
+      "brand": "Märke",
+      "brandPlaceholder": "t.ex. Volkswagen",
+      "brandListLabel": "Bilmärken",
+      "brandFreeText": "Saknas märket? Skriv det — vi använder det som du skrev.",
+      "brandToggle": "Visa märkesförslag",
+      "model": "Modell och utrustning",
+      "modelPlaceholder": "t.ex. Tiguan 2.0 TDI R-Line",
+      "registration": "Första registrering",
+      "registrationMonth": "Registreringsmånad",
+      "registrationYear": "År",
+      "monthAny": "Månad",
+      "mileage": "Mätarställning",
+      "fuel": "Drivmedel",
+      "gearbox": "Växellåda",
+      "notSpecified": "Ej angivet",
+      "optional": "Valfritt",
+      "price": "Utpris",
+      "currency": "Valuta",
+      "power": "Effekt",
+      "notes": "Fler detaljer",
+      "notesPlaceholder": "t.ex. DSG, en ägare, komplett servicehistorik",
+      "submit": "Kör analysen",
+      "useExample": "Använd ett exempel",
+      "clear": "Rensa",
+      "fuelOptions": {
+        "diesel": "Diesel",
+        "petrol": "Bensin",
+        "hybrid": "Hybrid",
+        "plugin": "Laddhybrid",
+        "electric": "El",
+        "other": "Annat"
+      },
+      "gearboxOptions": {
+        "manual": "Manuell",
+        "automatic": "Automat"
       },
       "errors": {
-        "limitReached": "Demo-gräns nådd — en körning per 24 timmar. Kontakta oss för full åtkomst.",
-        "generic": "Kan inte köra demo just nu.",
-        "genericRetry": "Kan inte köra demo just nu. Försök igen.",
-        "noResult": "Inget resultat returnerades. Försök igen."
+        "brandRequired": "Ange märket.",
+        "modelRequired": "Ange modellen.",
+        "yearRequired": "Välj registreringsår.",
+        "yearRange": "Ange ett år mellan 1990 och 2027.",
+        "mileageRequired": "Ange mätarställningen.",
+        "mileageRange": "Ange mätarställning i kilometer.",
+        "priceRequired": "Ange utpriset.",
+        "priceRange": "Ange ett rimligt utpris.",
+        "pasteRequired": "Klistra in ett biloffer att analysera.",
+        "pasteTooShort": "Lägg till lite mer — märke, modell, miltal och pris hjälper mest."
+      }
+    },
+    "run": {
+      "stages": {
+        "queued": "Skickar bilen till analysen…",
+        "reading": "Läser beskrivningen…",
+        "identifying": "Identifierar modell och utrustning…",
+        "searching": "Söker aktuella annonser på båda marknaderna…",
+        "comparing": "Jämför priser och räknar marginal…",
+        "finishing": "Sätter ihop analysen…"
       },
-      "help": {
-        "title": "Vad du ska klistra in",
-        "subtitle": "Ju mer detaljer, desto bättre validering.",
-        "closeAria": "Stäng",
-        "recommendedTitle": "Rekommenderade fält",
-        "recommendedFields": {
-          "0": "Märke + modell + år",
-          "1": "Mil",
-          "2": "Bränsle + växellåda",
-          "3": "Begärt pris + valuta",
-          "4": "Anmärkningsvärda optioner / trim"
-        },
-        "exampleTitle": "Exempel",
-        "copy": "Kopiera",
-        "copied": "Kopierad",
-        "copyAria": "Kopiera exempeltext till urklipp",
-        "copiedAria": "Exempeltext kopierad till urklipp",
-        "ok": "OK",
-        "dialogAria": "Hjälp för bilbeskrivning"
+      "stepCounter": "Steg {current} av {total}",
+      "progressLabel": "Analysens förlopp",
+      "slow": "Jobbar fortfarande. Livliga marknader kan ta lite längre tid.",
+      "cancel": "Avbryt",
+      "keepOpen": "Håll fliken öppen — analysen körs live mot marknadsplatserna.",
+      "done": "Analysen är klar"
+    },
+    "result": {
+      "headlineLabelProfit": "Uppskattad vinst",
+      "headlineLabelLoss": "Uppskattad förlust",
+      "headlineHelp": "Efter alla kostnader, baserat på aktuella annonser i Tyskland och Schweiz.",
+      "cachedNotice": "Det här är din senaste körning.",
+      "vehicleUnknown": "Fordon",
+      "askingPrice": "Ditt angivna pris",
+      "allInPrice": "All-in-kostnad i kalkylen",
+      "allInPriceHelp": "Vinst och förlust räknas från den här all-in-kostnaden (baserad på ditt angivna pris), inte från det angivna priset ensamt.",
+      "buyIn": "Inköpspris inkl. kostnader",
+      "kmValue": "{km} km",
+      "marketsLabel": "Resultat per land",
+      "methodology": "Grönt betyder 5% marginal eller mer efter kostnader. Gult är under det. Rött är förlust. Det vi inte kunde mäta visas som ett streck, aldrig som en nolla.",
+      "partialBody": "Vi hittade bilen men inget jämförbart att prissätta mot. Testa en vanligare modell eller fyll i fler detaljer.",
+      "marginLabel": "Marginal efter kostnader",
+      "daysLabel": "Vanlig tid till försäljning",
+      "daysValue": "{days} dagar",
+      "daysSub": "baserat på {count} bekräftade försäljningar",
+      "comparedLabel": "Jämförbara bilar hittade",
+      "pricesLabel": "Billigaste jämförbara priser",
+      "yourCost": "Ditt inköp inkl. kostnader",
+      "resaleLabel": "Försäljningsuppskattning",
+      "resaleB2C": "Konsument",
+      "resaleB2B": "Handel",
+      "openComparison": "Se bilarna vi jämförde",
+      "openComparisonShort": "Jämför",
+      "opensInNewTab": "(öppnas i en ny flik)",
+      "emptyMarketBody": "Inga tillräckligt lika bilar i det här landet. Oftast beror det på en ovanlig modell.",
+      "verdict": {
+        "profit": "Skulle ge vinst",
+        "thin": "Skulle inte köpa",
+        "negative": "Skulle förlora pengar",
+        "unknown": "För lite data"
       },
-      "estimatedProfit": "Uppskattad vinst",
-      "comparablePrices": "Jämförbara priser",
-      "cachedNotice": "Visar din senaste körning från det senaste dygnet."
+      "verdictHint": {
+        "profit": "Typisk återförsäljning efter kostnader klarar ditt totala inköpspris med 5% eller mer.",
+        "thin": "Det finns en tunn positiv marginal, men under 5%-ribban de flesta handlare vill ha.",
+        "negative": "Typisk återförsäljning efter kostnader ligger under ditt totala inköpspris.",
+        "unknown": "Vi hittade inte tillräckligt många jämförbara bilar för att bedöma affären."
+      }
+    },
+    "errors": {
+      "actions": {
+        "retry": "Försök igen",
+        "edit": "Ändra bilen",
+        "contact": "Kontakta oss"
+      },
+      "limit": {
+        "title": "Demogränsen är nådd",
+        "body": "Demon körs upp till tre gånger per IP-adress var 24:e timme. Hör av dig så analyserar vi hur många bilar du vill."
+      },
+      "network": {
+        "title": "Anslutningen bröts",
+        "body": "Vi nådde inte analystjänsten. Kontrollera din anslutning och försök igen."
+      },
+      "noResult": {
+        "title": "Inget resultat kom tillbaka",
+        "body": "Analysen startade men blev aldrig klar. Försök igen."
+      },
+      "parse": {
+        "title": "Vi kunde inte tolka bilen",
+        "body": "Analysen kunde inte identifiera fordonet utifrån uppgifterna. Kontrollera märke, modell och pris och kör igen."
+      },
+      "timeout": {
+        "title": "Analysen tog för lång tid",
+        "body": "Marknadsplatserna svarade för långsamt. Det brukar lösa sig inom några minuter."
+      },
+      "unavailable": {
+        "title": "Demon är tillfälligt otillgänglig",
+        "body": "Analystjänsten svarar inte just nu. Försök igen om en liten stund."
+      },
+      "upstream": {
+        "title": "Analysen kunde inte slutföras",
+        "body": "Något gick fel hos oss när bilen skulle analyseras. Försök igen."
+      }
+    },
+    "cta": {
+      "title": "Vill du ha det här för hela ditt inflöde?",
+      "body": "Det här var en bil. AutoMargin kör samma analys på varje erbjudande som når dig, så teamet bara granskar bilarna som bär marginal.",
+      "benefits": {
+        "0": "Granska hela leverantörslistor på en gång",
+        "1": "Erbjudanden kommer via e-post och analyseras automatiskt",
+        "2": "Se vilka leverantörer som konsekvent ger marginal",
+        "more": "…och mer"
+      },
+      "primary": "Prata med oss",
+      "secondary": "Se åtkomstmodeller",
+      "dismiss": "Stäng"
     }
   },
   "Footer": {

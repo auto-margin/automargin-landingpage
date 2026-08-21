@@ -1,138 +1,150 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 import { GuidebookPager } from "../guidebook-pager";
 
-export default function GuidebookHowToUsePage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookHowToUsePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.howToUse");
+
+  const decideStrong = t("workflowDecideStrong");
+  const decideRest = t("workflowDecide").slice(decideStrong.length);
+  const decideEm = t("workflowDecideEm");
+  const decideEmIndex = decideRest.indexOf(decideEm);
+
   return (
     <GuidebookArticle
-      sectionLabel="General"
-      title="How to use optimally"
-      description="Auto-margin generates a result only as accurate as the vehicle data provided. This page covers the inputs, comparison logic, and workflow that produce reliable evaluations."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Input data requirements</h2>
-        <p>The fields below determine result precision.</p>
-        <h3>Required</h3>
-        <p>Without these fields, an evaluation cannot be completed reliably.</p>
+        <h2>{t("inputDataRequirements")}</h2>
+        <p>{t("inputDataRequirementsIntro")}</p>
+        <h3>{t("required")}</h3>
+        <p>{t("requiredIntro")}</p>
         <ul>
-          <li>Make and model</li>
-          <li>First registration date</li>
-          <li>Mileage</li>
-          <li>Fuel type</li>
-          <li>Transmission</li>
-          <li>Asking price</li>
+          <li>{t("requiredMakeAndModel")}</li>
+          <li>{t("requiredFirstRegistrationDate")}</li>
+          <li>{t("requiredMileage")}</li>
+          <li>{t("requiredFuelType")}</li>
+          <li>{t("requiredTransmission")}</li>
+          <li>{t("requiredAskingPrice")}</li>
         </ul>
-        <p>
-          If asking price is omitted, Auto-margin will still generate a market
-          band and listing comparison, but margin cannot be calculated.
-        </p>
-        <h3>Strongly recommended</h3>
+        <p>{t("askingPriceOmittedNote")}</p>
+        <h3>{t("stronglyRecommended")}</h3>
         <ul>
-          <li>Trim or equipment level</li>
-          <li>Power output in kW or HP</li>
-          <li>Body style</li>
+          <li>{t("recommendedTrimOrEquipmentLevel")}</li>
+          <li>{t("recommendedPowerOutput")}</li>
+          <li>{t("recommendedBodyStyle")}</li>
         </ul>
-        <h3>Optional</h3>
+        <h3>{t("optional")}</h3>
         <ul>
-          <li>VIN</li>
-          <li>Country of origin</li>
-          <li>Notable options</li>
-          <li>Condition notes</li>
+          <li>{t("optionalVin")}</li>
+          <li>{t("optionalCountryOfOrigin")}</li>
+          <li>{t("optionalNotableOptions")}</li>
+          <li>{t("optionalConditionNotes")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Note on trim levels</h2>
-        <p>
-          Auto-margin filters comparable listings using mid-tier and higher
-          trims only, such as R-Line, AMG Line, M Sport, Style, or Sportline.
-          Lower trims are not used as hard filters because a higher trim can be
-          priced equivalently to or below a lower trim depending on
-          configuration.
-        </p>
+        <h2>{t("noteOnTrimLevels")}</h2>
+        <p>{t("noteOnTrimLevelsBody")}</p>
       </section>
 
       <section className="mt-8">
-        <h2>Comparison logic</h2>
-        <p>Auto-margin matches the input vehicle against listings using:</p>
+        <h2>{t("comparisonLogic")}</h2>
+        <p>{t("comparisonLogicIntro")}</p>
         <ul>
-          <li>Brand, model, and trim</li>
-          <li>First registration</li>
-          <li>Mileage</li>
-          <li>Asking price</li>
-          <li>Fuel type</li>
-          <li>Body type</li>
-          <li>Power output</li>
+          <li>{t("comparisonBrandModelTrim")}</li>
+          <li>{t("comparisonFirstRegistration")}</li>
+          <li>{t("comparisonMileage")}</li>
+          <li>{t("comparisonAskingPrice")}</li>
+          <li>{t("comparisonFuelType")}</li>
+          <li>{t("comparisonBodyType")}</li>
+          <li>{t("comparisonPowerOutput")}</li>
         </ul>
-        <p>When present, four equipment flags are also applied:</p>
+        <p>{t("equipmentFlagsIntro")}</p>
         <ul>
-          <li>Panoramic roof (PANO)</li>
-          <li>Towbar (TOW)</li>
-          <li>All-wheel drive (4x4)</li>
-          <li>Seven-seater configuration (7-seater)</li>
+          <li>{t("equipmentPanoramicRoof")}</li>
+          <li>{t("equipmentTowbar")}</li>
+          <li>{t("equipmentAllWheelDrive")}</li>
+          <li>{t("equipmentSevenSeater")}</li>
         </ul>
-        <p>
-          If a result returns few comparable listings, equipment flags or a
-          less common trim may be narrowing the comp pool. Removing one flag and
-          re-running can widen the pool.
-        </p>
+        <p>{t("fewComparablesNote")}</p>
       </section>
 
       <section className="mt-8">
-        <h2>Workflow</h2>
+        <h2>{t("workflow")}</h2>
         <ol>
           <li>
-            <strong>Prepare the input.</strong> Normalize fields to a consistent
-            format. Use a single currency. Use kilometers and either kW or HP
-            consistently across the list.
+            <strong>{t("workflowPrepareInputStrong")}</strong>
+            {t("workflowPrepareInput").slice(t("workflowPrepareInputStrong").length)}
           </li>
           <li>
-            <strong>Select the target market.</strong> Choose the country or
-            region where the vehicle will be sold, not where it is sourced.
+            <strong>{t("workflowSelectTargetMarketStrong")}</strong>
+            {t("workflowSelectTargetMarket").slice(
+              t("workflowSelectTargetMarketStrong").length,
+            )}
           </li>
           <li>
-            <strong>Run the evaluation.</strong> Auto-margin retrieves
-            comparable live listings, calculates the market price band, and
-            returns a margin estimate against the asking price.
+            <strong>{t("workflowRunEvaluationStrong")}</strong>
+            {t("workflowRunEvaluation").slice(
+              t("workflowRunEvaluationStrong").length,
+            )}
           </li>
           <li>
-            <strong>Review the result.</strong> Check the market price band,
-            confidence level, and margin estimate where asking price was
-            provided.
+            <strong>{t("workflowReviewResultStrong")}</strong>
+            {t("workflowReviewResult").slice(t("workflowReviewResultStrong").length)}
           </li>
           <li>
-            <strong>Decide.</strong> Use the <em>Is my car good?</em> page as
-            the decision framework.
+            <strong>{decideStrong}</strong>
+            {decideEmIndex < 0 ? (
+              decideRest
+            ) : (
+              <>
+                {decideRest.slice(0, decideEmIndex)}
+                <em>{decideEm}</em>
+                {decideRest.slice(decideEmIndex + decideEm.length)}
+              </>
+            )}
           </li>
         </ol>
       </section>
 
       <section className="mt-8">
-        <h2>Reading results</h2>
+        <h2>{t("readingResults")}</h2>
         <ul>
-          <li>The price band, not the midpoint, is the result.</li>
-          <li>Confidence reflects market depth.</li>
-          <li>Outliers are excluded from the band where detected.</li>
-          <li>
-            Margin estimates apply typical market costs. User-specific costs
-            must be added separately.
-          </li>
+          <li>{t("readingResultsPriceBand")}</li>
+          <li>{t("readingResultsConfidence")}</li>
+          <li>{t("readingResultsOutliers")}</li>
+          <li>{t("readingResultsMargin")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>File and language support</h2>
+        <h2>{t("fileAndLanguageSupport")}</h2>
         <p>
-          The Auto-margin ingestion engine supports a range of file formats and
-          languages. If an upload fails or returns unexpected results, retry the
-          upload first. If the error persists, rename column headers to standard
-          English equivalents such as <code>price</code>, <code>mileage</code>,
-          and <code>first_registration</code> and retry.
+          {t("fileAndLanguageSupportBody")
+            .split(/(price|mileage|first_registration)/)
+            .map((part, index) =>
+              part === "price" ||
+              part === "mileage" ||
+              part === "first_registration" ? (
+                <code key={`${part}-${index}`}>{part}</code>
+              ) : (
+                <span key={`text-${index}`}>{part}</span>
+              ),
+            )}
         </p>
       </section>
 
       <GuidebookPager
         nextHref="/guidebook/find-dealers"
-        nextLabel="Find dealers"
+        nextLabel={t("nextLabel")}
       />
     </GuidebookArticle>
   );

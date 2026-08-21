@@ -2,7 +2,9 @@ import {
   ArrowRight,
   BarChart3,
   Calculator,
+  CirclePlay,
   Globe,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -36,23 +38,42 @@ export const Hero = () => {
             {t("subtitle")}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
-            <Button asChild>
-              <Link href="/contact">{t("primaryCta")}</Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="from-background h-auto gap-2 bg-linear-to-r to-transparent shadow-md"
-              asChild
-            >
-              <Link
-                href="/demo"
-                className="max-w-56 truncate text-start md:max-w-none"
+          {/*
+            The demo is the page's main conversion point, so it carries the solid
+            brand gradient, the larger footprint and the only motion in the pair;
+            "Request access" stays available as the quieter outline action.
+          */}
+          <div className="mt-8 flex flex-col gap-3.5">
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="am-cta-sheen group from-primary via-primary to-chart-3 shadow-primary/30 hover:shadow-primary/40 h-12 gap-2.5 rounded-lg bg-linear-to-br px-6 text-[0.95rem] font-semibold shadow-lg transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 sm:px-7"
               >
-                {t("secondaryCta")}
-                <ArrowRight className="stroke-3" />
-              </Link>
-            </Button>
+                <Link href="/demo">
+                  <CirclePlay className="size-5" aria-hidden />
+                  {t("demoCta")}
+                  <ArrowRight
+                    className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </Link>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 rounded-lg px-6 text-[0.95rem]"
+              >
+                <Link href="/contact">{t("accessCta")}</Link>
+              </Button>
+            </div>
+
+            <p className="text-muted-foreground flex items-center gap-2 text-sm">
+              <ShieldCheck className="size-4 shrink-0" aria-hidden />
+              {t("demoCtaNote")}
+            </p>
           </div>
         </div>
 

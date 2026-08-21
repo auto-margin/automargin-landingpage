@@ -1,39 +1,46 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookHowToSetupPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookHowToSetupPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.howToSetup");
+
   return (
     <GuidebookArticle
-      sectionLabel="Documentation"
-      title="How to setup (enterprise)"
-      description="Recommended setup for teams: environments, roles, data sources, and operational guardrails."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Environment</h2>
+        <h2>{t("environment")}</h2>
         <ul>
-          <li>Separate staging and production</li>
-          <li>Allowlist outbound connections (if required)</li>
-          <li>Define default comparison markets per region/team</li>
+          <li>{t("envSeparateStagingProduction")}</li>
+          <li>{t("envAllowlistOutbound")}</li>
+          <li>{t("envDefaultComparisonMarkets")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Roles and access</h2>
+        <h2>{t("rolesAndAccess")}</h2>
         <ul>
-          <li>Admin: configuration + integrations</li>
-          <li>Analyst: run screening + export</li>
-          <li>Sales/outreach: view shortlist + notes</li>
+          <li>{t("roleAdmin")}</li>
+          <li>{t("roleAnalyst")}</li>
+          <li>{t("roleSalesOutreach")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Operational guardrails</h2>
+        <h2>{t("operationalGuardrails")}</h2>
         <ul>
-          <li>Define max list size per run (or batching rules)</li>
-          <li>Set minimum required fields before screening</li>
-          <li>Keep an audit trail for decisions</li>
+          <li>{t("guardrailMaxListSize")}</li>
+          <li>{t("guardrailMinimumFields")}</li>
+          <li>{t("guardrailAuditTrail")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

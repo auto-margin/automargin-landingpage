@@ -12,8 +12,9 @@
     "hero": {
       "title": "Stop med at arbejde på bilerne.\nArbejd på marginen.",
       "subtitle": "Brug mindre tid på at gennemgå tilbud og mere tid på pålidelige partnere.",
-      "primaryCta": "Anmod om adgang",
-      "secondaryCta": "Prøv demo",
+      "demoCta": "Prøv live-demoen",
+      "accessCta": "Anmod om adgang",
+      "demoCtaNote": "Gratis interaktiv demo · Ingen tilmelding",
       "features": {
         "market": {
           "title": "Se hvad der er værd at købe",
@@ -562,8 +563,8 @@
       "subtitle": "Beskriv en bil du overvejer, så viser vi hvordan AutoMargin kan analysere dens profit-potentiale med live markedsdata fra førende markedspladser."
     },
     "info": {
-      "title": "Hvad denne demo viser",
-      "body": "Dette er en begrænset demo der illustrerer, hvordan en enkelt prisvalidering kan se ud i Auto-margin.",
+      "title": "Hvad demoen viser",
+      "body": "Dette er en begrænset demo, der viser, hvordan en prisvalidering for en enkelt bil kan se ud i Auto-margin.",
       "includedTitle": "Inkluderet (demo)",
       "notIncludedTitle": "Ikke inkluderet",
       "included": {
@@ -579,77 +580,193 @@
         "5": "…og mere"
       }
     },
-    "calculator": {
-      "intro": "Indsæt et biloffer. Vi streamer analysen og viser resultatet.",
-      "running": "Kører…",
-      "complete": "Færdig",
-      "helpButton": "Hvad skal jeg inkludere?",
-      "enterVehicle": "Angiv køretøj",
-      "placeholder": "Detaljer om køretøjet…",
-      "brandError": "Skal indeholde et mærke (f.eks. BMW, Audi, Volvo).",
-      "countryLabel": "Land at sammenligne fra",
-      "countryPlaceholder": "Vælg land",
-      "country": {
-        "DE": "DE - Tyskland",
-        "CH": "CH - Schweiz",
-        "BE": "BE - Belgien"
-      },
-      "weCompare": "Vi sammenligner med live-listings.",
-      "weEstimate": "Vi estimerer videresalg og margin pr. marked.",
-      "result": "Resultat",
-      "idleHint": "Kør demoen for at se resultater her.",
-      "runningTip": "Tip: hvis intet sker, kan du have nået demo-grænsen eller backend-endpointet er utilgængeligt.",
-      "errorTitle": "Kunne ikke køre demo",
-      "errorDefault": "Prøv igen.",
-      "markets": "Markeder",
-      "basedOn": "Baseret på",
-      "listings": "annoncer",
-      "margin": "Margin",
-      "sources": "Kilder",
-      "open": "Åbn",
-      "calculate": "Beregn profit",
-      "calculating": "Beregner…",
-      "completed": "Færdig",
-      "reset": "Nulstil",
-      "rateLimitNotice": "Begrænset til én demo-kørsel pr. IP / 24 timer.",
+    "markets": {
+      "DE": "Tyskland",
+      "AT": "Østrig",
+      "BE": "Belgien",
+      "ES": "Spanien",
+      "FR": "Frankrig",
+      "IT": "Italien",
+      "NL": "Holland",
+      "SE": "Sverige",
+      "CH": "Schweiz"
+    },
+    "workspace": {
+      "intro": "Angiv et biloffer. Vi streamer analysen og viser resultatet.",
+      "titleAnalysis": "Markedsanalyse",
+      "titleResult": "Resultat",
+      "subtitleAnalysis": "Beregnet ud fra aktuelle annoncer på markedspladserne.",
+      "editInputs": "Ret oplysninger",
+      "startOver": "Start forfra",
+      "resultKept": "Din analyse er der stadig.",
+      "backToResult": "Tilbage til resultatet",
+      "rateLimitNotice": "Begrænset til tre demokørsler pr. IP / 24 timer.",
       "privacyAgreement": "Ved at køre demoen accepterer du vores",
       "privacyLink": "privatlivspolitik",
-      "abuseNotice": "Vi kan logge forespørgsler og anvende rate limits for at forhindre misbrug.",
-      "stages": {
-        "parsing": "Vi parser nu al information…",
-        "comparing": "Vi sammenligner nu køretøjet…",
-        "calculating": "Vi beregner nu…",
-        "analyzing": "Vi analyserer køretøjet…"
+      "abuseNotice": "Vi kan logge forespørgsler og anvende grænser for at forhindre misbrug."
+    },
+    "form": {
+      "vehicleTitle": "Angiv køretøj",
+      "vehicleSubtitle": "Jo mere du udfylder, jo skarpere bliver sammenligningen.",
+      "vehicleSubtitlePaste": "Indsæt en tilbudstekst — vi tolker mærke, model, km og pris.",
+      "inputModeLabel": "Sådan angiver du køretøjet",
+      "inputModePaste": "Indsæt tilbud",
+      "inputModeFields": "Udfyld felter",
+      "pasteLabel": "Biltilbud",
+      "pastePlaceholder": "f.eks. BMW X5 2020 30d xDrive, 85.000 km, diesel, automatgear, udbudspris 32.000 EUR",
+      "brand": "Mærke",
+      "brandPlaceholder": "f.eks. Volkswagen",
+      "brandListLabel": "Bilmærker",
+      "brandFreeText": "Ikke på listen? Skriv det — vi bruger det, som du skrev det.",
+      "brandToggle": "Vis mærkeforslag",
+      "model": "Model og udstyr",
+      "modelPlaceholder": "f.eks. Tiguan 2.0 TDI R-Line",
+      "registration": "Første registrering",
+      "registrationMonth": "Registreringsmåned",
+      "registrationYear": "År",
+      "monthAny": "Måned",
+      "mileage": "Kilometerstand",
+      "fuel": "Brændstof",
+      "gearbox": "Gearkasse",
+      "notSpecified": "Ikke angivet",
+      "optional": "Valgfrit",
+      "price": "Udbudspris",
+      "currency": "Valuta",
+      "power": "Effekt",
+      "notes": "Flere detaljer",
+      "notesPlaceholder": "f.eks. DSG, første ejer, komplet servicehistorik",
+      "submit": "Kør analysen",
+      "useExample": "Brug et eksempel",
+      "clear": "Ryd",
+      "fuelOptions": {
+        "diesel": "Diesel",
+        "petrol": "Benzin",
+        "hybrid": "Hybrid",
+        "plugin": "Plug-in-hybrid",
+        "electric": "El",
+        "other": "Andet"
+      },
+      "gearboxOptions": {
+        "manual": "Manuel",
+        "automatic": "Automatisk"
       },
       "errors": {
-        "limitReached": "Demo-grænse nået – én kørsel pr. 24 timer. Kontakt os for fuld adgang.",
-        "generic": "Kan ikke køre demo lige nu.",
-        "genericRetry": "Kan ikke køre demo lige nu. Prøv igen.",
-        "noResult": "Intet resultat returneret. Prøv igen."
+        "brandRequired": "Angiv mærket.",
+        "modelRequired": "Angiv modellen.",
+        "yearRequired": "Vælg registreringsår.",
+        "yearRange": "Angiv et år mellem 1990 og 2027.",
+        "mileageRequired": "Angiv kilometerstanden.",
+        "mileageRange": "Angiv en kilometerstand i kilometer.",
+        "priceRequired": "Angiv udbudsprisen.",
+        "priceRange": "Angiv en realistisk udbudspris.",
+        "pasteRequired": "Indsæt et biltilbud for at analysere.",
+        "pasteTooShort": "Tilføj lidt mere — mærke, model, km og pris hjælper mest."
+      }
+    },
+    "run": {
+      "stages": {
+        "queued": "Sender bilen til analysen…",
+        "reading": "Læser beskrivelsen…",
+        "identifying": "Identificerer model og udstyr…",
+        "searching": "Søger aktuelle annoncer på begge markeder…",
+        "comparing": "Sammenligner priser og beregner margin…",
+        "finishing": "Samler analysen…"
       },
-      "help": {
-        "title": "Hvad du skal indsætte",
-        "subtitle": "Jo flere detaljer, jo bedre validering.",
-        "closeAria": "Luk",
-        "recommendedTitle": "Anbefalede felter",
-        "recommendedFields": {
-          "0": "Mærke + model + år",
-          "1": "Kilometer",
-          "2": "Brændstof + gearkasse",
-          "3": "Udbudspris + valuta",
-          "4": "Bemærkelsesværdige optioner / trim"
-        },
-        "exampleTitle": "Eksempel",
-        "copy": "Kopiér",
-        "copied": "Kopieret",
-        "copyAria": "Kopiér eksempeltekst til udklipsholder",
-        "copiedAria": "Eksempeltekst kopieret til udklipsholder",
-        "ok": "OK",
-        "dialogAria": "Hjælp til bilbeskrivelse"
+      "stepCounter": "Trin {current} af {total}",
+      "progressLabel": "Analysens forløb",
+      "slow": "Arbejder stadig. Travle markeder kan tage lidt længere tid.",
+      "cancel": "Annullér",
+      "keepOpen": "Hold fanen åben — analysen kører live mod markedspladserne.",
+      "done": "Analysen er færdig"
+    },
+    "result": {
+      "headlineLabelProfit": "Anslået fortjeneste",
+      "headlineLabelLoss": "Anslået tab",
+      "headlineHelp": "Efter alle omkostninger, baseret på aktuelle annoncer i Tyskland og Schweiz.",
+      "cachedNotice": "Det her er din seneste kørsel.",
+      "vehicleUnknown": "Køretøj",
+      "askingPrice": "Din angivne pris",
+      "allInPrice": "All-in-omkostning i beregningen",
+      "allInPriceHelp": "Fortjeneste og tab beregnes ud fra denne all-in-omkostning (baseret på din angivne pris), ikke ud fra den angivne pris alene.",
+      "buyIn": "Købspris inkl. omkostninger",
+      "kmValue": "{km} km",
+      "marketsLabel": "Resultater pr. land",
+      "methodology": "Grøn betyder 5% margin eller mere efter omkostninger. Gul er under det. Rød er tab. Det vi ikke kunne måle vises som en streg, aldrig som et nul.",
+      "partialBody": "Vi fandt bilen, men intet sammenligneligt at prissætte den imod. Prøv en mere almindelig model, eller tilføj flere detaljer.",
+      "marginLabel": "Margin efter omkostninger",
+      "daysLabel": "Typisk salgstid",
+      "daysValue": "{days} dage",
+      "daysSub": "baseret på {count} bekræftede salg",
+      "comparedLabel": "Sammenlignelige biler fundet",
+      "pricesLabel": "Billigste sammenlignelige priser",
+      "yourCost": "Dit køb inkl. omkostninger",
+      "resaleLabel": "Salgsestimat",
+      "resaleB2C": "Forbruger",
+      "resaleB2B": "Handel",
+      "openComparison": "Se de biler vi sammenlignede",
+      "openComparisonShort": "Sammenlign",
+      "opensInNewTab": "(åbner i en ny fane)",
+      "emptyMarketBody": "Ingen biler der ligner nok i dette land. Det skyldes typisk en sjælden model.",
+      "verdict": {
+        "profit": "Ville give fortjeneste",
+        "thin": "Ville ikke købe",
+        "negative": "Ville tabe penge",
+        "unknown": "For lidt data"
       },
-      "estimatedProfit": "Estimeret fortjeneste",
-      "comparablePrices": "Sammenlignelige priser",
-      "cachedNotice": "Viser din seneste kørsel fra de sidste 24 timer."
+      "verdictHint": {
+        "profit": "Typisk videresalg efter omkostninger ligger 5% eller mere over din samlede købspris.",
+        "thin": "Der er en tynd positiv margin, men under 5%-barren de fleste forhandlere vil have.",
+        "negative": "Typisk videresalg efter omkostninger ligger under din samlede købspris.",
+        "unknown": "Vi fandt ikke nok sammenlignelige biler til at vurdere handlen."
+      }
+    },
+    "errors": {
+      "actions": {
+        "retry": "Prøv igen",
+        "edit": "Ret bilen",
+        "contact": "Kontakt os"
+      },
+      "limit": {
+        "title": "Demogrænsen er nået",
+        "body": "Demoen kører op til tre gange pr. IP-adresse hver 24. time. Skriv til os, så analyserer vi lige så mange biler, du vil."
+      },
+      "network": {
+        "title": "Forbindelsen blev afbrudt",
+        "body": "Vi kunne ikke nå analysetjenesten. Tjek din forbindelse og prøv igen."
+      },
+      "noResult": {
+        "title": "Der kom intet resultat",
+        "body": "Analysen startede, men blev aldrig færdig. Prøv igen."
+      },
+      "parse": {
+        "title": "Vi kunne ikke tolke bilen",
+        "body": "Analysen kunne ikke identificere køretøjet ud fra oplysningerne. Tjek mærke, model og pris, og kør igen."
+      },
+      "timeout": {
+        "title": "Analysen fik timeout",
+        "body": "Markedspladserne var for længe om at svare. Det plejer at løse sig inden for få minutter."
+      },
+      "unavailable": {
+        "title": "Demoen er midlertidigt utilgængelig",
+        "body": "Analysetjenesten svarer ikke lige nu. Prøv igen om lidt."
+      },
+      "upstream": {
+        "title": "Analysen kunne ikke fuldføres",
+        "body": "Noget gik galt hos os under analysen af denne bil. Prøv igen."
+      }
+    },
+    "cta": {
+      "title": "Vil du have det her for hele dit indløb?",
+      "body": "Det her var én bil. AutoMargin kører den samme analyse på hvert tilbud, der når dig, så dit team kun gennemgår de biler, der bærer margin.",
+      "benefits": {
+        "0": "Screen hele leverandørlister på én gang",
+        "1": "Tilbud kommer via e-mail og analyseres automatisk",
+        "2": "Se hvilke leverandører der konsekvent giver margin",
+        "more": "…og mere"
+      },
+      "primary": "Tal med os",
+      "secondary": "Se adgangsmodeller",
+      "dismiss": "Luk"
     }
   },
   "Footer": {

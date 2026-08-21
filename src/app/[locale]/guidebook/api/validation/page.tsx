@@ -1,31 +1,38 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookApiValidationPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookApiValidationPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.apiValidation");
+
   return (
     <GuidebookArticle
-      sectionLabel="API"
-      title="Validation (enterprise)"
-      description="Suggested validation rules to keep runs clean and auditable."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Required fields</h2>
+        <h2>{t("requiredFields")}</h2>
         <ul>
-          <li>At least one identifier (VIN or registration)</li>
-          <li>Supplier price + currency</li>
-          <li>Location / market context</li>
-          <li>Year + mileage (or a reason it’s missing)</li>
+          <li>{t("requiredIdentifier")}</li>
+          <li>{t("requiredSupplierPriceCurrency")}</li>
+          <li>{t("requiredLocationMarket")}</li>
+          <li>{t("requiredYearMileage")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Guardrails</h2>
+        <h2>{t("guardrails")}</h2>
         <ul>
-          <li>Reject mixed currencies in one batch (unless explicitly allowed)</li>
-          <li>Reject negative prices and impossible mileages</li>
-          <li>Warn on thin comps or wide bands (low confidence)</li>
+          <li>{t("guardrailMixedCurrencies")}</li>
+          <li>{t("guardrailNegativePrices")}</li>
+          <li>{t("guardrailThinComps")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

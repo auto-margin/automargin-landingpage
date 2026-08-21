@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 
@@ -11,8 +14,11 @@ type GuidebookPagerProps = {
 export function GuidebookPager({
   nextHref,
   nextLabel,
-  nextSection = "Next page",
+  nextSection,
 }: GuidebookPagerProps) {
+  const t = useTranslations("Guidebook.chrome");
+  const sectionLabel = nextSection ?? t("nextPage");
+
   return (
     <footer className="not-prose mt-12 border-t border-slate-200 pt-6 dark:border-slate-800">
       <Link
@@ -24,8 +30,8 @@ export function GuidebookPager({
         ].join(" ")}
       >
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-            {nextSection}
+          <p className="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase dark:text-slate-400">
+            {sectionLabel}
           </p>
           <p className="mt-1 text-base font-semibold text-slate-950 dark:text-slate-50">
             {nextLabel}

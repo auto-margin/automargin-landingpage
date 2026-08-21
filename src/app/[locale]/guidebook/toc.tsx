@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+
+import { usePathname } from "@/i18n/navigation";
 
 type TocItem = { id: string; text: string; level: 2 | 3 };
 
@@ -16,6 +18,7 @@ function slugify(input: string) {
 }
 
 export function GuidebookToc() {
+  const t = useTranslations("Guidebook.chrome");
   const pathname = usePathname();
   const [items, setItems] = useState<TocItem[]>([]);
 
@@ -61,7 +64,7 @@ export function GuidebookToc() {
   return (
     <aside className="hidden self-start pl-2 lg:block">
       <p className="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-        Table of contents
+        {t("onThisPage")}
       </p>
       <nav className="mt-3 space-y-1">
         {items.map((item) => (
@@ -81,4 +84,3 @@ export function GuidebookToc() {
     </aside>
   );
 }
-

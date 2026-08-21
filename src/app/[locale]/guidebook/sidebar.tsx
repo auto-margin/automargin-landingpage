@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 type NavItem = { label: string; href: string };
 type NavTreeItem =
@@ -16,61 +16,94 @@ type NavTreeItem =
     };
 type NavGroup = { label: string; items: NavTreeItem[] };
 
-const NAV: NavGroup[] = [
-  {
-    label: "General",
-    items: [
-      { label: "Overview", href: "/guidebook" },
-      { label: "How to use optimally", href: "/guidebook/how-to-use" },
-      { label: "Find dealers", href: "/guidebook/find-dealers" },
-      { label: "Is my car good?", href: "/guidebook/is-my-car-good" },
-      {
-        label: "Auto forwarding",
-        href: "/guidebook/auto-forwarding",
-        children: [
-          { label: "Outlook", href: "/guidebook/auto-forwarding/outlook" },
-          { label: "Gmail", href: "/guidebook/auto-forwarding/gmail" },
-          {
-            label: "iCloud Mail",
-            href: "/guidebook/auto-forwarding/ios-mail",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Documentation",
-    items: [
-      { label: "Overview", href: "/guidebook/documentation" },
-      { label: "How to setup", href: "/guidebook/documentation/how-to-setup" },
-      { label: "Installation", href: "/guidebook/documentation/installation" },
-      {
-        label: "Uploading files",
-        href: "/guidebook/documentation/uploading-files",
-      },
-      {
-        label: "Tips & tricks",
-        href: "/guidebook/documentation/tips-and-tricks",
-      },
-    ],
-  },
-  {
-    label: "API",
-    items: [
-      { label: "Overview", href: "/guidebook/api" },
-      { label: "Endpoints", href: "/guidebook/api/endpoints" },
-      { label: "Validation", href: "/guidebook/api/validation" },
-    ],
-  },
-];
-
 function isActive(pathname: string, href: string) {
   if (href === "/guidebook") return pathname === href;
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function GuidebookSidebar() {
+  const tChrome = useTranslations("Guidebook.chrome");
+  const tNav = useTranslations("Guidebook.nav");
   const pathname = usePathname();
+
+  const NAV: NavGroup[] = useMemo(
+    () => [
+      {
+        label: tNav("groups.general"),
+        items: [
+          { label: tNav("items.overview"), href: "/guidebook" },
+          {
+            label: tNav("items.howToUseOptimally"),
+            href: "/guidebook/how-to-use",
+          },
+          { label: tNav("items.findDealers"), href: "/guidebook/find-dealers" },
+          {
+            label: tNav("items.isMyCarGood"),
+            href: "/guidebook/is-my-car-good",
+          },
+          {
+            label: tNav("items.autoForwarding"),
+            href: "/guidebook/auto-forwarding",
+            children: [
+              {
+                label: tNav("items.outlook"),
+                href: "/guidebook/auto-forwarding/outlook",
+              },
+              {
+                label: tNav("items.gmail"),
+                href: "/guidebook/auto-forwarding/gmail",
+              },
+              {
+                label: tNav("items.iCloudMail"),
+                href: "/guidebook/auto-forwarding/ios-mail",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: tNav("groups.documentation"),
+        items: [
+          {
+            label: tNav("items.documentationOverview"),
+            href: "/guidebook/documentation",
+          },
+          {
+            label: tNav("items.howToSetup"),
+            href: "/guidebook/documentation/how-to-setup",
+          },
+          {
+            label: tNav("items.installation"),
+            href: "/guidebook/documentation/installation",
+          },
+          {
+            label: tNav("items.uploadingFiles"),
+            href: "/guidebook/documentation/uploading-files",
+          },
+          {
+            label: tNav("items.tipsAndTricks"),
+            href: "/guidebook/documentation/tips-and-tricks",
+          },
+        ],
+      },
+      {
+        label: tNav("groups.api"),
+        items: [
+          { label: tNav("items.apiOverview"), href: "/guidebook/api" },
+          {
+            label: tNav("items.endpoints"),
+            href: "/guidebook/api/endpoints",
+          },
+          {
+            label: tNav("items.validation"),
+            href: "/guidebook/api/validation",
+          },
+        ],
+      },
+    ],
+    [tNav],
+  );
+
   const [expanded, setExpanded] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     for (const group of NAV) {
@@ -93,7 +126,7 @@ export function GuidebookSidebar() {
       }
     }
     return parents;
-  }, [pathname]);
+  }, [NAV, pathname]);
 
   useEffect(() => {
     if (!activeParents.length) return;
@@ -114,9 +147,9 @@ export function GuidebookSidebar() {
   }, [activeParents]);
 
   return (
-    <nav aria-label="Guidebook navigation" className="space-y-6">
+    <nav aria-label={tChrome("navAriaLabel")} className="space-y-6">
       <p className="text-xs font-semibold tracking-wide text-slate-950 dark:text-slate-50">
-        CONTENT
+        {tChrome("contentLabel")}
       </p>
       {NAV.map((group) => (
         <div key={group.label}>

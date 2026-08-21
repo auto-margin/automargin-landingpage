@@ -1,104 +1,110 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 import { GuidebookPager } from "../guidebook-pager";
 
-export default function GuidebookIsMyCarGoodPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookIsMyCarGoodPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.isMyCarGood");
+  const tChrome = await getTranslations("Guidebook.chrome");
+
+  const copyStrong = t("copyInfoStrong");
+  const incorrectGuidance = t("incorrectResultGuidance");
+  const copyIndex = incorrectGuidance.indexOf(copyStrong);
+
   return (
     <GuidebookArticle
-      sectionLabel="General"
-      title="Is my car good?"
-      description="A decision framework for evaluating an individual vehicle."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Decision framework</h2>
-        <p>
-          A strong deal clears all four criteria. A workable deal clears three.
-          Two or fewer indicates the deal requires further investigation or
-          should be passed.
-        </p>
+        <h2>{t("decisionFramework")}</h2>
+        <p>{t("decisionFrameworkIntro")}</p>
         <ul>
           <li>
-            <strong>Margin</strong>: sufficient spread remains after fees,
-            transport, reconditioning, and operational costs.
+            <strong>{t("marginStrong")}</strong>
+            {t("margin").slice(t("marginStrong").length)}
           </li>
           <li>
-            <strong>Confidence</strong>: enough comparable listings support the
-            price band to make the read reliable.
+            <strong>{t("confidenceStrong")}</strong>
+            {t("confidence").slice(t("confidenceStrong").length)}
           </li>
           <li>
-            <strong>Velocity</strong>: the segment is currently active in the
-            target market.
+            <strong>{t("velocityStrong")}</strong>
+            {t("velocity").slice(t("velocityStrong").length)}
           </li>
           <li>
-            <strong>Risk</strong>: no significant red flags in spec, mileage,
-            history, or market volatility.
+            <strong>{t("riskStrong")}</strong>
+            {t("risk").slice(t("riskStrong").length)}
           </li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Red flags</h2>
+        <h2>{t("redFlags")}</h2>
         <ul>
-          <li>Asking price missing or inconsistent with described condition</li>
-          <li>Few comparable listings (thin segment)</li>
-          <li>Outlier specification (rare trim, unusual options)</li>
-          <li>Wide market band (low confidence)</li>
-          <li>Asking price at or above market midpoint before added costs</li>
+          <li>{t("redFlagAskingPriceMissing")}</li>
+          <li>{t("redFlagFewComparables")}</li>
+          <li>{t("redFlagOutlierSpec")}</li>
+          <li>{t("redFlagWideBand")}</li>
+          <li>{t("redFlagAskingAtOrAboveMidpoint")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Green flags</h2>
+        <h2>{t("greenFlags")}</h2>
         <ul>
-          <li>Stable comparable listings across multiple sources</li>
-          <li>Clear gap in local supply</li>
-          <li>Dealer-fit evidence available</li>
-          <li>Asking price below the lower edge of the market band</li>
+          <li>{t("greenFlagStableComparables")}</li>
+          <li>{t("greenFlagClearGap")}</li>
+          <li>{t("greenFlagDealerFit")}</li>
+          <li>{t("greenFlagAskingBelowLowerEdge")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Known limitations</h2>
-        <p>
-          Auto-margin&apos;s comparison engine is reliable across most
-          evaluations, but some results may still be imprecise.
-        </p>
+        <h2>{t("knownLimitations")}</h2>
+        <p>{t("knownLimitationsIntro")}</p>
         <ol>
           <li>
-            <strong>Model-year ambiguity.</strong> Facelifts or new generations
-            with the same name and power output can pull in listings from the
-            wrong generation.
+            <strong>{t("limitationModelYearAmbiguityStrong")}</strong>
+            {t("limitationModelYearAmbiguity").slice(
+              t("limitationModelYearAmbiguityStrong").length,
+            )}
           </li>
           <li>
-            <strong>Source listing errors.</strong> Human-entered mistakes in
-            source platforms can pass through if they are not detectable during
-            ingestion.
+            <strong>{t("limitationSourceListingErrorsStrong")}</strong>
+            {t("limitationSourceListingErrors").slice(
+              t("limitationSourceListingErrorsStrong").length,
+            )}
           </li>
         </ol>
         <p>
-          If a result appears incorrect, use the <strong>Copy info</strong>
-          button and include the copied vehicle information, the processing
-          date, and a short description of what appears wrong.
+          {copyIndex < 0 ? (
+            incorrectGuidance
+          ) : (
+            <>
+              {incorrectGuidance.slice(0, copyIndex)}
+              <strong>{copyStrong}</strong>
+              {incorrectGuidance.slice(copyIndex + copyStrong.length)}
+            </>
+          )}
         </p>
       </section>
 
       <section className="mt-8">
-        <h2>Scope of the recommendation</h2>
-        <p>
-          Auto-margin evaluates whether a vehicle represents a good deal at the
-          point of purchase: market price band, margin, comparable listings, and
-          risk indicators in the target market.
-        </p>
-        <p>
-          It does not currently predict how an individual vehicle will perform
-          on a specific dealer&apos;s lot. The final purchase decision rests with
-          the user.
-        </p>
+        <h2>{t("scopeOfTheRecommendation")}</h2>
+        <p>{t("scopeBody1")}</p>
+        <p>{t("scopeBody2")}</p>
       </section>
 
       <GuidebookPager
         nextHref="/guidebook/documentation"
-        nextLabel="Documentation overview"
-        nextSection="Continue"
+        nextLabel={t("nextLabel")}
+        nextSection={tChrome("continueSection")}
       />
     </GuidebookArticle>
   );

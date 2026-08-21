@@ -1,47 +1,62 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { Link } from "@/i18n/navigation";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 
-export default function GuidebookDocumentationPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookDocumentationPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.documentation");
+
   return (
     <GuidebookArticle
-      sectionLabel="Documentation"
-      title="Data inputs and outputs"
-      description="A reference for the fields teams typically provide, and the outputs Auto-margin returns for screening and margin validation."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Start here</h2>
+        <h2>{t("startHere")}</h2>
         <ul>
           <li>
-            <a href="/guidebook/documentation/how-to-setup">How to setup</a>
+            <Link href="/guidebook/documentation/how-to-setup">
+              {t("linkHowToSetup")}
+            </Link>
           </li>
           <li>
-            <a href="/guidebook/documentation/installation">Installation</a>
+            <Link href="/guidebook/documentation/installation">
+              {t("linkInstallation")}
+            </Link>
           </li>
           <li>
-            <a href="/guidebook/documentation/tips-and-tricks">Tips &amp; tricks</a>
+            <Link href="/guidebook/documentation/tips-and-tricks">
+              {t("linkTipsAndTricks")}
+            </Link>
           </li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Typical inputs</h2>
+        <h2>{t("typicalInputs")}</h2>
         <ul>
-          <li>Vehicle identifier (VIN / registration)</li>
-          <li>Make, model, trim, year</li>
-          <li>Mileage, fuel type, transmission</li>
-          <li>Supplier price and location</li>
+          <li>{t("inputVehicleIdentifier")}</li>
+          <li>{t("inputMakeModelTrimYear")}</li>
+          <li>{t("inputMileageFuelTransmission")}</li>
+          <li>{t("inputSupplierPriceLocation")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Typical outputs</h2>
+        <h2>{t("typicalOutputs")}</h2>
         <ul>
-          <li>Comparable market ranges per region</li>
-          <li>Margin estimate and confidence</li>
-          <li>Gap / scarcity signals</li>
-          <li>Dealer-fit / outreach hints</li>
+          <li>{t("outputComparableRanges")}</li>
+          <li>{t("outputMarginEstimate")}</li>
+          <li>{t("outputGapScarcity")}</li>
+          <li>{t("outputDealerFit")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

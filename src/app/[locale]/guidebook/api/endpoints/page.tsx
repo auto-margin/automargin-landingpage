@@ -1,15 +1,23 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookApiEndpointsPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookApiEndpointsPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.apiEndpoints");
+
   return (
     <GuidebookArticle
-      sectionLabel="API"
-      title="Endpoints (draft)"
-      description="Example endpoints you’d expect in an enterprise screening workflow."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>POST /screen</h2>
-        <p>Submit a batch to be screened.</p>
+        <h2>{t("postScreen")}</h2>
+        <p>{t("postScreenBody")}</p>
         <pre>
           <code>{`{
   "market": "EU",
@@ -19,15 +27,14 @@ export default function GuidebookApiEndpointsPage() {
       </section>
 
       <section className="mt-8">
-        <h2>GET /results/{`{id}`}</h2>
-        <p>Fetch completed results for a screening run.</p>
+        <h2>{t("getResults")}</h2>
+        <p>{t("getResultsBody")}</p>
       </section>
 
       <section className="mt-8">
-        <h2>GET /markets</h2>
-        <p>List supported markets, sources, and constraints.</p>
+        <h2>{t("getMarkets")}</h2>
+        <p>{t("getMarketsBody")}</p>
       </section>
     </GuidebookArticle>
   );
 }
-

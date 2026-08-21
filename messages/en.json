@@ -12,8 +12,9 @@
     "hero": {
       "title": "Stop working on cars.\nStart working on margin.",
       "subtitle": "Spend less time reviewing offers and more time on reliable partners.",
-      "primaryCta": "Request Access",
-      "secondaryCta": "Try Demo",
+      "demoCta": "Try the live demo",
+      "accessCta": "Request access",
+      "demoCtaNote": "Free interactive demo · No signup required",
       "features": {
         "market": {
           "title": "See what is worth buying",
@@ -579,83 +580,199 @@
         "5": "…and more"
       }
     },
-    "calculator": {
-      "intro": "Paste a car offer. We'll stream the analysis and show the result.",
-      "running": "Running…",
-      "complete": "Complete",
-      "helpButton": "What should I include?",
-      "enterVehicle": "Enter vehicle",
-      "placeholder": "Details about the vehicle…",
-      "brandError": "Must include a brand (e.g., BMW, Audi, Volvo).",
-      "countryLabel": "Country to compare from",
-      "countryPlaceholder": "Choose country",
-      "country": {
-        "DE": "DE - Germany",
-        "CH": "CH - Switzerland",
-        "BE": "BE - Belgium"
-      },
-      "weCompare": "We compare against live listings.",
-      "weEstimate": "We estimate resale and margin by market.",
-      "result": "Result",
-      "idleHint": "Run the demo to see results here.",
-      "runningTip": "Tip: if nothing happens, you may have reached the demo limit or the backend endpoint is unavailable.",
-      "errorTitle": "Couldn't run demo",
-      "errorDefault": "Please try again.",
-      "markets": "Markets",
-      "basedOn": "Based on",
-      "listings": "listings",
-      "margin": "Margin",
-      "sources": "Sources",
-      "open": "Open",
-      "calculate": "Calculate profit",
-      "calculating": "Calculating…",
-      "completed": "Completed",
-      "reset": "Reset",
-      "rateLimitNotice": "Limited to one demo run per IP / 24 hours.",
+    "markets": {
+      "DE": "Germany",
+      "AT": "Austria",
+      "BE": "Belgium",
+      "ES": "Spain",
+      "FR": "France",
+      "IT": "Italy",
+      "NL": "Netherlands",
+      "SE": "Sweden",
+      "CH": "Switzerland"
+    },
+    "workspace": {
+      "intro": "Enter a car offer. We'll stream the analysis and show the result.",
+      "titleAnalysis": "Market analysis",
+      "titleResult": "Result",
+      "subtitleAnalysis": "Calculated from live marketplace listings.",
+      "editInputs": "Edit inputs",
+      "startOver": "Start over",
+      "resultKept": "Your analysis is still here.",
+      "backToResult": "Back to result",
+      "rateLimitNotice": "Limited to three demo runs per IP / 24 hours.",
       "privacyAgreement": "By running the demo, you agree to our",
       "privacyLink": "privacy policy",
-      "abuseNotice": "We may log requests and apply rate limits to prevent abuse.",
-      "stages": {
-        "parsing": "We are now parsing all information…",
-        "comparing": "We are now comparing the vehicle…",
-        "calculating": "We are now calculating…",
-        "analyzing": "We are analyzing the vehicle…"
+      "abuseNotice": "We may log requests and apply rate limits to prevent abuse."
+    },
+    "form": {
+      "vehicleTitle": "Enter vehicle",
+      "vehicleSubtitle": "The more you fill in, the sharper the comparison.",
+      "vehicleSubtitlePaste": "Paste an offer line — we will parse brand, model, mileage and price.",
+      "inputModeLabel": "How to enter the vehicle",
+      "inputModePaste": "Paste offer",
+      "inputModeFields": "Fill fields",
+      "pasteLabel": "Vehicle offer",
+      "pastePlaceholder": "e.g. BMW X5 2020 30d xDrive, 85,000 km, diesel, automatic, asking price 32,000 EUR",
+      "brand": "Brand",
+      "brandPlaceholder": "e.g. Volkswagen",
+      "brandListLabel": "Vehicle brands",
+      "brandFreeText": "Not listed? Type it and we will use it as entered.",
+      "brandToggle": "Show brand suggestions",
+      "model": "Model and trim",
+      "modelPlaceholder": "e.g. Tiguan 2.0 TDI R-Line",
+      "registration": "First registration",
+      "registrationMonth": "Registration month",
+      "registrationYear": "Year",
+      "monthAny": "Month",
+      "mileage": "Mileage",
+      "fuel": "Fuel",
+      "gearbox": "Gearbox",
+      "notSpecified": "Not specified",
+      "optional": "Optional",
+      "price": "Asking price",
+      "currency": "Currency",
+      "power": "Power",
+      "notes": "Extra details",
+      "notesPlaceholder": "e.g. DSG, first owner, full service history",
+      "submit": "Run the analysis",
+      "useExample": "Use an example",
+      "clear": "Clear",
+      "fuelOptions": {
+        "diesel": "Diesel",
+        "petrol": "Petrol",
+        "hybrid": "Hybrid",
+        "plugin": "Plug-in hybrid",
+        "electric": "Electric",
+        "other": "Other"
+      },
+      "gearboxOptions": {
+        "manual": "Manual",
+        "automatic": "Automatic"
       },
       "errors": {
-        "limitReached": "Demo limit reached — one run per 24 hours. Contact us for full access.",
-        "generic": "Unable to run demo right now.",
-        "genericRetry": "Unable to run demo right now. Please try again.",
-        "noResult": "No result was returned. Please try again."
+        "brandRequired": "Enter the brand.",
+        "modelRequired": "Enter the model.",
+        "yearRequired": "Select the registration year.",
+        "yearRange": "Enter a year between 1990 and 2027.",
+        "mileageRequired": "Enter the mileage.",
+        "mileageRange": "Enter a mileage in kilometres.",
+        "priceRequired": "Enter the asking price.",
+        "priceRange": "Enter a realistic asking price.",
+        "pasteRequired": "Paste a vehicle offer to analyse.",
+        "pasteTooShort": "Add a bit more detail — brand, model, mileage and price help most."
+      }
+    },
+    "run": {
+      "stages": {
+        "queued": "Sending your car to the analysis pipeline…",
+        "reading": "Reading the description…",
+        "identifying": "Identifying the exact model and trim…",
+        "searching": "Searching live listings in both markets…",
+        "comparing": "Comparing prices and calculating margin…",
+        "finishing": "Putting the analysis together…"
       },
-      "help": {
-        "title": "What to paste",
-        "subtitle": "The more detail, the better the validation.",
-        "closeAria": "Close",
-        "recommendedTitle": "Recommended fields",
-        "recommendedFields": {
-          "0": "Brand + model + year",
-          "1": "Mileage",
-          "2": "Fuel type + transmission",
-          "3": "Asking price + currency",
-          "4": "Any notable options / trim"
-        },
-        "exampleTitle": "Example",
-        "copy": "Copy",
-        "copied": "Copied",
-        "copyAria": "Copy example text to clipboard",
-        "copiedAria": "Example text copied to clipboard",
-        "ok": "OK",
-        "dialogAria": "Car description help"
+      "stepCounter": "Step {current} of {total}",
+      "progressLabel": "Analysis progress",
+      "slow": "Still working. Busy markets can take a little longer than usual.",
+      "cancel": "Cancel",
+      "keepOpen": "Keep this tab open — the analysis runs live against the marketplaces.",
+      "done": "Analysis complete"
+    },
+    "result": {
+      "headlineLabelProfit": "Estimated profit",
+      "headlineLabelLoss": "Estimated loss",
+      "headlineHelp": "After all costs, based on live listings in Germany and Switzerland.",
+      "cachedNotice": "This is your most recent run.",
+      "vehicleUnknown": "Vehicle",
+      "askingPrice": "Your asking price",
+      "allInPrice": "All-in cost used in the calc",
+      "allInPriceHelp": "Profit and loss are calculated from this all-in cost (derived from your asking price), not from the asking price alone.",
+      "buyIn": "Purchase price incl. costs",
+      "kmValue": "{km} km",
+      "marketsLabel": "Results by country",
+      "methodology": "Green means 5% margin or more after costs. Amber is below that. Red is a loss. Anything we could not measure shows a dash, never a zero.",
+      "partialBody": "We found the car but nothing comparable to price it against. Try a more common model, or add more detail.",
+      "marginLabel": "Margin after costs",
+      "daysLabel": "Typical time to sell",
+      "daysValue": "{days} days",
+      "daysSub": "based on {count} confirmed sales",
+      "comparedLabel": "Comparable cars found",
+      "pricesLabel": "Cheapest comparable prices",
+      "yourCost": "Your all-in cost",
+      "resaleLabel": "Resale estimate",
+      "resaleB2C": "Retail",
+      "resaleB2B": "Trade",
+      "openComparison": "See the cars we compared",
+      "openComparisonShort": "Compare",
+      "opensInNewTab": "(opens in a new tab)",
+      "emptyMarketBody": "No cars close enough to compare in this country. That usually means a rare model.",
+      "verdict": {
+        "profit": "Would make profit",
+        "thin": "Wouldn't buy",
+        "negative": "Would lose money",
+        "unknown": "Not enough data"
       },
-      "estimatedProfit": "Estimated profit",
-      "comparablePrices": "Comparable prices",
-      "cachedNotice": "Showing your most recent run from the last 24 hours."
+      "verdictHint": {
+        "profit": "Typical resale after costs clears your all-in purchase price by 5% or more.",
+        "thin": "There is a thin positive margin, but below the 5% bar most dealers want.",
+        "negative": "Typical resale after costs sits below your all-in purchase price.",
+        "unknown": "We could not measure enough comparable cars to score this deal."
+      }
+    },
+    "errors": {
+      "actions": {
+        "retry": "Try again",
+        "edit": "Edit the car",
+        "contact": "Contact us"
+      },
+      "limit": {
+        "title": "Demo limit reached",
+        "body": "The demo runs up to three times per IP address every 24 hours. Get in touch and we will analyse as many cars as you like."
+      },
+      "network": {
+        "title": "Connection lost",
+        "body": "We could not reach the analysis service. Check your connection and try again."
+      },
+      "noResult": {
+        "title": "No result came back",
+        "body": "The analysis started but never finished. Please try again."
+      },
+      "parse": {
+        "title": "We could not read that car",
+        "body": "The pipeline could not identify the vehicle from the details you entered. Check the brand, model and price, then run it again."
+      },
+      "timeout": {
+        "title": "The analysis timed out",
+        "body": "The marketplaces took too long to answer. This usually clears up within a few minutes."
+      },
+      "unavailable": {
+        "title": "Demo temporarily unavailable",
+        "body": "The analysis service is not responding right now. Please try again shortly."
+      },
+      "upstream": {
+        "title": "The analysis could not be completed",
+        "body": "Something went wrong on our side while analysing this car. Please try again."
+      }
+    },
+    "cta": {
+      "title": "Want this for your whole intake list?",
+      "body": "This was one car. AutoMargin runs the same analysis across every offer that reaches you, so your team only reviews the cars that carry margin.",
+      "benefits": {
+        "0": "Screen entire supplier lists at once",
+        "1": "Offers arrive by email and are analysed automatically",
+        "2": "See which suppliers consistently bring margin",
+        "more": "…and more"
+      },
+      "primary": "Talk to us",
+      "secondary": "See access models",
+      "dismiss": "Close"
     }
   },
   "Footer": {
     "navigation": {
       "product": "Product",
-      "about": "About Us",
+      "about": "About us",
       "pricing": "Pricing",
       "faq": "FAQ"
     },

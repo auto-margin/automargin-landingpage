@@ -1,10 +1,10 @@
+import type { ReactNode } from "react";
+
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-/*
- * DRAFT CONTENT — the accepted-format table, the size limit and the retention
- * window below are placeholders written to give the page its shape. Confirm the
- * real values with the platform team before this is treated as policy.
- */
+type Props = { params: Promise<{ locale: string }> };
 
 type FormatRow = {
   format: string;
@@ -12,145 +12,15 @@ type FormatRow = {
   note: string;
 };
 
-const ACCEPTED: FormatRow[] = [
-  {
-    format: "Comma-separated values",
-    extension: ".csv",
-    note: "Preferred. Smallest, fastest to process, nothing hidden inside it.",
-  },
-  {
-    format: "Excel workbook",
-    extension: ".xlsx",
-    note: "The modern Excel format. Must not contain macros.",
-  },
-  {
-    format: "OpenDocument spreadsheet",
-    extension: ".ods",
-    note: "LibreOffice and OpenOffice exports.",
-  },
-  {
-    format: "Portable document",
-    extension: ".pdf",
-    note: "Dealer offer sheets and printed stock lists.",
-  },
-  {
-    format: "Plain text",
-    extension: ".txt",
-    note: "Tab- or semicolon-separated exports from older DMS systems.",
-  },
-];
-
 type RejectedGroup = {
   heading: string;
   reason: string;
   extensions: string[];
 };
 
-const REJECTED: RejectedGroup[] = [
-  {
-    heading: "Macro-enabled Office files",
-    reason:
-      "These formats exist specifically to carry executable code. A macro runs as soon as someone enables content, which makes them the most common delivery method for office-targeted malware. There is no version of a car list that needs a macro.",
-    extensions: [".xlsm", ".xlsb", ".xltm", ".docm", ".dotm", ".pptm", ".potm"],
-  },
-  {
-    heading: "Legacy Office binaries",
-    reason:
-      "The pre-2007 OLE2 container hides embedded objects and streams that are hard to inspect reliably. It has a long history of parser vulnerabilities, and modern tooling has largely stopped hardening it. Open the file and re-save it as .xlsx or .csv.",
-    extensions: [".xls", ".xlt", ".xlw", ".doc", ".dot", ".ppt", ".pps"],
-  },
-  {
-    heading: "Legacy and obscure spreadsheet formats",
-    reason:
-      "Formats from the Lotus, Quattro Pro and dBase era, plus interchange formats that predate any security model. SYLK in particular is still actively abused because it executes commands while looking like a harmless text file.",
-    extensions: [
-      ".slk",
-      ".dif",
-      ".wk1",
-      ".wk3",
-      ".wk4",
-      ".wks",
-      ".123",
-      ".wq1",
-      ".qpw",
-      ".dbf",
-      ".prn",
-      ".sxc",
-      ".xlr",
-      ".wb2",
-    ],
-  },
-  {
-    heading: "Executables, installers and scripts",
-    reason:
-      "Nothing in this category is a vehicle list. If one arrives, it is either a mistake or an attack, and we treat both the same way.",
-    extensions: [
-      ".exe",
-      ".msi",
-      ".bat",
-      ".cmd",
-      ".com",
-      ".scr",
-      ".pif",
-      ".vbs",
-      ".vbe",
-      ".js",
-      ".jse",
-      ".wsf",
-      ".wsh",
-      ".ps1",
-      ".psm1",
-      ".hta",
-      ".jar",
-      ".apk",
-      ".app",
-      ".sh",
-    ],
-  },
-  {
-    heading: "Archives and disk images",
-    reason:
-      "An archive hides its contents until it is opened, can be crafted to expand into far more data than it claims, and can be encrypted so that nothing can inspect it. Send the spreadsheet itself rather than a container holding it.",
-    extensions: [
-      ".zip",
-      ".rar",
-      ".7z",
-      ".tar",
-      ".gz",
-      ".tgz",
-      ".bz2",
-      ".cab",
-      ".arj",
-      ".lzh",
-      ".iso",
-      ".img",
-      ".vhd",
-      ".dmg",
-    ],
-  },
-  {
-    heading: "Shortcuts, registry and help containers",
-    reason:
-      "These look inert and are not. Each one can point at or carry something that runs on the machine that opens it.",
-    extensions: [".lnk", ".url", ".reg", ".chm", ".hlp", ".inf", ".scf"],
-  },
-  {
-    heading: "Markup and vector formats that can carry script",
-    reason:
-      "HTML and SVG can both embed JavaScript, and RTF has been the vehicle for a long series of document exploits. If your export produces one of these, convert it before sending.",
-    extensions: [".html", ".htm", ".mht", ".mhtml", ".svg", ".xml", ".rtf"],
-  },
-  {
-    heading: "Encrypted or password-protected files",
-    reason:
-      "A file we cannot open is a file we cannot check. This applies even when the password is sent separately, and it applies to protected .xlsx and .pdf files as well as encrypted archives.",
-    extensions: [],
-  },
-];
-
 /** Prose styling wraps inline code in backticks. With this many extensions on
  *  the page that punctuation becomes noise, so they render as plain badges. */
-function Ext({ children }: { children: React.ReactNode }) {
+function Ext({ children }: { children: ReactNode }) {
   return (
     <span className="not-prose inline-block rounded-md border border-slate-200 bg-slate-50 px-1.5 py-0.5 font-mono text-[0.8em] text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
       {children}
@@ -158,7 +28,31 @@ function Ext({ children }: { children: React.ReactNode }) {
   );
 }
 
-function UploadFlow() {
+type UploadFlowProps = {
+  title: string;
+  description: string;
+  yourFile: string;
+  yourFileSub: string;
+  checks: string;
+  checksSub: string;
+  parsed: string;
+  parsedSub: string;
+  rejected: string;
+  rejectedSub: string;
+};
+
+function UploadFlow({
+  title,
+  description,
+  yourFile,
+  yourFileSub,
+  checks,
+  checksSub,
+  parsed,
+  parsedSub,
+  rejected,
+  rejectedSub,
+}: UploadFlowProps) {
   return (
     <div className="not-prose my-8 overflow-x-auto">
       <svg
@@ -167,12 +61,8 @@ function UploadFlow() {
         aria-labelledby="upload-flow-title upload-flow-desc"
         className="h-auto w-full min-w-[560px]"
       >
-        <title id="upload-flow-title">How an uploaded file is handled</title>
-        <desc id="upload-flow-desc">
-          A file you upload is checked for its type, its size and its contents.
-          Files that pass are parsed into your stock list. Files that fail are
-          rejected and deleted, and you are told which check failed.
-        </desc>
+        <title id="upload-flow-title">{title}</title>
+        <desc id="upload-flow-desc">{description}</desc>
 
         <g
           className="fill-none stroke-slate-300 dark:stroke-slate-700"
@@ -190,31 +80,31 @@ function UploadFlow() {
           fontWeight="600"
         >
           <text x="83" y="90" textAnchor="middle">
-            Your file
+            {yourFile}
           </text>
           <text x="310" y="90" textAnchor="middle">
-            Type, size and
+            {checks}
           </text>
           <text x="587" y="32" textAnchor="middle">
-            Parsed into your stock list
+            {parsed}
           </text>
           <text x="587" y="148" textAnchor="middle">
-            Rejected and deleted
+            {rejected}
           </text>
         </g>
 
         <g className="fill-slate-500 dark:fill-slate-400" fontSize="12">
           <text x="83" y="108" textAnchor="middle">
-            .csv · .xlsx · .pdf
+            {yourFileSub}
           </text>
           <text x="310" y="108" textAnchor="middle">
-            content checks
+            {checksSub}
           </text>
           <text x="587" y="50" textAnchor="middle">
-            You see it in the platform
+            {parsedSub}
           </text>
           <text x="587" y="166" textAnchor="middle">
-            You are told which check failed
+            {rejectedSub}
           </text>
         </g>
 
@@ -237,43 +127,94 @@ function UploadFlow() {
   );
 }
 
-export default function GuidebookUploadingFilesPage() {
+function withEm(text: string, em: string) {
+  const index = text.indexOf(em);
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <em>{em}</em>
+      {text.slice(index + em.length)}
+    </>
+  );
+}
+
+function withExtTokens(text: string, tokens: string[]): ReactNode {
+  let earliestIndex = -1;
+  let matched: string | null = null;
+
+  for (const token of tokens) {
+    const index = text.indexOf(token);
+    if (index < 0) continue;
+    if (
+      earliestIndex < 0 ||
+      index < earliestIndex ||
+      (index === earliestIndex && token.length > (matched?.length ?? 0))
+    ) {
+      earliestIndex = index;
+      matched = token;
+    }
+  }
+
+  if (matched == null || earliestIndex < 0) return text;
+
+  return (
+    <>
+      {text.slice(0, earliestIndex)}
+      <Ext>{matched}</Ext>
+      {withExtTokens(text.slice(earliestIndex + matched.length), tokens)}
+    </>
+  );
+}
+
+export default async function GuidebookUploadingFilesPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.uploadingFiles");
+
+  const acceptedRows = Object.values(
+    t.raw("acceptedRows") as Record<string, FormatRow>,
+  );
+  const rejectedGroups = Object.values(
+    t.raw("rejectedGroups") as Record<string, RejectedGroup>,
+  );
+
   return (
     <GuidebookArticle
-      sectionLabel="Documentation"
-      title="Uploading files"
-      description="Which file types we accept for vehicle lists, which we refuse, and why the list of refusals is as long as it is."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Why we are strict</h2>
-        <p>
-          Every file you send us arrives from a third party — a supplier, a
-          trader, a marketplace export, a forwarded email. That is exactly the
-          path attackers use to reach dealer systems, and a stock list is an
-          unusually convincing disguise. Nobody thinks twice about opening a
-          spreadsheet from a supplier.
-        </p>
-        <p>
-          So we accept a deliberately small set of formats. If a format can
-          carry code, hide its contents, or cannot be inspected, we refuse it —
-          even when the specific file is certainly harmless. Keeping the list
-          short is what makes it enforceable.
-        </p>
-        <UploadFlow />
+        <h2>{t("whyWeAreStrict")}</h2>
+        <p>{t("whyWeAreStrictBody1")}</p>
+        <p>{t("whyWeAreStrictBody2")}</p>
+        <UploadFlow
+          title={t("uploadFlowTitle")}
+          description={t("uploadFlowDesc")}
+          yourFile={t("uploadFlowYourFile")}
+          yourFileSub={t("uploadFlowYourFileSub")}
+          checks={t("uploadFlowChecks")}
+          checksSub={t("uploadFlowChecksSub")}
+          parsed={t("uploadFlowParsed")}
+          parsedSub={t("uploadFlowParsedSub")}
+          rejected={t("uploadFlowRejected")}
+          rejectedSub={t("uploadFlowRejectedSub")}
+        />
       </section>
 
       <section className="mt-8">
-        <h2>What we accept</h2>
+        <h2>{t("whatWeAccept")}</h2>
         <table>
           <thead>
             <tr>
-              <th>Format</th>
-              <th>Extension</th>
-              <th>Notes</th>
+              <th>{t("tableHeaderFormat")}</th>
+              <th>{t("tableHeaderExtension")}</th>
+              <th>{t("tableHeaderNotes")}</th>
             </tr>
           </thead>
           <tbody>
-            {ACCEPTED.map((row) => (
+            {acceptedRows.map((row) => (
               <tr key={row.extension}>
                 <td>{row.format}</td>
                 <td>
@@ -284,23 +225,16 @@ export default function GuidebookUploadingFilesPage() {
             ))}
           </tbody>
         </table>
-        <p>
-          Files are accepted up to 25 MB each. If your export is larger than
-          that, it is almost always because it contains images — export again
-          without them, or split the list.
-        </p>
+        <p>{t("sizeLimitNote")}</p>
       </section>
 
       <section className="mt-8">
-        <h2>What we do not accept</h2>
+        <h2>{t("whatWeDoNotAccept")}</h2>
         <p>
-          The list below is long on purpose. Most of these formats are years or
-          decades past the point where anyone should still be sending them, and
-          several are refused precisely <em>because</em> they are obsolete:
-          little modern tooling can safely inspect them any more.
+          {withEm(t("whatWeDoNotAcceptIntro"), t("whatWeDoNotAcceptIntroEm"))}
         </p>
 
-        {REJECTED.map((group) => (
+        {rejectedGroups.map((group) => (
           <div key={group.heading}>
             <h3>{group.heading}</h3>
             <p>{group.reason}</p>
@@ -316,62 +250,43 @@ export default function GuidebookUploadingFilesPage() {
       </section>
 
       <section className="mt-8">
-        <h2>Renaming a file does not help</h2>
+        <h2>{t("renamingDoesNotHelp")}</h2>
         <p>
-          We check what a file actually is, not what it is called. Renaming{" "}
-          <Ext>stock.xlsm</Ext> to <Ext>stock.xlsx</Ext> gets it refused at the
-          same step, and renaming an archive to <Ext>.csv</Ext> gets it refused
-          faster. If your system can only export a format we refuse, open it
-          once and save a clean copy as <Ext>.csv</Ext> or <Ext>.xlsx</Ext>.
+          {withExtTokens(t("renamingDoesNotHelpBody"), [
+            "stock.xlsm",
+            "stock.xlsx",
+            ".csv",
+            ".xlsx",
+          ])}
         </p>
       </section>
 
       <section className="mt-8">
-        <h2>A note on spreadsheet formulas</h2>
+        <h2>{t("noteOnSpreadsheetFormulas")}</h2>
         <p>
-          A cell that begins with <Ext>=</Ext>, <Ext>+</Ext>, <Ext>-</Ext> or{" "}
-          <Ext>@</Ext> is treated as a formula by Excel, and a hostile one can
-          run a command on whoever opens the file. This is worth knowing in both
-          directions: we neutralise those cells on the way in, and you should be
-          wary of any supplier list you open directly rather than through the
-          platform.
+          {withExtTokens(t("noteOnSpreadsheetFormulasBody"), [
+            "=",
+            "+",
+            "-",
+            "@",
+          ])}
         </p>
       </section>
 
       <section className="mt-8">
-        <h2>Before you upload</h2>
+        <h2>{t("beforeYouUpload")}</h2>
         <ul>
-          <li>
-            One list per file. Combined workbooks are harder to reconcile.
-          </li>
-          <li>
-            Keep the header row. Column names are how we map your fields, and a
-            list without them takes longer to onboard.
-          </li>
-          <li>
-            Remove password protection. A protected file is refused even if you
-            send the password.
-          </li>
-          <li>
-            Send the file itself, not a zipped copy of it, and not a screenshot
-            of it.
-          </li>
+          <li>{t("beforeOneListPerFile")}</li>
+          <li>{t("beforeKeepHeaderRow")}</li>
+          <li>{t("beforeRemovePassword")}</li>
+          <li>{t("beforeSendFileItself")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>If a file is rejected</h2>
-        <p>
-          You will be told which check the file failed, so you can fix it and
-          send it again. Rejected files are not stored, not opened, and not
-          forwarded to anyone — they are discarded at the point of refusal.
-        </p>
-        <p>
-          If you believe a file was refused wrongly, or your system can only
-          produce a format that is not on the accepted list, contact us and we
-          will work out an ingestion route that does not require you to change
-          your process.
-        </p>
+        <h2>{t("ifAFileIsRejected")}</h2>
+        <p>{t("ifRejectedBody1")}</p>
+        <p>{t("ifRejectedBody2")}</p>
       </section>
     </GuidebookArticle>
   );

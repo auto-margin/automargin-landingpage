@@ -3,89 +3,107 @@
 import { useMemo, useState } from "react";
 
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
+import { LanguageSelector } from "@/components/language-selector";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Input } from "@/components/ui/input";
 import { Link, useRouter } from "@/i18n/navigation";
 
-const LAST_UPDATED = "May 5, 2026";
-
-const GUIDEBOOK_SEARCH_ITEMS = [
-  { label: "Overview", href: "/guidebook", group: "General" },
+const GUIDEBOOK_SEARCH_HREFS = [
+  { href: "/guidebook", itemKey: "overview", groupKey: "general" },
   {
-    label: "How to use optimally",
     href: "/guidebook/how-to-use",
-    group: "General",
+    itemKey: "howToUseOptimally",
+    groupKey: "general",
   },
-  { label: "Find dealers", href: "/guidebook/find-dealers", group: "General" },
   {
-    label: "Is my car good?",
+    href: "/guidebook/find-dealers",
+    itemKey: "findDealers",
+    groupKey: "general",
+  },
+  {
     href: "/guidebook/is-my-car-good",
-    group: "General",
+    itemKey: "isMyCarGood",
+    groupKey: "general",
   },
   {
-    label: "Auto forwarding",
     href: "/guidebook/auto-forwarding",
-    group: "General",
+    itemKey: "autoForwarding",
+    groupKey: "general",
   },
   {
-    label: "Outlook",
     href: "/guidebook/auto-forwarding/outlook",
-    group: "General",
+    itemKey: "outlook",
+    groupKey: "general",
   },
   {
-    label: "Gmail",
     href: "/guidebook/auto-forwarding/gmail",
-    group: "General",
+    itemKey: "gmail",
+    groupKey: "general",
   },
   {
-    label: "iCloud Mail",
     href: "/guidebook/auto-forwarding/ios-mail",
-    group: "General",
+    itemKey: "iCloudMail",
+    groupKey: "general",
   },
   {
-    label: "Overview",
     href: "/guidebook/documentation",
-    group: "Documentation",
+    itemKey: "documentationOverview",
+    groupKey: "documentation",
   },
   {
-    label: "How to setup",
     href: "/guidebook/documentation/how-to-setup",
-    group: "Documentation",
+    itemKey: "howToSetup",
+    groupKey: "documentation",
   },
   {
-    label: "Installation",
     href: "/guidebook/documentation/installation",
-    group: "Documentation",
+    itemKey: "installation",
+    groupKey: "documentation",
   },
   {
-    label: "Tips & tricks",
     href: "/guidebook/documentation/tips-and-tricks",
-    group: "Documentation",
+    itemKey: "tipsAndTricks",
+    groupKey: "documentation",
   },
-  { label: "Overview", href: "/guidebook/api", group: "API" },
-  { label: "Endpoints", href: "/guidebook/api/endpoints", group: "API" },
-  { label: "Validation", href: "/guidebook/api/validation", group: "API" },
-];
+  { href: "/guidebook/api", itemKey: "apiOverview", groupKey: "api" },
+  { href: "/guidebook/api/endpoints", itemKey: "endpoints", groupKey: "api" },
+  { href: "/guidebook/api/validation", itemKey: "validation", groupKey: "api" },
+] as const;
 
 function normalize(input: string) {
   return input.toLowerCase().trim();
 }
 
 export function GuidebookTopbar() {
+  const tChrome = useTranslations("Guidebook.chrome");
+  const tNav = useTranslations("Guidebook.nav");
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
 
+  const searchItems = useMemo(
+    () =>
+      GUIDEBOOK_SEARCH_HREFS.map((item) => ({
+        href: item.href,
+        label: tNav(`items.${item.itemKey}`),
+        group: tNav(`groups.${item.groupKey}`),
+      })),
+    [tNav],
+  );
+
   const results = useMemo(() => {
     const value = normalize(query);
-    if (!value) return GUIDEBOOK_SEARCH_ITEMS.slice(0, 6);
+    if (!value) return searchItems.slice(0, 6);
 
-    return GUIDEBOOK_SEARCH_ITEMS.filter((item) => {
-      const haystack = normalize(`${item.group} ${item.label} ${item.href}`);
-      return haystack.includes(value);
-    }).slice(0, 8);
-  }, [query]);
+    return searchItems
+      .filter((item) => {
+        const haystack = normalize(`${item.group} ${item.label} ${item.href}`);
+        return haystack.includes(value);
+      })
+      .slice(0, 8);
+  }, [query, searchItems]);
 
   const showResults = focused && results.length > 0;
 
@@ -93,10 +111,10 @@ export function GuidebookTopbar() {
     <div className="flex items-start justify-between gap-4">
       <div className="min-w-0">
         <p className="text-base font-semibold tracking-tight text-slate-950 dark:text-slate-50">
-          Auto-margin Documentation
+          {tChrome("productTitle")}
         </p>
         <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-          Last updated: {LAST_UPDATED}
+          {tChrome("lastUpdatedPrefix")} {tChrome("lastUpdatedDate")}
         </p>
       </div>
 
@@ -118,9 +136,9 @@ export function GuidebookTopbar() {
                 setFocused(false);
               }
             }}
-            placeholder="Search documentation..."
+            placeholder={tChrome("searchPlaceholder")}
             className="h-9 rounded-md border-slate-200 bg-white pr-3 pl-9 text-sm shadow-none dark:border-slate-800 dark:bg-slate-950"
-            aria-label="Search guidebook pages"
+            aria-label={tChrome("searchAriaLabel")}
           />
 
           {showResults ? (
@@ -145,6 +163,7 @@ export function GuidebookTopbar() {
           ) : null}
         </div>
 
+        <LanguageSelector />
         <ThemeToggle />
       </div>
     </div>

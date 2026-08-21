@@ -1,39 +1,46 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookInstallationPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookInstallationPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.installation");
+
   return (
     <GuidebookArticle
-      sectionLabel="Documentation"
-      title="Installation"
-      description="Integration options for enterprise teams (overview)."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Input methods</h2>
+        <h2>{t("inputMethods")}</h2>
         <ul>
-          <li>CSV/XLSX upload</li>
-          <li>Marketplace export ingestion</li>
-          <li>API (batch screening)</li>
+          <li>{t("inputCsvXlsxUpload")}</li>
+          <li>{t("inputMarketplaceExport")}</li>
+          <li>{t("inputApiBatchScreening")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Output methods</h2>
+        <h2>{t("outputMethods")}</h2>
         <ul>
-          <li>Exports (CSV)</li>
-          <li>Webhook / callback for completed runs</li>
-          <li>Internal handoff (tasks / assignments)</li>
+          <li>{t("outputExportsCsv")}</li>
+          <li>{t("outputWebhookCallback")}</li>
+          <li>{t("outputInternalHandoff")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Security basics</h2>
+        <h2>{t("securityBasics")}</h2>
         <ul>
-          <li>Least privilege roles</li>
-          <li>Log access and exports</li>
-          <li>Data retention policy</li>
+          <li>{t("securityLeastPrivilege")}</li>
+          <li>{t("securityLogAccessExports")}</li>
+          <li>{t("securityDataRetention")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

@@ -83,6 +83,10 @@
 }
 
 .dark {
+  /* Tells the browser to render native scrollbars, selects and form controls
+     in their dark variants instead of the light ones. */
+  color-scheme: dark;
+
   /* Dark mode – brandy/primary #0F2F42, #1D5475 */
   --background: oklch(0.232 0.066 250);
   --foreground: oklch(0.95 0.02 240);
@@ -295,12 +299,116 @@
   button {
     cursor: pointer;
   }
+  /* Removes the 300ms double-tap-zoom delay on touch devices. */
+  button,
+  a,
+  summary,
+  [role="button"] {
+    touch-action: manipulation;
+  }
   [class*="border"] {
     @apply border-border;
   }
 }
 
 @layer utilities {
+  /* Progressive entrance for result sections. `--am-delay` staggers siblings. */
+  @keyframes am-rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .am-rise {
+    animation: am-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--am-delay, 0ms);
+  }
+
+  /* Success mark shown between the loading state and the result dashboard. */
+  @keyframes am-check-ring {
+    from {
+      opacity: 0;
+      transform: scale(0.82);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes am-check-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .am-check-ring {
+    transform-origin: center;
+    animation: am-check-ring 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .am-check-path {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: am-check-draw 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.28s both;
+  }
+
+  /* One-shot shine that draws the eye to the primary CTA after the page settles,
+     plus a matching pass on hover. Never loops — a pulsing CTA reads as an ad. */
+  @keyframes am-sheen {
+    from {
+      transform: translateX(-140%) skewX(-12deg);
+    }
+    to {
+      transform: translateX(240%) skewX(-12deg);
+    }
+  }
+  .am-cta-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .am-cta-sheen::before,
+  .am-cta-sheen::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    bottom: -10%;
+    left: 0;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.18), transparent);
+    transform: translateX(-140%) skewX(-12deg);
+  }
+  .am-cta-sheen::after {
+    animation: am-sheen 1.05s cubic-bezier(0.22, 1, 0.36, 1) 1.2s 1 both;
+  }
+  .am-cta-sheen:hover::before {
+    animation: am-sheen 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-rise {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .am-check-ring {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .am-check-path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .am-cta-sheen::before,
+    .am-cta-sheen::after {
+      animation: none !important;
+      display: none;
+    }
+  }
+
   .am-animated-border {
     position: relative;
     isolation: isolate;
@@ -353,6 +461,26 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+/*
+  Radix Select locks body scroll via react-remove-scroll, which:
+  1) hides the root scrollbar, and
+  2) adds `margin-right` to compensate.
+
+  `scrollbar-gutter: stable` already reserves that width, so the extra margin
+  shifts the whole page. Override with higher specificity than the injected
+  `body[data-scroll-locked]` rule (same !important, later in the cascade).
+*/
+html {
+  scrollbar-gutter: stable;
+}
+
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  overflow: visible !important;
+}
+
 body {
   position: relative;
 }

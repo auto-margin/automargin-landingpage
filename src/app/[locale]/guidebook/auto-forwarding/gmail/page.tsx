@@ -1,56 +1,93 @@
+import type { ReactNode } from "react";
+
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookAutoForwardingGmailPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+function withStrong(text: string, strong: string): ReactNode {
+  const index = text.indexOf(strong);
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <strong>{strong}</strong>
+      {text.slice(index + strong.length)}
+    </>
+  );
+}
+
+function withStrongParts(text: string, values: string[]): ReactNode {
+  if (values.length === 0) return text;
+
+  const [first, ...rest] = values;
+  const index = text.indexOf(first);
+  if (index < 0) return withStrongParts(text, rest);
+
+  return (
+    <>
+      {text.slice(0, index)}
+      <strong>{first}</strong>
+      {withStrongParts(text.slice(index + first.length), rest)}
+    </>
+  );
+}
+
+export default async function GuidebookAutoForwardingGmailPage({
+  params,
+}: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.autoForwardingGmail");
+
   return (
     <GuidebookArticle
-      sectionLabel="Guides · Auto forwarding"
-      title="Gmail"
-      description="Use forwarding + filters to automatically route relevant offers to Auto-margin."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>1) Add a forwarding address</h2>
+        <h2>{t("addForwardingAddress")}</h2>
         <ol>
           <li>
-            Gmail → <strong>Settings</strong> → <strong>See all settings</strong>
+            {withStrongParts(t("addStep1"), [
+              t("addStep1Settings"),
+              t("addStep1SeeAllSettings"),
+            ])}
           </li>
           <li>
-            <strong>Forwarding and POP/IMAP</strong> →{" "}
-            <strong>Add a forwarding address</strong>
+            {withStrongParts(t("addStep2"), [
+              t("addStep2Forwarding"),
+              t("addStep2AddAddress"),
+            ])}
           </li>
-          <li>
-            Enter your Auto-margin intake address and complete verification if
-            prompted
-          </li>
+          <li>{t("addStep3")}</li>
         </ol>
       </section>
 
       <section className="mt-10">
-        <h2>2) Create a filter</h2>
+        <h2>{t("createAFilter")}</h2>
         <ol>
           <li>
-            Settings → <strong>Filters and Blocked Addresses</strong> →{" "}
-            <strong>Create a new filter</strong>
+            {withStrongParts(t("filterStep1"), [
+              t("filterStep1Filters"),
+              t("filterStep1Create"),
+            ])}
           </li>
-          <li>
-            Choose conditions (From, Subject keywords, Has attachment, etc.)
-          </li>
-          <li>
-            Select <strong>Forward it to</strong> and pick the intake address
-          </li>
-          <li>Optional: apply a label for auditability</li>
+          <li>{t("filterStep2")}</li>
+          <li>{withStrong(t("filterStep3"), t("filterStep3Strong"))}</li>
+          <li>{t("filterStep4")}</li>
         </ol>
       </section>
 
       <section className="mt-10">
-        <h2>Tips</h2>
+        <h2>{t("tips")}</h2>
         <ul>
-          <li>
-            Start narrow: supplier sender domains + specific subject keywords
-          </li>
-          <li>Label forwarded emails so the team can review what was sent</li>
+          <li>{t("tipStartNarrow")}</li>
+          <li>{t("tipLabelForwarded")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

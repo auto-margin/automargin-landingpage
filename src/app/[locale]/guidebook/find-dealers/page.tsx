@@ -1,72 +1,70 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 import { GuidebookPager } from "../guidebook-pager";
 
-export default function GuidebookFindDealersPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookFindDealersPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.findDealers");
+
   return (
     <GuidebookArticle
-      sectionLabel="General"
-      title="Find dealers"
-      description="This section applies to users conducting B2B outreach to other dealers. Users selling directly to end customers can skip this page."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <p>
-          After a vehicle has been evaluated, the next step is identifying
-          which dealers are most likely to buy it. Auto-margin supports this
-          prioritization.
-        </p>
+        <p>{t("intro")}</p>
       </section>
 
       <section className="mt-8">
-        <h2>Dealer-fit checklist</h2>
+        <h2>{t("dealerFitChecklist")}</h2>
         <ul>
           <li>
-            <strong>Segment fit</strong>: the dealer historically sells this
-            class of vehicle.
+            <strong>{t("segmentFitStrong")}</strong>
+            {t("segmentFit").slice(t("segmentFitStrong").length)}
           </li>
           <li>
-            <strong>Inventory gap</strong>: the dealer&apos;s current stock is
-            structurally low in this segment.
+            <strong>{t("inventoryGapStrong")}</strong>
+            {t("inventoryGap").slice(t("inventoryGapStrong").length)}
           </li>
           <li>
-            <strong>Geographic fit</strong>: logistics are workable and local
-            demand supports the vehicle.
+            <strong>{t("geographicFitStrong")}</strong>
+            {t("geographicFit").slice(t("geographicFitStrong").length)}
           </li>
           <li>
-            <strong>Price band fit</strong>: the asking price falls within the
-            dealer&apos;s typical operating band.
+            <strong>{t("priceBandFitStrong")}</strong>
+            {t("priceBandFit").slice(t("priceBandFitStrong").length)}
           </li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Outreach sequencing</h2>
+        <h2>{t("outreachSequencing")}</h2>
         <ol>
-          <li>Begin with dealers who are short in the relevant segment.</li>
-          <li>
-            Prioritize dealers with high turnover or consistent replenishment
-            activity.
-          </li>
-          <li>
-            Lead with evidence rather than description: the inventory gap, the
-            comparable market band, and the segment match.
-          </li>
+          <li>{t("outreachBeginWithShortDealers")}</li>
+          <li>{t("outreachPrioritizeHighTurnover")}</li>
+          <li>{t("outreachLeadWithEvidence")}</li>
         </ol>
       </section>
 
       <section className="mt-8">
-        <h2>Outreach note structure</h2>
-        <p>Outreach messages perform better when concise and specific.</p>
+        <h2>{t("outreachNoteStructure")}</h2>
+        <p>{t("outreachNoteStructureIntro")}</p>
         <ul>
-          <li>Vehicle summary: year, model, trim, mileage, key options</li>
-          <li>Asking price alongside the comparable market band as a range</li>
-          <li>Fit rationale: the specific reason the vehicle suits this dealer</li>
-          <li>Next action: call, hold, reserve, or pass</li>
+          <li>{t("outreachVehicleSummary")}</li>
+          <li>{t("outreachAskingPrice")}</li>
+          <li>{t("outreachFitRationale")}</li>
+          <li>{t("outreachNextAction")}</li>
         </ul>
       </section>
 
       <GuidebookPager
         nextHref="/guidebook/is-my-car-good"
-        nextLabel="Is my car good?"
+        nextLabel={t("nextLabel")}
       />
     </GuidebookArticle>
   );

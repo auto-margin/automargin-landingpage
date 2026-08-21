@@ -19,7 +19,7 @@ const contactBurstLimiter = new Ratelimit({
 
 const demoLimiter = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(1, "24 h"),
+  limiter: Ratelimit.slidingWindow(3, "24 h"),
   analytics: true,
   prefix: "rl:demo:landing",
 });

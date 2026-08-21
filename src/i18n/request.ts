@@ -9,9 +9,17 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale;
 
+  const [base, guidebook] = await Promise.all([
+    import(`../../messages/${locale}.json`),
+    import(`../../messages/guidebook/${locale}.json`),
+  ]);
+
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default,
+    messages: {
+      ...base.default,
+      Guidebook: guidebook.default,
+    },
   };
 });
 

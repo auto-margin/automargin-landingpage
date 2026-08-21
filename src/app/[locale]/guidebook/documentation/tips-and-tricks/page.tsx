@@ -1,39 +1,46 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../../_shared/guidebook-article";
 
-export default function GuidebookTipsAndTricksPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookTipsAndTricksPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.tipsAndTricks");
+
   return (
     <GuidebookArticle
-      sectionLabel="Documentation"
-      title="Tips & tricks"
-      description="Small optimizations that improve screening quality and reduce false positives."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Input quality</h2>
+        <h2>{t("inputQuality")}</h2>
         <ul>
-          <li>Normalize mileage units and formatting</li>
-          <li>Keep currency consistent per batch</li>
-          <li>Prefer VIN/plate when available (reduces ambiguity)</li>
+          <li>{t("inputNormalizeMileage")}</li>
+          <li>{t("inputKeepCurrencyConsistent")}</li>
+          <li>{t("inputPreferVinPlate")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Market selection</h2>
+        <h2>{t("marketSelection")}</h2>
         <ul>
-          <li>Use 2–4 relevant markets instead of “all markets”</li>
-          <li>Separate retail and wholesale comparisons</li>
-          <li>Track seasonal effects for specific segments</li>
+          <li>{t("marketUseRelevantMarkets")}</li>
+          <li>{t("marketSeparateRetailWholesale")}</li>
+          <li>{t("marketTrackSeasonalEffects")}</li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Decision hygiene</h2>
+        <h2>{t("decisionHygiene")}</h2>
         <ul>
-          <li>Always store “why this decision” as structured notes</li>
-          <li>Review outliers weekly (tune your guardrails)</li>
-          <li>Measure win-rate by segment to improve rules</li>
+          <li>{t("decisionStoreWhy")}</li>
+          <li>{t("decisionReviewOutliers")}</li>
+          <li>{t("decisionMeasureWinRate")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-

@@ -12,8 +12,9 @@
     "hero": {
       "title": "Deja de trabajar en coches.\nTrabaja en el margen.",
       "subtitle": "Dedica menos tiempo a revisar ofertas y más tiempo a socios fiables.",
-      "primaryCta": "Solicitar acceso",
-      "secondaryCta": "Probar demo",
+      "demoCta": "Probar la demo",
+      "accessCta": "Solicitar acceso",
+      "demoCtaNote": "Demo interactiva gratuita · Sin registro",
       "features": {
         "market": {
           "title": "Ve qué merece la pena comprar",
@@ -563,7 +564,7 @@
     },
     "info": {
       "title": "Qué muestra esta demo",
-      "body": "Esta es una demo limitada para ilustrar cómo se ve la validación de precio de un vehículo en Auto-margin.",
+      "body": "Esta es una demo limitada para ilustrar cómo puede verse la validación de precio de un vehículo individual en Auto-margin.",
       "includedTitle": "Incluido (demo)",
       "notIncludedTitle": "No incluido",
       "included": {
@@ -579,77 +580,193 @@
         "5": "…y más"
       }
     },
-    "calculator": {
-      "intro": "Pega una oferta de coche. Transmitimos el análisis y mostramos el resultado.",
-      "running": "Ejecutando…",
-      "complete": "Listo",
-      "helpButton": "¿Qué debo incluir?",
-      "enterVehicle": "Introducir vehículo",
-      "placeholder": "Detalles del vehículo…",
-      "brandError": "Debe incluir una marca (p.ej. BMW, Audi, Volvo).",
-      "countryLabel": "País desde el que comparar",
-      "countryPlaceholder": "Elegir país",
-      "country": {
-        "DE": "DE - Alemania",
-        "CH": "CH - Suiza",
-        "BE": "BE - Bélgica"
-      },
-      "weCompare": "Comparamos con listings en vivo.",
-      "weEstimate": "Estimamos reventa y margen por mercado.",
-      "result": "Resultado",
-      "idleHint": "Ejecuta la demo para ver resultados aquí.",
-      "runningTip": "Tip: si no pasa nada, puede que hayas alcanzado el límite de demo o el endpoint backend no esté disponible.",
-      "errorTitle": "No se pudo ejecutar la demo",
-      "errorDefault": "Inténtalo de nuevo.",
-      "markets": "Mercados",
-      "basedOn": "Basado en",
-      "listings": "anuncios",
-      "margin": "Margen",
-      "sources": "Fuentes",
-      "open": "Abrir",
-      "calculate": "Calcular beneficio",
-      "calculating": "Calculando…",
-      "completed": "Completado",
-      "reset": "Restablecer",
-      "rateLimitNotice": "Limitado a una ejecución de demo por IP / 24 horas.",
-      "privacyAgreement": "Al ejecutar la demo, aceptas nuestra",
+    "markets": {
+      "DE": "Alemania",
+      "AT": "Austria",
+      "BE": "Bélgica",
+      "ES": "España",
+      "FR": "Francia",
+      "IT": "Italia",
+      "NL": "Países Bajos",
+      "SE": "Suecia",
+      "CH": "Suiza"
+    },
+    "workspace": {
+      "intro": "Introduce una oferta de coche. Transmitimos el análisis y mostramos el resultado.",
+      "titleAnalysis": "Análisis de mercado",
+      "titleResult": "Resultado",
+      "subtitleAnalysis": "Calculado con anuncios activos de los marketplaces.",
+      "editInputs": "Editar datos",
+      "startOver": "Empezar de nuevo",
+      "resultKept": "Tu análisis sigue disponible.",
+      "backToResult": "Volver al resultado",
+      "rateLimitNotice": "Limitado a tres ejecuciones por IP / 24 horas.",
+      "privacyAgreement": "Al ejecutar la demo aceptas nuestra",
       "privacyLink": "política de privacidad",
-      "abuseNotice": "Podemos registrar solicitudes y aplicar rate limits para prevenir abusos.",
-      "stages": {
-        "parsing": "Estamos analizando toda la información…",
-        "comparing": "Estamos comparando el vehículo…",
-        "calculating": "Estamos calculando…",
-        "analyzing": "Estamos analizando el vehículo…"
+      "abuseNotice": "Podemos registrar solicitudes y aplicar límites para evitar abusos."
+    },
+    "form": {
+      "vehicleTitle": "Introducir vehículo",
+      "vehicleSubtitle": "Cuanto más completes, más precisa será la comparación.",
+      "vehicleSubtitlePaste": "Pega una oferta — interpretamos marca, modelo, kilometraje y precio.",
+      "inputModeLabel": "Cómo introducir el vehículo",
+      "inputModePaste": "Pegar oferta",
+      "inputModeFields": "Rellenar campos",
+      "pasteLabel": "Oferta del vehículo",
+      "pastePlaceholder": "p. ej. BMW X5 2020 30d xDrive, 85.000 km, diésel, automático, precio 32.000 EUR",
+      "brand": "Marca",
+      "brandPlaceholder": "p. ej. Volkswagen",
+      "brandListLabel": "Marcas de vehículos",
+      "brandFreeText": "¿No está en la lista? Escríbela y la usaremos tal cual.",
+      "brandToggle": "Mostrar sugerencias de marca",
+      "model": "Modelo y acabado",
+      "modelPlaceholder": "p. ej. Tiguan 2.0 TDI R-Line",
+      "registration": "Primera matriculación",
+      "registrationMonth": "Mes de matriculación",
+      "registrationYear": "Año",
+      "monthAny": "Mes",
+      "mileage": "Kilometraje",
+      "fuel": "Combustible",
+      "gearbox": "Cambio",
+      "notSpecified": "Sin especificar",
+      "optional": "Opcional",
+      "price": "Precio de venta",
+      "currency": "Moneda",
+      "power": "Potencia",
+      "notes": "Detalles adicionales",
+      "notesPlaceholder": "p. ej. DSG, primer propietario, historial completo",
+      "submit": "Ejecutar el análisis",
+      "useExample": "Usar un ejemplo",
+      "clear": "Limpiar",
+      "fuelOptions": {
+        "diesel": "Diésel",
+        "petrol": "Gasolina",
+        "hybrid": "Híbrido",
+        "plugin": "Híbrido enchufable",
+        "electric": "Eléctrico",
+        "other": "Otro"
+      },
+      "gearboxOptions": {
+        "manual": "Manual",
+        "automatic": "Automático"
       },
       "errors": {
-        "limitReached": "Límite de demo alcanzado: una ejecución cada 24 horas. Contáctanos para acceso completo.",
-        "generic": "No se puede ejecutar la demo ahora mismo.",
-        "genericRetry": "No se puede ejecutar la demo ahora mismo. Inténtalo de nuevo.",
-        "noResult": "No se devolvió ningún resultado. Inténtalo de nuevo."
+        "brandRequired": "Indica la marca.",
+        "modelRequired": "Indica el modelo.",
+        "yearRequired": "Selecciona el año de matriculación.",
+        "yearRange": "Indica un año entre 1990 y 2027.",
+        "mileageRequired": "Indica el kilometraje.",
+        "mileageRange": "Indica un kilometraje en kilómetros.",
+        "priceRequired": "Indica el precio de venta.",
+        "priceRange": "Indica un precio de venta realista.",
+        "pasteRequired": "Pega una oferta de vehículo para analizar.",
+        "pasteTooShort": "Añade un poco más — marca, modelo, kilometraje y precio ayudan más."
+      }
+    },
+    "run": {
+      "stages": {
+        "queued": "Enviando el coche al análisis…",
+        "reading": "Leyendo la descripción…",
+        "identifying": "Identificando el modelo y el acabado…",
+        "searching": "Buscando anuncios activos en ambos mercados…",
+        "comparing": "Comparando precios y calculando el margen…",
+        "finishing": "Montando el análisis…"
       },
-      "help": {
-        "title": "Qué pegar",
-        "subtitle": "Cuantos más detalles, mejor la validación.",
-        "closeAria": "Cerrar",
-        "recommendedTitle": "Campos recomendados",
-        "recommendedFields": {
-          "0": "Marca + modelo + año",
-          "1": "Kilometraje",
-          "2": "Combustible + transmisión",
-          "3": "Precio pedido + moneda",
-          "4": "Opciones / acabado destacado"
-        },
-        "exampleTitle": "Ejemplo",
-        "copy": "Copiar",
-        "copied": "Copiado",
-        "copyAria": "Copiar texto de ejemplo al portapapeles",
-        "copiedAria": "Texto de ejemplo copiado al portapapeles",
-        "ok": "OK",
-        "dialogAria": "Ayuda para descripción del coche"
+      "stepCounter": "Paso {current} de {total}",
+      "progressLabel": "Progreso del análisis",
+      "slow": "Seguimos trabajando. Los mercados con mucha actividad tardan algo más.",
+      "cancel": "Cancelar",
+      "keepOpen": "Mantén esta pestaña abierta: el análisis se ejecuta en vivo contra los marketplaces.",
+      "done": "Análisis completado"
+    },
+    "result": {
+      "headlineLabelProfit": "Beneficio estimado",
+      "headlineLabelLoss": "Pérdida estimada",
+      "headlineHelp": "Después de todos los costes, con anuncios activos en Alemania y Suiza.",
+      "cachedNotice": "Esta es tu ejecución más reciente.",
+      "vehicleUnknown": "Vehículo",
+      "askingPrice": "Tu precio de oferta",
+      "allInPrice": "Coste all-in usado en el cálculo",
+      "allInPriceHelp": "Beneficio y pérdida se calculan con este coste all-in (derivado de tu precio de oferta), no solo con el precio de oferta.",
+      "buyIn": "Precio de compra con costes",
+      "kmValue": "{km} km",
+      "marketsLabel": "Resultados por país",
+      "methodology": "Verde significa 5% de margen o más después de costes. Ámbar está por debajo. Rojo es pérdida. Lo que no pudimos medir aparece como un guion, nunca como un cero.",
+      "partialBody": "Encontramos el coche pero nada comparable con lo que valorarlo. Prueba un modelo más común o añade más detalle.",
+      "marginLabel": "Margen después de costes",
+      "daysLabel": "Tiempo habitual de venta",
+      "daysValue": "{days} días",
+      "daysSub": "según {count} ventas confirmadas",
+      "comparedLabel": "Coches comparables encontrados",
+      "pricesLabel": "Precios comparables más baratos",
+      "yourCost": "Tu compra con costes",
+      "resaleLabel": "Estimación de venta",
+      "resaleB2C": "Particular",
+      "resaleB2B": "Profesional",
+      "openComparison": "Ver los coches comparados",
+      "openComparisonShort": "Comparar",
+      "opensInNewTab": "(se abre en una pestaña nueva)",
+      "emptyMarketBody": "No hay coches lo bastante parecidos en este país. Suele deberse a un modelo poco común.",
+      "verdict": {
+        "profit": "Generaría beneficio",
+        "thin": "No compraría",
+        "negative": "Perdería dinero",
+        "unknown": "Datos insuficientes"
       },
-      "estimatedProfit": "Beneficio estimado",
-      "comparablePrices": "Precios comparables",
-      "cachedNotice": "Mostrando tu análisis más reciente de las últimas 24 horas."
+      "verdictHint": {
+        "profit": "La reventa típica tras costes supera tu precio de compra total en un 5% o más.",
+        "thin": "Hay un margen positivo fino, pero por debajo del 5% que suelen querer los concesionarios.",
+        "negative": "La reventa típica tras costes queda por debajo de tu precio de compra total.",
+        "unknown": "No encontramos coches comparables suficientes para valorar esta operación."
+      }
+    },
+    "errors": {
+      "actions": {
+        "retry": "Reintentar",
+        "edit": "Editar el coche",
+        "contact": "Contactar"
+      },
+      "limit": {
+        "title": "Límite de la demo alcanzado",
+        "body": "La demo se ejecuta hasta tres veces por dirección IP cada 24 horas. Escríbenos y analizamos tantos coches como quieras."
+      },
+      "network": {
+        "title": "Conexión perdida",
+        "body": "No pudimos alcanzar el servicio de análisis. Revisa tu conexión e inténtalo otra vez."
+      },
+      "noResult": {
+        "title": "No llegó ningún resultado",
+        "body": "El análisis empezó pero nunca terminó. Inténtalo de nuevo."
+      },
+      "parse": {
+        "title": "No pudimos interpretar el coche",
+        "body": "El análisis no logró identificar el vehículo con los datos introducidos. Revisa marca, modelo y precio y vuelve a ejecutarlo."
+      },
+      "timeout": {
+        "title": "El análisis agotó el tiempo",
+        "body": "Los marketplaces tardaron demasiado en responder. Suele resolverse en unos minutos."
+      },
+      "unavailable": {
+        "title": "Demo temporalmente no disponible",
+        "body": "El servicio de análisis no responde ahora mismo. Inténtalo en unos minutos."
+      },
+      "upstream": {
+        "title": "No se pudo completar el análisis",
+        "body": "Algo falló por nuestro lado al analizar este coche. Inténtalo de nuevo."
+      }
+    },
+    "cta": {
+      "title": "¿Lo quieres para toda tu lista de entrada?",
+      "body": "Esto era un coche. AutoMargin ejecuta el mismo análisis sobre cada oferta que te llega, para que tu equipo solo revise los coches con margen.",
+      "benefits": {
+        "0": "Analiza listas completas de proveedores de una vez",
+        "1": "Las ofertas llegan por correo y se analizan automáticamente",
+        "2": "Descubre qué proveedores aportan margen de forma constante",
+        "more": "…y más"
+      },
+      "primary": "Habla con nosotros",
+      "secondary": "Ver modelos de acceso",
+      "dismiss": "Cerrar"
     }
   },
   "Footer": {

@@ -10,7 +10,7 @@ export const runtime = "nodejs";
 // unable to read a single field, so keep this available for contract drift.
 const DEBUG_UPSTREAM = process.env.NODE_ENV !== "production";
 
-// Production keeps the 1-run-per-IP-per-24h demo limit; development does not.
+// Production keeps the 3-runs-per-IP-per-24h demo limit; development does not.
 const ENFORCE_DEMO_LIMIT = process.env.NODE_ENV === "production";
 
 function hasCachedResult(body: string) {
@@ -121,11 +121,10 @@ export async function POST(request: Request) {
         Accept: "text/event-stream",
         ...(clientIp !== "unknown" ? { "X-Forwarded-For": clientIp } : {}),
       },
-      body: JSON.stringify({
-        carInput: input,
-        sourceCountry,
-        website: "",
-      }),
+      // The contract is explicit: send `carInput` and `sourceCountry` only.
+      // `website` is upstream's honeypot — any value present at all risks the
+      // silent 204 drop, so the field must never be sent.
+      body: JSON.stringify({ carInput: input, sourceCountry }),
       cache: "no-store",
     });
   } catch {
@@ -163,29 +162,29 @@ export async function POST(request: Request) {
       return Response.json(
         {
           error: "Demo limit reached. Please try again within 24 hours.",
-          message: "Demo limit reached. One demo run per IP / 24 hours.",
+          message: "Demo limit reached. Three demo runs per IP / 24 hours.",
           limitReached: true,
         },
         { status: 429 },
       );
     }
 
-    return new Response(text || "Unable to run demo right now.", {
-      status: upstreamResponse.ok ? 502 : upstreamResponse.status,
-      headers: { "Content-Type": "application/json; charset=utf-8" },
-    });
+    // Upstream copy is English-only and describes a signup flow that does not
+    // exist here, so it never reaches the visitor — only a status code does.
+    return Response.json(
+      { success: false, code: "upstream" },
+      { status: upstreamResponse.ok ? 502 : upstreamResponse.status },
+    );
   }
 
-  // Pass through any non-stream errors as JSON/text.
+  // Anything that is neither JSON nor a stream is an upstream fault.
   if (!upstreamResponse.ok || !contentType.includes("text/event-stream")) {
     const text = await upstreamResponse.text().catch(() => "");
     logUpstream(`non-stream ${upstreamResponse.status} (${contentType})`, text);
-    return new Response(text || "Unable to run demo right now.", {
-      status: upstreamResponse.status || 500,
-      headers: {
-        "Content-Type": contentType || "text/plain; charset=utf-8",
-      },
-    });
+    return Response.json(
+      { success: false, code: "upstream" },
+      { status: upstreamResponse.status || 502 },
+    );
   }
 
   // Stream SSE through to the client.

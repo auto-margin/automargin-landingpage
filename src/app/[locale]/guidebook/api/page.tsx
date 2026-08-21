@@ -1,32 +1,38 @@
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { Link } from "@/i18n/navigation";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 
-export default function GuidebookApiPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function GuidebookApiPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.api");
+
   return (
     <GuidebookArticle
-      sectionLabel="API"
-      title="API overview"
-      description="A lightweight placeholder until the API surface is finalized."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Start here</h2>
+        <h2>{t("startHere")}</h2>
         <ul>
           <li>
-            <a href="/guidebook/api/endpoints">Endpoints</a>
+            <Link href="/guidebook/api/endpoints">{t("linkEndpoints")}</Link>
           </li>
           <li>
-            <a href="/guidebook/api/validation">Validation</a>
+            <Link href="/guidebook/api/validation">{t("linkValidation")}</Link>
           </li>
         </ul>
       </section>
 
       <section className="mt-8">
-        <h2>Authentication</h2>
-        <p>
-          Enterprise customers typically use token-based auth with allowlisted
-          origins and request signing.
-        </p>
+        <h2>{t("authentication")}</h2>
+        <p>{t("authenticationBody")}</p>
       </section>
     </GuidebookArticle>
   );
 }
-

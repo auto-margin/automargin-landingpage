@@ -75,38 +75,36 @@ export function Footer() {
           </h2>
         </div>
 
-        {/* Bottom row: contact buttons left (same style as "Read our Customer Stories"), attribution + legal right */}
+        {/* Bottom row: contact buttons left, attribution + legal right */}
         <div className="mt-16 flex flex-col items-start justify-between gap-8 sm:mt-14 sm:flex-row sm:items-end lg:mt-0">
-          {/* On mobile: email same width as the two buttons below (wrapper width = buttons row via spacer); sm+ unchanged */}
-          <div className="relative inline-flex w-max flex-col gap-2 sm:flex sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
-            <div className="h-10 w-0 flex-shrink-0 sm:hidden" aria-hidden />
+          <div className="flex max-w-full flex-col items-stretch gap-2 sm:flex-row sm:flex-wrap sm:items-center">
             <Button
               variant="outline"
-              className="absolute top-0 right-0 left-0 w-full shadow-md sm:static sm:right-auto sm:left-auto sm:w-auto"
+              className="h-auto min-h-9 w-full justify-center px-4 py-2 shadow-md sm:w-auto"
               asChild
             >
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={`mailto:${EMAIL}`} className="break-all sm:break-normal">
+                {EMAIL}
+              </a>
             </Button>
-            <div className="flex flex-row gap-3 sm:contents">
-              <Button variant="outline" className="shadow-md" asChild>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn <ArrowRight className="size-4" />
-                </a>
-              </Button>
-              <Button variant="outline" className="hidden shadow-md" asChild>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp <ArrowRight className="size-4" />
-                </a>
-              </Button>
-            </div>
+            <Button variant="outline" className="shadow-md" asChild>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn <ArrowRight className="size-4" />
+              </a>
+            </Button>
+            <Button variant="outline" className="hidden shadow-md" asChild>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp <ArrowRight className="size-4" />
+              </a>
+            </Button>
           </div>
           <div className="flex w-full flex-col items-start gap-4 sm:w-auto sm:items-end">
             <ul className="flex flex-wrap items-center justify-start gap-6 sm:justify-end">

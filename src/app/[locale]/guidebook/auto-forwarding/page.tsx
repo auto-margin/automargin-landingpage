@@ -1,109 +1,147 @@
+import type { ReactNode } from "react";
+
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
 import { GuidebookArticle } from "../_shared/guidebook-article";
 
-export default function GuidebookAutoForwardingPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+function withStrong(text: string, strong: string): ReactNode {
+  const index = text.indexOf(strong);
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <strong>{strong}</strong>
+      {text.slice(index + strong.length)}
+    </>
+  );
+}
+
+function withStrongParts(
+  text: string,
+  parts: Array<{ key: string; value: string }>,
+): ReactNode {
+  if (parts.length === 0) return text;
+
+  const [first, ...rest] = parts;
+  const index = text.indexOf(first.value);
+  if (index < 0) return withStrongParts(text, rest);
+
+  return (
+    <>
+      {text.slice(0, index)}
+      <strong>{first.value}</strong>
+      {withStrongParts(text.slice(index + first.value.length), rest)}
+    </>
+  );
+}
+
+export default async function GuidebookAutoForwardingPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Guidebook.pages.autoForwarding");
+
+  const dedicatedAddress = "deals@your-company.com";
+  const beforeDedicated = t("beforeDedicatedForwardingAddress");
+  const dedicatedIndex = beforeDedicated.indexOf(dedicatedAddress);
+
+  const iCloudBody2 = t("iCloudMailBody2");
+  const forwardStrong = t("iCloudMailForwardStrong");
+  const forwardIndex = iCloudBody2.indexOf(forwardStrong);
+
   return (
     <GuidebookArticle
-      sectionLabel="Guides"
-      title="Auto forwarding"
-      description="Set up automatic forwarding so new deals sent to your inbox are routed to Auto-margin for validation checks. This keeps your workflow fast and consistent across the team."
+      sectionLabel={t("section")}
+      title={t("title")}
+      description={t("description")}
     >
       <section className="mt-8">
-        <h2>Before you start</h2>
+        <h2>{t("beforeYouStart")}</h2>
         <ul>
           <li>
-            Use a dedicated forwarding address (e.g.{" "}
-            <code>deals@your-company.com</code> → Auto-margin)
+            {dedicatedIndex < 0 ? (
+              beforeDedicated
+            ) : (
+              <>
+                {beforeDedicated.slice(0, dedicatedIndex)}
+                <code>{dedicatedAddress}</code>
+                {beforeDedicated.slice(
+                  dedicatedIndex + dedicatedAddress.length,
+                )}
+              </>
+            )}
           </li>
-          <li>
-            Forward only what you need (use rules/filters to avoid noise)
-          </li>
-          <li>
-            If your organization blocks auto-forwarding, your IT team may need
-            to approve it
-          </li>
+          <li>{t("beforeForwardOnlyWhatYouNeed")}</li>
+          <li>{t("beforeItApproval")}</li>
         </ul>
       </section>
 
       <section className="mt-10">
-        <h2>Outlook (Microsoft 365)</h2>
+        <h2>{t("outlookHeading")}</h2>
+        <ol>
+          <li>{withStrong(t("outlookStep1"), t("outlookStep1Strong"))}</li>
+          <li>
+            {withStrongParts(t("outlookStep2"), [
+              { key: "mail", value: t("outlookStep2Mail") },
+              { key: "rules", value: t("outlookStep2Rules") },
+            ])}
+          </li>
+          <li>{t("outlookStep3")}</li>
+          <li>{withStrong(t("outlookStep4"), t("outlookStep4Strong"))}</li>
+          <li>{t("outlookStep5")}</li>
+        </ol>
+        <p>{t("outlookTip")}</p>
+      </section>
+
+      <section className="mt-10">
+        <h2>{t("gmailHeading")}</h2>
         <ol>
           <li>
-            Open Outlook on the web and go to <strong>Settings</strong>
+            {withStrongParts(t("gmailStep1"), [
+              { key: "settings", value: t("gmailStep1Settings") },
+              { key: "seeAll", value: t("gmailStep1SeeAllSettings") },
+            ])}
           </li>
+          <li>{withStrong(t("gmailStep2"), t("gmailStep2Strong"))}</li>
+          <li>{t("gmailStep3")}</li>
           <li>
-            Navigate to <strong>Mail</strong> → <strong>Rules</strong>
+            {withStrongParts(t("gmailStep4"), [
+              { key: "settings", value: t("gmailStep4Settings") },
+              { key: "filters", value: t("gmailStep4Filters") },
+              { key: "create", value: t("gmailStep4Create") },
+            ])}
           </li>
-          <li>
-            Create a new rule (for example: Subject contains “Offer” or Sender
-            is “supplier@…”)
-          </li>
-          <li>
-            Set the action to <strong>Forward to</strong> the Auto-margin intake
-            address
-          </li>
-          <li>
-            Save the rule and send a test email to confirm forwarding works
-          </li>
+          <li>{t("gmailStep5")}</li>
+          <li>{withStrong(t("gmailStep6"), t("gmailStep6Strong"))}</li>
         </ol>
+        <p>{t("gmailTip")}</p>
+      </section>
+
+      <section className="mt-10">
+        <h2>{t("iCloudMailHeading")}</h2>
+        <p>{t("iCloudMailBody1")}</p>
         <p>
-          Tip: keep rules narrow (supplier list senders, auction notices, or a
-          specific alias) to reduce false submissions.
+          {forwardIndex < 0 ? (
+            iCloudBody2
+          ) : (
+            <>
+              {iCloudBody2.slice(0, forwardIndex)}
+              <strong>{forwardStrong}</strong>
+              {iCloudBody2.slice(forwardIndex + forwardStrong.length)}
+            </>
+          )}
         </p>
       </section>
 
       <section className="mt-10">
-        <h2>Gmail</h2>
-        <ol>
-          <li>
-            In Gmail, open <strong>Settings</strong> →{" "}
-            <strong>See all settings</strong>
-          </li>
-          <li>
-            Go to <strong>Forwarding and POP/IMAP</strong>
-          </li>
-          <li>
-            Add the Auto-margin intake email as a forwarding address (Gmail may
-            require verification)
-          </li>
-          <li>
-            Create a filter: <strong>Settings</strong> →{" "}
-            <strong>Filters and Blocked Addresses</strong> →{" "}
-            <strong>Create a new filter</strong>
-          </li>
-          <li>
-            Choose conditions (sender, subject keywords, has attachment, etc.)
-          </li>
-          <li>
-            Select <strong>Forward it to</strong> and pick the intake address
-          </li>
-        </ol>
-        <p>
-          Tip: use labels + filters so your team can audit what was forwarded.
-        </p>
-      </section>
-
-      <section className="mt-10">
-        <h2>iCloud Mail</h2>
-        <p>
-          iCloud Mail does not support the same enterprise-grade auto-forwarding
-          rules as web clients. For reliable auto-forwarding, set up the rule
-          in your mailbox provider (Outlook or Gmail) instead.
-        </p>
-        <p>
-          If you only need manual forwarding: open an email →{" "}
-          <strong>Forward</strong> → enter the intake address.
-        </p>
-      </section>
-
-      <section className="mt-10">
-        <h2>What happens after forwarding?</h2>
+        <h2>{t("whatHappensAfterForwarding")}</h2>
         <ul>
-          <li>We parse the email content and attachments (when applicable)</li>
-          <li>We extract vehicle data (or prompt for missing fields)</li>
-          <li>We run screening and return a result you can act on</li>
+          <li>{t("afterParseEmail")}</li>
+          <li>{t("afterExtractVehicleData")}</li>
+          <li>{t("afterRunScreening")}</li>
         </ul>
       </section>
     </GuidebookArticle>
   );
 }
-
